@@ -13,36 +13,49 @@ export default function TopNavbar({ setShowSidebar }) {
     const stored = localStorage.getItem("theme");
     return stored ? JSON.parse(stored) : themeList[0];
   });
+  const languages = [
+    { code: "en", name: "English", flag: "https://flagcdn.com/w20/gb.png" },
+    { code: "bn", name: "বাংলা", flag: "https://flagcdn.com/w20/bd.png" },
+  ];
+  const [language, setLanguage] = useState(() => {
+    const stored = localStorage.getItem("language");
+    return stored ? JSON.parse(stored) : languages[0];
+  });
   const themeMenuRef = useRef(null);
+  const languageMenuRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsFloating(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Apply theme colors
+  const applyTheme = (selectedTheme) => {
+    document.documentElement.style.setProperty("--pm-color", selectedTheme.primary);
+    document.documentElement.style.setProperty("--sec-color", selectedTheme.secondary);
+    localStorage.setItem("theme", JSON.stringify(selectedTheme));
+  };
 
+  // Initialize theme on mount
   useEffect(() => {
-    document.documentElement.style.setProperty("--pm-color", theme.primary);
-    document.documentElement.style.setProperty("--sec-color", theme.secondary);
-    localStorage.setItem("theme", JSON.stringify(theme));
+    applyTheme(theme);
   }, [theme]);
 
+  // Save language to localStorage
+  useEffect(() => {
+    localStorage.setItem("language", JSON.stringify(language));
+  }, [language]);
+
+  // Handle clicks outside to close language menu
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (themeMenuRef.current && !themeMenuRef.current.contains(event.target)) {
-        setShowThemeMenu(false);
+      if (languageMenuRef.current && !languageMenuRef.current.contains(event.target)) {
+        setShowLanguageMenu(false);
       }
     };
-    if (showThemeMenu) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [showThemeMenu]);
+  }, []);
+
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full">
+    <div className="fixed top-0 z-50 h-[8vh] w-full px-6 flex justify-center items-center">
       <style>
         {`
           @keyframes fadeIn {
@@ -86,7 +99,7 @@ export default function TopNavbar({ setShowSidebar }) {
         `}
       </style>
 
-      <div className={`w-full p-3 sm:p-3 relative shadow-xl rounded-xl transition-all duration-300 ${isFloating ? "navbar-bg" : "bg-black/10 backdrop-blur-sm border border-white/20"} flex items-center justify-between`}>
+      <div className={`w-full py-3 sm:py-3 relative transition-all duration-300 ${isFloating ? "navbar-bg" : ""} flex items-center justify-between`}>
 
         {/* Left Section */}
         <div className="flex gap-3 sm:gap-4 items-center">
@@ -105,7 +118,55 @@ export default function TopNavbar({ setShowSidebar }) {
 
         {/* Right Section */}
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* 🎨 Theme Selector */}
+          {/* Language Selector */}
+          <div className="relative mb-1">
+            <button
+              onClick={() => setShowLanguageMenu((prev) => !prev)}
+              className="flex items-center gap-2 text-pmColor border rounded-full border-pmColor px-2 py-1 hover:opacity-90 transition"
+              title="Change Language"
+            >
+              <img
+                src={language.flag}
+                alt={`${language.name} flag`}
+                className="w-6 h-6 object-contain"
+              />
+              <span className="text-sm">{language.name}</span>
+            </button>
+
+            {showLanguageMenu && (
+              <div
+                ref={languageMenuRef}
+                className={`absolute right-0 mt-2 w-48 bg-black/50 backdrop-blur-3xl border border-white/20 text-pmColor p-2 rounded-lg z-[99999999] animate-scaleIn`}
+              >
+                <h4 className="font-semibold text-sm px-1 mb-2">Choose Language</h4>
+                {languages.map((item) => (
+                  <div
+                    key={item.code}
+                    onClick={() => {
+                      setLanguage(item);
+                      setShowLanguageMenu(false);
+                      window.location.reload();
+                    }}
+                    className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-200 ${
+                      language.code === item.code ? "bg-white/5" : ""
+                    }`}
+                  >
+                    <img
+                      src={item.flag}
+                      alt={`${item.name} flag`}
+                      className="w-6 h-6 object-contain"
+                    />
+                    <span className="text-xs">{item.name}</span>
+                    {language.code === item.code && (
+                      <IoCheckmarkCircleOutline className="ml-auto text-xl" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Theme Selector */}
           <div className="relative">
             <button
               onClick={() => setShowThemeMenu((prev) => !prev)}
@@ -118,7 +179,7 @@ export default function TopNavbar({ setShowSidebar }) {
             {showThemeMenu && (
               <div
                 ref={themeMenuRef}
-                className={`fixed -right-3 -top-3 h-screen bg-black/50 backdrop-blur-3xl border-l border-white/20 text-pmColor w-72 p-3 z-[99999999] space-y-2 ${showThemeMenu ? "animate-slideInFromRight" : "animate-slideOutToRight"}`}
+                className={`fixed -right-3 top-0 h-screen bg-black/50 backdrop-blur-3xl border-l border-white/20 text-pmColor w-72 p-3 z-[99999999] space-y-2 ${showThemeMenu ? "animate-slideInFromRight" : "animate-slideOutToRight"}`}
               >
                 <h4 className="font-semibold text-sm px-1">Choose Theme</h4>
                 <div className="max-h-[calc(100vh-100px)] overflow-y-auto">
@@ -129,11 +190,11 @@ export default function TopNavbar({ setShowSidebar }) {
                         key={index}
                         onClick={() => {
                           setTheme(item);
+                          applyTheme(item); // Apply theme immediately
                           setShowThemeMenu(false);
                         }}
                         className={`relative group flex items-center gap-3 py-2 rounded-lg cursor-pointer transition-all duration-200`}
                       >
-                        {/* Background Image Preview */}
                         <div
                           className="w-full h-20 rounded-lg bg-cover bg-center"
                           style={{ backgroundImage: `url(${item.bg})` }}

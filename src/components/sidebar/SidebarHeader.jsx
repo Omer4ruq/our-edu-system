@@ -18,11 +18,11 @@ const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <div className="text-center">
       <Link to='/dashboard'>
-        <h2 className="text-2xl font-semibold text-white px-4 pt-6">কওমী তালীম</h2>
+        {/* <h2 className="text-2xl font-semibold text-white px-4 pt-6">কওমী তালীম</h2> */}
       </Link>
       {/* show cover image or searchbar */}
       {showSearchBar ? (
-        <div className="flex gap-2 mt-5 items-center justify-center bg-[#00000065] px-3 py-[9px] mx-6 rounded-md border border-transparent has-[:focus]:border-tertiary has-[:focus]:shadow-md duration-200">
+        <div className="flex gap-2 items-center justify-center bg-[#00000065] px-3 py-[9px] mx-6 rounded-md border border-transparent has-[:focus]:border-tertiary has-[:focus]:shadow-md duration-200">
           <input
             type="text"
             placeholder="মেনু অনুসন্ধান"
@@ -38,7 +38,7 @@ const [showSearchBar, setShowSearchBar] = useState(false);
           />
         </div>
       ) : (
-        <div className="relative mt-5">
+        <div className="relative">
           <div
             className="group/angle absolute top-0 right-1/2 translate-x-1/2 px-2 pb-[2px] pt-0 rounded-b-full bg-pmColor z-10 hover:border-white duration-100"
             onClick={() => {

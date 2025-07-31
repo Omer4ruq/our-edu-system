@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   useGetLeaveApiQuery,
   useCreateLeaveApiMutation,
@@ -19,6 +19,11 @@ const AddLeaveType = () => {
   const [modalAction, setModalAction] = useState(null);
   const [modalData, setModalData] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const modalRef = useRef(null);
+  const mousePositionRef = useRef({ x: 0, y: 0 });
 
   // --- Start of Permission Logic ---
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, { skip: !group_id });
@@ -39,6 +44,79 @@ const AddLeaveType = () => {
   const [updateLeave, { isLoading: isUpdating, error: updateError }] = useUpdateLeaveApiMutation();
   const [deleteLeave, { isLoading: isDeleting, error: deleteError }] = useDeleteLeaveApiMutation();
 
+  // Track mouse position continuously
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mousePositionRef.current = { x: e.clientX, y: e.clientY };
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Set initial modal position when it opens
+  useEffect(() => {
+    if (isModalOpen) {
+      const modalWidth = 384; // max-w-md = 384px
+      const modalHeight = 200; // Approximate height
+      const adjustedX = Math.max(0, Math.min(mousePositionRef.current.x, window.innerWidth - modalWidth));
+      const adjustedY = Math.max(0, Math.min(mousePositionRef.current.y, window.innerHeight - modalHeight));
+      setModalPosition({ x: adjustedX, y: adjustedY });
+    }
+  }, [isModalOpen]);
+
+  // Handle drag start
+  const handleMouseDown = (e) => {
+    if (modalRef.current) {
+      const rect = modalRef.current.getBoundingClientRect();
+      setDragOffset({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+      setIsDragging(true);
+    }
+  };
+
+  // Handle drag movement
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (isDragging && modalRef.current) {
+        const modalWidth = 384; // max-w-md = 384px
+        const modalHeight = 200; // Approximate height
+        let newX = e.clientX - dragOffset.x;
+        let newY = e.clientY - dragOffset.y;
+
+        // Boundary checks
+        newX = Math.max(0, Math.min(newX, window.innerWidth - modalWidth));
+        newY = Math.max(0, Math.min(newY, window.innerHeight - modalHeight));
+
+        setModalPosition({ x: newX, y: newY });
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging, dragOffset]);
+
+  // Handle double-click to center modal
+  const handleDoubleClick = () => {
+    const modalWidth = 384; // max-w-md = 384px
+    const modalHeight = 200; // Approximate height
+    const centerX = (window.innerWidth - modalWidth) / 2;
+    const centerY = (window.innerHeight - modalHeight) / 2;
+    setModalPosition({ x: centerX, y: centerY });
+  };
+
   // Handle form submission for adding or updating leave type
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +126,7 @@ const AddLeaveType = () => {
       return;
     }
 
-    const name = editLeaveId ? leaveName.trim() : leaveName.trim();
+    const name = leaveName.trim();
     if (!name) {
       toast.error("অনুগ্রহ করে ছুটির ধরনের নাম লিখুন");
       return;
@@ -147,12 +225,34 @@ const AddLeaveType = () => {
   }
   // --- End of Permission-based Rendering ---
 
+  // Adjust modal position to prevent overflow
+  const modalWidth = 384; // max-w-md = 384px
+  const modalHeight = 200; // Approximate height
+  const adjustedX = Math.max(0, Math.min(modalPosition.x, window.innerWidth - modalWidth));
+  const adjustedY = Math.max(0, Math.min(modalPosition.y, window.innerHeight - modalHeight));
+
   return (
     <div className="py-8 w-full relative">
       <Toaster position="top-right" reverseOrder={false} />
       <style>
         {`
-          /* Styles remain the same */
+          @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+          }
+          @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+          .animate-fadeIn {
+            animation: fadeIn 0.3s ease-out forwards;
+          }
+          .animate-slideUp {
+            animation: slideUp 0.3s ease-out forwards;
+          }
+          .btn-glow:hover {
+            box-shadow: 0 0 10px rgba(219, 158, 48, 0.5);
+          }
         `}
       </style>
 
@@ -187,9 +287,7 @@ const AddLeaveType = () => {
                 type="submit"
                 disabled={isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission)}
                 title={editLeaveId ? "ছুটির ধরন আপডেট করুন / Update leave type" : "নতুন ছুটির ধরন তৈরি করুন / Create a new leave type"}
-                className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission) ? "cursor-not-allowed opacity-50" : "hover:text-white hover:shadow-md"
-                }`}
+                className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission) ? "cursor-not-allowed opacity-50" : "hover:text-white hover:shadow-md"}`}
               >
                 {(isCreating || isUpdating) ? (
                   <span className="flex items-center space-x-3">
@@ -314,11 +412,21 @@ const AddLeaveType = () => {
 
         {/* Confirmation Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
-            >
-              <h3 className="text-lg font-semibold text-white mb-4">
+          <div
+            className="fixed bg-black/50 z-50 rounded-3xl"
+            style={{
+              top: `${adjustedY}px`,
+              left: `${adjustedX}px`,
+              transform: "translate(-10px, -10px)", // Slight offset to avoid cursor overlap
+            }}
+            ref={modalRef}
+             onMouseDown={handleMouseDown}
+                onDoubleClick={handleDoubleClick}
+          >
+            <div  className=" backdrop-blur-3xl rounded-2xl p-6 w-full max-w-md">
+              <h3
+                className="text-lg font-semibold text-white mb-4 modal-header"
+              >
                 {modalAction === "create" && "নতুন ছুটির ধরন নিশ্চিত করুন"}
                 {modalAction === "update" && "ছুটির ধরন আপডেট নিশ্চিত করুন"}
                 {modalAction === "delete" && "ছুটির ধরন মুছে ফেলা নিশ্চিত করুন"}
@@ -333,7 +441,7 @@ const AddLeaveType = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-pmColor rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল

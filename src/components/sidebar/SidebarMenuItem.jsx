@@ -45,6 +45,9 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
     }
   }
 
+  console.log(item?.children?.[0]?.link);
+
+
   return (
     <ul
       className={`leading-10 group/main hover:bg-[#00000020] duration-300 relative ${
@@ -71,7 +74,7 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
       </style>
 
       {item.children ? (
-        <div
+        <NavLink to={item?.children?.[0]?.link || "/"}
           className={`flex gap-2 items-center px-6 cursor-pointer hover:bg-pmColor ${isOpen || isActive ? "text-white font-bold bg-pmColor" : ""}`}
           onClick={handleMenuClick}
         >
@@ -84,7 +87,7 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
               isOpen ? "rotate-180" : ""
             }`}
           />
-        </div>
+        </NavLink>
       ) : (
         <NavLink
           to={item.link || "/"}

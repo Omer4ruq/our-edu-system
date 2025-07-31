@@ -29,17 +29,12 @@ export default function App() {
 
   return (
     <SelectedMenuProvider>
-      <div className="font-roboto text-base font-normal text-gray-600 dark:text-gray-400 dark:bg-gray-800 relative overflow-hidden">
+            <TopNavbar setShowSidebar={setShowSidebar} />
+      <div className="font-roboto text-base font-normal relative overflow-auto h-[92vh] mt-16 max-h-[100vh]">
         <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
         <div className={`relative text-textBlack flex flex-col justify-between min-h-screen transition-all duration-500 ease-in-out p-3 ml-0 xl:ml-72 ${showSidebar && "max-xl:opacity-65"}`}>
-          {/* <div className="fixed inset-0 bg-cover bg-center z-0" style={{
-
-             backgroundImage: `url("https://super-admin.avidtemplates.com/3.e41aa4f9.jpg")` 
-            //  backgroundImage: `url(${bgImg})` 
-             
-             }}></div> */}
+         
           <div className="relative z-10 w-full">
-            <TopNavbar setShowSidebar={setShowSidebar} />
             {pathname.length > 1 && (
               <Breadcrumb
                 module={moduleName}

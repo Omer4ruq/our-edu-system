@@ -19,7 +19,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
   }, [setShowSidebar]);
 
   return (
-    <div>
+    <div className="">
       <style>
         {`
           @keyframes fadeIn {
@@ -87,8 +87,8 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       <nav
         ref={sidebarRef}
         id="sidebar-menu"
-        className={`fixed transition-all duration-300 ease-in-out h-screen shadow-sm w-0 xl:w-72 ${showSidebar && "w-72"
-          } z-20 bg-white/5 backdrop-blur-3xl animate-fadeIn shadow-xl`}
+        className={`fixed transition-all p-5 rounded-lg duration-300 ease-in-out h-[92vh] bottom-0 shadow-sm w-0 xl:w-72 ${showSidebar && "w-72"
+          } z-20 animate-fadeIn`}
       >
 
         {/* Background Image */}
@@ -104,7 +104,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
         {/* <div className="absolute inset-0 bg-black opacity-20 z-0"></div> */}
 
         {/* Sidebar Content */}
-        <div className="relative h-full overflow-y-auto scrollbar-webkit z-10 text-white">
+        <div className="relative h-full overflow-y-auto scrollbar-webkit z-10 text-white bg-white/10 backdrop-blur-3xl rounded-xl">
           <SidebarHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           {!searchTerm ? (
             <SidebarMenu />

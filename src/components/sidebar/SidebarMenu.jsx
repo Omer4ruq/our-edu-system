@@ -54,7 +54,7 @@ export default function SidebarMenu() {
   const filteredMenu = filterMenuByRole(mainMenu);
 
   return (
-    <ul className="nk-menu text-white py-6">
+    <ul className="nk-menu text-white py-6 text-sm">
       {filteredMenu.map((item) => (
         <li
           key={item.id}
