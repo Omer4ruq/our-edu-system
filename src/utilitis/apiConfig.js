@@ -1,4 +1,4 @@
-// /////////////////local code
+/////////////////local code
 const getSubdomain = () => {
   const host = window.location.hostname;
   const parts = host.split(".");
