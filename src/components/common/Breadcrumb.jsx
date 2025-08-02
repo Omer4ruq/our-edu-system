@@ -122,7 +122,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
   };
 
   return (
-    <div className="pl-2 md:pl-6 xl:pl-3 rounded-lg mt-6">
+    <div className="rounded-lg">
       <style>
         {`
           @keyframes scaleIn {
@@ -195,7 +195,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4">
         {/* Breadcrumb Path (Top-Left) */}
         {breadcrumbModule && (
-          <h3 className="text-sm md:text-lg text-white capitalize flex-1 space-x-1 pl-3 font-medium">
+          <h3 className="text-sm md:text-lg text-white capitalize flex-1 space-x-1 font-medium">
             {breadcrumbModule === breadcrumbRoute ? null : (
               <span
                 className={`${
