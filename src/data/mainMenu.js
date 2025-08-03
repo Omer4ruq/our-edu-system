@@ -1035,6 +1035,104 @@ const mainMenu = [
       },
     ],
   },
+  {
+    id:"12",
+     title: `${languageCode == 'bn' ? "সার্ভিসেস" : "Services"}`,
+    icon: "HiOutlineCalculator",
+    link: "/services",
+    children: [
+      
+      {
+        id: "12/01",
+        title: `${languageCode == 'bn' ? "সেটিংস" : "Setting"}`,
+        link: "/services/settings/hostel-package",
+        children: [
+          {
+
+            id: "12/01/01",
+            title: `${languageCode == 'bn' ? "হোস্টেল প্যাকেজ" : "Hostel Package"}`,
+            link: "/services/settings/hostel-package",
+         
+          },
+            {
+
+            id: "12/01/02",
+            title: `${languageCode == 'bn' ? "হোস্টেল রুম" : "Hostel Name"}`,
+            link: "/services/settings/hostel-name",
+         
+          },
+           {
+
+            id: "12/01/03",
+            title: `${languageCode == 'bn' ? "হোস্টেল রুম" : "Hostel Room"}`,
+            link: "/services/settings/hostel-room",
+         
+          },
+        ]
+      },
+      {
+           id: "12/02",
+            title: `${languageCode == 'bn' ? "হোস্টেল" : "Hostel Allocation"}`,
+            link: "/services/hostel-allocation",
+      },
+       {
+        id: "12/03",
+        title: `${languageCode == 'bn' ? "সেটিংস" : "Coaching Setting"}`,
+        link: "/services/coaching-settings",
+        children: [
+          {
+
+            id: "12/03/01",
+            title: `${languageCode == 'bn' ? "হোস্টেল প্যাকেজ" : "coaching batches"}`,
+            link: "/services/coaching-settings/coaching-batches",
+         
+          },
+            {
+
+            id: "12/03/02",
+            title: `${languageCode == 'bn' ? "হোস্টেল রুম" : "coaching packages"}`,
+            link: "/services/coaching-settings/coaching-packages",
+         
+          },
+        
+        ]
+      },
+        {
+           id: "12/04",
+            title: `${languageCode == 'bn' ? "হোস্টেল" : "coaching Allocation"}`,
+            link: "/services/coaching-allocation",
+      },
+       {
+        id: "12/05",
+        title: `${languageCode == 'bn' ? "সেটিংস" : "transport Setting"}`,
+        link: "/services/transport-settings",
+        children: [
+          {
+
+            id: "12/05/01",
+            title: `${languageCode == 'bn' ? "হোস্টেল প্যাকেজ" : "transport routes"}`,
+            link: "/services/transport-settings/transport-routes",
+         
+          },
+            {
+
+            id: "12/05/02",
+            title: `${languageCode == 'bn' ? "হোস্টেল রুম" : "transport packages"}`,
+            link: "/services/transport-settings/transport-packages",
+         
+          },
+        
+        ]
+      },
+       {
+           id: "12/06",
+            title: `${languageCode == 'bn' ? "হোস্টেল" : "transport Allocation"}`,
+            link: "/services/transport-allocation",
+      },
+    ]
+  },
+  
+
 ];
 
 export default mainMenu;

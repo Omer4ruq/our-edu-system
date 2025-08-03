@@ -80,6 +80,18 @@ import { SuperAdminRoute } from "./SuperAdminRoute";
 import UserProfile from "./components/user-profile/UserProfile";
 import AddNotice from "./components/notice/AddNotice";
 
+import HostelPackages from "./components/hostel/HostelPackages";
+import HostelRooms from "./components/hostel/HostelRooms";
+import HostelAllocation from "./components/hostel/HostelAllocation";
+import HostelNames from "./components/hostel/HostelNames";
+import CoachingBatches from "./components/coaching/CoachingBatches";
+
+import CoachingPackages from "./components/coaching/CoachingPackages";
+import CoachingAllocation from "./components/coaching/CoachingAllocation";
+import TransportPackages from "./components/services/transport/TransportPackages";
+import TransportRoutes from "./components/services/transport/TransportRoutes";
+
+
 function Root() {
   const router = createBrowserRouter([
     {
@@ -497,6 +509,66 @@ function Root() {
                 },
               ],
             },
+            {
+              path: "services",
+              children: [
+                {
+                  path: "settings",
+                  children: [
+                     {
+                  path: "hostel-package",
+                  element: <HostelPackages></HostelPackages>,
+                },
+                 {
+                  path: "hostel-room",
+                  element: <HostelRooms></HostelRooms>,
+                },
+                  {
+                  path: "hostel-name",
+                  element: <HostelNames/>,
+                },
+                  ]
+                },
+                 {
+              path: "hostel-allocation",
+              element: <HostelAllocation></HostelAllocation>
+            },
+            {
+              path: "coaching-settings",
+                 children: [
+                     {
+                  path: "coaching-batches",
+                  element: <CoachingBatches></CoachingBatches>,
+                },
+                 {
+                  path: "coaching-packages",
+                  element: <CoachingPackages></CoachingPackages>,
+                },
+                 
+                  ]
+            },
+                {
+              path: "coaching-allocation",
+              element: <CoachingAllocation></CoachingAllocation>
+            },
+             {
+              path: "transport-settings",
+                 children: [
+                     {
+                  path: "transport-routes",
+                  element: <TransportRoutes></TransportRoutes>,
+                },
+                 {
+                  path: "transport-packages",
+                  element: <TransportPackages></TransportPackages>,
+                },
+                 
+                  ]
+            },
+              ],
+
+            },
+          
           ],
         },
       ],
