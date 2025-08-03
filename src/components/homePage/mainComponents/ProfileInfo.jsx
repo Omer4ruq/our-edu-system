@@ -1,41 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { FaUserEdit } from 'react-icons/fa';
+import { FaUserEdit, FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaTwitter, FaUserCheck } from 'react-icons/fa';
 
 export default function ProfileInfo() {
   const {
-    user, role, profile, token, refresh_token, group_id, group_name, role_id, username
+    user, role, profile, username
   } = useSelector((state) => state.auth);
 
-
-  console.log("user", user)
-  console.log("role", role)
-
-  const profileInfo = [
-    {
-      title: 'ব্যবহারকারীর নাম',
-      data: username || 'N/A',
-    },
-    {
-      title: 'ব্যবহারকারীর ধরণ',
-      data: role || 'N/A',
-    },
-    {
-      title: 'পদবী',
-      data: profile?.designation || 'নির্ধারিত নয়',
-    },
-    {
-      title: 'কর্মের ধরণ',
-      data: profile?.job_nature || 'নির্ধারিত নয়',
-    },
-    {
-      title: 'মোবাইল নম্বর',
-      data: profile?.phone_number || 'নির্ধারিত নয়',
-    },
-  ];
-
   return (
-    <div className="bg-black/10 backdrop-blur-sm border border-white/20 col-span-1 order-1 rounded-2xl px-4 sm:px-6 py-6 sm:py-8 space-y-4 relative shadow-xl animate-fadeIn">
+    <div className="h-full glass-card bg-white/5 border border-white/10 rounded-2xl px-4 relative shadow-xl animate-fadeIn text-center space-y-4 transition-all duration-500">
       <style>
         {`
           @keyframes fadeIn {
@@ -46,47 +19,87 @@ export default function ProfileInfo() {
             from { transform: scale(0.95); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
           }
+          @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
+          }
           .animate-fadeIn {
             animation: fadeIn 0.6s ease-out forwards;
           }
           .animate-scaleIn {
             animation: scaleIn 0.4s ease-out forwards;
           }
-          .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(219, 158, 48, 0.3);
+          .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+          }
+          .glass-card {
+            backdrop-filter: blur(25px);
+            position: relative;
+            overflow: hidden;
+          }
+          .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s;
+          }
+          .glass-card:hover::before {
+            left: 100%;
+          }
+          .glass-card:hover {
+            transform: translateY(-5px) scale(1.03);
           }
         `}
       </style>
 
-      {/* User Image */}
-      <div className="flex justify-center">
-        <img
-          src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvam9iNjAyLTU2LXAucG5n.png"
-          alt="প্রোফাইল ছবি"
-          className="w-20 h-20 rounded-full border-2 border-pmColor animate-scaleIn"
-        />
+      {/* Top Row */}
+      <div className="flex justify-between items-center text-white px-2">
+        <p className="text-sm sm:text-base font-semibold text-pmColor flex items-center gap-2"><FaUserCheck />{role || 'রোল নির্ধারিত নয়'}</p>
+        <button className="text-xl hover:text-pmColor transition-colors duration-200">
+          <FaUserEdit />
+        </button>
       </div>
 
-      {/* Name */}
-      <h4 className="text-white bg-pmColor text-center rounded-lg p-2 font-bold text-lg animate-scaleIn">
-        {user?.name || 'নাম পাওয়া যায়নি'}
-      </h4>
+      {/* Profile Image */}
+      <div className="flex justify-center">
+        <div className="rounded-full border-4 border-pmColor p-1 animate-scaleIn animate-glow">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="প্রোফাইল ছবি"
+            className="w-24 h-24 rounded-full object-cover"
+          />
+        </div>
+      </div>
 
-      {/* Profile Info */}
-      <table className="min-w-full divide-y divide-pmColor/20 bg-white/5 rounded-lg">
-        <tbody>
-          {profileInfo.map((row, index) => (
-            <tr key={index} className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-              <td className="text-end px-4 py-2 border border-white/30 text-pmColor font-medium text-sm">
-                {row.title} :
-              </td>
-              <td className="text-start px-4 py-2 border border-white/30 text-white font-medium text-sm">
-                {row.data}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {/* User Info */}
+      <div className="text-white space-y-1">
+        <h4 className="text-lg font-bold">{user?.name || 'নাম পাওয়া যায়নি'}</h4>
+        <p className="text-xs">{profile?.designation || 'পদবী নির্ধারিত নয়'}</p>
+        <p className="text-xs">{profile?.phone_number || 'মোবাইল নম্বর নেই'}</p>
+      </div>
+
+      {/* Social Icons */}
+      <div className="flex justify-center gap-4 pt-2">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+          <FaFacebookF className="text-white text-sm" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+          <FaLinkedinIn className="text-white text-sm" />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+          <FaGithub className="text-white text-sm" />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+          <FaInstagram className="text-white text-sm" />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+          <FaTwitter className="text-white text-sm" />
+        </a>
+      </div>
     </div>
   );
 }
