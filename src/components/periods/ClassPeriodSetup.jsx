@@ -291,20 +291,20 @@ const ClassPeriodSetup = () => {
                 </span>
               ) : (
                 activeClasses.map((cls, index) => (
-                  <button
-                    key={cls.id}
-                    onClick={() => setSelectedClassId(cls.id)}
-                    className={`whitespace-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
-                      selectedClassId === cls.id
-                        ? "bg-pmColor text-white shadow-md"
-                        : "text-white hover:bg-white/10 hover:text-white"
-                    }`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                    aria-label={`ক্লাস নির্বাচন ${cls.class_name} ${cls.shift_name} ${cls.section_name}`}
-                    title={`ক্লাস নির্বাচন করুন / Select class ${cls.class_name} ${cls.shift_name} ${cls.section_name}`}
-                  >
-                    {`${cls.class_name} ${cls.shift_name} ${cls.section_name}`}
-                  </button>
+       <button
+  key={cls.id}
+  onClick={() => setSelectedClassId(cls.id)}
+  className={`whitespace-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
+    selectedClassId === cls.id
+      ? "bg-pmColor text-white shadow-md"
+      : "text-white hover:bg-white/10 hover:text-white"
+  }`}
+  style={{ animationDelay: `${index * 0.1}s` }}
+  aria-label={`ক্লাস নির্বাচন ${cls.class_name}${cls.section_name ? ` ${cls.section_name}` : ''}${cls.shift_name ? ` ${cls.shift_name}` : ''}`}
+  title={`ক্লাস নির্বাচন করুন / Select class ${cls.class_name}${cls.section_name ? ` ${cls.section_name}` : ''}${cls.shift_name ? ` ${cls.shift_name}` : ''}`}
+>
+  {`${cls.class_name}${cls.section_name ? ` ${cls.section_name}` : ''}${cls.shift_name ? ` ${cls.shift_name}` : ''}`}
+</button>
                 ))
               )}
             </nav>

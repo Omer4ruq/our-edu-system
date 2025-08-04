@@ -1,10 +1,11 @@
 import { FaSchool } from "react-icons/fa";
 import { useGetInstituteLatestQuery } from "../../redux/features/api/institute/instituteLatestApi";
+import { useGetInstitutesQuery } from "../../redux/features/api/institute/instituteApi";
 
 
 export default function SchoolName() {
-  const { data: instituteData, isLoading, error } = useGetInstituteLatestQuery();
-
+  const { data: instituteData, isLoading, error } = useGetInstitutesQuery();
+console.log(instituteData)
   return (
     <div className="flex items-center gap-2">
       <div className="bg-pmColor w-7 sm:w-10 h-7 sm:h-10 p-1 sm:p-2 rounded-full flex items-center justify-center">
@@ -20,7 +21,7 @@ export default function SchoolName() {
         </h3>
       ) : (
         <h3 className="text-white font-bold text-base md:text-lg hidden sm:block">
-          {instituteData?.institute_name || "আল জামিয়াতুল ইসলামিয়া মাইজদী, নোয়াখালী বাংলাদেশ"}
+          {instituteData[0]?.institute_Bangla_name || "আল জামিয়াতুল ইসলামিয়া মাইজদী, নোয়াখালী বাংলাদেশ"}
         </h3>
       )}
     </div>
