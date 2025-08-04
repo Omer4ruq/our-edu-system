@@ -864,18 +864,23 @@ const mainMenu = [
         title: `${languageCode == 'bn' ? "ডিলিট - ফি" : "Delete Fee"}`,
         link: "/accounts/delete-fee",
       },
-      {
+         {
         id: "07/10",
+        title: `${languageCode == 'bn' ? "ডিলিট - ফি" : "Service Fees"}`,
+        link: "/accounts/service-fees",
+      },
+      {
+        id: "07/11",
         title: `${languageCode == 'bn' ? "রিপোর্ট" : "Report"}`,
         link: "/accounts/expense-items-list",
         children: [
           {
-            id: "07/10/01",
+            id: "07/11/01",
             title: `${languageCode == 'bn' ? "ব্যয়ের ধরন" : "Expense Items"}`,
             link: "/accounts/expense-items-list",
           },
           {
-            id: "07/10/02",
+            id: "07/11/02",
             title: `${languageCode == 'bn' ? "আয়ের ধরন" : "Income Items"}`,
             link: "/accounts/income-items-list",
           },

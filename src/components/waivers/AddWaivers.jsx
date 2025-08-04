@@ -174,7 +174,7 @@ const AddWaivers = () => {
             academic_year: null,
             description: "",
             fee_types: [],
-            fund_id: null,
+            // fund_id: null,
           },
         }));
         return [...prev, studentId];
@@ -218,7 +218,7 @@ const handleSubmitWaivers = async (e) => {
       !waiver.waiver_amount ||
       !waiver.academic_year ||
       !waiver.fee_types.length ||
-      !waiver.fund_id ||
+      // !waiver.fund_id ||
       !waiver.description?.trim() // Added description validation
     ) {
       errors.push(
@@ -240,7 +240,7 @@ const handleSubmitWaivers = async (e) => {
       academic_year: waiver.academic_year,
       description: waiver.description.trim(), // Remove || null since it's now required
       fee_types: waiver.fee_types,
-      fund_id: waiver.fund_id,
+      // fund_id: waiver.fund_id,
       created_by: parseInt(localStorage.getItem("userId")) || 1,
       updated_by: parseInt(localStorage.getItem("userId")) || 1,
     };
@@ -295,8 +295,8 @@ const handleSubmitWaivers = async (e) => {
       !editWaiverData.student_id ||
       !editWaiverData.waiver_amount ||
       !editWaiverData.academic_year ||
-      !editWaiverData.fee_types.length ||
-      !editWaiverData.fund_id
+      !editWaiverData.fee_types.length 
+      // !editWaiverData.fund_id
     ) {
       toast.error(
         "ছাত্র, ফি প্রকার, ওয়েভার পরিমাণ, শিক্ষাবর্ষ এবং ফান্ড পূরণ করুন।"
@@ -316,7 +316,7 @@ const handleSubmitWaivers = async (e) => {
         academic_year: editWaiverData.academic_year,
         description: editWaiverData.description.trim() || null,
         fee_types: editWaiverData.fee_types,
-        fund_id: editWaiverData.fund_id,
+        // fund_id: editWaiverData.fund_id,
         updated_by: parseInt(localStorage.getItem("userId")) || 1,
       };
       await updateWaiver(payload).unwrap();
@@ -837,9 +837,9 @@ const handleSubmitWaivers = async (e) => {
                         <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                           শিক্ষাবর্ষ
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                           ফান্ড
-                        </th>
+                        </th> */}
                         <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                           বর্ণনা
                         </th>
@@ -972,7 +972,7 @@ const handleSubmitWaivers = async (e) => {
                             </td>
 
                             {/* Fund Select */}
-                            <td className="px-6 py-4 whitespace-nowrap">
+                            {/* <td className="px-6 py-4 whitespace-nowrap">
                               <Select
                                 options={fundOptions}
                                 value={
@@ -994,7 +994,7 @@ const handleSubmitWaivers = async (e) => {
                                 menuPortalTarget={document.body}
                                 menuPosition="fixed"
                               />
-                            </td>
+                            </td> */}
 
                             {/* Description Input */}
                             <td className="px-6 py-4 whitespace-nowrap">
@@ -1049,9 +1049,9 @@ const handleSubmitWaivers = async (e) => {
                       <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         শিক্ষাবর্ষ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         ফান্ড
-                      </th>
+                      </th> */}
                       <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         বর্ণনা
                       </th>
@@ -1090,10 +1090,10 @@ const handleSubmitWaivers = async (e) => {
                               (opt) => opt.value === waiver.academic_year
                             )?.label || "-"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                             {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                               "-"}
-                          </td>
+                          </td> */}
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                             {waiver.description || "-"}
                           </td>
@@ -1381,9 +1381,9 @@ const handleSubmitWaivers = async (e) => {
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                       ফি প্রকার
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                       ফান্ড
-                    </th>
+                    </th> */}
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                       বর্ণনা
                     </th>
@@ -1420,10 +1420,10 @@ const handleSubmitWaivers = async (e) => {
                           )
                           .join(", ")}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                         {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                           `ফান্ড ${waiver.fund_id}`}
-                      </td>
+                      </td> */}
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                         {waiver.description || "-"}
                       </td>

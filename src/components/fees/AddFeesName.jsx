@@ -225,6 +225,7 @@ const AddFeesName = () => {
       return;
     }
     setSelectedFee(fee);
+    
     setUpdateForm({
       fees_title: fee.fees_title,
       startdate: format(new Date(fee.startdate), 'yyyy-MM-dd'),

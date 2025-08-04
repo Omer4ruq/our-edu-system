@@ -91,6 +91,7 @@ import CoachingAllocation from "./components/coaching/CoachingAllocation";
 import TransportPackages from "./components/services/transport/TransportPackages";
 import TransportRoutes from "./components/services/transport/TransportRoutes";
 import TransportAllocation from "./components/services/transport/TransportAllocation";
+import ServiceFees from "./components/fees/serviceFees/ServiceFees";
 
 
 function Root() {
@@ -376,6 +377,10 @@ function Root() {
                 {
                   path: "expense-items-list",
                   element: <ExpenseItemsList />,
+                },
+                 {
+                  path: "service-fees",
+                  element: <ServiceFees />,
                 },
                 {
                   path: "income-items-list",
