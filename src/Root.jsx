@@ -90,6 +90,7 @@ import CoachingPackages from "./components/coaching/CoachingPackages";
 import CoachingAllocation from "./components/coaching/CoachingAllocation";
 import TransportPackages from "./components/services/transport/TransportPackages";
 import TransportRoutes from "./components/services/transport/TransportRoutes";
+import TransportAllocation from "./components/services/transport/TransportAllocation";
 
 
 function Root() {
@@ -564,6 +565,10 @@ function Root() {
                 },
                  
                   ]
+            },
+              {
+              path: "transport-allocation",
+              element: <TransportAllocation/>
             },
               ],
 

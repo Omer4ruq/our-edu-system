@@ -725,10 +725,10 @@ const ResultSheet = () => {
     value: exam.id,
     label: exam.name,
   })) || [];
-  const classConfigOptions = classConfigs?.map((config) => ({
-    value: config.id,
-    label: `${config.class_name} - ${config.section_name} (${config.shift_name})`,
-  })) || [];
+  const classConfigOptions = classConfigs?.map(config => ({
+  value: config.id,
+  label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
+})) || [];
   const academicYearOptions = academicYears?.map((year) => ({
     value: year.id,
     label: year.name,

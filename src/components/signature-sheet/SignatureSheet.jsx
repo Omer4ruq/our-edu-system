@@ -45,13 +45,16 @@ const SignatureSheet = () => {
 
  const classOptions = useMemo(
     () =>
-      activeClasses.map((cls) => ({
-        value: { id: cls.id, g_class_id: cls.g_class_id },
-        label: `${cls.class_name} ${cls.section_name} ${cls.shift_name}`,
+      activeClasses.map((config) => ({
+        value: { id: config.id, g_class_id: config.g_class_id },
+        label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
       })),
     [activeClasses]
   );
-
+// const classConfigOptions = classConfigs?.map(config => ({
+//   value: config.id,
+//   label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
+// })) || [];
   const examOptions = exams.map((exam) => ({
     value: exam.id,
     label: exam.name,
