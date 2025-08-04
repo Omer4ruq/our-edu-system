@@ -23,7 +23,7 @@ export const studentFeesCurrentApi = createApi({
   endpoints: (builder) => ({
     // GET: Fetch current fees for a specific student
     getStudentCurrentFees: builder.query({
-      query: (id) => `/student-fees/${id}/fees/current/`,
+      query: (id) => `/student-fees/user/${id}/fees/current/`,
       providesTags: ['StudentFeesCurrent'],
     }),
   }),
