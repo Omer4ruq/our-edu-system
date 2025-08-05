@@ -195,7 +195,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4">
         {/* Breadcrumb Path (Top-Left) */}
         {breadcrumbModule && (
-          <h3 className="text-sm md:text-lg text-white capitalize flex-1 space-x-1 font-medium">
+          <h3 className="text-sm md:text-base text-white capitalize flex-1 space-x-1 font-medium">
             {breadcrumbModule === breadcrumbRoute ? null : (
               <span
                 className={`${
@@ -205,7 +205,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
                 }`}
               >
                 {t(breadcrumbModule)}
-                {breadcrumbRoute && " / "}
+                {breadcrumbRoute && " > "}
               </span>
             )}
             {breadcrumbRoute && (
@@ -241,7 +241,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
               {isOverflowing && (
                 <button
                   onClick={scrollLeft}
-                  className="absolute -left-8 p-2 bg-white/80 text-white rounded-full hover:bg-pmColor hover:text-white transition-colors z-10 animate-scaleIn focus:ring-2 ring-pmColor"
+                  className="absolute -left-8 p-2 rounded-full bg-pmColor text-white transition-colors z-10 animate-scaleIn focus:ring-2 ring-pmColor"
                   aria-label="বামে স্ক্রল করুন"
                   title="বামে স্ক্রল করুন"
                   style={{ animationDelay: "0.1s" }}
@@ -288,7 +288,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
               {isOverflowing && (
                 <button
                   onClick={scrollRight}
-                  className="absolute right-0 p-2 bg-white/80 text-white rounded-full hover:bg-pmColor hover:text-white transition-colors z-10 animate-scaleIn focus:ring-2 ring-pmColor"
+                  className="absolute right-0 p-2 rounded-full bg-pmColor text-white transition-colors z-10 animate-scaleIn focus:ring-2 ring-pmColor"
                   aria-label="ডানে স্ক্রল করুন"
                   title="ডানে স্ক্রল করুন"
                   style={{ animationDelay: "0.1s" }}

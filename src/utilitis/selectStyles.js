@@ -4,63 +4,76 @@ import { primaryColor, secondaryColor } from "./getTheme";
 
   
   
-  const selectStyles = {
-    control: (base) => ({
-      ...base,
-      background: 'transparent',
-      borderColor: '#9d9087',
-      borderRadius: '8px',
-      paddingLeft: '0.75rem',
-      padding: '3px',
-      color: primaryColor,
-      fontFamily: "'Noto Sans Bengali', sans-serif",
-      fontSize: '16px',
-      transition: 'all 0.3s ease',
-      '&:hover': { borderColor: '#fff' },
-      '&:focus': { outline: 'none', boxShadow: 'none' },
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: '#fff',
-      opacity: 0.7,
-      fontFamily: "'Noto Sans Bengali', sans-serif",
-      fontSize: '16px',
-    }),
-    singleValue: (base) => ({
-      ...base,
-      color: primaryColor,
-      fontFamily: "'Noto Sans Bengali', sans-serif",
-      fontSize: '16px',
-    }),
-    input: (base) => ({
-      ...base,
-      color: primaryColor,
-      fontFamily: "'Noto Sans Bengali', sans-serif",
-      fontSize: '16px',
-    }),
-    menu: (base) => ({
-      ...base,
-      backgroundColor: secondaryColor,
-      backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '8px',
-      zIndex: 9999,
-      marginTop: '4px',
-    }),
-    menuPortal: (base) => ({
-      ...base,
-      zIndex: 9999,
-    }),
-    option: (base, { isFocused, isSelected }) => ({
-      ...base,
-      color: '#fff',
-      fontFamily: "'Noto Sans Bengali', sans-serif",
-      fontSize: '16px',
-      backgroundColor: isSelected ? primaryColor : isFocused ? primaryColor : 'transparent',
-      cursor: 'pointer',
-      '&:active': { backgroundColor: '#DB9E30' },
-    }),
-  };
+const selectStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    background: 'rgba(255, 255, 255, 0.2)',
+    border: `2px solid ${state.isFocused ? primaryColor : 'rgba(157, 144, 135, 0.3)'}`,
+    borderRadius: '12px',
+        padding: '3px',
+    minHeight: '50px',
+    paddingLeft: '6px',
+    boxShadow: state.isFocused ? `0 0 0 3px rgba(219, 158, 48, 0.1)` : 'none',
+    '&:hover': {
+      borderColor: primaryColor,
+    },
+  }),
+  input: (provided) => ({
+  ...provided,
+  color: '#ffffff', 
+  fontSize: '16px',
+}),
+  valueContainer: (provided) => ({
+    ...provided,
+    padding: '0 8px',
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: '#ffffff',
+    fontSize: '16px',
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: '16px',
+  }),
+  menuPortal: (base) => ({
+  ...base,
+  zIndex: 9999,
+}),
+  menu: (provided) => ({
+    ...provided,
+   background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    borderRadius: '12px',
+    overflow: 'hidden',
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    background: state.isSelected 
+      ? primaryColor 
+      : state.isFocused 
+      ? 'rgba(255, 255, 255, 0.1)' 
+      : 'transparent',
+    color: '#ffffff',
+    padding: '10px 12px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    '&:hover': {
+       background: secondaryColor,
+    color: '#ffffff',
+    },
+  }),
+  indicatorSeparator: () => ({ display: 'none' }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    color: primaryColor,
+    '&:hover': { 
+      color: '#ffffff',
+    },
+  }),
+};
 
 
   export default selectStyles;

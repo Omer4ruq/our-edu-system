@@ -15,6 +15,7 @@ import { useGetStudentClassApIQuery } from "../../../redux/features/api/student/
 import { useSelector } from "react-redux";
 import { useGetGroupPermissionsQuery } from "../../../redux/features/api/permissionRole/groupsApi";
 import selectStyles from "../../../utilitis/selectStyles";
+import { primaryColor } from "../../../utilitis/getTheme";
 
 
 
@@ -596,7 +597,7 @@ const StudentList = () => {
             text-wrap:nowrap;
             position: sticky;
             top: 0;
-            background: #DB9E30;
+            background: ${primaryColor};
             backdrop-filter: blur(10px);
             z-index: 2;
             border-bottom: 2px solid rgba(219, 158, 48, 0.3);
@@ -620,15 +621,16 @@ const StudentList = () => {
           .fixed-col.serial { 
            font-size: 12px !important;
             left: 0px; 
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255, 0.9);
           }
           .fixed-col.name { 
-      
+       color: ${primaryColor};
             left: 70px;
             background: rgba(255, 255, 255);
           }
           .fixed-col.user_id { 
+           color: ${primaryColor};
             z-index:10px;
             left: 220px;
             background: rgba(255, 255, 255);
@@ -637,17 +639,17 @@ const StudentList = () => {
           /* Ensure fixed header cells match the background */
           .sticky-header .fixed-col.serial {
             z-index: 10;
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255);
           }
           .sticky-header .fixed-col.name {
             z-index: 10;
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255);
           }
           .sticky-header .fixed-col.user_id {
             z-index: 10;
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255);
           }
           
@@ -701,7 +703,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
           }
           
           .status-inactive {
-            background: #DB9E30;
+            background: ${primaryColor};
             color: #dc2626;
             border: 1px solid rgba(239, 68, 68, 0.3);
           }
@@ -767,7 +769,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="name"
               value={filters.name}
               onChange={handleFilterChange}
-              className="w-full bg-transparent  text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent  text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="নাম"
             />
             <input
@@ -775,7 +777,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="user_id"
               value={filters.user_id}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ইউজার আইডি"
             />
             <input
@@ -783,7 +785,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="roll"
               value={filters.roll}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="রোল"
             />
             <input
@@ -791,7 +793,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="phone"
               value={filters.phone}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ফোন নম্বর"
             />
             <Select

@@ -70,6 +70,16 @@ import { roleTypesApi } from "./features/api/roleType/roleTypesApi";
 import authReducer from './features/slice/authSlice';
 import { gradeRuleApi } from "./features/api/result/gradeRuleApi";
 import { noticeApi } from "./features/api/notice/noticeApi";
+import { hostelPackagesApi } from "./features/api/hostel/hostelPackagesApi";
+import { hostelRoomsApi } from "./features/api/hostel/hostelRoomsApi";
+import { hostelsApi } from "./features/api/hostel/hostelsApi";
+import { hostelNamesApi } from "./features/api/hostel/hostelNames";
+import { coachingsApi } from "./features/api/coaching/coachingsApi";
+import { coachingBatchesApi } from "./features/api/coaching/coachingBatchesApi";
+import { coachingPackagesApi } from "./features/api/coaching/coachingPackagesApi";
+import { transportsApi } from "./features/api/transport/transportsApi";
+import { transportRoutesApi } from "./features/api/transport/transportRoutesApi";
+import { transportPackagesApi } from "./features/api/transport/transportPackagesApi";
 
 export const store = configureStore({
   reducer: {
@@ -148,6 +158,16 @@ export const store = configureStore({
     [roleTypesApi.reducerPath]: roleTypesApi.reducer,
     [gradeRuleApi.reducerPath]: gradeRuleApi.reducer,
     [noticeApi.reducerPath]: noticeApi.reducer,
+    [hostelPackagesApi.reducerPath]: hostelPackagesApi.reducer,
+    [hostelRoomsApi.reducerPath]: hostelRoomsApi.reducer,
+    [hostelsApi.reducerPath]: hostelsApi.reducer,
+    [hostelNamesApi.reducerPath]: hostelNamesApi.reducer,
+    [coachingsApi.reducerPath]: coachingsApi.reducer,
+    [coachingBatchesApi.reducerPath]: coachingBatchesApi.reducer,
+    [coachingPackagesApi.reducerPath]: coachingPackagesApi.reducer,
+    [transportsApi.reducerPath]: transportsApi.reducer,
+    [transportRoutesApi.reducerPath]: transportRoutesApi.reducer,
+    [transportPackagesApi.reducerPath]: transportPackagesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -220,6 +240,16 @@ export const store = configureStore({
       .concat(roleTypesApi.middleware)
       .concat(gradeRuleApi.middleware)
       .concat(noticeApi.middleware)
+      .concat(hostelPackagesApi.middleware)
+      .concat(hostelRoomsApi.middleware)
+      .concat(hostelsApi.middleware)
+      .concat(hostelNamesApi.middleware)
+      .concat(coachingsApi.middleware)
+      .concat(coachingBatchesApi.middleware)
+      .concat(coachingPackagesApi.middleware)
+      .concat(transportPackagesApi.middleware)
+      .concat(transportsApi.middleware)
+      .concat(transportRoutesApi.middleware)
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors

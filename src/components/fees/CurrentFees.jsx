@@ -8,12 +8,12 @@ import { useGetStudentCurrentFeesQuery } from '../../redux/features/api/studentF
 import { useGetAcademicYearApiQuery } from '../../redux/features/api/academic-year/academicYearApi';
 import { useGetFundsQuery } from '../../redux/features/api/funds/fundsApi';
 import { useGetWaiversQuery } from '../../redux/features/api/waivers/waiversApi';
-import { useCreateFeeMutation, useDeleteFeeMutation, useUpdateFeeMutation } from '../../redux/features/api/fees/feesApi';
+import { useCreateFeeMutation, useDeleteFeeMutation, useGetFeesQuery, useUpdateFeeMutation } from '../../redux/features/api/fees/feesApi';
 import selectStyles from '../../utilitis/selectStyles';
 import { useGetGroupPermissionsQuery } from '../../redux/features/api/permissionRole/groupsApi';
 import { useSelector } from 'react-redux';
 
-import { Document, Page, Text, View, StyleSheet, Font, pdf } from '@react-pdf/renderer'; // Add PDF imports
+import { Document, Page, Text, View, StyleSheet, Font, pdf } from '@react-pdf/renderer';
 import CurrentFeeHistoryTable from './CurrentFeeHistoryTable';
 import { useGetInstituteLatestQuery } from '../../redux/features/api/institute/instituteLatestApi';
 
@@ -229,11 +229,11 @@ const FeeVoucherPDF = ({
   totalAmount, 
   totalWaiver, 
   totalDiscount, 
+  totalLateFee,
   netPayable,
   voucherNumber,
   institute
 }) => (
-  
   <Document>
     <Page size="A4" style={voucherStyles.page}>
       {/* Header */}
@@ -287,6 +287,7 @@ const FeeVoucherPDF = ({
           <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>মূল পরিমাণ</Text>
           <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>ওয়েভার</Text>
           <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>ডিসকাউন্ট</Text>
+          <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>লেট ফি</Text>
           <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>প্রদেয় পরিমাণ</Text>
         </View>
         {feeDetails.map((fee, index) => (
@@ -295,6 +296,7 @@ const FeeVoucherPDF = ({
             <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>{fee.originalAmount}</Text>
             <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>{fee.waiverAmount}</Text>
             <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>{fee.discountAmount}</Text>
+            <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>{fee.lateFeeAmount}</Text>
             <Text style={[voucherStyles.tableCell, voucherStyles.tableCellCenter]}>{fee.paidAmount}</Text>
           </View>
         ))}
@@ -314,6 +316,10 @@ const FeeVoucherPDF = ({
         <View style={voucherStyles.summaryRow}>
           <Text style={voucherStyles.summaryLabel}>মোট ডিসকাউন্ট:</Text>
           <Text style={voucherStyles.summaryValue}>{totalDiscount} টাকা</Text>
+        </View>
+        <View style={voucherStyles.summaryRow}>
+          <Text style={voucherStyles.summaryLabel}>মোট লেট ফি:</Text>
+          <Text style={voucherStyles.summaryValue}>{totalLateFee} টাকা</Text>
         </View>
         <View style={voucherStyles.totalRow}>
           <Text style={voucherStyles.totalLabel}>মোট প্রদেয় পরিমাণ:</Text>
@@ -365,30 +371,32 @@ const CurrentFees = () => {
   const [modalData, setModalData] = useState(null);
   const [selectAll, setSelectAll] = useState(false);
   const dropdownRef = useRef(null);
-const { data: institute, isLoading: instituteLoading, error: instituteError } = useGetInstituteLatestQuery();
+  
+  const { data: institute, isLoading: instituteLoading, error: instituteError } = useGetInstituteLatestQuery();
+  
   // API Queries
   const { data: studentData, isLoading: studentLoading, error: studentError } = useGetStudentActiveApiQuery(
     userId ? { user_id: userId } : undefined,
     { skip: !userId }
   );
+  
   const {
     data: feesData,
     refetch: refetchFees
-  } = useGetStudentCurrentFeesQuery(selectedStudent?.id, { skip: !selectedStudent });
+  } = useGetStudentCurrentFeesQuery(selectedStudent?.user_id, { skip: !selectedStudent });
+  
   const { data: academicYears } = useGetAcademicYearApiQuery();
   const { data: funds } = useGetFundsQuery();
   const { data: waivers } = useGetWaiversQuery();
+  const { data: fees } = useGetFeesQuery();
   const [createFee, { isLoading: isCreating }] = useCreateFeeMutation();
   const [updateFee, { isLoading: isUpdating }] = useUpdateFeeMutation();
   const [deleteFee, { isLoading: isDeleting }] = useDeleteFeeMutation();
+  // const [fees, { isLoading: isFees }] = useGetFeesQuery();
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
     skip: !group_id,
   });
-
-  console.log("studentData", studentData)
-  console.log("feesData", feesData)
-  console.log("waivers", waivers)
-
+console.log("fees",fees)
   // Check permissions
   const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_fees') || false;
   const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_fees') || false;
@@ -430,7 +438,7 @@ const { data: institute, isLoading: instituteLoading, error: instituteError } = 
     const random = Math.floor(Math.random() * 1000);
     return `FV-${timestamp}-${random}`;
   };
-console.log("institute", institute)
+
   // Generate and download fee voucher
   const generateFeeVoucher = async (processedFees) => {
     try {
@@ -440,11 +448,12 @@ console.log("institute", institute)
       let totalAmount = 0;
       let totalWaiver = 0;
       let totalDiscount = 0;
+      let totalLateFee = 0;
       let netPayable = 0;
 
       const feeDetails = processedFees.map(feeId => {
         const fee = filteredFees.find(f => f.id === feeId);
-        const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
+        const { waiverAmount } = calculatePayableAmount(fee, waivers);
         const { storedDiscountAmount } = getFeeStatus(fee);
         
         const currentDiscount = discountInputs[feeId] ? 
@@ -452,10 +461,12 @@ console.log("institute", institute)
           parseFloat(storedDiscountAmount || 0);
         const paidAmount = parseFloat(paymentInputs[feeId] || 0);
         const originalAmount = parseFloat(fee.amount);
+        const lateFeeAmount = parseFloat(fee.late_fee || 0);
         
         totalAmount += originalAmount;
         totalWaiver += parseFloat(waiverAmount);
         totalDiscount += currentDiscount;
+        totalLateFee += lateFeeAmount;
         netPayable += paidAmount;
 
         return {
@@ -464,6 +475,7 @@ console.log("institute", institute)
           originalAmount: originalAmount.toFixed(2),
           waiverAmount: waiverAmount,
           discountAmount: currentDiscount.toFixed(2),
+          lateFeeAmount: lateFeeAmount.toFixed(2),
           paidAmount: paidAmount.toFixed(2)
         };
       });
@@ -480,6 +492,7 @@ console.log("institute", institute)
         totalAmount: totalAmount.toFixed(2),
         totalWaiver: totalWaiver.toFixed(2),
         totalDiscount: totalDiscount.toFixed(2),
+        totalLateFee: totalLateFee.toFixed(2),
         netPayable: netPayable.toFixed(2),
         voucherNumber,
         institute
@@ -511,14 +524,28 @@ console.log("institute", institute)
         Array.isArray(w.fee_types) &&
         w.fee_types.map(Number).includes(feeHeadId)
     );
-    console.log("get waiver", waiver)
+    
     const waiverPercentage = waiver ? parseFloat(waiver.waiver_amount) / 100 : 0;
     const feeAmount = parseFloat(fee.amount) || 0;
     const waiverAmount = feeAmount * waiverPercentage;
     const payableAfterWaiver = feeAmount - waiverAmount;
+    
     return {
       waiverAmount: waiverAmount.toFixed(2),
       payableAfterWaiver: payableAfterWaiver.toFixed(2)
+    };
+  };
+
+  // Calculate total payable amount including late fee
+  const calculateTotalPayableAmount = (fee, waivers) => {
+    const { payableAfterWaiver } = calculatePayableAmount(fee, waivers);
+    const lateFeeAmount = parseFloat(fee.late_fee || 0);
+    const totalPayable = parseFloat(payableAfterWaiver) + lateFeeAmount;
+    
+    return {
+      ...calculatePayableAmount(fee, waivers),
+      lateFeeAmount: lateFeeAmount.toFixed(2),
+      totalPayableWithLateFee: totalPayable.toFixed(2)
     };
   };
 
@@ -557,10 +584,10 @@ console.log("institute", institute)
   };
 
   // Handle discount input change
-  const handleDiscountInput = (feeId, value, payableAfterWaiver) => {
+  const handleDiscountInput = (feeId, value, totalPayableWithLateFee) => {
     const discount = parseFloat(value) || 0;
-    if (discount > parseFloat(payableAfterWaiver)) {
-      toast.error(`ডিসকাউন্ট পেয়েবল পরিমাণ (${payableAfterWaiver}) অতিক্রম করতে পারে না`);
+    if (discount > parseFloat(totalPayableWithLateFee)) {
+      toast.error(`ডিসকাউন্ট পেয়েবল পরিমাণ (${totalPayableWithLateFee}) অতিক্রম করতে পারে না`);
       return;
     }
     setDiscountInputs((prev) => ({ ...prev, [feeId]: value }));
@@ -615,10 +642,10 @@ console.log("institute", institute)
       toast.error('অনুগ্রহ করে একাডেমিক বছর নির্বাচন করুন');
       return false;
     }
-    if (!selectedFund) {
-      toast.error('অনুগ্রহ করে ফান্ড নির্বাচন করুন');
-      return false;
-    }
+    // if (!selectedFund) {
+    //   toast.error('অনুগ্রহ করে ফান্ড নির্বাচন করুন');
+    //   return false;
+    // }
     if (!selectedStudent) {
       toast.error('অনুগ্রহ করে ছাত্র নির্বাচন করুন');
       return false;
@@ -654,7 +681,7 @@ console.log("institute", institute)
         }
         const promises = modalData.fees.map(async (feeId) => {
           const fee = filteredFees.find((f) => f.id === feeId);
-          const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
+          const { waiverAmount, totalPayableWithLateFee } = calculateTotalPayableAmount(fee, waivers);
           const { totalPaidAmount, storedDiscountAmount } = getFeeStatus(fee);
 
           const currentDiscount = discountInputs[feeId] ?
@@ -663,12 +690,13 @@ console.log("institute", institute)
 
           const currentPayment = parseFloat(paymentInputs[feeId] || 0);
           const previouslyPaid = parseFloat(totalPaidAmount || 0);
+          const lateFeeAmount = parseFloat(fee.late_fee || 0);
 
           const totalPaidAfterThisTransaction = previouslyPaid + currentPayment;
-          const totalPayableAfterWaiverAndDiscount = parseFloat(payableAfterWaiver) - currentDiscount;
+          const totalPayableAfterWaiverDiscountAndLateFee = parseFloat(totalPayableWithLateFee) - currentDiscount;
 
           let status = 'UNPAID';
-          if (totalPaidAfterThisTransaction >= totalPayableAfterWaiverAndDiscount) {
+          if (totalPaidAfterThisTransaction >= totalPayableAfterWaiverDiscountAndLateFee) {
             status = 'PAID';
           } else if (totalPaidAfterThisTransaction > 0) {
             status = 'PARTIAL';
@@ -685,9 +713,10 @@ console.log("institute", institute)
             payment_status: '',
             online_transaction_id: '',
             fees_record: '',
+            fees_service_type: fee.type|| '', // Add fees_service_type from type
             student_id: selectedStudent.id,
             feetype_id: feeId,
-            fund_id: parseInt(selectedFund),
+            // fund_id: parseInt(selectedFund),
             academic_year: parseInt(selectedAcademicYear),
           };
 
@@ -799,6 +828,7 @@ console.log("institute", institute)
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি শিরোনাম</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পরিমাণ</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ওয়েভার পরিমাণ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">লেট ফি</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ডিসকাউন্ট</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পেয়েবল পরিমাণ</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ইতিমধ্যে প্রদান</th>
@@ -808,9 +838,9 @@ console.log("institute", institute)
                 </thead>
                 <tbody className="divide-y divide-white/20">
                   {filteredFees.map((fee, index) => {
-                    const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
+                    const { waiverAmount, totalPayableWithLateFee, lateFeeAmount } = calculateTotalPayableAmount(fee, waivers);
                     const { status, storedDiscountAmount, totalPaidAmount } = getFeeStatus(fee);
-                    const finalPayableAmount = parseFloat(payableAfterWaiver) - parseFloat(storedDiscountAmount || 0);
+                    const finalPayableAmount = parseFloat(totalPayableWithLateFee) - parseFloat(storedDiscountAmount || 0);
                     const dueAmount = Math.max(0, finalPayableAmount - parseFloat(totalPaidAmount || 0)).toFixed(2);
                     const rowClass = status === 'PAID' ? 'bg-green-50/10' : status === 'PARTIAL' ? 'bg-yellow-50/10' : '';
 
@@ -819,6 +849,7 @@ console.log("institute", institute)
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.fees_title}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.amount}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{waiverAmount}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-400">{lateFeeAmount}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{storedDiscountAmount}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{finalPayableAmount.toFixed(2)}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{totalPaidAmount}</td>
@@ -836,22 +867,6 @@ console.log("institute", institute)
             </div>
           )}
         </div>
-        
-        {/* Fee History Table - Using the new component */}
-        {/* {feesData?.fees_records?.length > 0 && (
-          <div className="mt-8">
-            <FeeHistoryTable
-              feeRecords={feesData.fees_records}
-              feesNameRecords={feesData.fees_name_records}
-              waivers={waivers}
-              selectedStudent={selectedStudent}
-              hasChangePermission={false}
-              hasDeletePermission={false}
-              hasViewPermission={hasViewPermission}
-              calculatePayableAmount={calculatePayableAmount}
-            />
-          </div>
-        )} */}
       </div>
     );
   }
@@ -958,7 +973,7 @@ console.log("institute", institute)
                   styles={selectStyles}
                 />
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium text-white mb-1">ফান্ড</label>
                 <Select
                   options={fundOptions}
@@ -975,7 +990,7 @@ console.log("institute", institute)
                   title="ফান্ড নির্বাচন করুন / Select fund"
                   styles={selectStyles}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         )}
@@ -1011,6 +1026,9 @@ console.log("institute", institute)
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         ওয়েভার পরিমাণ
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        লেট ফি
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         ডিসকাউন্ট ইনপুট
@@ -1068,14 +1086,14 @@ console.log("institute", institute)
                   </thead>
                   <tbody className="divide-y divide-white/20">
                     {filteredFees.map((fee, index) => {
-                      const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
+                      const { waiverAmount, totalPayableWithLateFee, lateFeeAmount } = calculateTotalPayableAmount(fee, waivers);
                       const { status, storedDiscountAmount, totalPaidAmount } = getFeeStatus(fee);
                       const effectiveDiscount = discountInputs[fee.id] ?
                         parseFloat(discountInputs[fee.id]) :
                         parseFloat(storedDiscountAmount || 0);
                       const currentPayment = parseFloat(paymentInputs[fee.id] || 0);
                       const alreadyPaid = parseFloat(totalPaidAmount || 0);
-                      const finalPayableAmount = parseFloat(payableAfterWaiver) - effectiveDiscount;
+                      const finalPayableAmount = parseFloat(totalPayableWithLateFee) - effectiveDiscount;
                       const dueAmount = Math.max(0, finalPayableAmount - alreadyPaid - currentPayment).toFixed(2);
                       const existingRecord = feesData?.fees_records?.find(
                         (record) => record.feetype_id === fee.id
@@ -1106,11 +1124,14 @@ console.log("institute", institute)
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                             {waiverAmount}
                           </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-400">
+                            {lateFeeAmount}
+                          </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                             <input
                               type="number"
                               value={discountInputs[fee.id] || ''}
-                              onChange={(e) => handleDiscountInput(fee.id, e.target.value, payableAfterWaiver)}
+                              onChange={(e) => handleDiscountInput(fee.id, e.target.value, totalPayableWithLateFee)}
                               className="w-full bg-transparent p-2 text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                               min="0"
                               disabled={status === 'PAID' || isCreating || isUpdating}
@@ -1240,7 +1261,7 @@ console.log("institute", institute)
             hasViewPermission={hasViewPermission}
             onUpdateFee={handleUpdateFee}
             onDeleteFee={handleDeleteFee}
-            calculatePayableAmount={calculatePayableAmount}
+            calculatePayableAmount={calculateTotalPayableAmount}
             isUpdating={isUpdating}
             isDeleting={isDeleting}
             institute={institute}

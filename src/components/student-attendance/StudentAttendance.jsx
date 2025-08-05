@@ -119,10 +119,14 @@ const StudentAttendance = () => {
     error: classesError,
   } = useGetclassConfigApiQuery();
   const classes = Array.isArray(classConfigData) ? classConfigData : [];
-  const classOptions = classes.map((cls) => ({
-    value: cls.id,
-    label: `${cls.class_name}-${cls.section_name} (${cls.shift_name})`,
+  const classOptions = classes.map((config) => ({
+    value: config.id,
+    label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
   }));
+  // const classConfigOptions = classConfigs?.map(config => ({
+//   value: config.id,
+//   label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
+// })) || [];
 
   const getClassId = classConfigData?.find(
     (classConfig) => classConfig?.id === selectedClass?.value

@@ -866,16 +866,21 @@ const mainMenu = [
       },
       {
         id: "07/10",
+        title: `${languageCode == 'bn' ? "ডিলিট - ফি" : "Service Fees"}`,
+        link: "/accounts/service-fees",
+      },
+      {
+        id: "07/11",
         title: `${languageCode == 'bn' ? "রিপোর্ট" : "Report"}`,
         link: "/accounts/expense-items-list",
         children: [
           {
-            id: "07/10/01",
+            id: "07/11/01",
             title: `${languageCode == 'bn' ? "ব্যয়ের ধরন" : "Expense Items"}`,
             link: "/accounts/expense-items-list",
           },
           {
-            id: "07/10/02",
+            id: "07/11/02",
             title: `${languageCode == 'bn' ? "আয়ের ধরন" : "Income Items"}`,
             link: "/accounts/income-items-list",
           },
@@ -1035,6 +1040,89 @@ const mainMenu = [
       },
     ],
   },
+ {
+  id: "12",
+  title: `${languageCode == 'bn' ? "সার্ভিস" : "Services"}`,
+  icon: "HiOutlineCalculator",
+  link: "/services",
+  children: [
+
+    {
+      id: "12/01",
+      title: `${languageCode == 'bn' ? "সেটিংস" : "Setting"}`,
+      link: "/services/settings/hostel-package",
+      children: [
+        {
+          id: "12/01/01",
+          title: `${languageCode == 'bn' ? "হোস্টেল প্যাকেজ" : "Hostel Package"}`,
+          link: "/services/settings/hostel-package",
+        },
+        {
+          id: "12/01/02",
+          title: `${languageCode == 'bn' ? "হোস্টেল নাম" : "Hostel Name"}`,
+          link: "/services/settings/hostel-name",
+        },
+        {
+          id: "12/01/03",
+          title: `${languageCode == 'bn' ? "হোস্টেল রুম" : "Hostel Room"}`,
+          link: "/services/settings/hostel-room",
+        },
+      ]
+    },
+    {
+      id: "12/02",
+      title: `${languageCode == 'bn' ? "হোস্টেল বরাদ্দ" : "Hostel Allocation"}`,
+      link: "/services/hostel-allocation",
+    },
+    {
+      id: "12/03",
+      title: `${languageCode == 'bn' ? "কোচিং সেটিংস" : "Coaching Setting"}`,
+      link: "/services/coaching-settings/coaching-batches",
+      children: [
+        {
+          id: "12/03/01",
+          title: `${languageCode == 'bn' ? "কোচিং ব্যাচ" : "Coaching Batches"}`,
+          link: "/services/coaching-settings/coaching-batches",
+        },
+        {
+          id: "12/03/02",
+          title: `${languageCode == 'bn' ? "কোচিং প্যাকেজ" : "Coaching Packages"}`,
+          link: "/services/coaching-settings/coaching-packages",
+        },
+      ]
+    },
+    {
+      id: "12/04",
+      title: `${languageCode == 'bn' ? "কোচিং বরাদ্দ" : "Coaching Allocation"}`,
+      link: "/services/coaching-allocation",
+    },
+    {
+      id: "12/05",
+      title: `${languageCode == 'bn' ? "পরিবহন সেটিংস" : "Transport Setting"}`,
+      link: "/services/transport-settings/transport-routes",
+      children: [
+        {
+          id: "12/05/01",
+          title: `${languageCode == 'bn' ? "পরিবহন রুট" : "Transport Routes"}`,
+          link: "/services/transport-settings/transport-routes",
+        },
+        {
+          id: "12/05/02",
+          title: `${languageCode == 'bn' ? "পরিবহন প্যাকেজ" : "Transport Packages"}`,
+          link: "/services/transport-settings/transport-packages",
+        },
+      ]
+    },
+    {
+      id: "12/06",
+      title: `${languageCode == 'bn' ? "পরিবহন বরাদ্দ" : "Transport Allocation"}`,
+      link: "/services/transport-allocation",
+    },
+  ]
+}
+
+
+
 ];
 
 export default mainMenu;

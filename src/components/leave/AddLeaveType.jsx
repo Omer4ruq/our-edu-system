@@ -1,15 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   useGetLeaveApiQuery,
   useCreateLeaveApiMutation,
   useUpdateLeaveApiMutation,
   useDeleteLeaveApiMutation,
 } from "../../redux/features/api/leave/leaveApi";
-import { FaEdit, FaSpinner, FaTrash } from "react-icons/fa";
-import { IoAdd, IoAddCircle } from "react-icons/io5";
+import { FaEdit, FaSpinner, FaTrash, FaPlus, FaList } from "react-icons/fa";
+import { IoAddCircle } from "react-icons/io5";
+import { MdAccessTime, MdUpdate } from "react-icons/md";
 import { Toaster, toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useGetGroupPermissionsQuery } from "../../redux/features/api/permissionRole/groupsApi";
+import { languageCode } from "../../utilitis/getTheme";
+import DraggableModal from "../common/DraggableModal";
+
 
 const AddLeaveType = () => {
   const { group_id } = useSelector((state) => state.auth);
@@ -19,19 +23,13 @@ const AddLeaveType = () => {
   const [modalAction, setModalAction] = useState(null);
   const [modalData, setModalData] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
-  const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
-  const modalRef = useRef(null);
-  const mousePositionRef = useRef({ x: 0, y: 0 });
 
-  // --- Start of Permission Logic ---
+  // Permission Logic
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, { skip: !group_id });
   const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_leavetype') || false;
   const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_leavetype') || false;
   const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_leavetype') || false;
   const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_leavetype') || false;
-  // --- End of Permission Logic ---
 
   // API hooks
   const {
@@ -44,95 +42,22 @@ const AddLeaveType = () => {
   const [updateLeave, { isLoading: isUpdating, error: updateError }] = useUpdateLeaveApiMutation();
   const [deleteLeave, { isLoading: isDeleting, error: deleteError }] = useDeleteLeaveApiMutation();
 
-  // Track mouse position continuously
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      mousePositionRef.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  // Set initial modal position when it opens
-  useEffect(() => {
-    if (isModalOpen) {
-      const modalWidth = 384; // max-w-md = 384px
-      const modalHeight = 200; // Approximate height
-      const adjustedX = Math.max(0, Math.min(mousePositionRef.current.x, window.innerWidth - modalWidth));
-      const adjustedY = Math.max(0, Math.min(mousePositionRef.current.y, window.innerHeight - modalHeight));
-      setModalPosition({ x: adjustedX, y: adjustedY });
-    }
-  }, [isModalOpen]);
-
-  // Handle drag start
-  const handleMouseDown = (e) => {
-    if (modalRef.current) {
-      const rect = modalRef.current.getBoundingClientRect();
-      setDragOffset({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-      setIsDragging(true);
-    }
-  };
-
-  // Handle drag movement
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (isDragging && modalRef.current) {
-        const modalWidth = 384; // max-w-md = 384px
-        const modalHeight = 200; // Approximate height
-        let newX = e.clientX - dragOffset.x;
-        let newY = e.clientY - dragOffset.y;
-
-        // Boundary checks
-        newX = Math.max(0, Math.min(newX, window.innerWidth - modalWidth));
-        newY = Math.max(0, Math.min(newY, window.innerHeight - modalHeight));
-
-        setModalPosition({ x: newX, y: newY });
-      }
-    };
-
-    const handleMouseUp = () => {
-      setIsDragging(false);
-    };
-
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-    }
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isDragging, dragOffset]);
-
-  // Handle double-click to center modal
-  const handleDoubleClick = () => {
-    const modalWidth = 384; // max-w-md = 384px
-    const modalHeight = 200; // Approximate height
-    const centerX = (window.innerWidth - modalWidth) / 2;
-    const centerY = (window.innerHeight - modalHeight) / 2;
-    setModalPosition({ x: centerX, y: centerY });
-  };
-
   // Handle form submission for adding or updating leave type
   const handleSubmit = async (e) => {
     e.preventDefault();
     const actionPermission = editLeaveId ? hasChangePermission : hasAddPermission;
     if (!actionPermission) {
-      toast.error('আপনার এই কাজটি করার অনুমতি নেই।');
+      toast.error(languageCode === 'bn' ? 'আপনার এই কাজটি করার অনুমতি নেই।' : 'You do not have permission to perform this action.');
       return;
     }
 
     const name = leaveName.trim();
     if (!name) {
-      toast.error("অনুগ্রহ করে ছুটির ধরনের নাম লিখুন");
+      toast.error(languageCode === 'bn' ? "অনুগ্রহ করে ছুটির ধরনের নাম লিখুন" : "Please enter leave type name");
       return;
     }
     if (leaveTypes?.some((lt) => lt.name.toLowerCase() === name.toLowerCase() && lt.id !== editLeaveId)) {
-      toast.error("এই ছুটির ধরন ইতিমধ্যে বিদ্যমান!");
+      toast.error(languageCode === 'bn' ? "এই ছুটির ধরন ইতিমধ্যে বিদ্যমান!" : "This leave type already exists!");
       return;
     }
 
@@ -148,32 +73,17 @@ const AddLeaveType = () => {
   // Handle edit button click
   const handleEditClick = (leave) => {
     if (!hasChangePermission) {
-      toast.error('সম্পাদনা করার অনুমতি আপনার নেই।');
+      toast.error(languageCode === 'bn' ? 'সম্পাদনা করার অনুমতি আপনার নেই।' : 'You do not have permission to edit.');
       return;
     }
     setEditLeaveId(leave.id);
     setLeaveName(leave.name);
   };
 
-  // Handle toggle active status
-  const handleToggleActive = (leave) => {
-    if (!hasChangePermission) {
-      toast.error('স্থিতি পরিবর্তন করার অনুমতি আপনার নেই।');
-      return;
-    }
-    setModalAction("toggle");
-    setModalData({
-      id: leave.id,
-      name: leave.name,
-      is_active: !leave.is_active,
-    });
-    setIsModalOpen(true);
-  };
-
   // Handle delete leave type
   const handleDelete = (id) => {
     if (!hasDeletePermission) {
-      toast.error('মুছে ফেলার অনুমতি আপনার নেই।');
+      toast.error(languageCode === 'bn' ? 'মুছে ফেলার অনুমতি আপনার নেই।' : 'You do not have permission to delete.');
       return;
     }
     setModalAction("delete");
@@ -185,30 +95,35 @@ const AddLeaveType = () => {
   const confirmAction = async () => {
     try {
       if (modalAction === "create") {
-        if (!hasAddPermission) { toast.error('তৈরি করার অনুমতি আপনার নেই।'); return; }
+        if (!hasAddPermission) { 
+          toast.error(languageCode === 'bn' ? 'তৈরি করার অনুমতি আপনার নেই।' : 'You do not have permission to create.'); 
+          return; 
+        }
         await createLeave({ name: modalData.name, is_active: modalData.is_active }).unwrap();
-        toast.success("ছুটির ধরন সফলভাবে তৈরি করা হয়েছে!");
+        toast.success(languageCode === 'bn' ? "ছুটির ধরন সফলভাবে তৈরি করা হয়েছে!" : "Leave type created successfully!");
         setLeaveName("");
       } else if (modalAction === "update") {
-        if (!hasChangePermission) { toast.error('আপডেট করার অনুমতি আপনার নেই।'); return; }
+        if (!hasChangePermission) { 
+          toast.error(languageCode === 'bn' ? 'আপডেট করার অনুমতি আপনার নেই।' : 'You do not have permission to update.'); 
+          return; 
+        }
         await updateLeave(modalData).unwrap();
-        toast.success("ছুটির ধরন সফলভাবে আপডেট করা হয়েছে!");
+        toast.success(languageCode === 'bn' ? "ছুটির ধরন সফলভাবে আপডেট করা হয়েছে!" : "Leave type updated successfully!");
         setEditLeaveId(null);
         setLeaveName("");
       } else if (modalAction === "delete") {
-        if (!hasDeletePermission) { toast.error('মুছে ফেলার অনুমতি আপনার নেই।'); return; }
+        if (!hasDeletePermission) { 
+          toast.error(languageCode === 'bn' ? 'মুছে ফেলার অনুমতি আপনার নেই।' : 'You do not have permission to delete.'); 
+          return; 
+        }
         await deleteLeave(modalData.id).unwrap();
-        toast.success("ছুটির ধরন সফলভাবে মুছে ফেলা হয়েছে!");
-      } else if (modalAction === "toggle") {
-        if (!hasChangePermission) { toast.error('স্থিতি পরিবর্তন করার অনুমতি আপনার নেই।'); return; }
-        await updateLeave(modalData).unwrap();
-        toast.success(`ছুটির ধরন ${modalData.name} এখন ${modalData.is_active ? "সক্রিয়" : "নিষ্ক্রিয়"}!`);
+        toast.success(languageCode === 'bn' ? "ছুটির ধরন সফলভাবে মুছে ফেলা হয়েছে!" : "Leave type deleted successfully!");
       }
       refetch();
       setRefreshKey((prev) => prev + 1);
     } catch (err) {
-      console.error(`ত্রুটি ${modalAction}:`, err);
-      toast.error(`ছুটির ধরন ${modalAction} ব্যর্থ: ${err.status || "অজানা"} - ${JSON.stringify(err.data || {})}`);
+      console.error(`Error ${modalAction}:`, err);
+      toast.error(`${languageCode === 'bn' ? 'ছুটির ধরন' : 'Leave type'} ${modalAction} ${languageCode === 'bn' ? 'ব্যর্থ' : 'failed'}: ${err.status || "unknown"}`);
     } finally {
       setIsModalOpen(false);
       setModalAction(null);
@@ -216,248 +131,313 @@ const AddLeaveType = () => {
     }
   };
 
-  // --- Start of Permission-based Rendering ---
-  if (permissionsLoading) {
-    return <div className="p-4 text-center">অনুমতি লোড হচ্ছে...</div>;
-  }
-  if (!hasViewPermission) {
-    return <div className="p-4 text-center text-red-500">এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।</div>;
-  }
-  // --- End of Permission-based Rendering ---
+  // Get modal content based on action
+  const getModalContent = () => {
+    switch (modalAction) {
+      case "create":
+        return {
+          title: languageCode === 'bn' ? "নতুন ছুটির ধরন নিশ্চিত করুন" : "Confirm New Leave Type",
+          message: languageCode === 'bn' ? "আপনি কি নিশ্চিত যে নতুন ছুটির ধরন তৈরি করতে চান?" : "Are you sure you want to create a new leave type?"
+        };
+      case "update":
+        return {
+          title: languageCode === 'bn' ? "ছুটির ধরন আপডেট নিশ্চিত করুন" : "Confirm Leave Type Update",
+          message: languageCode === 'bn' ? "আপনি কি নিশ্চিত যে ছুটির ধরন আপডেট করতে চান?" : "Are you sure you want to update this leave type?"
+        };
+      case "delete":
+        return {
+          title: languageCode === 'bn' ? "ছুটির ধরন মুছে ফেলা নিশ্চিত করুন" : "Confirm Leave Type Deletion",
+          message: languageCode === 'bn' ? "আপনি কি নিশ্চিত যে এই ছুটির ধরনটি মুছে ফেলতে চান?" : "Are you sure you want to delete this leave type?"
+        };
+      default:
+        return { title: "", message: "" };
+    }
+  };
 
-  // Adjust modal position to prevent overflow
-  const modalWidth = 384; // max-w-md = 384px
-  const modalHeight = 200; // Approximate height
-  const adjustedX = Math.max(0, Math.min(modalPosition.x, window.innerWidth - modalWidth));
-  const adjustedY = Math.max(0, Math.min(modalPosition.y, window.innerHeight - modalHeight));
+  // Permission-based Rendering
+  if (permissionsLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+          <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
+          <div className="text-white">
+            {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!hasViewPermission) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+          <div className="text-secColor text-xl font-semibold">
+            {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="py-8 w-full relative">
+    <div className="py-8 w-full mx-auto">
       <Toaster position="top-right" reverseOrder={false} />
+      
       <style>
         {`
           @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
           }
-          @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+          @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
           }
           .animate-fadeIn {
-            animation: fadeIn 0.3s ease-out forwards;
+            animation: fadeIn 0.6s ease-out forwards;
           }
-          .animate-slideUp {
-            animation: slideUp 0.3s ease-out forwards;
-          }
-          .btn-glow:hover {
-            box-shadow: 0 0 10px rgba(219, 158, 48, 0.5);
+          .animate-scaleIn {
+            animation: scaleIn 0.4s ease-out forwards;
           }
         `}
       </style>
 
-      <div>
-        {/* Add/Edit Leave Form */}
-        {(hasAddPermission || hasChangePermission) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-            <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
+      {/* Page Header */}
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="flex items-center space-x-4">
+          <div className="bg-pmColor/20 p-3 rounded-xl">
+            <FaList className="text-pmColor text-2xl" />
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold text-white">
+              {languageCode === 'bn' ? 'ছুটির ধরন ব্যবস্থাপনা' : 'Leave Type Management'}
+            </h1>
+            <p className="text-white/70 mt-1">
+              {languageCode === 'bn' ? 'ছুটির ধরন তৈরি, সম্পাদনা এবং পরিচালনা করুন' : 'Create, edit and manage leave types'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Add/Edit Leave Form */}
+      {(hasAddPermission || hasChangePermission) && (
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="bg-pmColor/20 rounded-xl">
               {editLeaveId ? (
-                <FaEdit className="text-4xl text-white" />
+                <FaEdit className="text-pmColor text-3xl" />
               ) : (
-                <IoAddCircle className="text-4xl text-white" />
+                <IoAddCircle className="text-pmColor text-3xl" />
               )}
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
-                {editLeaveId ? "ছুটির ধরন সম্পাদনা করুন" : "নতুন ছুটির ধরন যোগ করুন"}
-              </h3>
             </div>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h3 className="text-2xl font-bold text-white">
+              {editLeaveId 
+                ? (languageCode === 'bn' ? "ছুটির ধরন সম্পাদনা করুন" : "Edit Leave Type")
+                : (languageCode === 'bn' ? "নতুন ছুটির ধরন যোগ করুন" : "Add New Leave Type")
+              }
+            </h3>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative">
               <input
                 type="text"
                 id="leaveName"
                 value={leaveName}
                 onChange={(e) => setLeaveName(e.target.value)}
-                className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
-                placeholder="ছুটির ধরন"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                placeholder={languageCode === 'bn' ? "ছুটির ধরন" : "Leave Type"}
                 disabled={isCreating || isUpdating}
-                aria-label="ছুটির ধরন"
-                title="ছুটির ধরন লিখুন (উদাহরণ: অসুস্থতার ছুটি) / Enter leave type (e.g., Sick Leave)"
-                aria-describedby={createError || updateError ? "leave-error" : undefined}
+                aria-label={languageCode === 'bn' ? "ছুটির ধরন" : "Leave Type"}
               />
-              <button
-                type="submit"
-                disabled={isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission)}
-                title={editLeaveId ? "ছুটির ধরন আপডেট করুন / Update leave type" : "নতুন ছুটির ধরন তৈরি করুন / Create a new leave type"}
-                className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission) ? "cursor-not-allowed opacity-50" : "hover:text-white hover:shadow-md"}`}
-              >
-                {(isCreating || isUpdating) ? (
-                  <span className="flex items-center space-x-3">
-                    <FaSpinner className="animate-spin text-lg" />
-                    <span>{editLeaveId ? "আপডেট করা হচ্ছে..." : "তৈরি করা হচ্ছে..."}</span>
+            </div>
+            
+            <button
+              type="submit"
+              disabled={isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission)}
+              className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                (isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission)) 
+                  ? "opacity-50 cursor-not-allowed" 
+                  : "hover:shadow-lg hover:scale-105"
+              }`}
+            >
+              {(isCreating || isUpdating) ? (
+                <>
+                  <FaSpinner className="animate-spin" />
+                  <span>
+                    {editLeaveId 
+                      ? (languageCode === 'bn' ? "আপডেট করা হচ্ছে..." : "Updating...")
+                      : (languageCode === 'bn' ? "তৈরি করা হচ্ছে..." : "Creating...")
+                    }
                   </span>
-                ) : (
-                  <span className="flex items-center space-x-2">
-                    <IoAdd className="w-5 h-5" />
-                    <span>{editLeaveId ? "ছুটি আপডেট করুন" : "ছুটি তৈরি করুন"}</span>
+                </>
+              ) : (
+                <>
+                  <FaPlus />
+                  <span>
+                    {editLeaveId 
+                      ? (languageCode === 'bn' ? "ছুটি আপডেট করুন" : "Update Leave")
+                      : (languageCode === 'bn' ? "ছুটি তৈরি করুন" : "Create Leave")
+                    }
                   </span>
-                )}
-              </button>
-              {editLeaveId && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setEditLeaveId(null);
-                    setLeaveName("");
-                  }}
-                  title="সম্পাদনা বাতিল করুন / Cancel editing"
-                  className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
-                >
-                  বাতিল
-                </button>
+                </>
               )}
-            </form>
-            {(createError || updateError) && (
-              <div
-                id="leave-error"
-                className="mt-4 text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn"
-                style={{ animationDelay: "0.4s" }}
+            </button>
+            
+            {editLeaveId && (
+              <button
+                type="button"
+                onClick={() => {
+                  setEditLeaveId(null);
+                  setLeaveName("");
+                }}
+                className="bg-red-500 hover:bg-secColor/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
-                ত্রুটি: {(createError || updateError).status || "অজানা"} - {JSON.stringify((createError || updateError).data || {})}
-              </div>
+                {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
+              </button>
             )}
-          </div>
-        )}
+          </form>
+          
+          {(createError || updateError) && (
+            <div className="mt-6 bg-red-500/10 border border-red-500/20 rounded-xl p-4 animate-fadeIn">
+              <div className="text-red-400">
+                {languageCode === 'bn' ? 'ত্রুটি:' : 'Error:'} {(createError || updateError).status || "unknown"} - {JSON.stringify((createError || updateError).data || {})}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
-        {/* Leave Types Table */}
-        <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ছুটির ধরনের তালিকা</h3>
+      {/* Leave Types Table */}
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-white/20">
+          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+            <FaList className="text-pmColor" />
+            <span>{languageCode === 'bn' ? 'ছুটির ধরনের তালিকা' : 'Leave Types List'}</span>
+          </h3>
+        </div>
+        
+        <div className="overflow-x-auto max-h-96">
           {isLeaveLoading ? (
-            <p className="p-4 text-white/70">ছুটির ধরন লোড হচ্ছে...</p>
+            <div className="p-8 text-center">
+              <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
+              <p className="text-white/70">
+                {languageCode === 'bn' ? 'ছুটির ধরন লোড হচ্ছে...' : 'Loading leave types...'}
+              </p>
+            </div>
           ) : leaveError ? (
-            <p className="p-4 text-red-400">
-              ছুটির ধরন লোড করতে ত্রুটি: {leaveError.status || "অজানা"} - {JSON.stringify(leaveError.data || {})}
-            </p>
+            <div className="p-8 text-center">
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                <p className="text-red-400">
+                  {languageCode === 'bn' ? 'ছুটির ধরন লোড করতে ত্রুটি:' : 'Error loading leave types:'} {leaveError.status || "unknown"}
+                </p>
+              </div>
+            </div>
           ) : leaveTypes?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ছুটির ধরন উপলব্ধ নেই।</p>
+            <div className="p-8 text-center">
+              <p className="text-white/70">
+                {languageCode === 'bn' ? 'কোনো ছুটির ধরন উপলব্ধ নেই।' : 'No leave types available.'}
+              </p>
+            </div>
           ) : (
-            <div className="overflow-x-auto" key={refreshKey}>
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
-                      ছুটির ধরন
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
-                      তৈরির সময়
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
-                      আপডেটের সময়
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
-                      ক্রিয়াকলাপ
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/20">
-                  {leaveTypes?.map((leave, index) => (
-                    <tr
-                      key={leave.id}
-                      className="bg-white/5 animate-fadeIn"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
-                        {leave.name}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
-                        {new Date(leave.created_at).toLocaleString("bn-BD")}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
-                        {new Date(leave.updated_at).toLocaleString("bn-BD")}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <table className="min-w-full" key={refreshKey}>
+              <thead className="bg-white/5">
+                <tr>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white/80">
+                    {languageCode === 'bn' ? 'ছুটির ধরন' : 'Leave Type'}
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white/80">
+                    <div className="flex items-center space-x-1">
+                      <MdAccessTime className="text-pmColor" />
+                      <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
+                    </div>
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white/80">
+                    <div className="flex items-center space-x-1">
+                      <MdUpdate className="text-pmColor" />
+                      <span>{languageCode === 'bn' ? 'আপডেটের সময়' : 'Updated'}</span>
+                    </div>
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white/80">
+                    {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/10">
+                {leaveTypes?.map((leave, index) => (
+                  <tr
+                    key={leave.id}
+                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <td className="px-6 py-4">
+                      <div className="text-white font-medium">{leave.name}</div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="text-white/70 text-sm">
+                        {new Date(leave.created_at).toLocaleString(languageCode === 'bn' ? "bn-BD" : "en-US")}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="text-white/70 text-sm">
+                        {new Date(leave.updated_at).toLocaleString(languageCode === 'bn' ? "bn-BD" : "en-US")}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center space-x-3">
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(leave)}
-                            title="ছুটির ধরন সম্পাদনা করুন / Edit leave type"
-                            className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            title={languageCode === 'bn' ? 'ছুটির ধরন সম্পাদনা করুন' : 'Edit leave type'}
                           >
-                            <FaEdit className="w-5 h-5" />
+                            <FaEdit className="w-4 h-4" />
                           </button>
                         )}
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(leave.id)}
-                            title="ছুটির ধরন মুছুন / Delete leave type"
-                            className="text-white hover:text-red-500 transition-colors duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            title={languageCode === 'bn' ? 'ছুটির ধরন মুছুন' : 'Delete leave type'}
                           >
-                            <FaTrash className="w-5 h-5" />
+                            <FaTrash className="w-4 h-4" />
                           </button>
                         )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-          {(isDeleting || deleteError) && (
-            <div
-              className="mt-4 text-red-400 bg-red-400/10 p-3 rounded-lg animate-fadeIn"
-            >
-              {isDeleting
-                ? "ছুটির ধরন মুছে ফেলা হচ্ছে..."
-                : `ছুটির ধরন মুছে ফেলতে ত্রুটি: ${deleteError?.status || "অজানা"} - ${JSON.stringify(deleteError?.data || {})}`}
-            </div>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
         </div>
-
-        {/* Confirmation Modal */}
-        {isModalOpen && (
-          <div
-            className="fixed bg-black/50 z-50 rounded-3xl"
-            style={{
-              top: `${adjustedY}px`,
-              left: `${adjustedX}px`,
-              transform: "translate(-10px, -10px)", // Slight offset to avoid cursor overlap
-            }}
-            ref={modalRef}
-             onMouseDown={handleMouseDown}
-                onDoubleClick={handleDoubleClick}
-          >
-            <div  className=" backdrop-blur-3xl rounded-2xl p-6 w-full max-w-md">
-              <h3
-                className="text-lg font-semibold text-white mb-4 modal-header"
-              >
-                {modalAction === "create" && "নতুন ছুটির ধরন নিশ্চিত করুন"}
-                {modalAction === "update" && "ছুটির ধরন আপডেট নিশ্চিত করুন"}
-                {modalAction === "delete" && "ছুটির ধরন মুছে ফেলা নিশ্চিত করুন"}
-                {modalAction === "toggle" && "ছুটির ধরনের স্থিতি পরিবর্তন নিশ্চিত করুন"}
-              </h3>
-              <p className="text-white mb-6">
-                {modalAction === "create" && "আপনি কি নিশ্চিত যে নতুন ছুটির ধরন তৈরি করতে চান?"}
-                {modalAction === "update" && "আপনি কি নিশ্চিত যে ছুটির ধরন আপডেট করতে চান?"}
-                {modalAction === "delete" && "আপনি কি নিশ্চিত যে এই ছুটির ধরনটি মুছে ফেলতে চান?"}
-                {modalAction === "toggle" && `আপনি কি নিশ্চিত যে ছুটির ধরনটি ${modalData?.is_active ? "সক্রিয়" : "নিষ্ক্রিয়"} করতে চান?`}
-              </p>
-              <div className="flex justify-end space-x-4">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-pmColor rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
-                  title="বাতিল করুন / Cancel"
-                >
-                  বাতিল
-                </button>
-                <button
-                  onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
-                  title="নিশ্চিত করুন / Confirm"
-                >
-                  নিশ্চিত করুন
-                </button>
+        
+        {(isDeleting || deleteError) && (
+          <div className="p-4 border-t border-white/20">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+              <div className="text-red-400">
+                {isDeleting
+                  ? (languageCode === 'bn' ? "ছুটির ধরন মুছে ফেলা হচ্ছে..." : "Deleting leave type...")
+                  : `${languageCode === 'bn' ? 'ছুটির ধরন মুছে ফেলতে ত্রুটি:' : 'Error deleting leave type:'} ${deleteError?.status || "unknown"}`
+                }
               </div>
             </div>
           </div>
         )}
       </div>
+
+      {/* Reusable Draggable Modal */}
+      <DraggableModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={confirmAction}
+        title={getModalContent().title}
+        message={getModalContent().message}
+        confirmText={languageCode === 'bn' ? 'নিশ্চিত করুন' : 'Confirm'}
+        cancelText={languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
+        confirmButtonClass={modalAction === 'delete' ? 'bg-red-500 hover:bg-red-600' : 'bg-pmColor hover:bg-pmColor/80'}
+      />
     </div>
   );
 };

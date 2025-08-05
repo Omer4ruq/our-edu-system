@@ -51,7 +51,7 @@ const CurrentFeeHistoryTable = ({
     
     return true;
   });
-
+console.log("filteredFeeRecords", filteredFeeRecords)
   const handleDateFilterChange = (e) => {
     const { name, value } = e.target;
     setDateFilter(prev => ({ ...prev, [name]: value }));

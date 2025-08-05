@@ -67,11 +67,14 @@ const AddWaivers = () => {
 
   // Class options
   const classOptions =
-    classes?.map((cls) => ({
-      value: cls.id,
-      label: `${cls.class_name}-${cls.section_name}-${cls.shift_name}`,
+    classes?.map((config) => ({
+      value: config.id,
+      label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
     })) || [];
-
+  //   const classConfigOptions = classConfigs?.map(config => ({
+  //   value: config.id,
+  //   label: `${config.class_name}${config.section_name ? ` - ${config.section_name}` : ''}${config.shift_name ? ` (${config.shift_name})` : ''}`,
+  // })) || [];
   // Fund options
   const fundOptions =
     funds?.map((fund) => ({
@@ -171,7 +174,7 @@ const AddWaivers = () => {
             academic_year: null,
             description: "",
             fee_types: [],
-            fund_id: null,
+            // fund_id: null,
           },
         }));
         return [...prev, studentId];
@@ -195,73 +198,73 @@ const AddWaivers = () => {
   };
 
   // Create waivers
-const handleSubmitWaivers = async (e) => {
-  e.preventDefault();
-  if (!hasAddPermission) {
-    toast.error('ওয়েভার যোগ করার অনুমতি নেই।');
-    return;
-  }
-  if (selectedStudents.length === 0) {
-    toast.error("অন্তত একজন ছাত্র নির্বাচন করুন।");
-    return;
-  }
-
-  const errors = [];
-  const payloads = selectedStudents.map((studentId) => {
-    const waiver = studentWaivers[studentId];
-    
-    // Updated validation - now includes description as required
-    if (
-      !waiver.waiver_amount ||
-      !waiver.academic_year ||
-      !waiver.fee_types.length ||
-      !waiver.fund_id ||
-      !waiver.description?.trim() // Added description validation
-    ) {
-      errors.push(
-        `ছাত্র আইডি ${studentId} এর জন্য প্রয়োজনীয় ক্ষেত্রগুলি পূরণ করুন (ফি প্রকার, ওয়েভার পরিমাণ, শিক্ষাবর্ষ, ফান্ড, বর্ণনা)।`
-      );
-      return null;
+  const handleSubmitWaivers = async (e) => {
+    e.preventDefault();
+    if (!hasAddPermission) {
+      toast.error('ওয়েভার যোগ করার অনুমতি নেই।');
+      return;
     }
-    
-    if (parseFloat(waiver.waiver_amount) > 100) {
-      errors.push(
-        `ছাত্র আইডি ${studentId} এর জন্য ওয়েভার পরিমাণ ১০০% এর বেশি হতে পারবে না।`
-      );
-      return null;
+    if (selectedStudents.length === 0) {
+      toast.error("অন্তত একজন ছাত্র নির্বাচন করুন।");
+      return;
     }
-    
-    return {
-      student_id: waiver.student_id,
-      waiver_amount: parseFloat(waiver.waiver_amount),
-      academic_year: waiver.academic_year,
-      description: waiver.description.trim(), // Remove || null since it's now required
-      fee_types: waiver.fee_types,
-      fund_id: waiver.fund_id,
-      created_by: parseInt(localStorage.getItem("userId")) || 1,
-      updated_by: parseInt(localStorage.getItem("userId")) || 1,
-    };
-  });
 
-  if (errors.length > 0) {
-    toast.error(errors.join("\n"));
-    return;
-  }
+    const errors = [];
+    const payloads = selectedStudents.map((studentId) => {
+      const waiver = studentWaivers[studentId];
 
-  try {
-    const validPayloads = payloads.filter((p) => p !== null);
-    await Promise.all(
-      validPayloads.map((payload) => createWaiver(payload).unwrap())
-    );
-    toast.success("ওয়েভারগুলি সফলভাবে তৈরি হয়েছে!");
-    setSelectedStudents([]);
-    setStudentWaivers({});
-    setSelectedClassId(null);
-    setSearchQuery("");
-  } catch (err) {
-    toast.error(`ওয়েভার তৈরি ব্যর্থ: ${err.status || "অজানা ত্রুটি"}`);
-  }
-};
+      // Updated validation - now includes description as required
+      if (
+        !waiver.waiver_amount ||
+        !waiver.academic_year ||
+        !waiver.fee_types.length ||
+        // !waiver.fund_id ||
+        !waiver.description?.trim() // Added description validation
+      ) {
+        errors.push(
+          `ছাত্র আইডি ${studentId} এর জন্য প্রয়োজনীয় ক্ষেত্রগুলি পূরণ করুন (ফি প্রকার, ওয়েভার পরিমাণ, শিক্ষাবর্ষ, ফান্ড, বর্ণনা)।`
+        );
+        return null;
+      }
+
+      if (parseFloat(waiver.waiver_amount) > 100) {
+        errors.push(
+          `ছাত্র আইডি ${studentId} এর জন্য ওয়েভার পরিমাণ ১০০% এর বেশি হতে পারবে না।`
+        );
+        return null;
+      }
+
+      return {
+        student_id: waiver.student_id,
+        waiver_amount: parseFloat(waiver.waiver_amount),
+        academic_year: waiver.academic_year,
+        description: waiver.description.trim(), // Remove || null since it's now required
+        fee_types: waiver.fee_types,
+        // fund_id: waiver.fund_id,
+        created_by: parseInt(localStorage.getItem("userId")) || 1,
+        updated_by: parseInt(localStorage.getItem("userId")) || 1,
+      };
+    });
+
+    if (errors.length > 0) {
+      toast.error(errors.join("\n"));
+      return;
+    }
+
+    try {
+      const validPayloads = payloads.filter((p) => p !== null);
+      await Promise.all(
+        validPayloads.map((payload) => createWaiver(payload).unwrap())
+      );
+      toast.success("ওয়েভারগুলি সফলভাবে তৈরি হয়েছে!");
+      setSelectedStudents([]);
+      setStudentWaivers({});
+      setSelectedClassId(null);
+      setSearchQuery("");
+    } catch (err) {
+      toast.error(`ওয়েভার তৈরি ব্যর্থ: ${err.status || "অজানা ত্রুটি"}`);
+    }
+  };
 
   // Edit button handler
   const handleEditClick = (waiver) => {
@@ -292,8 +295,8 @@ const handleSubmitWaivers = async (e) => {
       !editWaiverData.student_id ||
       !editWaiverData.waiver_amount ||
       !editWaiverData.academic_year ||
-      !editWaiverData.fee_types.length ||
-      !editWaiverData.fund_id
+      !editWaiverData.fee_types.length
+      // !editWaiverData.fund_id
     ) {
       toast.error(
         "ছাত্র, ফি প্রকার, ওয়েভার পরিমাণ, শিক্ষাবর্ষ এবং ফান্ড পূরণ করুন।"
@@ -313,7 +316,7 @@ const handleSubmitWaivers = async (e) => {
         academic_year: editWaiverData.academic_year,
         description: editWaiverData.description.trim() || null,
         fee_types: editWaiverData.fee_types,
-        fund_id: editWaiverData.fund_id,
+        // fund_id: editWaiverData.fund_id,
         updated_by: parseInt(localStorage.getItem("userId")) || 1,
       };
       await updateWaiver(payload).unwrap();
@@ -547,19 +550,19 @@ const handleSubmitWaivers = async (e) => {
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn py-2 px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
             <h3 className="text-lg font-semibold text-white">ওয়েভার তালিকা</h3>
-            
+
             {/* Filter Section (View Only Mode) */}
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
               <input
                 type="text"
                 value={waiverListFilters.studentSearch}
-                onChange={(e) => setWaiverListFilters({...waiverListFilters, studentSearch: e.target.value})}
+                onChange={(e) => setWaiverListFilters({ ...waiverListFilters, studentSearch: e.target.value })}
                 className="w-full sm:w-auto bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="ছাত্রের নাম বা আইডি অনুসন্ধান"
               />
               <select
                 value={waiverListFilters.feeTypeId || ""}
-                onChange={(e) => setWaiverListFilters({...waiverListFilters, feeTypeId: e.target.value ? parseInt(e.target.value) : null})}
+                onChange={(e) => setWaiverListFilters({ ...waiverListFilters, feeTypeId: e.target.value ? parseInt(e.target.value) : null })}
                 className="bg-transparent min-w-[150px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
               >
                 <option value="">ফি প্রকার নির্বাচন</option>
@@ -572,7 +575,7 @@ const handleSubmitWaivers = async (e) => {
                 className="report-button w-full sm:w-auto bg-white text-white py-2 px-4 rounded-lg hover:bg-[#5a2e0a] transition-colors"
                 title="Download Waiver Report"
               >
-                <FaFilePdf className="inline-block mr-2"/> রিপোর্ট
+                <FaFilePdf className="inline-block mr-2" /> রিপোর্ট
               </button>
             </div>
           </div>
@@ -744,9 +747,8 @@ const handleSubmitWaivers = async (e) => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
-                  isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
-                }`}
+                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
+                  }`}
                 aria-label="নিশ্চিত করুন"
               >
                 {isDeleting ? (
@@ -834,9 +836,9 @@ const handleSubmitWaivers = async (e) => {
                         <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                           শিক্ষাবর্ষ
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                           ফান্ড
-                        </th>
+                        </th> */}
                         <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                           বর্ণনা
                         </th>
@@ -863,11 +865,10 @@ const handleSubmitWaivers = async (e) => {
                                   className="hidden"
                                 />
                                 <span
-                                  className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn ${
-                                    selectedStudents.includes(student.id)
+                                  className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn ${selectedStudents.includes(student.id)
                                       ? "bg-pmColor border-pmColor"
                                       : "bg-white/10 border-[#9d9087] hover:border-white"
-                                  }`}
+                                    }`}
                                 >
                                   {selectedStudents.includes(student.id) && (
                                     <svg
@@ -916,7 +917,7 @@ const handleSubmitWaivers = async (e) => {
                                 styles={selectStyles}
                                 menuPortalTarget={document.body}
                                 menuPosition="fixed"
-                                className={`w-full max-w-xs ${disabledClass}`}
+                                className={`w-[250px] ${disabledClass}`}
                                 isDisabled={isDisabled}
                               />
                             </td>
@@ -969,7 +970,7 @@ const handleSubmitWaivers = async (e) => {
                             </td>
 
                             {/* Fund Select */}
-                            <td className="px-6 py-4 whitespace-nowrap">
+                            {/* <td className="px-6 py-4 whitespace-nowrap">
                               <Select
                                 options={fundOptions}
                                 value={
@@ -991,25 +992,25 @@ const handleSubmitWaivers = async (e) => {
                                 menuPortalTarget={document.body}
                                 menuPosition="fixed"
                               />
-                            </td>
+                            </td> */}
 
                             {/* Description Input */}
                             <td className="px-6 py-4 whitespace-nowrap">
-                         <input
-  type="text"
-  value={waiver.description || ""}
-  onChange={(e) =>
-    handleWaiverChange(
-      student.id,
-      "description",
-      e.target.value
-    )
-  }
-  className={`w-[200px] bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 ${disabledClass} ${!waiver.description?.trim() ? 'border-red-400' : ''}`}
-  placeholder="বর্ণনা (আবশ্যক)*"
-  disabled={isDisabled}
-  required
-/>
+                              <input
+                                type="text"
+                                value={waiver.description || ""}
+                                onChange={(e) =>
+                                  handleWaiverChange(
+                                    student.id,
+                                    "description",
+                                    e.target.value
+                                  )
+                                }
+                                className={`w-[200px] bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 ${disabledClass} ${!waiver.description?.trim() ? 'border-red-400' : ''}`}
+                                placeholder="বর্ণনা (আবশ্যক)*"
+                                disabled={isDisabled}
+                                required
+                              />
                             </td>
                           </tr>
                         );
@@ -1046,9 +1047,9 @@ const handleSubmitWaivers = async (e) => {
                       <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         শিক্ষাবর্ষ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         ফান্ড
-                      </th>
+                      </th> */}
                       <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                         বর্ণনা
                       </th>
@@ -1087,10 +1088,10 @@ const handleSubmitWaivers = async (e) => {
                               (opt) => opt.value === waiver.academic_year
                             )?.label || "-"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                             {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                               "-"}
-                          </td>
+                          </td> */}
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                             {waiver.description || "-"}
                           </td>
@@ -1109,9 +1110,8 @@ const handleSubmitWaivers = async (e) => {
               onClick={handleSubmitWaivers}
               disabled={isCreating}
               title="ওয়েভার তৈরি করুন"
-              className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                isCreating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
-              }`}
+              className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isCreating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                }`}
               aria-label="ওয়েভার তৈরি করুন"
             >
               {isCreating ? (
@@ -1153,11 +1153,10 @@ const handleSubmitWaivers = async (e) => {
               value={
                 students?.find((s) => s.id === editWaiverData.student_id)
                   ? {
-                      value: editWaiverData.student_id,
-                      label: `${students.find((s) => s.id === editWaiverData.student_id).name} - ${
-                        students.find((s) => s.id === editWaiverData.student_id).user_id
+                    value: editWaiverData.student_id,
+                    label: `${students.find((s) => s.id === editWaiverData.student_id).name} - ${students.find((s) => s.id === editWaiverData.student_id).user_id
                       }`,
-                    }
+                  }
                   : null
               }
               onChange={(selected) =>
@@ -1251,29 +1250,28 @@ const handleSubmitWaivers = async (e) => {
               isDisabled={isUpdating}
               aria-label="ফান্ড নির্বাচন"
             />
-       <input
-  type="text"
-  value={editWaiverData.description}
-  onChange={(e) =>
-    setEditWaiverData({
-      ...editWaiverData,
-      description: e.target.value,
-    })
-  }
-  className={`w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn ${!editWaiverData.description?.trim() ? 'border-red-400' : ''}`}
-  placeholder="বর্ণনা (আবশ্যক)*"
-  disabled={isUpdating}
-  aria-label="বর্ণনা"
-  required
-/>
+            <input
+              type="text"
+              value={editWaiverData.description}
+              onChange={(e) =>
+                setEditWaiverData({
+                  ...editWaiverData,
+                  description: e.target.value,
+                })
+              }
+              className={`w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn ${!editWaiverData.description?.trim() ? 'border-red-400' : ''}`}
+              placeholder="বর্ণনা (আবশ্যক)*"
+              disabled={isUpdating}
+              aria-label="বর্ণনা"
+              required
+            />
             <div className="flex space-x-4">
               <button
                 type="submit"
                 disabled={isUpdating}
                 title="ওয়েভার আপডেট করুন"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
-                }`}
+                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                  }`}
                 aria-label="ওয়েভার আপডেট করুন"
               >
                 {isUpdating ? (
@@ -1332,14 +1330,14 @@ const handleSubmitWaivers = async (e) => {
             <input
               type="text"
               value={waiverListFilters.studentSearch}
-              onChange={(e) => setWaiverListFilters({...waiverListFilters, studentSearch: e.target.value})}
+              onChange={(e) => setWaiverListFilters({ ...waiverListFilters, studentSearch: e.target.value })}
               className="w-[200px] bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="ছাত্রের নাম বা আইডি"
             />
             {/* Fee Type Filter */}
             <select
               value={waiverListFilters.feeTypeId || ""}
-              onChange={(e) => setWaiverListFilters({...waiverListFilters, feeTypeId: e.target.value ? parseInt(e.target.value) : null})}
+              onChange={(e) => setWaiverListFilters({ ...waiverListFilters, feeTypeId: e.target.value ? parseInt(e.target.value) : null })}
               className="bg-transparent min-w-[180px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg sm:w-auto"
             >
               <option value="">ফি প্রকার নির্বাচন</option>
@@ -1352,7 +1350,7 @@ const handleSubmitWaivers = async (e) => {
               className="report-button w-full sm:w-auto"
               title="Download Waiver Report"
             >
-              <FaFilePdf className="inline-block mr-2"/> রিপোর্ট
+              <FaFilePdf className="inline-block mr-2" /> রিপোর্ট
             </button>
           </div>
         </div>
@@ -1378,9 +1376,9 @@ const handleSubmitWaivers = async (e) => {
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                       ফি প্রকার
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                       ফান্ড
-                    </th>
+                    </th> */}
                     <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                       বর্ণনা
                     </th>
@@ -1417,10 +1415,10 @@ const handleSubmitWaivers = async (e) => {
                           )
                           .join(", ")}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                         {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                           `ফান্ড ${waiver.fund_id}`}
-                      </td>
+                      </td> */}
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                         {waiver.description || "-"}
                       </td>

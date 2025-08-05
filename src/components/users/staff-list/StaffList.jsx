@@ -12,6 +12,7 @@ import { useGetGroupPermissionsQuery } from '../../../redux/features/api/permiss
 
 // --- PDF Imports and Setup ---
 import { Document, Page, Text, View, StyleSheet, Font, pdf } from '@react-pdf/renderer';
+import { primaryColor } from '../../../utilitis/getTheme';
 
 // Register Noto Sans Bengali font
 try {
@@ -666,7 +667,7 @@ console.log("staffData", staffData)
             text-wrap:nowrap;
             position: sticky;
             top: 0;
-            background: #DB9E30;
+            background: ${primaryColor};
             backdrop-filter: blur(10px);
             z-index: 2;
             color: rgba(255, 255, 255, 0.9);
@@ -688,35 +689,36 @@ console.log("staffData", staffData)
           .fixed-col.serial { 
            font-size: 12px !important;
             left: 0px; 
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255, 0.9);
             
           }
           .fixed-col.name { 
-      
+      color: ${primaryColor};
             left: 70px;
             background: rgba(255, 255, 255);
           }
           .fixed-col.user_id { 
+           color: ${primaryColor};
             z-index:10px;
-            left: 220px;
+            left: 300px;
             background: rgba(255, 255, 255);
           }
 
           /* Ensure fixed header cells match the background */
           .sticky-header .fixed-col.serial {
             z-index: 10;
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255);
           }
           .sticky-header .fixed-col.name {
             z-index: 10;
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255);
           }
           .sticky-header .fixed-col.user_id {
             z-index: 10;
-            background: #DB9E30;
+            background: ${primaryColor};
             color: rgba(255, 255, 255);
           }
           
@@ -760,6 +762,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
             border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
+            color:white;
             text-transform: uppercase;
           }
           
@@ -770,8 +773,8 @@ border: 1px solid rgba(0, 0, 0, 0.05);
           }
           
           .status-inactive {
-            background: #DB9E30;
-            color: #000;
+            background: ${primaryColor};
+            // color: #000;
             border: 1px solid rgba(239, 68, 68, 0.3);
           }
           
@@ -836,7 +839,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="name"
               value={filters.name}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="নাম"
             />
             <input
@@ -844,7 +847,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="user_id"
               value={filters.user_id}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ইউজার আইডি"
             />
             <input
@@ -852,7 +855,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="phone_number"
               value={filters.phone_number}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ফোন নম্বর"
             />
             <input
@@ -860,7 +863,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="email"
               value={filters.email}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ইমেইল"
             />
             <input
@@ -868,7 +871,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="designation"
               value={filters.designation}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-black/20 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="পদবী"
             />
           </div>
@@ -1059,7 +1062,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                         {staffMember.department || 'N/A'}
                       </td>
                       <td className="table-cell" style={{ width: '100px' }}>
-                        <span className={`status-badge ${staffMember.status === 'active' ? 'status-active' : 'status-inactive'}`}>
+                        <span className={`status-badge text-white ${staffMember.status === 'active' ? 'status-active' : 'status-inactive'}`}>
                           {staffMember.status === 'active' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}
                         </span>
                       </td>
