@@ -80,6 +80,8 @@ import { coachingPackagesApi } from "./features/api/coaching/coachingPackagesApi
 import { transportsApi } from "./features/api/transport/transportsApi";
 import { transportRoutesApi } from "./features/api/transport/transportRoutesApi";
 import { transportPackagesApi } from "./features/api/transport/transportPackagesApi";
+import { additionTypesApi } from "./features/api/payroll/additionTypesApi";
+import { deductionTypesApi } from "./features/api/payroll/deductionTypesApi";
 
 export const store = configureStore({
   reducer: {
@@ -168,6 +170,8 @@ export const store = configureStore({
     [transportsApi.reducerPath]: transportsApi.reducer,
     [transportRoutesApi.reducerPath]: transportRoutesApi.reducer,
     [transportPackagesApi.reducerPath]: transportPackagesApi.reducer,
+    [additionTypesApi.reducerPath]: additionTypesApi.reducer,
+    [deductionTypesApi.reducerPath]: deductionTypesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -250,6 +254,8 @@ export const store = configureStore({
       .concat(transportPackagesApi.middleware)
       .concat(transportsApi.middleware)
       .concat(transportRoutesApi.middleware)
+      .concat(additionTypesApi.middleware)
+      .concat(deductionTypesApi.middleware)
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors

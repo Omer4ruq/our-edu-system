@@ -92,6 +92,8 @@ import TransportPackages from "./components/services/transport/TransportPackages
 import TransportRoutes from "./components/services/transport/TransportRoutes";
 import TransportAllocation from "./components/services/transport/TransportAllocation";
 import ServiceFees from "./components/fees/serviceFees/ServiceFees";
+import AddAddition from "./components/payroll/addition/AddAddition";
+import AddDeduction from "./components/payroll/deduction/AddDeduction";
 
 
 function Root() {
@@ -578,6 +580,24 @@ function Root() {
               ],
 
             },
+             {
+              path: "payroll",
+              children: [
+                {
+                  path: "settings",
+                  children: [
+                    {
+                      path: "addition-types",
+                      element: <AddAddition></AddAddition>,
+                    },
+                      {
+                      path: "deduction-types",
+                      element: <AddDeduction></AddDeduction>,
+                    },
+                  ]
+                }
+              ]
+            }
 
           ],
         },

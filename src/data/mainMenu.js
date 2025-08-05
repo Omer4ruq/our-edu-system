@@ -1119,6 +1119,32 @@ const mainMenu = [
       link: "/services/transport-allocation",
     },
   ]
+},
+ {
+  id: "13",
+  title: `${languageCode == 'bn' ? "পেরোল" : "Payroll"}`,
+  icon: "HiOutlineCalculator",
+  link: "/payroll",
+  children: [
+
+    {
+      id: "13/01",
+      title: `${languageCode == 'bn' ? "সেটিংস" : "Setting"}`,
+      link: "/payroll/settings/addition-types",
+      children: [
+        {
+          id: "13/01/01",
+          title: `${languageCode == 'bn' ? "সংযোজন " : "Addition Types"}`,
+          link: "/payroll/settings/addition-types",
+        },
+             {
+          id: "13/01/02",
+          title: `${languageCode == 'bn' ? "কর্তন" : "DeductionTypes"}`,
+          link: "/payroll/settings/deduction-types",
+        },
+      ]
+    }
+  ]
 }
 
 
