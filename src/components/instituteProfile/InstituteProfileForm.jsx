@@ -380,7 +380,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
                     aria-label="প্রতিষ্ঠানের ধরন"
                     disabled={isFormDisabled}
                   >
-                    <option value="Combined">মিশ্র</option>
+                    <option value="Combined text-black">মিশ্র</option>
                     <option value="Boys">ছেলে </option>
                     <option value="Girls">মেয়ে</option>
                   </select>

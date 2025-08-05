@@ -12,6 +12,8 @@ const CashSummary = () => {
         {t("module.accounts.cash_summary_list")}
       </h3>
       <CashSummaryList />
+      
+
     </div>
   );
 };

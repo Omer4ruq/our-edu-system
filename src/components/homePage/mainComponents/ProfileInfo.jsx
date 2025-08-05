@@ -44,7 +44,7 @@ export default function ProfileInfo() {
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             transition: left 0.8s;
           }
           .glass-card:hover::before {
