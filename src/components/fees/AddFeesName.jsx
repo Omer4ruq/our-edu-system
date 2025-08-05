@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { format } from 'date-fns';
 import toast, { Toaster } from 'react-hot-toast';
-import { FaSpinner, FaCheckCircle, FaEdit, FaTrash } from 'react-icons/fa';
+import { FaSpinner, FaCheckCircle, FaEdit, FaTrash, FaFilter, FaTimes } from 'react-icons/fa';
 import { IoAddCircle } from 'react-icons/io5';
 import { useGetAcademicYearApiQuery } from '../../redux/features/api/academic-year/academicYearApi';
 import { useGetFeePackagesQuery } from '../../redux/features/api/fee-packages/feePackagesApi';
@@ -34,6 +34,15 @@ const AddFeesName = () => {
     status: 'ACTIVE',
   });
 
+  // Filter states for the fees table
+  const [filters, setFilters] = useState({
+    classId: 'all', // 'all' or specific class ID
+    subheadId: 'all', // 'all' or specific subhead ID
+    startDate: '',
+    endDate: '',
+    showFilters: false // Toggle filter panel visibility
+  });
+
   // Fetch group permissions
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
     skip: !group_id,
@@ -55,6 +64,74 @@ const AddFeesName = () => {
   const [createFeesName, { error: submitError }] = useCreateFeesNameMutation();
   const [updateFeesName, { error: updateError }] = useUpdateFeesNameMutation();
   const [deleteFeesName, { error: deleteError }] = useDeleteFeesNameMutation();
+
+  // Filter the fees based on selected filters
+  const filteredFeesName = useMemo(() => {
+    if (!feesName) return [];
+
+    return feesName.filter(fee => {
+      // Class filter
+      if (filters.classId !== 'all') {
+        const feePackage = feePackages?.find(pkg => pkg.id === fee.fee_amount_id);
+        if (feePackage?.student_class !== parseInt(filters.classId)) {
+          return false;
+        }
+      }
+
+      // Subhead filter
+      if (filters.subheadId !== 'all') {
+        if (fee.fees_sub_type !== parseInt(filters.subheadId)) {
+          return false;
+        }
+      }
+
+      // Date range filter
+      if (filters.startDate) {
+        const feeStartDate = new Date(fee.startdate);
+        const filterStartDate = new Date(filters.startDate);
+        if (feeStartDate < filterStartDate) {
+          return false;
+        }
+      }
+
+      if (filters.endDate) {
+        const feeEndDate = new Date(fee.enddate);
+        const filterEndDate = new Date(filters.endDate);
+        if (feeEndDate > filterEndDate) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }, [feesName, filters, feePackages]);
+
+  // Handle filter changes
+  const handleFilterChange = (filterType, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterType]: value
+    }));
+  };
+
+  // Clear all filters
+  const clearFilters = () => {
+    setFilters({
+      classId: 'all',
+      subheadId: 'all',
+      startDate: '',
+      endDate: '',
+      showFilters: false
+    });
+  };
+
+  // Handle class selection - this will filter the main table
+  const handleClassSelection = (classId) => {
+    setSelectedClass(classId);
+    setErrors((prev) => ({ ...prev, class: null }));
+    // Also update the filter to show fees for selected class
+    handleFilterChange('classId', classId || 'all');
+  };
 
   // Handle fee package checkbox
   const handleFeePackageChange = (packageId) => {
@@ -344,11 +421,100 @@ const AddFeesName = () => {
         <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
           <h2 className="text-2xl font-bold text-white tracking-tight mb-6">ফি কনফিগারেশন</h2>
-          {feesName?.length === 0 ? (
+          
+          {/* Filter Panel */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-white">ফিল্টার</h3>
+              <button
+                onClick={() => handleFilterChange('showFilters', !filters.showFilters)}
+                className="flex items-center px-3 py-2 bg-pmColor text-white rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
+              >
+                <FaFilter className="mr-2" />
+                {filters.showFilters ? 'লুকান' : 'দেখান'}
+              </button>
+            </div>
+
+            {filters.showFilters && (
+              <div className="bg-white/5 p-4 rounded-lg border border-white/20">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {/* Class Filter */}
+                  <div>
+                    <label className="block text-white font-medium mb-2">শ্রেণি</label>
+                    <select
+                      value={filters.classId}
+                      onChange={(e) => handleFilterChange('classId', e.target.value)}
+                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                    >
+                      <option value="all">সকল শ্রেণি</option>
+                      {classes?.map((cls) => (
+                        <option key={cls.id} value={cls.id}>
+                          {cls.student_class?.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Subhead Filter */}
+                  <div>
+                    <label className="block text-white font-medium mb-2">ফি সাবহেড</label>
+                    <select
+                      value={filters.subheadId}
+                      onChange={(e) => handleFilterChange('subheadId', e.target.value)}
+                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                    >
+                      <option value="all">সকল সাবহেড</option>
+                      {feeSubheads?.map((subhead) => (
+                        <option key={subhead.id} value={subhead.id}>
+                          {subhead.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Start Date Filter */}
+                  <div>
+                    <label className="block text-white font-medium mb-2">শুরুর তারিখ থেকে</label>
+                    <input
+                      type="date"
+                      value={filters.startDate}
+                      onChange={(e) => handleFilterChange('startDate', e.target.value)}
+                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                    />
+                  </div>
+
+                  {/* End Date Filter */}
+                  <div>
+                    <label className="block text-white font-medium mb-2">শেষের তারিখ পর্যন্ত</label>
+                    <input
+                      type="date"
+                      value={filters.endDate}
+                      onChange={(e) => handleFilterChange('endDate', e.target.value)}
+                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4 flex justify-end">
+                  <button
+                    onClick={clearFilters}
+                    className="flex items-center px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  >
+                    <FaTimes className="mr-2" />
+                    ফিল্টার পরিষ্কার করুন
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {filteredFeesName?.length === 0 ? (
             <p className="p-4 text-white/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
           ) : (
             <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-              <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">সকল ফি কনফিগারেশন</h3>
+              <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+                সকল ফি কনফিগারেশন ({filteredFeesName?.length} টি)
+              </h3>
               <table className="w-full border-collapse">
                 <thead className="bg-white/10">
                   <tr>
@@ -363,7 +529,7 @@ const AddFeesName = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/20">
-                  {feesName?.map((fee, index) => {
+                  {filteredFeesName?.map((fee, index) => {
                     const className = classes?.find((c) => c.id === feePackages?.find((p) => p.id === fee.fee_amount_id)?.student_class)?.student_class.name || 'অজানা';
                     const subheadName = feeSubheads?.find((s) => s.id === fee.fees_sub_type)?.name || 'অজানা';
                     const academicYearName = academicYears?.find((y) => y.id === fee.academic_year)?.name || 'অজানা';
@@ -637,14 +803,18 @@ const AddFeesName = () => {
             {/* Class Tabs */}
             {hasAddPermission && (
               <div className="mb-6 flex flex-wrap gap-2">
+                <button
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === null ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white hover:bg-gray-500/30'}`}
+                  onClick={() => handleClassSelection(null)}
+                  aria-label="সকল শ্রেণি নির্বাচন করুন"
+                >
+                  সকল
+                </button>
                 {classes?.map((cls) => (
                   <button
                     key={cls.id}
                     className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === cls.id ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white hover:bg-gray-500/30'}`}
-                    onClick={() => {
-                      setSelectedClass(cls.id);
-                      setErrors((prev) => ({ ...prev, class: null }));
-                    }}
+                    onClick={() => handleClassSelection(cls.id)}
                     aria-label={`শ্রেণি নির্বাচন করুন ${cls.student_class.name}`}
                   >
                     {cls.student_class?.name}
@@ -868,81 +1038,6 @@ const AddFeesName = () => {
               </div>
             )}
 
-            {/* Fees Table from useGetFeesNamesQuery */}
-            <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-              <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">সকল ফি কনফিগারেশন</h3>
-              {feesName?.length === 0 ? (
-                <p className="p-4 text-white/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
-              ) : (
-                <table className="w-full border-collapse">
-                  <thead className="bg-white/10">
-                    <tr>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি টাইটেল</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শ্রেণি</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">বোর্ডিং</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">স্ট্যাটাস</th>
-                      {(hasChangePermission || hasDeletePermission) && (
-                        <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ক্রিয়া</th>
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/20">
-                    {feesName?.map((fee, index) => {
-                      const className = classes?.find((c) => c.id === feePackages?.find((p) => p.id === fee.fee_amount_id)?.student_class)?.student_class.name || 'অজানা';
-                      const subheadName = feeSubheads?.find((s) => s.id === fee.fees_sub_type)?.name || 'অজানা';
-                      const academicYearName = academicYears?.find((y) => y.id === fee.academic_year)?.name || 'অজানা';
-                      return (
-                        <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                          <td className="border border-white/20 p-3 text-sm text-white">{fee.fees_title}</td>
-                          <td className="border border-white/20 p-3 text-sm text-white">{className}</td>
-                          <td className="border border-white/20 p-3 text-sm text-white">{academicYearName}</td>
-                          <td className="border border-white/20 p-3 text-sm text-white">{subheadName}</td>
-                          <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
-                          <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
-                          <td className="border border-white/20 p-3 text-sm text-white">
-                            <span
-                              className={`px-2 py-1 rounded-full text-xs font-medium ${fee.is_boarding ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white'}`}
-                            >
-                              {fee.is_boarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}
-                            </span>
-                          </td>
-                          <td className="border border-white/20 p-3 text-sm text-white">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
-                          {(hasChangePermission || hasDeletePermission) && (
-                            <td className="border border-white/20 p-3 text-sm text-white">
-                              <div className="flex space-x-2">
-                                {hasChangePermission && (
-                                  <button
-                                    onClick={() => handleOpenUpdateModal(fee)}
-                                    className="p-2 bg-blue-500/20 text-blue-500 rounded-lg hover:bg-blue-500/30 transition-colors duration-300"
-                                    aria-label={`আপডেট করুন ${fee.fees_title}`}
-                                  >
-                                    <FaEdit />
-                                  </button>
-                                )}
-                                {hasDeletePermission && (
-                                  <button
-                                    onClick={() => handleOpenDeleteModal(fee)}
-                                    className="p-2 bg-red-500/20 text-red-500 rounded-lg hover:bg-red-500/30 transition-colors duration-300"
-                                    aria-label={`মুছে ফেলুন ${fee.fees_title}`}
-                                  >
-                                    <FaTrash />
-                                  </button>
-                                )}
-                              </div>
-                            </td>
-                          )}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              )}
-            </div>
-
             {/* Submit Button */}
             {hasAddPermission && configurations.length > 0 && (
               <div className="mb-6">
@@ -965,13 +1060,170 @@ const AddFeesName = () => {
                 </button>
               </div>
             )}
+          </div>
+        )}
 
-            {/* Error Display */}
-            {(submitError || updateError || deleteError) && (
-              <div className="mt-4 text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn">
-                ত্রুটি: {(submitError || updateError || deleteError)?.status || 'অজানা'} - {JSON.stringify((submitError || updateError || deleteError)?.data || {})}
+        {/* Fees Table from useGetFeesNamesQuery */}
+        <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
+          <div className="flex items-center justify-between p-4 border-b border-white/20">
+            <h3 className="text-lg font-semibold text-white">
+              সকল ফি কনফিগারেশন ({filteredFeesName?.length} টি)
+            </h3>
+            <button
+              onClick={() => handleFilterChange('showFilters', !filters.showFilters)}
+              className="flex items-center px-3 py-2 bg-pmColor text-white rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
+            >
+              <FaFilter className="mr-2" />
+              ফিল্টার
+            </button>
+          </div>
+
+          {/* Compact Filter Panel */}
+          {filters.showFilters && (
+            <div className="bg-white/10 p-3 border-b border-white/20 animate-fadeIn">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {/* Class Filter */}
+                <div>
+                  <select
+                    value={filters.classId}
+                    onChange={(e) => handleFilterChange('classId', e.target.value)}
+                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                  >
+                    <option value="all">সকল শ্রেণি</option>
+                    {classes?.map((cls) => (
+                      <option key={cls.id} value={cls.id}>
+                        {cls.student_class?.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Subhead Filter */}
+                <div>
+                  <select
+                    value={filters.subheadId}
+                    onChange={(e) => handleFilterChange('subheadId', e.target.value)}
+                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                  >
+                    <option value="all">সকল সাবহেড</option>
+                    {feeSubheads?.map((subhead) => (
+                      <option key={subhead.id} value={subhead.id}>
+                        {subhead.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Start Date Filter */}
+                <div>
+                  <input
+                    type="date"
+                    placeholder="শুরুর তারিখ"
+                    value={filters.startDate}
+                    onChange={(e) => handleFilterChange('startDate', e.target.value)}
+                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                  />
+                </div>
+
+                {/* End Date Filter */}
+                <div>
+                  <input
+                    type="date"
+                    placeholder="শেষের তারিখ"
+                    value={filters.endDate}
+                    onChange={(e) => handleFilterChange('endDate', e.target.value)}
+                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                  />
+                </div>
               </div>
-            )}
+
+              <div className="mt-3 flex justify-end">
+                <button
+                  onClick={clearFilters}
+                  className="flex items-center px-3 py-1 bg-gray-500/20 text-white text-sm rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                >
+                  <FaTimes className="mr-1 text-xs" />
+                  পরিষ্কার
+                </button>
+              </div>
+            </div>
+          )}
+          {filteredFeesName?.length === 0 ? (
+            <p className="p-4 text-white/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
+          ) : (
+            <table className="w-full border-collapse">
+              <thead className="bg-white/10">
+                <tr>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি টাইটেল</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শ্রেণি</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">বোর্ডিং</th>
+                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">স্ট্যাটাস</th>
+                  {(hasChangePermission || hasDeletePermission) && (
+                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ক্রিয়া</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/20">
+                {filteredFeesName?.map((fee, index) => {
+                  const className = classes?.find((c) => c.id === feePackages?.find((p) => p.id === fee.fee_amount_id)?.student_class)?.student_class.name || 'অজানা';
+                  const subheadName = feeSubheads?.find((s) => s.id === fee.fees_sub_type)?.name || 'অজানা';
+                  const academicYearName = academicYears?.find((y) => y.id === fee.academic_year)?.name || 'অজানা';
+                  return (
+                    <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <td className="border border-white/20 p-3 text-sm text-white">{fee.fees_title}</td>
+                      <td className="border border-white/20 p-3 text-sm text-white">{className}</td>
+                      <td className="border border-white/20 p-3 text-sm text-white">{academicYearName}</td>
+                      <td className="border border-white/20 p-3 text-sm text-white">{subheadName}</td>
+                      <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
+                      <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
+                      <td className="border border-white/20 p-3 text-sm text-white">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${fee.is_boarding ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white'}`}
+                        >
+                          {fee.is_boarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}
+                        </span>
+                      </td>
+                      <td className="border border-white/20 p-3 text-sm text-white">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
+                      {(hasChangePermission || hasDeletePermission) && (
+                        <td className="border border-white/20 p-3 text-sm text-white">
+                          <div className="flex space-x-2">
+                            {hasChangePermission && (
+                              <button
+                                onClick={() => handleOpenUpdateModal(fee)}
+                                className="p-2 bg-blue-500/20 text-blue-500 rounded-lg hover:bg-blue-500/30 transition-colors duration-300"
+                                aria-label={`আপডেট করুন ${fee.fees_title}`}
+                              >
+                                <FaEdit />
+                              </button>
+                            )}
+                            {hasDeletePermission && (
+                              <button
+                                onClick={() => handleOpenDeleteModal(fee)}
+                                className="p-2 bg-red-500/20 text-red-500 rounded-lg hover:bg-red-500/30 transition-colors duration-300"
+                                aria-label={`মুছে ফেলুন ${fee.fees_title}`}
+                              >
+                                <FaTrash />
+                              </button>
+                            )}
+                          </div>
+                        </td>
+                      )}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
+        </div>
+
+        {/* Error Display */}
+        {(submitError || updateError || deleteError) && (
+          <div className="mt-4 text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn">
+            ত্রুটি: {(submitError || updateError || deleteError)?.status || 'অজানা'} - {JSON.stringify((submitError || updateError || deleteError)?.data || {})}
           </div>
         )}
       </div>
