@@ -369,19 +369,19 @@ const SalaryIncrements = () => {
 
             {/* Increment Form */}
             {hasAddPermission && (
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="bg-pmColor/20 rounded-xl">
-                  <IoAddCircle className="text-pmColor text-3xl" />
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="bg-pmColor/20 rounded-xl">
+                    <IoAddCircle className="text-pmColor text-3xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">
+                    {editingIncrement
+                      ? (languageCode === 'bn' ? 'বেতন বৃদ্ধি সম্পাদনা করুন' : 'Edit Salary Increment')
+                      : (languageCode === 'bn' ? 'নতুন বেতন বৃদ্ধি যোগ করুন' : 'Add New Salary Increment')}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-bold text-white">
-                  {editingIncrement
-                    ? (languageCode === 'bn' ? 'বেতন বৃদ্ধি সম্পাদনা করুন' : 'Edit Salary Increment')
-                    : (languageCode === 'bn' ? 'নতুন বেতন বৃদ্ধি যোগ করুন' : 'Add New Salary Increment')}
-                </h3>
-              </div>
-              <form onSubmit={handleSubmit}>
-                <div className='mb-6'>
+                <form onSubmit={handleSubmit}>
+                  <div className='mb-6'>
                     <label className="block text-sm font-medium text-white/70 mb-2">
                       {languageCode === 'bn' ? 'বৃদ্ধির ধরন' : 'Increment Type'}
                     </label>
@@ -398,8 +398,8 @@ const SalaryIncrements = () => {
                       {/* Custom checkbox box */}
                       <span
                         className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${formData.is_percentage
-                            ? "bg-pmColor border-pmColor"
-                            : "bg-white/10 border-white/20 hover:border-white"
+                          ? "bg-pmColor border-pmColor"
+                          : "bg-white/10 border-white/20 hover:border-white"
                           }`}
                       >
                         {formData.is_percentage && (
@@ -427,81 +427,81 @@ const SalaryIncrements = () => {
                     </label>
 
                   </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">
-                      {languageCode === 'bn' ? 'বৃদ্ধির পরিমাণ' : 'Increment Amount'}
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="number"
-                        name="increment_amount"
-                        value={formData.increment_amount}
-                        onChange={handleInputChange}
-                        className={`w-full bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors.increment_amount ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
-                          }`}
-                        placeholder={formData.is_percentage ? 'e.g., 5%' : 'e.g., 500'}
-                        min="0"
-                        step="0.01"
-                      />
-                      <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/60">
-                        {formData.is_percentage ? '%' : '$'}
-                      </span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-white/70 mb-2">
+                        {languageCode === 'bn' ? 'বৃদ্ধির পরিমাণ' : 'Increment Amount'}
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="number"
+                          name="increment_amount"
+                          value={formData.increment_amount}
+                          onChange={handleInputChange}
+                          className={`w-full bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors.increment_amount ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                            }`}
+                          placeholder={formData.is_percentage ? 'e.g., 5%' : 'e.g., 500'}
+                          min="0"
+                          step="0.01"
+                        />
+                        <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/60">
+                          {formData.is_percentage ? '%' : '$'}
+                        </span>
+                      </div>
+                      {errors.increment_amount && (
+                        <p className="mt-1 text-sm text-red-400">{errors.increment_amount}</p>
+                      )}
                     </div>
-                    {errors.increment_amount && (
-                      <p className="mt-1 text-sm text-red-400">{errors.increment_amount}</p>
-                    )}
+                    <div>
+                      <label className="block text-sm font-medium text-white/70 mb-2">
+                        {languageCode === 'bn' ? 'কার্যকর মাস' : 'Effective Month'}
+                      </label>
+                      <input
+                        type="date"
+                        name="effective_month"
+                        value={formData.effective_month}
+                        onChange={handleInputChange}
+                        className={`w-full bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors.effective_month ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                          }`}
+                      />
+                      {errors.effective_month && (
+                        <p className="mt-1 text-sm text-red-400">{errors.effective_month}</p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">
-                      {languageCode === 'bn' ? 'কার্যকর মাস' : 'Effective Month'}
-                    </label>
-                    <input
-                      type="date"
-                      name="effective_month"
-                      value={formData.effective_month}
-                      onChange={handleInputChange}
-                      className={`w-full bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors.effective_month ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
-                        }`}
-                    />
-                    {errors.effective_month && (
-                      <p className="mt-1 text-sm text-red-400">{errors.effective_month}</p>
+                  <div className="mt-6 flex justify-end space-x-4">
+                    {editingIncrement && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEditingIncrement(null);
+                          setFormData({
+                            is_percentage: true,
+                            increment_amount: '',
+                            effective_month: '',
+                          });
+                          setErrors({});
+                        }}
+                        className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-xl text-sm transition-all duration-300"
+                      >
+                        {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
+                      </button>
                     )}
-                  </div>
-                </div>
-                <div className="mt-6 flex justify-end space-x-4">
-                  {editingIncrement && (
                     <button
-                      type="button"
-                      onClick={() => {
-                        setEditingIncrement(null);
-                        setFormData({
-                          is_percentage: true,
-                          increment_amount: '',
-                          effective_month: '',
-                        });
-                        setErrors({});
-                      }}
-                      className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-xl text-sm transition-all duration-300"
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`bg-pmColor hover:bg-pmColor/80 text-white px-4 py-2 rounded-xl text-sm transition-all duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+                        }`}
                     >
-                      {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
+                      {isSubmitting
+                        ? (languageCode === 'bn' ? 'সংরক্ষণ হচ্ছে...' : 'Saving...')
+                        : editingIncrement
+                          ? (languageCode === 'bn' ? 'আপডেট' : 'Update')
+                          : (languageCode === 'bn' ? 'যোগ করুন' : 'Add')}
                     </button>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`bg-pmColor hover:bg-pmColor/80 text-white px-4 py-2 rounded-xl text-sm transition-all duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
-                      }`}
-                  >
-                    {isSubmitting
-                      ? (languageCode === 'bn' ? 'সংরক্ষণ হচ্ছে...' : 'Saving...')
-                      : editingIncrement
-                        ? (languageCode === 'bn' ? 'আপডেট' : 'Update')
-                        : (languageCode === 'bn' ? 'যোগ করুন' : 'Add')}
-                  </button>
-                </div>
-              </form>
-            </div>
+                  </div>
+                </form>
+              </div>
             )}
 
             {/* Current Increments Table */}
@@ -584,24 +584,24 @@ const SalaryIncrements = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div className="flex justify-end gap-2">
                               {hasChangePermission && (
-                              <button
-                                onClick={() => handleEdit(increment)}
-                                disabled={isDeleting}
-                                className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
-                                title={languageCode === 'bn' ? 'বৃদ্ধি সম্পাদনা করুন' : 'Edit increment'}
-                              >
-                                <FaEdit className="w-4 h-4" />
-                              </button>
+                                <button
+                                  onClick={() => handleEdit(increment)}
+                                  disabled={isDeleting}
+                                  className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                                  title={languageCode === 'bn' ? 'বৃদ্ধি সম্পাদনা করুন' : 'Edit increment'}
+                                >
+                                  <FaEdit className="w-4 h-4" />
+                                </button>
                               )}
                               {hasDeletePermission && (
-                              <button
-                                onClick={() => handleDelete(increment.id)}
-                                disabled={isDeleting}
-                                className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
-                                title={languageCode === 'bn' ? 'বৃদ্ধি মুছুন' : 'Delete increment'}
-                              >
-                                <FaTrash className="w-4 h-4" />
-                              </button>
+                                <button
+                                  onClick={() => handleDelete(increment.id)}
+                                  disabled={isDeleting}
+                                  className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                                  title={languageCode === 'bn' ? 'বৃদ্ধি মুছুন' : 'Delete increment'}
+                                >
+                                  <FaTrash className="w-4 h-4" />
+                                </button>
                               )}
                             </div>
                           </td>
@@ -628,99 +628,99 @@ const SalaryIncrements = () => {
           </div>
         )}
 
-      {/* Summary Statistics */}
-      {selectedEmployee && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-green-500/20 text-green-500">
-                <FaList className="text-2xl" />
+        {/* Summary Statistics */}
+        {selectedEmployee && (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-green-500/20 text-green-500">
+                  <FaList className="text-2xl" />
+                </div>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-white/70">
+                    {languageCode === 'bn' ? 'মোট বৃদ্ধি' : 'Total Increments'}
+                  </p>
+                  <p className="text-2xl font-bold text-white">{selectedEmployeeIncrements.length}</p>
+                </div>
               </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
-                  {languageCode === 'bn' ? 'মোট বৃদ্ধি' : 'Total Increments'}
-                </p>
-                <p className="text-2xl font-bold text-white">{selectedEmployeeIncrements.length}</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-blue-500/20 text-blue-500">
+                  <FaList className="text-2xl" />
+                </div>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-white/70">
+                    {languageCode === 'bn' ? 'শতাংশ বৃদ্ধি' : 'Percentage Increases'}
+                  </p>
+                  <p className="text-2xl font-bold text-white">
+                    {selectedEmployeeIncrements.filter(inc => inc.is_percentage).length}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-purple-500/20 text-purple-500">
+                  <FaList className="text-2xl" />
+                </div>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-white/70">
+                    {languageCode === 'bn' ? 'নির্দিষ্ট বৃদ্ধি' : 'Fixed Increases'}
+                  </p>
+                  <p className="text-2xl font-bold text-white">
+                    {selectedEmployeeIncrements.filter(inc => !inc.is_percentage).length}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.3s' }}>
+              <div className="flex items-center">
+                <div className="p-3 rounded-full bg-yellow-500/20 text-yellow-500">
+                  <FaList className="text-2xl" />
+                </div>
+                <div className="ml-4">
+                  <p className="text-sm font-medium text-white/70">
+                    {languageCode === 'bn' ? 'সর্বশেষ বৃদ্ধি' : 'Latest Increment'}
+                  </p>
+                  <p className="text-lg font-bold text-white">
+                    {selectedEmployeeIncrements.length > 0
+                      ? formatDate(
+                        selectedEmployeeIncrements.sort((a, b) => new Date(b.effective_month) - new Date(a.effective_month))[0].effective_month
+                      )
+                      : languageCode === 'bn' ? 'কোনোটি নেই' : 'None'}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-blue-500/20 text-blue-500">
-                <FaList className="text-2xl" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
-                  {languageCode === 'bn' ? 'শতাংশ বৃদ্ধি' : 'Percentage Increases'}
-                </p>
-                <p className="text-2xl font-bold text-white">
-                  {selectedEmployeeIncrements.filter(inc => inc.is_percentage).length}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-purple-500/20 text-purple-500">
-                <FaList className="text-2xl" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
-                  {languageCode === 'bn' ? 'নির্দিষ্ট বৃদ্ধি' : 'Fixed Increases'}
-                </p>
-                <p className="text-2xl font-bold text-white">
-                  {selectedEmployeeIncrements.filter(inc => !inc.is_percentage).length}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.3s' }}>
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-yellow-500/20 text-yellow-500">
-                <FaList className="text-2xl" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
-                  {languageCode === 'bn' ? 'সর্বশেষ বৃদ্ধি' : 'Latest Increment'}
-                </p>
-                <p className="text-lg font-bold text-white">
-                  {selectedEmployeeIncrements.length > 0
-                    ? formatDate(
-                      selectedEmployeeIncrements.sort((a, b) => new Date(b.effective_month) - new Date(a.effective_month))[0].effective_month
-                    )
-                    : languageCode === 'bn' ? 'কোনোটি নেই' : 'None'}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
 
-      {/* Confirmation Modal */}
-      <DraggableModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onConfirm={confirmAction}
-        title={
-          modalAction === 'create'
-            ? (languageCode === 'bn' ? 'নতুন বেতন বৃদ্ধি নিশ্চিত করুন' : 'Confirm New Salary Increment')
-            : modalAction === 'update'
-              ? (languageCode === 'bn' ? 'বেতন বৃদ্ধি আপডেট নিশ্চিত করুন' : 'Confirm Salary Increment Update')
-              : (languageCode === 'bn' ? 'বেতন বৃদ্ধি মুছে ফেলা নিশ্চিত করুন' : 'Confirm Salary Increment Deletion')
-        }
-        message={
-          modalAction === 'create'
-            ? (languageCode === 'bn' ? 'আপনি কি নিশ্চিত যে নতুন বেতন বৃদ্ধি তৈরি করতে চান?' : 'Are you sure you want to create a new salary increment?')
-            : modalAction === 'update'
-              ? (languageCode === 'bn' ? 'আপনি কি নিশ্চিত যে এই বেতন বৃদ্ধি আপডেট করতে চান?' : 'Are you sure you want to update this salary increment?')
-              : (languageCode === 'bn' ? 'আপনি কি নিশ্চিত যে এই বেতন বৃদ্ধিটি মুছে ফেলতে চান?' : 'Are you sure you want to delete this salary increment?')
-        }
-        confirmText={languageCode === 'bn' ? 'নিশ্চিত করুন' : 'Confirm'}
-        cancelText={languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
-        confirmButtonClass={modalAction === 'delete' ? 'bg-red-500 hover:bg-red-600' : 'bg-pmColor hover:bg-pmColor/80'}
-      />
-    </div>
+        {/* Confirmation Modal */}
+        <DraggableModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onConfirm={confirmAction}
+          title={
+            modalAction === 'create'
+              ? (languageCode === 'bn' ? 'নতুন বেতন বৃদ্ধি নিশ্চিত করুন' : 'Confirm New Salary Increment')
+              : modalAction === 'update'
+                ? (languageCode === 'bn' ? 'বেতন বৃদ্ধি আপডেট নিশ্চিত করুন' : 'Confirm Salary Increment Update')
+                : (languageCode === 'bn' ? 'বেতন বৃদ্ধি মুছে ফেলা নিশ্চিত করুন' : 'Confirm Salary Increment Deletion')
+          }
+          message={
+            modalAction === 'create'
+              ? (languageCode === 'bn' ? 'আপনি কি নিশ্চিত যে নতুন বেতন বৃদ্ধি তৈরি করতে চান?' : 'Are you sure you want to create a new salary increment?')
+              : modalAction === 'update'
+                ? (languageCode === 'bn' ? 'আপনি কি নিশ্চিত যে এই বেতন বৃদ্ধি আপডেট করতে চান?' : 'Are you sure you want to update this salary increment?')
+                : (languageCode === 'bn' ? 'আপনি কি নিশ্চিত যে এই বেতন বৃদ্ধিটি মুছে ফেলতে চান?' : 'Are you sure you want to delete this salary increment?')
+          }
+          confirmText={languageCode === 'bn' ? 'নিশ্চিত করুন' : 'Confirm'}
+          cancelText={languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
+          confirmButtonClass={modalAction === 'delete' ? 'bg-red-500 hover:bg-red-600' : 'bg-pmColor hover:bg-pmColor/80'}
+        />
       </div>
+    </div>
   );
 };
 
