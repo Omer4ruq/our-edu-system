@@ -82,6 +82,9 @@ import { transportRoutesApi } from "./features/api/transport/transportRoutesApi"
 import { transportPackagesApi } from "./features/api/transport/transportPackagesApi";
 import { additionTypesApi } from "./features/api/payroll/additionTypesApi";
 import { deductionTypesApi } from "./features/api/payroll/deductionTypesApi";
+import { employeesAdditionsApi } from "./features/api/payroll/employeesAdditionsApi";
+import { employeesDeductionsApi } from "./features/api/payroll/employeesDeductionsApi";
+import { salaryIncrementsApi } from "./features/api/payroll/salaryIncrementsApi";
 
 export const store = configureStore({
   reducer: {
@@ -172,6 +175,9 @@ export const store = configureStore({
     [transportPackagesApi.reducerPath]: transportPackagesApi.reducer,
     [additionTypesApi.reducerPath]: additionTypesApi.reducer,
     [deductionTypesApi.reducerPath]: deductionTypesApi.reducer,
+    [employeesAdditionsApi.reducerPath]: employeesAdditionsApi.reducer,
+    [employeesDeductionsApi.reducerPath]: employeesDeductionsApi.reducer,
+    [salaryIncrementsApi.reducerPath]: salaryIncrementsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -256,6 +262,9 @@ export const store = configureStore({
       .concat(transportRoutesApi.middleware)
       .concat(additionTypesApi.middleware)
       .concat(deductionTypesApi.middleware)
+      .concat(employeesDeductionsApi.middleware)
+      .concat(employeesAdditionsApi.middleware)
+      .concat(salaryIncrementsApi.middleware)
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors

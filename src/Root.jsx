@@ -94,6 +94,9 @@ import TransportAllocation from "./components/services/transport/TransportAlloca
 import ServiceFees from "./components/fees/serviceFees/ServiceFees";
 import AddAddition from "./components/payroll/addition/AddAddition";
 import AddDeduction from "./components/payroll/deduction/AddDeduction";
+import EmployeesAdditions from "./components/payroll/addition/EmployeesAdditions";
+import EmployeesDeductions from "./components/payroll/deduction/EmployeesDeductions";
+import SalaryIncrements from "./components/payroll/salary-assign/SalaryIncrements";
 
 
 function Root() {
@@ -593,6 +596,18 @@ function Root() {
                       {
                       path: "deduction-types",
                       element: <AddDeduction></AddDeduction>,
+                    },
+                        {
+                      path: "employees-additions",
+                      element: <EmployeesAdditions/>,
+                    },
+                        {
+                      path: "employees-deductions",
+                      element: <EmployeesDeductions/>,
+                    },
+                       {
+                      path: "salary-increments",
+                      element: <SalaryIncrements/>,
                     },
                   ]
                 }

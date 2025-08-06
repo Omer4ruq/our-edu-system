@@ -1134,13 +1134,28 @@ const mainMenu = [
       children: [
         {
           id: "13/01/01",
-          title: `${languageCode == 'bn' ? "সংযোজন " : "Addition Types"}`,
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Addition Types"}`,
           link: "/payroll/settings/addition-types",
         },
              {
           id: "13/01/02",
-          title: `${languageCode == 'bn' ? "কর্তন" : "DeductionTypes"}`,
+          title: `${languageCode == 'bn' ? "কর্তনের ধরন" : "Deduction Types"}`,
           link: "/payroll/settings/deduction-types",
+        },
+         {
+          id: "13/01/03",
+          title: `${languageCode == 'bn' ? "কর্মকর্তা সংযোজন খাত " : "Employees Additions"}`,
+          link: "/payroll/settings/employees-additions",
+        },
+           {
+          id: "13/01/04",
+          title: `${languageCode == 'bn' ? "কর্মকর্তা কর্তন খাত " : "Employees Deductions"}`,
+          link: "/payroll/settings/employees-deductions",
+        },
+              {
+          id: "13/01/05",
+          title: `${languageCode == 'bn' ? "বেতনের পরিমাণ বৃদ্ধি " : "Salary Increments"}`,
+          link: "/payroll/settings/salary-increments",
         },
       ]
     }
