@@ -527,7 +527,7 @@ function Root() {
                   path: "settings",
                   children: [
                     {
-                      path: "hostel-package",
+                      index:true,
                       element: <HostelPackages></HostelPackages>,
                     },
                     {
@@ -548,7 +548,7 @@ function Root() {
                   path: "coaching-settings",
                   children: [
                     {
-                      path: "coaching-batches",
+                      index:true,
                       element: <CoachingBatches></CoachingBatches>,
                     },
                     {
@@ -566,7 +566,7 @@ function Root() {
                   path: "transport-settings",
                   children: [
                     {
-                      path: "transport-routes",
+                      index:true,
                       element: <TransportRoutes></TransportRoutes>,
                     },
                     {
@@ -590,7 +590,7 @@ function Root() {
                   path: "settings",
                   children: [
                     {
-                      path: "addition-types",
+                     index:true,
                       element: <AddAddition></AddAddition>,
                     },
                       {
