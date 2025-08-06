@@ -85,6 +85,7 @@ import { deductionTypesApi } from "./features/api/payroll/deductionTypesApi";
 import { employeesAdditionsApi } from "./features/api/payroll/employeesAdditionsApi";
 import { employeesDeductionsApi } from "./features/api/payroll/employeesDeductionsApi";
 import { salaryIncrementsApi } from "./features/api/payroll/salaryIncrementsApi";
+import { basicSalaryApi } from "./features/api/payroll/basicSalaryApi";
 
 export const store = configureStore({
   reducer: {
@@ -178,6 +179,7 @@ export const store = configureStore({
     [employeesAdditionsApi.reducerPath]: employeesAdditionsApi.reducer,
     [employeesDeductionsApi.reducerPath]: employeesDeductionsApi.reducer,
     [salaryIncrementsApi.reducerPath]: salaryIncrementsApi.reducer,
+    [basicSalaryApi.reducerPath]: basicSalaryApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -265,6 +267,7 @@ export const store = configureStore({
       .concat(employeesDeductionsApi.middleware)
       .concat(employeesAdditionsApi.middleware)
       .concat(salaryIncrementsApi.middleware)
+      .concat(basicSalaryApi.middleware)
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors
