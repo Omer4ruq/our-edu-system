@@ -10,6 +10,7 @@ import { languageCode } from '../../../utilitis/getTheme';
 import selectStyles from '../../../utilitis/selectStyles';
 import DraggableModal from '../../common/DraggableModal';
 
+
 const AddDeduction = () => {
   const { group_id } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
