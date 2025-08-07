@@ -196,9 +196,9 @@ const TransportAllocation = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -209,7 +209,7 @@ const TransportAllocation = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-secColor text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -275,16 +275,16 @@ const TransportAllocation = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaBus className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'পরিবহন বরাদ্দ' : 'Transport Allocation'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'ছাত্রদের পরিবহন রুট এবং প্যাকেজে বরাদ্দ করুন' : 'Allocate students to transport routes and packages'}
             </p>
           </div>
@@ -293,12 +293,12 @@ const TransportAllocation = () => {
 
       {/* Allocation Form */}
       {/* {hasAddPermission && ( */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               <IoAddCircle className="text-pmColor text-3xl" />
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'নতুন পরিবহন বরাদ্দ' : 'New Transport Allocation'}
             </h3>
           </div>
@@ -314,16 +314,16 @@ const TransportAllocation = () => {
                   value={studentSearchTerm}
                   onChange={(e) => handleStudentSearch(e.target.value)}
                   onFocus={() => setShowStudentSearch(true)}
-                  className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                  className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                   placeholder={languageCode === 'bn' ? 'ব্যবহারকারী আইডি বা ব্যবহারকারীর নাম দিয়ে অনুসন্ধান করুন...' : 'Search by User ID or Username...'}
                 />
                 {showStudentSearch && searchResults.length > 0 && (
-                  <div className="absolute z-10 w-full mt-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                  <div className="absolute z-10 w-full mt-1 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                     {searchResults.map((student, index) => (
                       <div
                         key={student.id}
                         onClick={() => handleStudentSelect(student)}
-                        className="px-4 py-3 hover:bg-white/5 cursor-pointer border-b border-white/10 last:border-b-0 animate-fadeIn"
+                        className="px-4 py-3 hover:bg-[#441a05]/5 cursor-pointer border-b border-[#441a05]/10 last:border-b-0 animate-fadeIn"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         <div className="flex items-center space-x-3">
@@ -333,11 +333,11 @@ const TransportAllocation = () => {
                             </span>
                           </div>
                           <div>
-                            <div className="font-medium text-white">{student.name}</div>
-                            <div className="text-sm text-white/70">
+                            <div className="font-medium text-[#441a05]">{student.name}</div>
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'ব্যবহারকারীর নাম' : 'Username'}: {student.username} | {languageCode === 'bn' ? 'ব্যবহারকারী আইডি' : 'User ID'}: {student.user_id}
                             </div>
-                            <div className="text-sm text-white/70">
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'শ্রেণি' : 'Class'}: {student.class_name} | {languageCode === 'bn' ? 'রোল' : 'Roll'}: {student.roll_no} | {languageCode === 'bn' ? 'ফোন' : 'Phone'}: {student.phone_number}
                             </div>
                           </div>
@@ -347,8 +347,8 @@ const TransportAllocation = () => {
                   </div>
                 )}
                 {showStudentSearch && searchParams && !studentLoading && searchResults.length === 0 && (
-                  <div className="absolute z-10 w-full mt-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg">
-                    <div className="px-4 py-3 text-white/70 text-center">
+                  <div className="absolute z-10 w-full mt-1 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl shadow-lg">
+                    <div className="px-4 py-3 text-[#441a05]/70 text-center">
                       {languageCode === 'bn' ? 'এই অনুসন্ধান শব্দের সাথে কোনো ছাত্র পাওয়া যায়নি' : 'No student found with this search term'}
                     </div>
                   </div>
@@ -359,7 +359,7 @@ const TransportAllocation = () => {
                   </div>
                 )}
                 {selectedStudent && (
-                  <div className="mt-2 p-4 bg-white/5 border border-white/20 rounded-xl animate-scaleIn">
+                  <div className="mt-2 p-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-xl animate-scaleIn">
                     <div className="flex justify-between items-start">
                       <div className="flex items-center space-x-3">
                         <div className="h-12 w-12 rounded-full bg-pmColor/20 flex items-center justify-center">
@@ -368,14 +368,14 @@ const TransportAllocation = () => {
                           </span>
                         </div>
                         <div>
-                          <div className="font-medium text-white">{selectedStudent.name}</div>
-                          <div className="text-sm text-white/70">
+                          <div className="font-medium text-[#441a05]">{selectedStudent.name}</div>
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'ব্যবহারকারীর নাম' : 'Username'}: {selectedStudent.username} | {languageCode === 'bn' ? 'ব্যবহারকারী আইডি' : 'User ID'}: {selectedStudent.user_id}
                           </div>
-                          <div className="text-sm text-white/70">
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'শ্রেণি' : 'Class'}: {selectedStudent.class_name} | {languageCode === 'bn' ? 'শাখা' : 'Section'}: {selectedStudent.section_name} | {languageCode === 'bn' ? 'রোল' : 'Roll'}: {selectedStudent.roll_no}
                           </div>
-                          <div className="text-sm text-white/70">
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'ফোন' : 'Phone'}: {selectedStudent.phone_number} | {languageCode === 'bn' ? 'লিঙ্গ' : 'Gender'}: {selectedStudent.gender}
                           </div>
                         </div>
@@ -387,7 +387,7 @@ const TransportAllocation = () => {
                           setStudentSearchTerm('');
                           setSearchResults([]);
                         }}
-                        className="text-white/70 hover:text-white"
+                        className="text-[#441a05]/70 hover:text-[#441a05]"
                       >
                         ✕
                       </button>
@@ -506,38 +506,38 @@ const TransportAllocation = () => {
 
       {/* Allocation Summary */}
       {formData.student_id?.value && formData.academic_year?.value && formData.transport_package?.value && formData.route?.value && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 p-3 rounded-xl">
               <FaBus className="text-pmColor text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'বরাদ্দ সারাংশ' : 'Allocation Summary'}
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'ছাত্র:' : 'Student:'}</span>
-              <div className="text-white">{selectedStudent?.name} ({selectedStudent?.username})</div>
-              <div className="text-sm text-white/70">
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'ছাত্র:' : 'Student:'}</span>
+              <div className="text-[#441a05]">{selectedStudent?.name} ({selectedStudent?.username})</div>
+              <div className="text-sm text-[#441a05]/70">
                 {languageCode === 'bn' ? 'ব্যবহারকারী আইডি' : 'User ID'}: {selectedStudent?.user_id} | {languageCode === 'bn' ? 'শ্রেণি' : 'Class'}: {selectedStudent?.class_name}
               </div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'স্থিতি:' : 'Status:'}</span>
-              <div className="text-white">{formData.status.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'স্থিতি:' : 'Status:'}</span>
+              <div className="text-[#441a05]">{formData.status.label}</div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'}</span>
-              <div className="text-white">{formData.academic_year.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'}</span>
+              <div className="text-[#441a05]">{formData.academic_year.label}</div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'পরিবহন প্যাকেজ:' : 'Transport Package:'}</span>
-              <div className="text-white">{formData.transport_package.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'পরিবহন প্যাকেজ:' : 'Transport Package:'}</span>
+              <div className="text-[#441a05]">{formData.transport_package.label}</div>
             </div>
             <div className="md:col-span-2">
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'রুট:' : 'Route:'}</span>
-              <div className="text-white">{formData.route.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'রুট:' : 'Route:'}</span>
+              <div className="text-[#441a05]">{formData.route.label}</div>
             </div>
           </div>
         </div>
@@ -545,19 +545,19 @@ const TransportAllocation = () => {
 
       {/* Recent Allocations Summary */}
       {allocations.length > 0 && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 p-3 rounded-xl">
               <FaBus className="text-pmColor text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'পরিবহন বরাদ্দ পরিসংখ্যান' : 'Transport Allocation Statistics'}
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-white/5 p-4 rounded-xl border border-white/20 animate-scaleIn">
+            <div className="bg-[#441a05]/5 p-4 rounded-xl border border-[#441a05]/20 animate-scaleIn">
               <div className="text-[#441a05]font-semibold">{languageCode === 'bn' ? 'মোট বরাদ্দ' : 'Total Allocations'}</div>
-              <div className="text-2xl font-bold text-white">{allocations.length}</div>
+              <div className="text-2xl font-bold text-[#441a05]">{allocations.length}</div>
             </div>
             <div className="bg-green-500/10 p-4 rounded-xl border border-green-500/20 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
               <div className="text-green-400 font-semibold">{languageCode === 'bn' ? 'সক্রিয়' : 'Active'}</div>

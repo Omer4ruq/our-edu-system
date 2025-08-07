@@ -13,7 +13,7 @@ pre[class*="language-"] {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
-  white-space: pre;
+  [#441a05]-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -75,7 +75,7 @@ pre[class*="language-"] {
   color: #c92c2c;
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: inline;
-  white-space: normal;
+  [#441a05]-space: normal;
 }
 
 pre[class*="language-"]:before,
@@ -311,5 +311,5 @@ div.code-toolbar > .toolbar span:focus {
   color: #b9c1c3;
 }
 .dark code[class*="language-"], .dark pre[class*="language-"] {
-  color: white;
+  color: [#441a05];
 }

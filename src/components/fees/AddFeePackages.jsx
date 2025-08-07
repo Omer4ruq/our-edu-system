@@ -198,35 +198,35 @@ const AddFeePackages = () => {
           }}
         />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি প্যাকেজ তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ফি প্যাকেজ তালিকা</h3>
           {isPackagesLoading ? (
-            <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
           ) : packagesError ? (
             <p className="p-4 text-red-400">ত্রুটি: {packagesError.status || "অজানা"} - {JSON.stringify(packagesError.data || {})}</p>
           ) : feePackages.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ফি প্যাকেজ উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ফি প্যাকেজ উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি প্রকার</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">শ্রেণি</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পরিমাণ</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">শিক্ষাবর্ষ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ফি প্রকার</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">শ্রেণি</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পরিমাণ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">শিক্ষাবর্ষ</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {feePackages.map((item, index) => (
-                    <tr key={item.id} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <tr key={item.id} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {feeHeads?.find((head) => head.id === item.fees_head_id)?.name || "অজানা"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {studentClasses?.find((cls) => cls.id === item.student_class)?.student_class?.name || "অজানা"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.amount}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{item.amount}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {academicYears.find((year) => year.id === item.academic_year)?.name || "অজানা"}
                       </td>
                     </tr>
@@ -241,7 +241,7 @@ const AddFeePackages = () => {
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -290,7 +290,7 @@ const AddFeePackages = () => {
       {/* Confirmation Modal */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ফি প্যাকেজ মুছে ফেলা নিশ্চিত করুন
             </h3>
@@ -309,7 +309,7 @@ const AddFeePackages = () => {
                 onClick={confirmDelete}
                 disabled={isDeleting}
                 className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
-                  isDeleting ? "cursor-not-allowed opacity-70" : "hover:text-white"
+                  isDeleting ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]"
                 }`}
                 aria-label="নিশ্চিত করুন"
               >
@@ -329,9 +329,9 @@ const AddFeePackages = () => {
 
       {/* Form to Add/Edit Fee Package */}
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
-            <IoAddCircle className="text-4xl text-white" />
+            <IoAddCircle className="text-4xl text-[#441a05]" />
             <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
               {editId && hasChangePermission ? "ফি প্যাকেজ সম্পাদনা" : "নতুন ফি প্যাকেজ যোগ"}
             </h3>
@@ -461,42 +461,42 @@ const AddFeePackages = () => {
 
       {/* Fee Packages Table */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-        <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি প্যাকেজ তালিকা</h3>
+        <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ফি প্যাকেজ তালিকা</h3>
         {isPackagesLoading ? (
-          <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+          <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
         ) : packagesError ? (
           <p className="p-4 text-red-400">ত্রুটি: {packagesError.status || "অজানা"} - {JSON.stringify(packagesError.data || {})}</p>
         ) : feePackages.length === 0 ? (
-          <p className="p-4 text-white/70">কোনো ফি প্যাকেজ উপলব্ধ নেই।</p>
+          <p className="p-4 text-[#441a05]/70">কোনো ফি প্যাকেজ উপলব্ধ নেই।</p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-white/20">
-              <thead className="bg-white/5">
+            <table className="min-w-full divide-y divide-[#441a05]/20">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি প্রকার</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">শ্রেণি</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পরিমাণ</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">শিক্ষাবর্ষ</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ফি প্রকার</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">শ্রেণি</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পরিমাণ</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">শিক্ষাবর্ষ</th>
                   {(hasChangePermission || hasDeletePermission) && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ক্রিয়াকলাপ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ক্রিয়াকলাপ</th>
                   )}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/20">
+              <tbody className="divide-y divide-[#441a05]/20">
                 {feePackages.map((item, index) => (
-                  <tr key={item.id} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                  <tr key={item.id} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {feeHeads?.find((head) => head.id === item.fees_head_id)?.name || "অজানা"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {studentClasses?.find((cls) => cls.id === item.student_class)?.student_class?.name || "অজানা"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{item.amount}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{item.amount}</td>
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {academicYears.find((year) => year.id === item.academic_year)?.name || "অজানা"}
                     </td>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm">
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(item)}

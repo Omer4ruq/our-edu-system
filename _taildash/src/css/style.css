@@ -476,7 +476,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin:-1px;
   overflow:hidden;
   clip:rect(0, 0, 0, 0);
-  white-space:nowrap;
+  [#441a05]-space:nowrap;
   border-width:0;
 }
 .pointer-events-none {
@@ -1291,8 +1291,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .overflow-y-hidden {
   overflow-y:hidden;
 }
-.whitespace-nowrap {
-  white-space:nowrap;
+.[#441a05]space-nowrap {
+  [#441a05]-space:nowrap;
 }
 .rounded {
   border-radius:0.25rem;
@@ -2827,7 +2827,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .dropzone {
   min-height: 150px;
   border: 2px solid rgba(0, 0, 0, 0.3);
-  background: white;
+  background: [#441a05];
   padding: 20px 20px;
 }
 
@@ -2897,7 +2897,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .dropzone .dz-preview.dz-image-preview {
-  background: white;
+  background: [#441a05];
 }
 
 .dropzone .dz-preview.dz-image-preview .dz-details {
@@ -2946,7 +2946,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .dropzone .dz-preview .dz-details .dz-filename {
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
 }
 
 .dropzone .dz-preview .dz-details .dz-filename:hover span {
@@ -3098,7 +3098,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   background: #be2626;
   background: linear-gradient(to bottom, #be2626, #a92222);
   padding: 0.5em 1.2em;
-  color: white;
+  color: [#441a05];
 }
 [dir="ltr"] .dropzone .dz-preview .dz-error-message {
   left: -10px;
@@ -5245,7 +5245,7 @@ a.fc-event:hover {
 
 .fc-daygrid-event {
   position: relative;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   border-radius: 3px;
   font-size: .85em;
   font-size: var(--fc-small-font-size, 0.85em);
@@ -5444,7 +5444,7 @@ a.fc-event:hover {
 
 .fc .fc-timegrid-slot-label-cushion {
   display: inline-block;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
 }
 
 .fc .fc-timegrid-slot-label {
@@ -5603,7 +5603,7 @@ a.fc-event:hover {
 }
 
 .fc-timegrid-event .fc-event-time {
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   font-size: .85em;
   font-size: var(--fc-small-font-size, 0.85em);
   margin-bottom: 1px;
@@ -5771,7 +5771,7 @@ a.fc-event:hover {
 
 .fc .fc-list-event-graphic,
 .fc .fc-list-event-time {
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   width: 1px;
 }
 
@@ -6841,7 +6841,7 @@ image, text, .jvm-zoomin, .jvm-zoomout {
   font-size: smaller;
   box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.2);
   padding: 3px 5px;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   position: absolute;
   display: none;
   color: #441a05;
@@ -6996,7 +6996,7 @@ image, text, .jvm-zoomin, .jvm-zoomout {
 .CodeMirror-gutters {
   border-right: 1px solid #ddd;
   background-color: #f7f7f7;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
 }
 
 .CodeMirror-linenumber {
@@ -7004,7 +7004,7 @@ image, text, .jvm-zoomin, .jvm-zoomout {
   min-width: 20px;
   text-align: right;
   color: #999;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
 }
 
 .CodeMirror-guttermarker {
@@ -7288,7 +7288,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 
 .CodeMirror-gutter {
-  white-space: normal;
+  [#441a05]-space: normal;
   height: 100%;
   display: inline-block;
   vertical-align: top;
@@ -7331,7 +7331,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   font-family: inherit;
   font-size: inherit;
   margin: 0;
-  white-space: pre;
+  [#441a05]-space: pre;
   word-wrap: normal;
   line-height: inherit;
   color: inherit;
@@ -7344,7 +7344,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 
 .CodeMirror-wrap pre {
   word-wrap: break-word;
-  white-space: pre-wrap;
+  [#441a05]-space: pre-wrap;
   word-break: normal;
 }
 
@@ -7526,7 +7526,7 @@ span.CodeMirror-selectedtext {
   height: 50px;
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   padding-top: 10px;
   padding-bottom: 10px;
   box-sizing: border-box;
@@ -9843,7 +9843,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 
 :root {
   --tagify-dd-color-#DB9E30: rgb(53,149,246);
-  --tagify-dd-bg-color: white;
+  --tagify-dd-bg-color: [#441a05];
 }
 
 .tagify {
@@ -10011,12 +10011,12 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   color: var(--tag-text-color, black);
   line-height: inherit;
   border-radius: 3px;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   transition: .13s ease-out;
 }
 
 .tagify__tag > div > * {
-  white-space: pre-wrap;
+  [#441a05]-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
@@ -10110,7 +10110,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 }
 
 .tagify__tag--hide > div > * {
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
 }
 
 .tagify__tag.tagify--noAnim > div::before {
@@ -10192,7 +10192,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 }
 
 .tagify__tag__removeBtn:hover {
-  color: white;
+  color: [#441a05];
   background: #c77777;
   background: var(--tag-remove-btn-bg--hover, #c77777);
 }
@@ -10213,7 +10213,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 
 .tagify:not(.tagify--mix) .tagify__input * {
   display: inline;
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
 }
 
 .tagify__input {
@@ -10225,7 +10225,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   padding: var(--tag-pad, 0.3em 0.5em);
   line-height: inherit;
   position: relative;
-  white-space: pre-wrap;
+  [#441a05]-space: pre-wrap;
   color: inherit;
   color: var(--input-color, inherit);
   box-sizing: inherit;
@@ -10288,7 +10288,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   z-index: 1;
   color: rgba(0, 0, 0, 0.4);
   color: var(--placeholder-color);
-  white-space: nowrap;
+  [#441a05]-space: nowrap;
   pointer-events: none;
   opacity: 0;
   position: absolute;
@@ -10303,7 +10303,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 .tagify__input::after {
   content: attr(data-suggest);
   display: inline-block;
-  white-space: pre;
+  [#441a05]-space: pre;
   /* allows spaces at the beginning */
   color: black;
   opacity: .3;
@@ -10416,7 +10416,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 .tagify__dropdown__wrapper {
   max-height: 300px;
   overflow: auto;
-  background: white;
+  background: [#441a05];
   background: var(--tagify-dd-bg-color);
   border: 1px solid #3595f6;
   border-color: var(--tagify-dd-color-#DB9E30);
@@ -10448,7 +10448,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 .tagify__dropdown__item--active {
   background: #3595f6;
   background: var(--tagify-dd-color-#DB9E30);
-  color: white;
+  color: [#441a05];
 }
 
 .tagify__dropdown__item:active {
@@ -10612,7 +10612,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 /*Checkbox*/
 
 .form-checkbox:checked {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='[#441a05]' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
   border-color: transparent;
   background-color: currentColor;
   background-size: 100% 100%;
@@ -10926,7 +10926,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   --tw-bg-opacity:1;
   background-color:rgb(10 10 24 / var(--tw-bg-opacity));
 }
-.hover\:bg-white:hover {
+.hover\:bg-[#441a05]:hover {
   --tw-bg-opacity:1;
   background-color:rgb(255 255 255 / var(--tw-bg-opacity));
 }
@@ -10990,7 +10990,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   --tw-text-opacity:1;
   color:rgb(99 102 241 / var(--tw-text-opacity));
 }
-.hover\:text-white:hover {
+.hover\:text-[#441a05]:hover {
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -11286,7 +11286,7 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
   --tw-text-opacity:1;
   color:rgb(99 102 241 / var(--tw-text-opacity));
 }
-.focus\:text-white:focus {
+.focus\:text-[#441a05]:focus {
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity));
 }

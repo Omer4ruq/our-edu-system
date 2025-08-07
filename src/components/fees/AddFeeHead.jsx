@@ -209,52 +209,52 @@ const AddFeeHead = () => {
       <div className="py-8 w-full relative">
         <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি হেড তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ফি হেড তালিকা</h3>
           {isFeeHeadLoading ? (
-            <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
           ) : feeHeadError ? (
             <p className="p-4 text-red-400">
               ফি হেড লোড করতে ত্রুটি: {feeHeadError.status || "অজানা"} -{" "}
               {JSON.stringify(feeHeadError.data || {})}
             </p>
           ) : feeHeads.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ফি হেড উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ফি হেড উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ক্রমিক
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ফি হেড
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বিলম্ব ফি ধরন
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বিলম্ব ফি
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বর্ণনা
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {feeHeads.map((feeHead, index) => (
-                    <tr key={feeHead?.id || index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{index + 1}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{feeHead.name}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <tr key={feeHead?.id || index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{index + 1}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{feeHead.name}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         <span className={`px-2 py-1 rounded-full text-xs ${feeHead.is_late_fee_percenage ? 'bg-blue-500/20 text-blue-300' : 'bg-green-500/20 text-green-300'}`}>
                           {feeHead.is_late_fee_percenage ? 'শতাংশ' : 'পরিমাণ'}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {feeHead.late_fee}{feeHead.is_late_fee_percenage ? '%' : ' টাকা'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{feeHead.description || '-'}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{feeHead.description || '-'}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -267,7 +267,7 @@ const AddFeeHead = () => {
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -304,9 +304,9 @@ const AddFeeHead = () => {
 
       {/* Form to Add Fee Head */}
       {hasAddPermission && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
-            <IoAddCircle className="text-4xl text-white" />
+            <IoAddCircle className="text-4xl text-[#441a05]" />
             <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">নতুন ফি হেড যোগ করুন</h3>
           </div>
           <form onSubmit={handleSubmitFeeHead} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -336,8 +336,8 @@ const AddFeeHead = () => {
                 className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating}
               >
-                <option value="percentage" className="bg-gray-800 text-white">শতাংশ (%)</option>
-                <option value="amount" className="bg-gray-800 text-white">পরিমাণ (টাকা)</option>
+                <option value="percentage" className="bg-gray-800 text-[#441a05]">শতাংশ (%)</option>
+                <option value="amount" className="bg-gray-800 text-[#441a05]">পরিমাণ (টাকা)</option>
               </select>
             </div>
 
@@ -357,7 +357,7 @@ const AddFeeHead = () => {
                   step="0.01"
                   disabled={isCreating}
                 />
-                <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/70 text-sm">
+                <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#441a05]/70 text-sm">
                   {formData.is_late_fee_percenage ? '%' : '৳'}
                 </span>
               </div>
@@ -412,9 +412,9 @@ const AddFeeHead = () => {
 
       {/* Edit Fee Head Form */}
       {hasChangePermission && editFeeHeadId && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
-            <FaEdit className="text-3xl text-white" />
+            <FaEdit className="text-3xl text-[#441a05]" />
             <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">ফি হেড সম্পাদনা করুন</h3>
           </div>
           <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -444,8 +444,8 @@ const AddFeeHead = () => {
                 className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isUpdating}
               >
-                <option value="percentage" className="bg-gray-800 text-white">শতাংশ (%)</option>
-                <option value="amount" className="bg-gray-800 text-white">পরিমাণ (টাকা)</option>
+                <option value="percentage" className="bg-gray-800 text-[#441a05]">শতাংশ (%)</option>
+                <option value="amount" className="bg-gray-800 text-[#441a05]">পরিমাণ (টাকা)</option>
               </select>
             </div>
 
@@ -465,7 +465,7 @@ const AddFeeHead = () => {
                   step="0.01"
                   disabled={isUpdating}
                 />
-                <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/70 text-sm">
+                <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#441a05]/70 text-sm">
                   {editFormData.is_late_fee_percenage ? '%' : '৳'}
                 </span>
               </div>
@@ -526,7 +526,7 @@ const AddFeeHead = () => {
       {/* Confirmation Modal */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               {modalAction === "create" && "নতুন ফি হেড নিশ্চিত করুন"}
               {modalAction === "update" && "ফি হেড আপডেট নিশ্চিত করুন"}
@@ -548,7 +548,7 @@ const AddFeeHead = () => {
                 onClick={confirmAction}
                 disabled={isCreating || isUpdating || isDeleting}
                 className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
-                  (isCreating || isUpdating || isDeleting) ? "cursor-not-allowed opacity-60" : "hover:text-white"
+                  (isCreating || isUpdating || isDeleting) ? "cursor-not-allowed opacity-60" : "hover:text-[#441a05]"
                 }`}
               >
                 {isCreating || isUpdating || isDeleting ? (
@@ -571,60 +571,60 @@ const AddFeeHead = () => {
 
       {/* Fee Heads Table */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-        <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি হেড তালিকা</h3>
+        <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ফি হেড তালিকা</h3>
         {isFeeHeadLoading ? (
-          <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+          <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
         ) : feeHeadError ? (
           <p className="p-4 text-red-400">
             ফি হেড লোড করতে ত্রুটি: {feeHeadError.status || "অজানা"} - {JSON.stringify(feeHeadError.data || {})}
           </p>
         ) : feeHeads.length === 0 ? (
-          <p className="p-4 text-white/70">কোনো ফি হেড উপলব্ধ নেই।</p>
+          <p className="p-4 text-[#441a05]/70">কোনো ফি হেড উপলব্ধ নেই।</p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-white/20">
-              <thead className="bg-white/5">
+            <table className="min-w-full divide-y divide-[#441a05]/20">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ক্রমিক
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ফি হেড
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     বিলম্ব ফি ধরন
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     বিলম্ব ফি
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     বর্ণনা
                   </th>
                   {(hasChangePermission || hasDeletePermission) && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       কার্যক্রম
                     </th>
                   )}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/20">
+              <tbody className="divide-y divide-[#441a05]/20">
                 {feeHeads.map((feeHead, index) => (
-                  <tr key={feeHead?.id || index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{index + 1}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{feeHead.name}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                  <tr key={feeHead?.id || index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{index + 1}</td>
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{feeHead.name}</td>
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       <span className={`px-2 py-1 rounded-full text-xs ${feeHead.is_late_fee_percenage ? 'bg-blue-500/20 text-blue-300' : 'bg-green-500/20 text-green-300'}`}>
                         {feeHead.is_late_fee_percenage ? 'শতাংশ' : 'পরিমাণ'}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {feeHead.late_fee}{feeHead.is_late_fee_percenage ? '%' : ' টাকা'}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]max-w-xs truncate" title={feeHead.description || '-'}>
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]max-w-xs truncate" title={feeHead.description || '-'}>
                       {feeHead.description || '-'}
                     </td>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm">
                         <div className="flex space-x-2">
                           {hasChangePermission && (
                             <button

@@ -65,7 +65,7 @@ const AdmitCard = () => {
           width: 190mm;
           height: 90mm;
           page-break-inside: avoid;
-          background: white;
+          background: [#441a05];
           border: 1px solid #DB9E30;
           border-radius: 4mm;
           overflow: hidden;
@@ -138,7 +138,7 @@ const AdmitCard = () => {
           .admit-card {
             width: 190mm;
             height: 90mm;
-            background: white;
+            background: [#441a05];
             border: 1px solid #DB9E30;
             margin:0 auto 5px;
             border-radius: 4mm;
@@ -165,7 +165,7 @@ const AdmitCard = () => {
           }
           .header-text {
             text-align: center;
-            color: white;
+            color: [#441a05];
           }
           .header-text h1 {
             font-size: 12pt;
@@ -202,7 +202,7 @@ const AdmitCard = () => {
             padding: 2mm 4mm;
             border-radius: 2mm;
             background: #DB9E30;
-            color: white;
+            color: [#441a05];
             transform: translateX(1mm);
           }
           .roll-reg p {
@@ -327,7 +327,7 @@ const classConfigOptions = classConfigs?.map(config => ({
   // Loading state
   if (classLoading || yearLoading || examLoading || instituteLoading || studentsLoading || studentsFetching) {
     return (
-      <div className="p-8 text-white/70 animate-fadeIn">
+      <div className="p-8 text-[#441a05]/70 animate-fadeIn">
         লোড হচ্ছে...
       </div>
     );
@@ -336,7 +336,7 @@ const classConfigOptions = classConfigs?.map(config => ({
   // Error state
   if (classError || yearError || examError || instituteError || studentsError) {
     return (
-      <div className="p-8 text-white/70 animate-fadeIn">
+      <div className="p-8 text-[#441a05]/70 animate-fadeIn">
         ডেটা লোড করতে ত্রুটি: {studentsError?.data?.message || classError?.data?.message || yearError?.data?.message || examError?.data?.message || instituteError?.data?.message || 'Unknown error'}
       </div>
     );
@@ -368,8 +368,8 @@ const classConfigOptions = classConfigs?.map(config => ({
             <h1 className="text-xs font-bold text-[#441a05]uppercase">
               {instituteInfo.institute_name || 'Institute Name'}
             </h1>
-            <p className="text-[9px] text-white">{instituteInfo.institute_address || 'Address'}</p>
-            <p className="text-[9px] mt-0.5 text-white">
+            <p className="text-[9px] text-[#441a05]">{instituteInfo.institute_address || 'Address'}</p>
+            <p className="text-[9px] mt-0.5 text-[#441a05]">
               <strong>পরীক্ষা:</strong> {examInfo.name || 'Exam Name'} |{' '}
               <strong>তারিখ:</strong> {examInfo.start_date || 'Date'}
             </p>
@@ -403,10 +403,10 @@ const classConfigOptions = classConfigs?.map(config => ({
             </p>
           </div>
           <div className="border p-2 px-4 rounded-lg bg-pmColor translate-x-1">
-            <p className="mb-1 text-[11px] text-white">
+            <p className="mb-1 text-[11px] text-[#441a05]">
               <strong>রোল:</strong> {student.roll_no || student.user_id}
             </p>
-            <p className="text-[11px] text-white">
+            <p className="text-[11px] text-[#441a05]">
               <strong>রেজি:</strong> {student.user_id}
             </p>
           </div>
@@ -468,7 +468,7 @@ const classConfigOptions = classConfigs?.map(config => ({
           .admit-card {
             width: 190mm;
             height: 90mm;
-            background: white;
+            background: [#441a05];
             box-sizing: border-box;
             border: 1px solid #DB9E30;
             border-radius: 4mm;
@@ -486,9 +486,9 @@ const classConfigOptions = classConfigs?.map(config => ({
       </style>
 
       {/* Filter Controls */}
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-          <IoPrint className="text-4xl text-white" />
+          <IoPrint className="text-4xl text-[#441a05]" />
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">প্রবেশপত্র</h3>
         </div>
 

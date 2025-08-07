@@ -347,9 +347,9 @@ const DeleteStudentFees = () => {
       <style>{`/* Original styles */`}</style>
       <div className="">
         {hasAddPermission && ( // Permission Check
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <IoAddCircle className="text-3xl text-white" />
+              <IoAddCircle className="text-3xl text-[#441a05]" />
               <h2 className="text-2xl font-bold text-[#441a05]tracking-tight">ছাত্রের ফি মুছুন</h2>
             </div>
             <form onSubmit={handleSubmit} className=" grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -372,13 +372,13 @@ const DeleteStudentFees = () => {
           </div>
         )}
         <div className='mb-8'>
-          {studentDetails && (<div className="bg-black/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg animate-fadeIn"><h3 className="text-lg font-semibold text-[#441a05]mb-2">ছাত্রের তথ্য</h3><p><strong>নাম:</strong> {studentDetails.name || 'অজানা'}</p><p><strong>রোল নং:</strong> {studentDetails.roll_no || 'অজানা'}</p><p><strong>পিতার নাম:</strong> {studentDetails.father_name || 'অজানা'}</p><p><strong>মাতার নাম:</strong> {studentDetails.mother_name || 'অজানা'}</p></div>)}
+          {studentDetails && (<div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-4 rounded-lg animate-fadeIn"><h3 className="text-lg font-semibold text-[#441a05]mb-2">ছাত্রের তথ্য</h3><p><strong>নাম:</strong> {studentDetails.name || 'অজানা'}</p><p><strong>রোল নং:</strong> {studentDetails.roll_no || 'অজানা'}</p><p><strong>পিতার নাম:</strong> {studentDetails.father_name || 'অজানা'}</p><p><strong>মাতার নাম:</strong> {studentDetails.mother_name || 'অজানা'}</p></div>)}
           {searchTerm && !studentDetails && !studentsLoading && (<p className="text-red-400 animate-fadeIn">কোনো ছাত্র পাওয়া যায়নি: {searchTerm}</p>)}
         </div>
         
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <div className="flex justify-between items-center p-4 border-b border-white/20">
-            <h3 className="text-lg font-semibold text-white">মুছে ফেলা ফি ইতিহাস</h3>
+          <div className="flex justify-between items-center p-4 border-b border-[#441a05]/20">
+            <h3 className="text-lg font-semibold text-[#441a05]">মুছে ফেলা ফি ইতিহাস</h3>
             <button
               onClick={generatePDFReport}
               className="report-button px-4 py-2 bg-[#441a05]text-[#441a05]rounded-lg hover:bg-[#5a2e0a] transition-colors"
@@ -388,24 +388,24 @@ const DeleteStudentFees = () => {
             </button>
           </div>
           
-          {deletedFeesLoading ? (<p className="text-white/70 p-4 animate-fadeIn">লোড হচ্ছে...</p>) : filteredDeletedFees.length === 0 ? (<p className="text-white/70 p-4 animate-fadeIn">{selectedStudent ? 'এই ছাত্রের জন্য কোনো মুছে ফেলা ফি পাওয়া যায়নি' : 'কোনো মুছে ফেলা ফি পাওয়া যায়নি'}</p>) : (
+          {deletedFeesLoading ? (<p className="text-[#441a05]/70 p-4 animate-fadeIn">লোড হচ্ছে...</p>) : filteredDeletedFees.length === 0 ? (<p className="text-[#441a05]/70 p-4 animate-fadeIn">{selectedStudent ? 'এই ছাত্রের জন্য কোনো মুছে ফেলা ফি পাওয়া যায়নি' : 'কোনো মুছে ফেলা ফি পাওয়া যায়নি'}</p>) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5 sticky top-0 z-10">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5 sticky top-0 z-10">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ছাত্র আইডি</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি প্রকার</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">একাডেমিক বছর</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ক্রিয়াকলাপ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ছাত্র আইডি</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ফি প্রকার</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">একাডেমিক বছর</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ক্রিয়াকলাপ</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredDeletedFees.map((fee, index) => (
-                    <tr key={fee.id} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.student_id}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.feetype_id.map(id => feeOptions.find(opt => opt.value === id)?.label || 'অজানা').join(', ')}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{academicYearOptions.find(opt => opt.value === fee.academic_year)?.label || 'অজানা'}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex space-x-2">
+                    <tr key={fee.id} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{fee.student_id}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{fee.feetype_id.map(id => feeOptions.find(opt => opt.value === id)?.label || 'অজানা').join(', ')}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{academicYearOptions.find(opt => opt.value === fee.academic_year)?.label || 'অজানা'}</td>
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium flex space-x-2">
                         {hasChangePermission && (<button onClick={() => handleUpdate(fee)} disabled={updateLoading} className={`text-[#441a05]hover:text-blue-500 transition-colors duration-300 ${updateLoading ? 'opacity-50 cursor-not-allowed' : ''}`} title="ফি আপডেট করুন / Update fee" aria-label="ফি আপডেট করুন"><FaEdit className="w-5 h-5" /></button>)}
                         {hasDeletePermission && (<button onClick={() => handleDelete(fee.id)} disabled={deleteLoading} className={`text-[#441a05]hover:text-red-500 transition-colors duration-300 ${deleteLoading ? 'opacity-50 cursor-not-allowed' : ''}`} title="রেকর্ড সরান / Remove record" aria-label="রেকর্ড সরান"><FaTrash className="w-5 h-5" /></button>)}
                       </td>
@@ -419,7 +419,7 @@ const DeleteStudentFees = () => {
         </div>
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">{modalAction === 'deleteFees' && 'ফি মুছে ফেলা নিশ্চিত করুন'}{modalAction === 'updateFees' && 'ফি আপডেট নিশ্চিত করুন'}{modalAction === 'removeRecord' && 'রেকর্ড সরানো নিশ্চিত করুন'}</h3>
               {modalAction === 'updateFees' ? (
                 <div className="space-y-4 mb-6">

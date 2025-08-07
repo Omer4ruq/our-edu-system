@@ -177,9 +177,9 @@ const AddDeduction = () => {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
           </div>
         </div>
@@ -190,7 +190,7 @@ const AddDeduction = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -256,16 +256,16 @@ const AddDeduction = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'কর্তন টাইপ পরিচালনা' : 'Deduction Types Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'পে-রোল কর্তন টাইপ এবং তাদের বিবরণ পরিচালনা করুন' : 'Manage payroll deduction types and their details'}
             </p>
           </div>
@@ -276,12 +276,12 @@ const AddDeduction = () => {
 
       {/* Form Section */}
       {hasAddPermission && showForm && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               <IoAddCircle className="text-pmColor text-3xl" />
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {editingId
                 ? (languageCode === 'bn' ? 'কর্তন টাইপ সম্পাদনা করুন' : 'Edit Deduction Type')
                 : (languageCode === 'bn' ? 'নতুন কর্তন টাইপ তৈরি করুন' : 'Create New Deduction Type')}
@@ -297,8 +297,8 @@ const AddDeduction = () => {
                 type="text"
                 value={formData.deduction_type}
                 onChange={(e) => handleInputChange('deduction_type', e.target.value)}
-                className={`w-full bg-white/10 backdrop-blur-sm border rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${
-                  errors.deduction_type ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                className={`w-full bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${
+                  errors.deduction_type ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                 }`}
                 placeholder={languageCode === 'bn' ? 'কর্তন টাইপ লিখুন' : 'Enter deduction type'}
                 disabled={isSubmitting}
@@ -366,8 +366,8 @@ const AddDeduction = () => {
       )} 
 
       {/* Table Section */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
               <FaList className="text-pmColor" />
@@ -388,7 +388,7 @@ const AddDeduction = () => {
         {isLoadingTypes ? (
           <div className="p-8 text-center">
             <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-            <p className="text-white/70">
+            <p className="text-[#441a05]/70">
               {languageCode === 'bn' ? 'কর্তন টাইপ লোড হচ্ছে...' : 'Loading deduction types...'}
             </p>
           </div>
@@ -408,49 +408,49 @@ const AddDeduction = () => {
           </div>
         ) : deductionTypes.length === 0 ? (
           <div className="p-8 text-center">
-            <div className="text-white/70 text-xl mb-2">💸</div>
-            <p className="text-white/70">
+            <div className="text-[#441a05]/70 text-xl mb-2">💸</div>
+            <p className="text-[#441a05]/70">
               {languageCode === 'bn' ? 'কোনো কর্তন টাইপ পাওয়া যায়নি। উপরে আপনার প্রথম টাইপ তৈরি করুন!' : 'No deduction types found. Create your first type above!'}
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto max-h-96">
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আইডি' : 'ID'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'কর্তন টাইপ' : 'Deduction Type'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'প্রতি মাসে' : 'Every Month'}
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-right text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {deductionTypes.map((deductionType, index) => (
                   <tr
                     key={deductionType.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">#{deductionType.id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">#{deductionType.id}</td>
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <div className="flex items-center">
                         <div className="h-10 w-10 rounded-full bg-pmColor/20 flex items-center justify-center">
                           <span className="text-pmColor font-medium text-sm">
                             {deductionType.deduction_type?.charAt(0)?.toUpperCase() || 'D'}
                           </span>
                         </div>
-                        <div className="ml-4 text-sm font-medium text-white">{deductionType.deduction_type}</div>
+                        <div className="ml-4 text-sm font-medium text-[#441a05]">{deductionType.deduction_type}</div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <span
                         className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                           deductionType.is_every_month
@@ -463,7 +463,7 @@ const AddDeduction = () => {
                           : (languageCode === 'bn' ? 'না' : 'No')}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm font-medium">
                       <div className="flex justify-end gap-2">
                         {/* {hasChangePermission && ( */}
                           <button
@@ -495,7 +495,7 @@ const AddDeduction = () => {
         )}
 
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting
@@ -513,44 +513,44 @@ const AddDeduction = () => {
        {/* Statistics Cards */}
       {deductionTypes.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn">
             <div className="flex items-center">
               <div className="p-3 rounded-full bg-pmColor/20 text-pmColor">
                 <FaList className="text-2xl" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'মোট কর্তন টাইপ' : 'Total Deduction Types'}
                 </p>
-                <p className="text-2xl font-bold text-white">{deductionTypes.length}</p>
+                <p className="text-2xl font-bold text-[#441a05]">{deductionTypes.length}</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center">
               <div className="p-3 rounded-full bg-orange-500/20 text-orange-500">
                 <span className="text-2xl">✔</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'প্রতি মাসে' : 'Monthly Deductions'}
                 </p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-[#441a05]">
                   {deductionTypes.filter(type => type.is_every_month).length}
                 </p>
               </div>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center">
               <div className="p-3 rounded-full bg-gray-500/20 text-gray-500">
                 <span className="text-2xl">✖</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'এককালীন কর্তন' : 'One-time Deductions'}
                 </p>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-[#441a05]">
                   {deductionTypes.filter(type => !type.is_every_month).length}
                 </p>
               </div>

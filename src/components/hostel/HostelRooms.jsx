@@ -191,9 +191,9 @@ const HostelRooms = () => {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
           </div>
         </div>
@@ -204,7 +204,7 @@ const HostelRooms = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -216,9 +216,9 @@ const HostelRooms = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'রুম লোড হচ্ছে...' : 'Loading rooms...'}
           </div>
         </div>
@@ -263,16 +263,16 @@ const HostelRooms = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'হোস্টেল রুম ব্যবস্থাপনা' : 'Hostel Rooms Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'হোস্টেল রুম তৈরি, সম্পাদনা এবং পরিচালনা করুন' : 'Manage hostel room inventory with seat assignments'}
             </p>
           </div>
@@ -281,7 +281,7 @@ const HostelRooms = () => {
 
       {/* Add/Edit Room Form */}
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               {editRoomId ? (
@@ -290,7 +290,7 @@ const HostelRooms = () => {
                 <IoAddCircle className="text-pmColor text-3xl" />
               )}
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {editRoomId 
                 ? (languageCode === 'bn' ? "রুম সম্পাদনা করুন" : "Edit Room")
                 : (languageCode === 'bn' ? "নতুন রুম যোগ করুন" : "Add New Room")
@@ -301,7 +301,7 @@ const HostelRooms = () => {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {/* Hostel Selection with React Select */}
             <div className="relative">
-              {/* <label className="block text-sm font-medium text-white/80 mb-2">
+              {/* <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                 {languageCode === 'bn' ? "হোস্টেলের নাম *" : "Hostel Name *"}
               </label> */}
               <Select
@@ -323,7 +323,7 @@ const HostelRooms = () => {
                 id="roomName"
                 value={roomName}
                 onChange={(e) => setRoomName(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "রুমের নাম" : "Room Name"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "রুমের নাম" : "Room Name"}
@@ -336,7 +336,7 @@ const HostelRooms = () => {
                 id="seatNo"
                 value={seatNo}
                 onChange={(e) => setSeatNo(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "সিট নম্বর" : "Seat Number"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "সিট নম্বর" : "Seat Number"}
@@ -402,8 +402,8 @@ const HostelRooms = () => {
       )}
 
       {/* Rooms Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'রুমের তালিকা' : 'Rooms List'} ({formatNumber(rooms.length)})</span>
@@ -413,46 +413,46 @@ const HostelRooms = () => {
         <div className="overflow-x-auto max-h-96">
           {rooms.length === 0 ? (
             <div className="p-8 text-center">
-              <div className="text-white/40 text-6xl mb-4">🏠</div>
+              <div className="text-[#441a05]/40 text-6xl mb-4">🏠</div>
               <h3 className="text-lg font-medium text-[#441a05]mb-2">
                 {languageCode === 'bn' ? 'কোনো রুম পাওয়া যায়নি' : 'No rooms found'}
               </h3>
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'শুরু করতে আপনার প্রথম হোস্টেল রুম তৈরি করুন।' : 'Create your first hostel room to get started.'}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আইডি' : 'ID'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'হোস্টেলের নাম' : 'Hostel Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'রুমের নাম' : 'Room Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'সিট নম্বর' : 'Seat Number'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {rooms?.map((room, index) => (
                   <tr
                     key={room.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
@@ -500,7 +500,7 @@ const HostelRooms = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {formatDate(room.created_at)}
                       </div>
                     </td>
@@ -534,7 +534,7 @@ const HostelRooms = () => {
         </div>
         
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting
@@ -550,60 +550,60 @@ const HostelRooms = () => {
       {/* Summary Stats */}
       {rooms.length > 0 && (
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6 animate-fadeIn">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-blue-500/20 rounded-xl flex items-center justify-center border border-blue-500/30">
                 <span className="text-blue-400 text-xl">🏠</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'মোট রুম' : 'Total Rooms'}
                 </p>
-                <p className="text-2xl font-semibold text-white">{formatNumber(rooms.length)}</p>
+                <p className="text-2xl font-semibold text-[#441a05]">{formatNumber(rooms.length)}</p>
               </div>
             </div>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-pmColor/20 rounded-xl flex items-center justify-center border border-pmColor/30">
                 <span className="text-pmColor text-xl">🏨</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'অনন্য হোস্টেল' : 'Unique Hostels'}
                 </p>
-                <p className="text-2xl font-semibold text-white">
+                <p className="text-2xl font-semibold text-[#441a05]">
                   {formatNumber(new Set(rooms.map(room => room.hostel_name_id).filter(Boolean)).size)}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-green-500/20 rounded-xl flex items-center justify-center border border-green-500/30">
                 <span className="text-green-400 text-xl">💺</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'মোট সিট' : 'Total Seats'}
                 </p>
-                <p className="text-2xl font-semibold text-white">{formatNumber(rooms.length)}</p>
+                <p className="text-2xl font-semibold text-[#441a05]">{formatNumber(rooms.length)}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-orange-500/20 rounded-xl flex items-center justify-center border border-orange-500/30">
                 <span className="text-orange-400 text-xl">📅</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'সাম্প্রতিক যোগ করা' : 'Recently Added'}
                 </p>
-                <p className="text-2xl font-semibold text-white">
+                <p className="text-2xl font-semibold text-[#441a05]">
                   {formatNumber(rooms.filter(room => {
                     const createdDate = new Date(room.created_at);
                     const weekAgo = new Date();

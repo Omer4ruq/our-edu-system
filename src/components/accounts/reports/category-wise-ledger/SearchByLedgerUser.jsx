@@ -17,7 +17,7 @@ export default function SearchByLedgerUser() {
       {/* From Date */}
       <div className="mt-4 grid grid-cols-3 sm:grid-cols-5 items-end gap-4">
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.fromDate")}
           </label>
           <input
@@ -26,7 +26,7 @@ export default function SearchByLedgerUser() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.toDate")}
           </label>
           <input
@@ -35,7 +35,7 @@ export default function SearchByLedgerUser() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.select_ledger_type")}
           </label>
 
@@ -55,7 +55,7 @@ export default function SearchByLedgerUser() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.select_user")}
           </label>
 

@@ -165,17 +165,17 @@ const DraggableModal = ({
         <div className="draggable-modal rounded-2xl overflow-hidden">
           {/* Header */}
           <div className="modal-header px-6 py-4">
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-[#441a05]">
               {title}
             </h3>
-            <p className="text-xs text-white/70 mt-1">
+            <p className="text-xs text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'টেনে আনুন বা ডাবল ক্লিক করুন' : 'Drag to move or double-click to center'}
             </p>
           </div>
 
           {/* Content */}
           <div className="px-6 py-4">
-            <p className="text-white/90 mb-6 leading-relaxed">
+            <p className="text-[#441a05]/90 mb-6 leading-relaxed">
               {message}
             </p>
 

@@ -18,7 +18,7 @@
 //       <span className="text-[#441a05]font-semibold text-xs mr-2">{lang === "en" ? "English" : "বাংলা"}</span>
 //       <label htmlFor="toggle" className="flex items-center cursor-pointer">
 //          <input type="checkbox" id="toggle" className="sr-only peer" checked={lang === "bn"} onChange={e => setLang(e.target.checked ? "bn" : "en")} />
-//          <div className="block relative bg-[#441a05]w-9 h-5 p-1 rounded-full before:absolute before:bg-pmColor before:w-3 before:h-3 before:p-1 before:rounded-full before:transition-all before:duration-500 before:left-1 peer-checked:before:left-5 peer-checked:before:bg-white"></div>
+//          <div className="block relative bg-[#441a05]w-9 h-5 p-1 rounded-full before:absolute before:bg-pmColor before:w-3 before:h-3 before:p-1 before:rounded-full before:transition-all before:duration-500 before:left-1 peer-checked:before:left-5 peer-checked:before:bg-[#441a05]"></div>
 //       </label>
 //    </div>
 //   )

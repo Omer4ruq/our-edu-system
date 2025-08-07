@@ -8,7 +8,7 @@ export default function GenderWise() {
   return (
     <div className="space-y-4">
       {/* Gender Wise Student */}
-      <div className="rounded-md text-sm bg-white">
+      <div className="rounded-md text-sm bg-[#441a05]">
         <SectionHeader title={t("module.dashboard.gender_wise_student")} />
         <div className="sm:flex items-center gap-4 p-4 space-y-4 sm:space-y-0">
           <div className="p-4 shadow-[2px_4px_14px_0_#000000a0] rounded-md flex items-center sm:w-1/2">
@@ -34,7 +34,7 @@ export default function GenderWise() {
       </div>
 
       {/* Gender Wise Teacher & Staff */}
-      <div className="rounded-md text-sm bg-white">
+      <div className="rounded-md text-sm bg-[#441a05]">
         <SectionHeader title={t("module.dashboard.gender_wise_teacher")} />
         <div className="sm:flex items-center gap-4 p-4 space-y-4 sm:space-y-0">
           <div className="p-4 shadow-[2px_4px_14px_0_#000000a0] rounded-md flex items-center sm:w-1/2">

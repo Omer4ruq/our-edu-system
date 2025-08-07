@@ -137,40 +137,40 @@ const ExpenseHead = () => {
       <div className="py-8 w-full relative">
         <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">খরচের শিরোনাম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">খরচের শিরোনাম তালিকা</h3>
           {isExpenseHeadLoading ? (
-            <p className="p-4 text-white/70">খরচের শিরোনাম লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">খরচের শিরোনাম লোড হচ্ছে...</p>
           ) : expenseHeadError ? (
             <p className="p-4 text-red-400">
               খরচের শিরোনাম লোড করতে ত্রুটি: {expenseHeadError.status || "অজানা"} -{" "}
               {JSON.stringify(expenseHeadError.data || {})}
             </p>
           ) : expenseHeads.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো খরচের শিরোনাম উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো খরচের শিরোনাম উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ক্রমিক
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       খরচের শিরোনাম
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {expenseHeads.map((expenseHead, index) => (
                     <tr
                       key={expenseHead.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {index + 1}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {expenseHead.expensetype}
                       </td>
                     </tr>
@@ -185,7 +185,7 @@ const ExpenseHead = () => {
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -218,9 +218,9 @@ const ExpenseHead = () => {
       <div>
         {/* Form to Add Expense Head */}
         {hasAddPermission && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন খরচের শিরোনাম যোগ করুন</h3>
             </div>
             <form onSubmit={handleSubmitExpenseHead} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
@@ -267,9 +267,9 @@ const ExpenseHead = () => {
 
         {/* Edit Expense Head Form */}
         {hasChangePermission && editExpenseHeadId && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <FaEdit className="text-3xl text-white" />
+              <FaEdit className="text-3xl text-[#441a05]" />
               <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">খরচের শিরোনাম সম্পাদনা করুন</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
@@ -326,7 +326,7 @@ const ExpenseHead = () => {
         {/* Confirmation Modal */}
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন খরচের শিরোনাম নিশ্চিত করুন"}
                 {modalAction === "update" && "খরচের শিরোনাম আপডেট নিশ্চিত করুন"}
@@ -347,7 +347,7 @@ const ExpenseHead = () => {
                 <button
                   onClick={confirmAction}
                   disabled={isCreating || isUpdating || isDeleting}
-                  className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${(isCreating || isUpdating || isDeleting) ? "cursor-not-allowed opacity-60" : "hover:text-white"}`}
+                  className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${(isCreating || isUpdating || isDeleting) ? "cursor-not-allowed opacity-60" : "hover:text-[#441a05]"}`}
                 >
                   {isCreating || isUpdating || isDeleting ? (
                     <span className="flex items-center space-x-2">
@@ -369,49 +369,49 @@ const ExpenseHead = () => {
 
         {/* Expense Heads Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">খরচের শিরোনাম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">খরচের শিরোনাম তালিকা</h3>
           {isExpenseHeadLoading ? (
-            <p className="p-4 text-white/70">খরচের শিরোনাম লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">খরচের শিরোনাম লোড হচ্ছে...</p>
           ) : expenseHeadError ? (
             <p className="p-4 text-red-400">
               খরচের শিরোনাম লোড করতে ত্রুটি: {expenseHeadError.status || "অজানা"} -{" "}
               {JSON.stringify(expenseHeadError.data || {})}
             </p>
           ) : expenseHeads.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো খরচের শিরোনাম উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো খরচের শিরোনাম উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ক্রমিক
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       খরচের শিরোনাম
                     </th>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         কার্যক্রম
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {expenseHeads.map((expenseHead, index) => (
                     <tr
                       key={expenseHead.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {index + 1}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {expenseHead.expensetype}
                       </td>
                       {(hasChangePermission || hasDeletePermission) && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                           <div className="flex space-x-2">
                             {hasChangePermission && (
                               <button

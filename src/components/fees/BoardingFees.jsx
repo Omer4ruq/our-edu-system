@@ -639,9 +639,9 @@ const BoardingFees = () => {
   if (isLoadingData) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
           <FaSpinner className="animate-spin text-3xl text-pmColor" />
-          <span className="text-lg font-medium text-white">
+          <span className="text-lg font-medium text-[#441a05]">
             লোড হচ্ছে...
           </span>
         </div>
@@ -736,7 +736,7 @@ const BoardingFees = () => {
           }
           .date-filter-active {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
           }
           .date-filter-inactive {
             background-color: transparent;
@@ -748,7 +748,7 @@ const BoardingFees = () => {
           }
           .report-button {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
             padding: 8px 16px;
             border-radius: 8px;
             transition: background-color 0.3s;
@@ -767,9 +767,9 @@ const BoardingFees = () => {
 
       <div>
         {/* Student Search */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-            <IoAddCircle className="text-4xl text-white" />
+            <IoAddCircle className="text-4xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               বোর্ডিং ফি
             </h3>
@@ -830,7 +830,7 @@ const BoardingFees = () => {
 
         {/* Student Information */}
         {selectedStudent && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <h2 className="text-xl font-semibold text-[#441a05]mb-4">ছাত্রের তথ্য</h2>
             <p><strong>নাম:</strong> {selectedStudent.name}</p>
             <p><strong>পিতার নাম:</strong> {selectedStudent.father_name || 'অজানা'}</p>
@@ -845,41 +845,41 @@ const BoardingFees = () => {
         {/* Boarding Fees Table */}
         {filteredFees.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">বোর্ডিং ফি</h2>
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">বোর্ডিং ফি</h2>
             <form onSubmit={handleSubmit}>
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-white/20">
-                  <thead className="bg-white/5">
+                <table className="min-w-full divide-y divide-[#441a05]/20">
+                  <thead className="bg-[#441a05]/5">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ফি শিরোনাম
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ওয়েভার পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ডিসকাউন্ট ইনপুট
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         পেয়েবল পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ইতিমধ্যে প্রদান
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         এখন প্রদান
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         বাকি পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         স্থিতি
                       </th>
                       {(hasAddPermission || hasChangePermission) && ( // Only show select column if user has add/change permission
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           <label className="inline-flex items-center cursor-pointer">
                             <input
                               type="checkbox"
@@ -891,7 +891,7 @@ const BoardingFees = () => {
                               title="সব ফি নির্বাচন করুন / Select all fees"
                             />
                             <span
-                              className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${selectAll ? 'bg-pmColor border-pmColor' : 'bg-white/10 border-[#9d9087] hover:border-white'}`}
+                              className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${selectAll ? 'bg-pmColor border-pmColor' : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'}`}
                             >
                               {selectAll && (
                                 <svg
@@ -910,13 +910,13 @@ const BoardingFees = () => {
                                 </svg>
                               )}
                             </span>
-                            <span className="ml-2 text-white/70 text-nowrap">সব নির্বাচন</span>
+                            <span className="ml-2 text-[#441a05]/70 text-nowrap">সব নির্বাচন</span>
                           </label>
                         </th>
                       )}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {filteredFees.map((fee, index) => {
                       const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
                       const { status, storedDiscountAmount, totalPaidAmount } = getFeeStatus(fee);
@@ -939,10 +939,10 @@ const BoardingFees = () => {
                       return (
                         <tr
                           key={fee.id}
-                          className={`bg-white/5 animate-fadeIn ${rowClass}`}
+                          className={`bg-[#441a05]/5 animate-fadeIn ${rowClass}`}
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.fees_title}
                             {existingRecord && (
                               <span className="ml-2 text-xs bg-blue-100/10 text-blue-400 px-2 py-1 rounded">
@@ -950,13 +950,13 @@ const BoardingFees = () => {
                               </span>
                             )}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.amount}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {waiverAmount}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             <input
                               type="number"
                               value={discountInputs[fee.id] || ''}
@@ -969,13 +969,13 @@ const BoardingFees = () => {
                               title="ডিসকাউন্ট ইনপুট / Discount input"
                             />
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {finalPayableAmount.toFixed(2)}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {alreadyPaid.toFixed(2)}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             <input
                               type="number"
                               value={paymentInputs[fee.id] || ''}
@@ -988,10 +988,10 @@ const BoardingFees = () => {
                               title="এখন প্রদান / Pay now"
                             />
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-800">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-red-800">
                             {dueAmount}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             <span
                               className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID'
                                 ? 'text-[#441a05]bg-pmColor'
@@ -1004,7 +1004,7 @@ const BoardingFees = () => {
                             </span>
                           </td>
                           {(hasAddPermission || hasChangePermission) && ( // Conditionally render checkbox
-                            <td className="px-6 py-4 whitespace-nowrap text-white">
+                            <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                               <label className="inline-flex items-center cursor-pointer">
                                 <input
                                   type="checkbox"
@@ -1018,7 +1018,7 @@ const BoardingFees = () => {
                                 <span
                                   className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${selectedFees.includes(fee.id)
                                     ? 'bg-pmColor border-pmColor'
-                                    : 'bg-white/10 border-[#9d9087] hover:border-white'
+                                    : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                                     }`}
                                 >
                                   {selectedFees.includes(fee.id) && (
@@ -1079,16 +1079,16 @@ const BoardingFees = () => {
           </div>
         )}
         {filteredFees.length === 0 && selectedStudent && (
-          <p className="text-white/70 mb-8 animate-fadeIn">এই ছাত্রের জন্য কোনো বোর্ডিং ফি উপলব্ধ নেই।</p>
+          <p className="text-[#441a05]/70 mb-8 animate-fadeIn">এই ছাত্রের জন্য কোনো বোর্ডিং ফি উপলব্ধ নেই।</p>
         )}
 
         {/* Boarding Fee History Table with Filters */}
         {getBoardingFeeHistory().length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
             {/* Header with filters */}
-            <div className="flex flex-col gap-4 p-4 border-b border-white/20">
+            <div className="flex flex-col gap-4 p-4 border-b border-[#441a05]/20">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <h2 className="text-lg font-semibold text-white">বোর্ডিং ফি ইতিহাস</h2>
+                <h2 className="text-lg font-semibold text-[#441a05]">বোর্ডিং ফি ইতিহাস</h2>
                 
                 {/* Main filter buttons */}
                 <div className="flex flex-wrap gap-2">
@@ -1118,7 +1118,7 @@ const BoardingFees = () => {
                 <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
                   {/* Fee type filter */}
                   <div className="flex items-center gap-2">
-                    <label className="text-sm font-medium text-white">ফি প্রকার:</label>
+                    <label className="text-sm font-medium text-[#441a05]">ফি প্রকার:</label>
                     <select
                       value={historyFeeTypeFilter}
                       onChange={(e) => setHistoryFeeTypeFilter(e.target.value)}
@@ -1160,7 +1160,7 @@ const BoardingFees = () => {
                         className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                         placeholder="শুরু"
                       />
-                      <span className="text-white">থেকে</span>
+                      <span className="text-[#441a05]">থেকে</span>
                       <input
                         type={historyDateFilterType === 'month' ? 'month' : 'date'}
                         name="endDate"
@@ -1198,7 +1198,7 @@ const BoardingFees = () => {
 
             {/* History Table */}
             {getBoardingFeeHistory().length === 0 ? (
-              <p className="p-4 text-white/70 text-center">
+              <p className="p-4 text-[#441a05]/70 text-center">
                 {historyFilterType === 'all' 
                   ? 'এই ছাত্রের জন্য কোনো বোর্ডিং ফি ইতিহাস উপলব্ধ নেই।' 
                   : `${historyFilterType === 'due' ? 'বকেয়া' : 'পরিশোধিত'} বোর্ডিং ফি পাওয়া যায়নি।`
@@ -1206,35 +1206,35 @@ const BoardingFees = () => {
               </p>
             ) : (
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-white/20">
-                  <thead className="bg-white/5">
+                <table className="min-w-full divide-y divide-[#441a05]/20">
+                  <thead className="bg-[#441a05]/5">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ফি প্রকার
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         মোট প্রদান পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ওয়েভার পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ডিসকাউন্ট পরিমাণ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         স্থিতি
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         তৈরির তারিখ
                       </th>
                       {(hasChangePermission || hasDeletePermission) && ( // Conditionally render actions column
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           ক্রিয়াকলাপ
                         </th>
                       )}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {getBoardingFeeHistory().map((fee, index) => {
                       const feeNameRecord = feesData.fees_name_records?.find(
                         (f) => f.id === fee.feetype_id
@@ -1246,22 +1246,22 @@ const BoardingFees = () => {
                       return (
                         <tr
                           key={fee.id}
-                          className="bg-white/5 animate-fadeIn"
+                          className="bg-[#441a05]/5 animate-fadeIn"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.feetype_name}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.amount}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.waiver_amount || waiverAmount}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.discount_amount}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             <span
                               className={`px-2 py-1 text-xs font-semibold rounded-full ${fee.status === 'PAID'
                                 ? 'text-[#441a05]bg-pmColor'
@@ -1273,11 +1273,11 @@ const BoardingFees = () => {
                               {fee.status === 'PAID' ? 'প্রদান' : fee.status === 'PARTIAL' ? 'আংশিক' : 'অপ্রদান'}
                             </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {fee.created_at ? new Date(fee.created_at).toLocaleDateString('bn-BD') : 'অজানা'}
                           </td>
                           {(hasChangePermission || hasDeletePermission) && ( // Conditionally render action buttons
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                               {hasChangePermission && (
                                 <button
                                   onClick={() =>
@@ -1327,14 +1327,14 @@ const BoardingFees = () => {
           </div>
         )}
         {getBoardingFeeHistory().length === 0 && selectedStudent && historyFilterType === 'all' && (
-          <p className="text-white/70 animate-fadeIn">এই ছাত্রের জন্য কোনো বোর্ডিং ফি ইতিহাস উপলব্ধ নেই।</p>
+          <p className="text-[#441a05]/70 animate-fadeIn">এই ছাত্রের জন্য কোনো বোর্ডিং ফি ইতিহাস উপলব্ধ নেই।</p>
         )}
 
         {/* Confirmation Modal */}
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && ( // Only show if user has relevant permissions
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'submit' && 'নির্বাচিত বোর্ডিং ফি নিশ্চিত করুন'}

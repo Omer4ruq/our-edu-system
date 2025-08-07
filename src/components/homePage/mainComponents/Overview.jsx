@@ -106,10 +106,10 @@ export default function Overview() {
        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 
         <div
-          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-white/5 border border-white/10"
+          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-[#441a05]/5 border border-[#441a05]/10"
           style={{ animationDelay: '0s' }}
         >
-                      <h4 className="text-white/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট শিক্ষার্থী</h4>
+                      <h4 className="text-[#441a05]/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট শিক্ষার্থী</h4>
             <PiStudentFill className="w-12 h-12 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
@@ -121,10 +121,10 @@ export default function Overview() {
 
         
         <div
-          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-white/5 border border-white/10"
+          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-[#441a05]/5 border border-[#441a05]/10"
           style={{ animationDelay: '0s' }}
         >
-                      <h4 className="text-white/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট শিক্ষক</h4>
+                      <h4 className="text-[#441a05]/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট শিক্ষক</h4>
             <FaUserTie className="w-10 h-10 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
@@ -136,10 +136,10 @@ export default function Overview() {
 
 
         <div
-          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-white/5 border border-white/10"
+          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-[#441a05]/5 border border-[#441a05]/10"
           style={{ animationDelay: '0s' }}
         >
-                      <h4 className="text-white/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট কর্মী</h4>
+                      <h4 className="text-[#441a05]/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট কর্মী</h4>
             <FaPeopleCarry className="w-12 h-12 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
@@ -151,10 +151,10 @@ export default function Overview() {
 
 
         <div
-          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-white/5 border border-white/10"
+          className="glass-card p-5 shadow-xl rounded-xl transition-all duration-500 ease-out animate-slideInLeft hover:cursor-pointer relative bg-[#441a05]/5 border border-[#441a05]/10"
           style={{ animationDelay: '0s' }}
         >
-                      <h4 className="text-white/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট অভিভাবক</h4>
+                      <h4 className="text-[#441a05]/90 font-semibold text-xs mb-4 tracking-wide ml-1">মোট অভিভাবক</h4>
             <FaPeoplePulling className="w-12 h-12 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 

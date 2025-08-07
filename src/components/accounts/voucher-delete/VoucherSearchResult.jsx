@@ -8,7 +8,7 @@ export default function VoucherSearchResult() {
       {/* From Date */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 items-end gap-4">
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.voucher_id")}
           </label>
           <input
@@ -18,7 +18,7 @@ export default function VoucherSearchResult() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.voucher_type")}
           </label>
           <input
@@ -28,7 +28,7 @@ export default function VoucherSearchResult() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.transaction_amount")}
           </label>
           <input
@@ -40,7 +40,7 @@ export default function VoucherSearchResult() {
       </div>
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 items-end gap-4">
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.transaction_date")}
           </label>
           <input
@@ -50,7 +50,7 @@ export default function VoucherSearchResult() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.entry_by")}
           </label>
           <input
@@ -60,7 +60,7 @@ export default function VoucherSearchResult() {
           />
         </div>
         <div className="space-y-2">
-          <label className="pr-2 whitespace-nowrap">
+          <label className="pr-2 [#441a05]space-nowrap">
             {t("module.accounts.note")}
           </label>
           <input

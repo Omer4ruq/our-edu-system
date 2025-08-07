@@ -806,9 +806,9 @@ const AddBehaviorMarks = () => {
 
         {/* Toast Message */}
         {toastMessage && (
-          <div className={`fixed top-6 right-6 p-4 rounded-xl shadow-2xl z-50 toast-enter ${toastType === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white' :
-            toastType === 'warning' ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white' :
-              'bg-gradient-to-r from-red-500 to-pink-600 text-white'
+          <div className={`fixed top-6 right-6 p-4 rounded-xl shadow-2xl z-50 toast-enter ${toastType === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-[#441a05]' :
+            toastType === 'warning' ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-[#441a05]' :
+              'bg-gradient-to-r from-red-500 to-pink-600 text-[#441a05]'
             }`}>
             <div className="flex items-center gap-3">
               {toastType === 'success' && <IoCheckmarkCircle className="text-xl" />}
@@ -823,7 +823,7 @@ const AddBehaviorMarks = () => {
         <div className="glass-effect rounded-3xl p-8 mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-8">
             <div className="p-3 bg-[#441a05]rounded-2xl">
-              <FaGraduationCap className="text-3xl text-white" />
+              <FaGraduationCap className="text-3xl text-[#441a05]" />
             </div>
             <div>
               <h1 className="text-3xl font-bold bg-[#441a05]bg-clip-text text-transparent">
@@ -897,7 +897,7 @@ const AddBehaviorMarks = () => {
             <div className="animate-slideIn" style={{ animationDelay: '0.4s' }}>
               <div className="p-4 rounded-xl">
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="text-sm font-semibold text-white">পরিসংখ্যান</h3>
+                  <h3 className="text-sm font-semibold text-[#441a05]">পরিসংখ্যান</h3>
                   {selectedClass && selectedExam && students && students.length > 0 && activeBehaviorTypes.length > 0 && (
                     <button
                       onClick={generateBehaviorReport}
@@ -932,14 +932,14 @@ const AddBehaviorMarks = () => {
           <div className="glass-effect rounded-3xl shadow-2xl animate-scaleIn overflow-hidden">
             <div className="p-6">
               <h3 className="text-xl font-bold text-[#441a05]mb-2">আচরণ নম্বর প্রবেশ করুন</h3>
-              <p className="text-white">
+              <p className="text-[#441a05]">
                 Enter বা Tab দাবলে পরের ফিল্ডে যাবে এবং নম্বর সংরক্ষিত হবে। খালি রেখে গেলে নম্বর মুছে যাবে।
               </p>
             </div>
 
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-white/10">
+                <thead className="bg-[#441a05]/10">
                   <tr>
                     <th className="p-4 text-left font-bold text-[#441a05]border-b border-gray-200">ছাত্রের নাম</th>
                     <th className="p-4 text-left font-bold text-[#441a05]border-b border-gray-200">রোল নং</th>

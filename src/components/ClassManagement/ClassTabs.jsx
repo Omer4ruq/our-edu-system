@@ -74,19 +74,19 @@ const ClassTabs = () => {
               <div className="flex items-center gap-4">
                 <div>
                   <h6 className="text-2xl font-bold text-[#441a05]tracking-tight">
-                    <span className="text-base font-normal text-white/70">Class,</span>
+                    <span className="text-base font-normal text-[#441a05]/70">Class,</span>
                     <br />
                     {classId ? classId.replace('class-', 'Class ') : 'Unknown'}
                   </h6>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-base font-medium text-white/70">Classes Managed: 12</span>
+                <span className="text-base font-medium text-[#441a05]/70">Classes Managed: 12</span>
               </div>
             </div> */}
 
             <div className="mb-6">
-              <ul className="flex flex-wrap gap-2 border-b border-white/20">
+              <ul className="flex flex-wrap gap-2 border-b border-[#441a05]/20">
                 {tabs.map((tab, index) => (
                   <li key={tab.id} className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
                     <button
@@ -106,7 +106,7 @@ const ClassTabs = () => {
               </ul>
             </div>
 
-            <div className="bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl p-6 animate-fadeIn">
+            <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 rounded-2xl shadow-xl p-6 animate-fadeIn">
               <Outlet />
             </div>
           </div>

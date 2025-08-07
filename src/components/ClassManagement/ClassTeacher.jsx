@@ -49,46 +49,46 @@ const ClassTeacher = () => {
         `}
       </style>
 
-      <h3 className="text-lg font-semibold text-[#441a05]mb-6 border-b border-white/20 pb-2 animate-fadeIn">
+      <h3 className="text-lg font-semibold text-[#441a05]mb-6 border-b border-[#441a05]/20 pb-2 animate-fadeIn">
         Teachers for {classId ? classId.replace('class-', 'Class ') : 'Unknown'}
       </h3>
       <div className="animate-fadeIn overflow-y-auto max-h-[60vh]">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-white/20">
-            <thead className="bg-white/5">
+          <table className="min-w-full divide-y divide-[#441a05]/20">
+            <thead className="bg-[#441a05]/5">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Teacher Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Subject
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Contact
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/20">
+            <tbody className="divide-y divide-[#441a05]/20">
               {teachers.length > 0 ? (
                 teachers.map((teacher, index) => (
                   <tr
                     key={teacher.id}
-                    className="bg-white/5 animate-fadeIn hover:bg-white/10 transition-all duration-300"
+                    className="bg-[#441a05]/5 animate-fadeIn hover:bg-[#441a05]/10 transition-all duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       {teacher.name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {teacher.subject}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {teacher.contact}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                       <button
                         className="relative inline-flex items-center px-4 py-2 rounded-lg font-medium bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow transition-all duration-300 animate-scaleIn"
                         title="View teacher details"
@@ -102,7 +102,7 @@ const ClassTeacher = () => {
                 <tr>
                   <td
                     colSpan="4"
-                    className="text-center py-8 text-white/70 text-base animate-fadeIn"
+                    className="text-center py-8 text-[#441a05]/70 text-base animate-fadeIn"
                   >
                     No teachers assigned to this class.
                   </td>

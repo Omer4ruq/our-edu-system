@@ -483,7 +483,7 @@ const StudentAttendance = () => {
       <style>{customStyles}</style>
       <div className="mx-auto">
         {/* Tabs */}
-        <div className="flex border-b border-white/20 mb-6 animate-fadeIn">
+        <div className="flex border-b border-[#441a05]/20 mb-6 animate-fadeIn">
           <button
             className={`flex-1 py-3 px-6 sm:text-lg font-medium rounded-t-lg text-sm transition-all duration-300 ${tabValue === 0 ? "tab-active" : "tab-inactive"}`}
             onClick={() => {
@@ -519,9 +519,9 @@ const StudentAttendance = () => {
         </div>
 
         {/* Form */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
-            <FaCalendarAlt className="text-3xl text-white" />
+            <FaCalendarAlt className="text-3xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               {tabValue === 0
                 ? "ক্লাস অনুযায়ী উপস্থিতি দেখুন"
@@ -535,7 +535,7 @@ const StudentAttendance = () => {
           >
             {/* ক্লাস নির্বাচন */}
             <div className="relative">
-              <label htmlFor="classSelect" className="block font-medium text-white">
+              <label htmlFor="classSelect" className="block font-medium text-[#441a05]">
                 ক্লাস নির্বাচন <span className="text-red-600">*</span>
               </label>
               <Select
@@ -561,7 +561,7 @@ const StudentAttendance = () => {
             {/* তারিখ নির্বাচন */}
             {tabValue === 0 && (
               <div className="relative input-icon">
-                <label htmlFor="classDate" className="block font-medium text-white">
+                <label htmlFor="classDate" className="block font-medium text-[#441a05]">
                   তারিখ নির্বাচন <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -583,7 +583,7 @@ const StudentAttendance = () => {
             {tabValue === 1 && (
               <>
                 <div className="relative">
-                  <label htmlFor="studentSelect" className="block font-medium text-white">
+                  <label htmlFor="studentSelect" className="block font-medium text-[#441a05]">
                     ছাত্র নির্বাচন
                   </label>
                   <Select
@@ -608,7 +608,7 @@ const StudentAttendance = () => {
                 </div>
 
                 <div className="relative input-icon col-span-2">
-                  <label htmlFor="filterType" className="block font-medium text-white">
+                  <label htmlFor="filterType" className="block font-medium text-[#441a05]">
                     ফিল্টার প্রকার
                   </label>
                   <select
@@ -631,7 +631,7 @@ const StudentAttendance = () => {
                 </div>
 
                 <div className="relative input-icon col-span-2">
-                  <label className="block font-medium text-white">
+                  <label className="block font-medium text-[#441a05]">
                     {filterType === "month" ? "মাস নির্বাচন করুন" : "তারিখের পরিসীমা"}
                   </label>
                   {filterType === "month" ? (
@@ -720,9 +720,9 @@ const StudentAttendance = () => {
         </div>
 
         {/* Attendance Table */}
-        <div className="bg-black/10 px-6 py-2 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn table-container border border-white/20">
-          <div className="flex items-center justify-between p-4 border-b border-white/20">
-            <h3 className="text-lg font-semibold text-white">
+        <div className="bg-black/10 px-6 py-2 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn table-container border border-[#441a05]/20">
+          <div className="flex items-center justify-between p-4 border-b border-[#441a05]/20">
+            <h3 className="text-lg font-semibold text-[#441a05]">
               {selectedStudent
                 ? `${selectedStudent.name || "N/A"} এর উপস্থিতি বিস্তারিত`
                 : "উপস্থিতি তালিকা"}
@@ -740,33 +740,33 @@ const StudentAttendance = () => {
             )} */}
           </div>
           {isLoading ? (
-            <p className="p-4 text-white/70 animate-scaleIn">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn">
               <FaSpinner className="animate-spin text-lg mr-2" />
               উপস্থিতি লোড হচ্ছে...
             </p>
           ) : !selectedClass ? (
-            <p className="p-4 text-white/70 animate-scaleIn">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn">
               অনুগ্রহ করে একটি ক্লাস নির্বাচন করুন।
             </p>
           ) : tabValue === 0 && !classDate ? (
-            <p className="p-4 text-white/70 animate-scaleIn">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn">
               অনুগ্রহ করে একটি তারিখ নির্বাচন করুন।
             </p>
           ) : tabValue === 1 && filterType === "month" && !month ? (
-            <p className="p-4 text-white/70 animate-scaleIn">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn">
               অনুগ্রহ করে একটি মাস নির্বাচন করুন।
             </p>
           ) : tabValue === 1 &&
             filterType === "dateRange" &&
             (!startDate || !endDate) ? (
-            <p className="p-4 text-white/70 animate-scaleIn">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn">
               অনুগ্রহ করে তারিখের পরিসীমা নির্বাচন করুন।
             </p>
           ) : (tabValue === 0 && filteredStudents.length === 0) ||
             (tabValue === 1 &&
               !selectedStudent &&
               filteredStudents.length === 0) ? (
-            <p className="p-4 text-white/70 animate-scaleIn">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn">
               কোনো ছাত্র পাওয়া যায়নি।
             </p>
           ) : tabValue === 0 ? (
@@ -774,7 +774,7 @@ const StudentAttendance = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 animate-fadeIn">
                 <div className="relative input-icon">
                   <label
-                    className="block font-medium text-white"
+                    className="block font-medium text-[#441a05]"
                     htmlFor="searchStudent"
                   >
                     ছাত্র অনুসন্ধান
@@ -786,7 +786,7 @@ const StudentAttendance = () => {
                     value={studentSearch}
                     onChange={(e) => setStudentSearch(e.target.value)}
                     placeholder="ছাত্রের নাম বা আইডি লিখুন"
-                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-[#441a05]"
                     disabled={isLoading}
                     aria-label="ছাত্র অনুসন্ধান"
                     title="ছাত্র অনুসন্ধান / Search student"
@@ -794,7 +794,7 @@ const StudentAttendance = () => {
                 </div>
                 <div className="relative input-icon">
                   <label
-                    className="block font-medium text-white"
+                    className="block font-medium text-[#441a05]"
                     htmlFor="searchSubject"
                   >
                     বিষয় অনুসন্ধান
@@ -806,37 +806,37 @@ const StudentAttendance = () => {
                     value={subjectSearch}
                     onChange={(e) => setSubjectSearch(e.target.value)}
                     placeholder="বিষয়ের নাম লিখুন"
-                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-[#441a05]"
                     disabled={isLoading}
                     aria-label="বিষয় অনুসন্ধান"
                     title="বিষয় অনুসন্ধান / Search subject"
                   />
                 </div>
               </div>
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ছাত্র
                     </th>
                     {filteredSubjects.map((subject) => (
                       <th
                         key={subject.id}
-                        className="px-6 py-3 text-center text-sm font-medium text-white/70 uppercase tracking-wider"
+                        className="px-6 py-3 text-center text-sm font-medium text-[#441a05]/70 uppercase tracking-wider"
                       >
                         {subject.name || "N/A"}
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredStudents.map((student, index) => (
                     <tr
                       key={student.id}
-                      className="bg-white/5 hover:bg-white/10 transition-colors duration-200 animate-fadeIn"
+                      className="bg-[#441a05]/5 hover:bg-[#441a05]/10 transition-colors duration-200 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {student.name || "N/A"} (Roll: ${student.roll_no || "N/A"})
                       </td>
                       {filteredSubjects.map((subject) => {
@@ -849,7 +849,7 @@ const StudentAttendance = () => {
                         return (
                           <td
                             key={`${student.id}-${subject.id}`}
-                            className="px-6 py-4 whitespace-nowrap text-sm text-center text-white"
+                            className="px-6 py-4 [#441a05]space-nowrap text-sm text-center text-[#441a05]"
                           >
                             <Tooltip title={attendance?.remarks || ""}>
                               <span>
@@ -873,7 +873,7 @@ const StudentAttendance = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 animate-fadeIn">
                 <div className="relative input-icon col-span-2">
                   <label
-                    className="block font-medium text-white"
+                    className="block font-medium text-[#441a05]"
                     htmlFor="searchSubject"
                   >
                     বিষয় অনুসন্ধান
@@ -885,37 +885,37 @@ const StudentAttendance = () => {
                     value={subjectSearch}
                     onChange={(e) => setSubjectSearch(e.target.value)}
                     placeholder="বিষয়ের নাম লিখুন"
-                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-[#441a05]"
                     disabled={isLoading}
                     aria-label="বিষয় অনুসন্ধান"
                     title="বিষয় অনুসন্ধান / Search subject"
                   />
                 </div>
               </div>
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বিষয়
                     </th>
                     {uniqueDates.map((date) => (
                       <th
                         key={date}
-                        className="px-6 py-3 text-center text-sm font-medium text-white/70 uppercase tracking-wider"
+                        className="px-6 py-3 text-center text-sm font-medium text-[#441a05]/70 uppercase tracking-wider"
                       >
                         {new Date(date).toLocaleDateString("bn-BD")}
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredSubjects.map((subject, index) => (
                     <tr
                       key={subject.id}
-                      className="bg-white/5 hover:bg-white/10 transition-colors duration-200 animate-fadeIn"
+                      className="bg-[#441a05]/5 hover:bg-[#441a05]/10 transition-colors duration-200 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {subject.name || "N/A"}
                       </td>
                       {uniqueDates.map((date) => {
@@ -928,7 +928,7 @@ const StudentAttendance = () => {
                         return (
                           <td
                             key={`${subject.id}-${date}`}
-                            className="px-6 py-4 whitespace-nowrap text-sm text-center text-white"
+                            className="px-6 py-4 [#441a05]space-nowrap text-sm text-center text-[#441a05]"
                           >
                             <Tooltip title={attendance?.remarks || ""}>
                               <span>
@@ -952,7 +952,7 @@ const StudentAttendance = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 animate-fadeIn">
                 <div className="relative input-icon">
                   <label
-                    className="block font-medium text-white"
+                    className="block font-medium text-[#441a05]"
                     htmlFor="searchStudent"
                   >
                     ছাত্র অনুসন্ধান
@@ -964,7 +964,7 @@ const StudentAttendance = () => {
                     value={studentSearch}
                     onChange={(e) => setStudentSearch(e.target.value)}
                     placeholder="ছাত্রের নাম বা আইডি লিখুন"
-                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-[#441a05]"
                     disabled={isLoading}
                     aria-label="ছাত্র অনুসন্ধান"
                     title="ছাত্র অনুসন্ধান / Search student"
@@ -972,7 +972,7 @@ const StudentAttendance = () => {
                 </div>
                 <div className="relative input-icon">
                   <label
-                    className="block font-medium text-white"
+                    className="block font-medium text-[#441a05]"
                     htmlFor="searchSubject"
                   >
                     বিষয় অনুসন্ধান
@@ -984,38 +984,38 @@ const StudentAttendance = () => {
                     value={subjectSearch}
                     onChange={(e) => setSubjectSearch(e.target.value)}
                     placeholder="বিষয়ের নাম লিখুন"
-                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-[#441a05]"
                     disabled={isLoading}
                     aria-label="বিষয় অনুসন্ধান"
                     title="বিষয় অনুসন্ধান / Search subject"
                   />
                 </div>
               </div>
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ছাত্র
                     </th>
                     {uniqueDates.map((date) => (
                       <th
                         key={date}
-                        className="px-6 py-3 text-center text-sm font-medium text-white/70 uppercase tracking-wider"
+                        className="px-6 py-3 text-center text-sm font-medium text-[#441a05]/70 uppercase tracking-wider"
                       >
                         {new Date(date).toLocaleDateString("bn-BD")}
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredStudents.map((student, index) => (
                     <tr
                       key={student.id}
-                      className="bg-white/5 hover:bg-white/10 transition-colors duration-200 animate-fadeIn"
+                      className="bg-[#441a05]/5 hover:bg-[#441a05]/10 transition-colors duration-200 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
                       <td
-                        className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#441a05]cursor-pointer hover:underline"
+                        className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]cursor-pointer hover:underline"
                         onClick={() => handleStudentClick(student)}
                       >
                         {student.name || "N/A"} (ID: ${student.user_id || "N/A"})
@@ -1029,7 +1029,7 @@ const StudentAttendance = () => {
                         return (
                           <td
                             key={`${student.id}-${date}`}
-                            className="px-6 py-4 whitespace-nowrap text-sm text-center text-white"
+                            className="px-6 py-4 [#441a05]space-nowrap text-sm text-center text-[#441a05]"
                           >
                             <Tooltip title={attendance?.remarks || ""}>
                               <span>

@@ -35,7 +35,7 @@ export default function LeaveAndSmsInfo() {
         />
         <div className="sm:flex items-center gap-4 p-4 space-y-4 sm:space-y-0">
           {/* Leave Student */}
-          <div className="p-4 bg-white/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+          <div className="p-4 bg-[#441a05]/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
             <div className="w-14 h-14 flex items-center justify-center rounded-full mr-3 bg-pmColor animate-scaleIn">
               <img src={leaveStudent} alt="শিক্ষার্থী ছুটি আইকন" className="w-8 h-8" />
             </div>
@@ -43,15 +43,15 @@ export default function LeaveAndSmsInfo() {
               <h4 className="text-[#441a05]text-[16px] font-medium">
                 শিক্ষার্থী ছুটি
               </h4>
-              <h4 className="text-xl font-bold text-white">o</h4>
-              {/* <h4 className="text-xs font-medium text-white">
+              <h4 className="text-xl font-bold text-[#441a05]">o</h4>
+              {/* <h4 className="text-xs font-medium text-[#441a05]">
                 মোট শিক্ষার্থী: ৫৩০
               </h4> */}
             </div>
           </div>
 
           {/* Leave Teacher */}
-          <div className="p-4 bg-white/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+          <div className="p-4 bg-[#441a05]/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
             <div className="w-14 h-14 flex items-center justify-center rounded-full mr-3 bg-pmColor animate-scaleIn">
               <img src={leaveTeacher} alt="শিক্ষক ছুটি আইকন" className="w-8 h-8" />
             </div>
@@ -59,8 +59,8 @@ export default function LeaveAndSmsInfo() {
               <h4 className="text-[#441a05]text-[16px] font-medium">
                 কর্মকর্তা ছুটি
               </h4>
-              <h4 className="text-xl font-bold text-white">o</h4>
-              {/* <h4 className="text-xs font-medium text-white">
+              <h4 className="text-xl font-bold text-[#441a05]">o</h4>
+              {/* <h4 className="text-xs font-medium text-[#441a05]">
                 মোট শিক্ষক: ৩০
               </h4> */}
             </div>
@@ -76,7 +76,7 @@ export default function LeaveAndSmsInfo() {
         />
         <div className="sm:flex items-center gap-4 p-4 space-y-4 sm:space-y-0">
           {/* General SMS */}
-          <div className="p-4 bg-white/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+          <div className="p-4 bg-[#441a05]/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
             <div className="w-14 h-14 flex items-center justify-center rounded-full mr-3 bg-pmColor animate-scaleIn">
               <img src={generalSMS} alt="সাধারণ এসএমএস আইকন" className="w-8 h-8" />
             </div>
@@ -84,15 +84,15 @@ export default function LeaveAndSmsInfo() {
               <h4 className="text-[#441a05]text-[16px] font-medium">
                 সাধারণ এসএমএস
               </h4>
-              <h4 className="text-xl font-bold text-white">o</h4>
-              {/* <h4 className="text-xs font-medium text-white">
+              <h4 className="text-xl font-bold text-[#441a05]">o</h4>
+              {/* <h4 className="text-xs font-medium text-[#441a05]">
                 মেয়াদ শেষ: ১২.০৮.২০২৮
               </h4> */}
             </div>
           </div>
 
           {/* Masking SMS */}
-          <div className="p-4 bg-white/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+          <div className="p-4 bg-[#441a05]/5 border border-[#9d9087]/50 rounded-2xl flex items-center sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
             <div className="w-14 h-14 flex items-center justify-center rounded-full mr-3 bg-pmColor animate-scaleIn">
               <img src={maskingSMS} alt="মাস্কিং এসএমএস আইকন" className="w-8 h-8" />
             </div>
@@ -100,8 +100,8 @@ export default function LeaveAndSmsInfo() {
               <h4 className="text-[#441a05]text-[16px] font-medium">
                 মাস্কিং এসএমএস
               </h4>
-              <h4 className="text-xl font-bold text-white">o</h4>
-              {/* <h4 className="text-xs font-medium text-white">
+              <h4 className="text-xl font-bold text-[#441a05]">o</h4>
+              {/* <h4 className="text-xs font-medium text-[#441a05]">
                 মেয়াদ শেষ: ১২.০৮.২০২৮
               </h4> */}
             </div>

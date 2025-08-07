@@ -197,12 +197,12 @@ const AddRoleTypes = () => {
 
       <div>
         {/* Add/Edit Role Form */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
             {editingId ? (
-              <FaEdit className="text-4xl text-white" />
+              <FaEdit className="text-4xl text-[#441a05]" />
             ) : (
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
             )}
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               {editingId ? "ভূমিকার ধরন সম্পাদনা করুন" : "নতুন ভূমিকার ধরন যোগ করুন"}
@@ -280,54 +280,54 @@ const AddRoleTypes = () => {
 
         {/* Role Types Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ভূমিকার ধরনের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ভূমিকার ধরনের তালিকা</h3>
           {isRoleLoading ? (
-            <p className="p-4 text-white/70">ভূমিকার ধরন লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">ভূমিকার ধরন লোড হচ্ছে...</p>
           ) : roleError ? (
             <p className="p-4 text-red-400">
               ভূমিকার ধরন লোড করতে ত্রুটি: {roleError.status || "অজানা"} - {JSON.stringify(roleError.data || {})}
             </p>
           ) : roleTypes?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ভূমিকার ধরন উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ভূমিকার ধরন উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto" key={refreshKey}>
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       নাম
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বাংলা নাম
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       সক্রিয়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আপডেটের সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ক্রিয়াকলাপ
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {roleTypes?.map((roleType, index) => (
                     <tr
                       key={roleType.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {roleType.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {roleType.bn_name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                         <label className="inline-flex items-center cursor-pointer">
                           <input
                             type="checkbox"
@@ -339,12 +339,12 @@ const AddRoleTypes = () => {
                             className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                               roleType.status === "Active"
                                 ? "bg-pmColor border-pmColor tick-glow"
-                                : "bg-white/10 border-[#9d9087] hover:border-white"
+                                : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                             }`}
                           >
                             {roleType.status === "Active" && (
                               <svg
-                                className="w-4 h-4 text-white"
+                                className="w-4 h-4 text-[#441a05]"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -361,13 +361,13 @@ const AddRoleTypes = () => {
                           </span>
                         </label>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(roleType.created_at).toLocaleString("bn-BD")}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(roleType.updated_at).toLocaleString("bn-BD")}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                         <button
                           onClick={() => handleEdit(roleType)}
                           title="ভূমিকার ধরন সম্পাদনা করুন"
@@ -405,7 +405,7 @@ const AddRoleTypes = () => {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন ভূমিকার ধরন নিশ্চিত করুন"}

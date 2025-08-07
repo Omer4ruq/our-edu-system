@@ -63,7 +63,7 @@ const SeatPlan = () => {
           width: 90mm;
           height: 50mm;
           page-break-inside: avoid;
-          background: white;
+          background: [#441a05];
           border: 1px solid #DB9E30;
           border-radius: 4mm;
           overflow: hidden;
@@ -131,7 +131,7 @@ const SeatPlan = () => {
           .seat-card {
             width: 90mm;
             height: 50mm;
-            background: white;
+            background: [#441a05];
             
             border: 1px solid #DB9E30;
             border-radius: 4mm;
@@ -156,7 +156,7 @@ const SeatPlan = () => {
           }
           .header-text {
             text-align: center;
-            color: white;
+            color: [#441a05];
           }
           .header-text h1 {
             font-size: 8pt;
@@ -278,7 +278,7 @@ const classConfigOptions = classConfigs?.map(config => ({
   // Loading state
   if (classLoading || yearLoading || examLoading || instituteLoading || studentsLoading || studentsFetching) {
     return (
-      <div className="p-8 text-white/70 animate-fadeIn">
+      <div className="p-8 text-[#441a05]/70 animate-fadeIn">
         লোড হচ্ছে...
       </div>
     );
@@ -287,7 +287,7 @@ const classConfigOptions = classConfigs?.map(config => ({
   // Error state
   if (classError || yearError || examError || instituteError || studentsError) {
     return (
-      <div className="p-1 text-white/70 animate-fadeIn">
+      <div className="p-1 text-[#441a05]/70 animate-fadeIn">
         ডেটা লোড করতে হলো না: {studentsError?.data?.message || classError?.data?.message || yearError?.data?.message || examError?.data?.message || instituteError?.data?.message || 'Unknown error'}
       </div>
     );
@@ -316,7 +316,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             <h1 className="text-[8pt] font-bold text-[#441a05]uppercase">
               {instituteInfo.institute_name || 'Rajuk Uttara Model College'}
             </h1>
-            <p className="text-[6pt] text-white">{instituteInfo.institute_address || 'Sector#6, Uttara Model Town, Dhaka'}</p>
+            <p className="text-[6pt] text-[#441a05]">{instituteInfo.institute_address || 'Sector#6, Uttara Model Town, Dhaka'}</p>
           </div>
           <img
             src={instituteInfo.institute_logo || 'https://static.vecteezy.com/system/resources/previews/046/006/104/non_2x/education-logo-design-template-vector.jpg'}
@@ -380,7 +380,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             width: 90mm;
             height: 50mm;
             page-break-inside: avoid;
-            background: white;
+            background: [#441a05];
             border: 1px solid #DB9E30;
             border-radius: 4mm;
             overflow: hidden;
@@ -400,9 +400,9 @@ const classConfigOptions = classConfigs?.map(config => ({
       </style>
 
       {/* Filter Controls */}
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-          <IoPrint className="text-4xl text-white"/>
+          <IoPrint className="text-4xl text-[#441a05]"/>
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">পরীক্ষার আসন বিন্যাস</h3>
         </div>
 

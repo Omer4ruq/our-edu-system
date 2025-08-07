@@ -10,7 +10,7 @@
   padding: 5px 10px;
   background-color: #007bff;
   border: 1px solid #0056b3;
-  color: white;
+  color: [#441a05];
   cursor: grab;
   text-align: center;
   border-radius: 5px;
@@ -32,7 +32,7 @@
 }
 
 .subject p:first-child {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid [#441a05];
 }
 
 .subject:hover {
@@ -64,7 +64,7 @@
   justify-content: center;
   font-weight: bold;
   background-color: #007bff;
-  color: white;
+  color: [#441a05];
   border: 1px solid #0056b3;
   border-radius: 5px;
   min-width: 100px;
@@ -116,7 +116,7 @@
   top: 5px;
   right: 5px;
   background-color: red;
-  color: white;
+  color: [#441a05];
   border: none;
   border-radius: 50%;
   width: 20px;
@@ -173,7 +173,7 @@
   padding: 10px 25px;
   border-radius: 6px;
   background-color: #007bff;
-  color: white;
+  color: [#441a05];
   border: none;
 }
 

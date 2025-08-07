@@ -373,11 +373,11 @@ const CleanReport = () => {
   // Render clean report table
   const renderCleanReportTable = () => {
     if (!selectedClass || !selectedDate) {
-      return <p className="p-4 text-white/70 animate-fadeIn">ক্লাস এবং তারিখ নির্বাচন করুন</p>;
+      return <p className="p-4 text-[#441a05]/70 animate-fadeIn">ক্লাস এবং তারিখ নির্বাচন করুন</p>;
     }
     if (isTypesLoading || isReportsLoading) {
       return (
-        <p className="p-4 text-white/70 animate-fadeIn">
+        <p className="p-4 text-[#441a05]/70 animate-fadeIn">
           <FaSpinner className="animate-spin text-lg mr-2" />
           পরিচ্ছন্নতা রিপোর্ট ডেটা লোড হচ্ছে...
         </p>
@@ -398,28 +398,28 @@ const CleanReport = () => {
       );
     }
     if (cleanReportTypes.length === 0) {
-      return <p className="p-4 text-white/70 animate-fadeIn">কোনো পরিচ্ছন্নতা রিপোর্টের ধরন নেই</p>;
+      return <p className="p-4 text-[#441a05]/70 animate-fadeIn">কোনো পরিচ্ছন্নতা রিপোর্টের ধরন নেই</p>;
     }
 
     return (
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-white/20">
-          <thead className="bg-white/5">
+        <table className="min-w-full divide-y divide-[#441a05]/20">
+          <thead className="bg-[#441a05]/5">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 চেকবক্স
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 পরিচ্ছন্নতা রিপোর্টের ধরন
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/20">
+          <tbody className="divide-y divide-[#441a05]/20">
             {cleanReportTypes.map((type, index) => {
               const report = filteredReports.find((r) => r.Clean_report_type === type.id);
               return (
-                <tr key={type.id} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <td className="px-6 py-4 whitespace-nowrap text-white">
+                <tr key={type.id} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                     <label htmlFor={`checkbox-${type.id}`} className="inline-flex items-center cursor-pointer">
                       <input
                         id={`checkbox-${type.id}`}
@@ -433,7 +433,7 @@ const CleanReport = () => {
                         className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                           cleanReportData[type.id]
                             ? 'bg-pmColor border-pmColor'
-                            : 'bg-white/10 border-[#9d9087] hover:border-white'
+                            : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                         }`}
                       >
                         {cleanReportData[type.id] && (
@@ -450,7 +450,7 @@ const CleanReport = () => {
                       </span>
                     </label>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{type.name}</td>
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{type.name}</td>
                 </tr>
               );
             })}
@@ -504,7 +504,7 @@ const CleanReport = () => {
           }
           .report-button {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
             padding: 8px 16px;
             border-radius: 8px;
             transition: all 0.3s;
@@ -538,9 +538,9 @@ const CleanReport = () => {
       </style>
 
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-2 mb-6">
-            <IoAddCircle className="text-3xl text-white" />
+            <IoAddCircle className="text-3xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">পরিচ্ছন্নতার রিপোর্ট</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -595,7 +595,7 @@ const CleanReport = () => {
           )}
 
           {isClassesLoading && (
-            <div className="flex items-center space-x-2 text-white/70 animate-fadeIn mt-4">
+            <div className="flex items-center space-x-2 text-[#441a05]/70 animate-fadeIn mt-4">
               <FaSpinner className="animate-spin text-lg" />
               <span>ক্লাস লোড হচ্ছে...</span>
             </div>
@@ -612,8 +612,8 @@ const CleanReport = () => {
       )}
 
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
-          <h3 className="text-lg font-semibold text-white">পরিচ্ছন্নতা রিপোর্টের ধরন</h3>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-[#441a05]/20">
+          <h3 className="text-lg font-semibold text-[#441a05]">পরিচ্ছন্নতা রিপোর্টের ধরন</h3>
         </div>
         {renderCleanReportTable()}
       </div>
@@ -622,7 +622,7 @@ const CleanReport = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
           <div
-            className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
+            className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-[#441a05]/20 animate-slideUp"
           >
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               পরিচ্ছন্নতা রিপোর্ট মুছে ফেলা নিশ্চিত করুন

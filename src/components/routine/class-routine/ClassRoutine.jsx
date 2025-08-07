@@ -191,9 +191,9 @@ console.log("selectedClass", selectedClass)
     return (
       <div className="py-8 w-full relative">
         <div className="flex items-center justify-center min-h-screen px-4">
-          <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+          <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
             <FaSpinner className="animate-spin text-3xl text-pmColor" />
-            <span className="text-lg font-medium text-white">
+            <span className="text-lg font-medium text-[#441a05]">
               লোড হচ্ছে...
             </span>
           </div>
@@ -266,16 +266,16 @@ console.log("selectedClass", selectedClass)
 
       <div className="mx-auto">
         {/* Class Tabs */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-            <IoAddCircle className="text-4xl text-white" />
+            <IoAddCircle className="text-4xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               শ্রেণি নির্বাচন করুন
             </h3>
           </div>
           <div className="flex flex-wrap gap-3 overflow-x-auto">
             {classesLoading ? (
-              <p className="text-white/70 animate-fadeIn">
+              <p className="text-[#441a05]/70 animate-fadeIn">
                 শ্রেণি লোড হচ্ছে...
               </p>
             ) : (
@@ -285,8 +285,8 @@ console.log("selectedClass", selectedClass)
                   onClick={() => handleClassSelect(cls)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium text-[#441a05]transition-all duration-300 animate-scaleIn ${
                     selectedClass?.id === cls?.id
-                      ? "bg-pmColor hover:text-white"
-                      : "bg-white/10 hover:bg-white/10"
+                      ? "bg-pmColor hover:text-[#441a05]"
+                      : "bg-[#441a05]/10 hover:bg-[#441a05]/10"
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                   title={`শ্রেণি নির্বাচন করুন: ${cls.class_name} ${cls.section_name}`}
@@ -308,7 +308,7 @@ console.log("selectedClass", selectedClass)
         </div>
 
         {selectedClass && isValidId(selectedClass.class_id) && hasAddPermission && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             {/* Days Section */}
             <div>
               <h3 className="text-lg font-semibold text-[#441a05]mb-3">
@@ -333,7 +333,7 @@ console.log("selectedClass", selectedClass)
                       className={`w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300 tick-glow ${
                         selectedDay === engDay
                           ? "bg-pmColor border-pmColor"
-                          : "bg-white/10 border-[#9d9087] hover:border-white"
+                          : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                       }`}
                     >
                       {selectedDay === engDay && (
@@ -353,7 +353,7 @@ console.log("selectedClass", selectedClass)
                         </svg>
                       )}
                     </span>
-                    <span className="text-white">{banglaDay}</span>
+                    <span className="text-[#441a05]">{banglaDay}</span>
                   </label>
                 ))}
               </div>
@@ -365,7 +365,7 @@ console.log("selectedClass", selectedClass)
                 পিরিয়ড নির্বাচন করুন
               </h3>
               {periodsLoading ? (
-                <p className="text-white/70 animate-fadeIn">লোড হচ্ছে...</p>
+                <p className="text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</p>
               ) : (
                 <div className="flex flex-col gap-2">
                   {periods.map((period, index) => (
@@ -386,7 +386,7 @@ console.log("selectedClass", selectedClass)
                         className={`w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300 tick-glow ${
                           selectedPeriod?.id === period.id
                             ? "bg-pmColor border-pmColor"
-                            : "bg-white/10 border-[#9d9087] hover:border-white"
+                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                         }`}
                       >
                         {selectedPeriod?.id === period.id && (
@@ -406,7 +406,7 @@ console.log("selectedClass", selectedClass)
                           </svg>
                         )}
                       </span>
-                      <span className="text-white">
+                      <span className="text-[#441a05]">
                         {period.start_time} - {period.end_time}
                       </span>
                     </label>
@@ -421,7 +421,7 @@ console.log("selectedClass", selectedClass)
                 বিষয় নির্বাচন করুন
               </h3>
               {subjectsLoading ? (
-                <p className="text-white/70 animate-fadeIn">লোড হচ্ছে...</p>
+                <p className="text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</p>
               ) : subjectsError ? (
                 <div className="text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn">
                   বিষয় লোড করতে ত্রুটি: {subjectsError.status || "অজানা"} - {JSON.stringify(subjectsError.data || {})}
@@ -458,7 +458,7 @@ console.log("selectedClass", selectedClass)
                         className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 tick-glow ${
                           selectedSubjects.some((s) => s.id === subject.id)
                             ? "bg-pmColor border-pmColor"
-                            : "bg-white/10 border-[#9d9087] hover:border-white"
+                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                         }`}
                       >
                         {selectedSubjects.some((s) => s.id === subject.id) && (
@@ -478,7 +478,7 @@ console.log("selectedClass", selectedClass)
                           </svg>
                         )}
                       </span>
-                      <span className="text-white">{subject.name}</span>
+                      <span className="text-[#441a05]">{subject.name}</span>
                     </label>
                   ))}
                 </div>
@@ -491,7 +491,7 @@ console.log("selectedClass", selectedClass)
                 শিক্ষক নির্বাচন করুন
               </h3>
               {teachersLoading || allteachersLoading ? (
-                <p className="text-white/70 animate-fadeIn">লোড হচ্ছে...</p>
+                <p className="text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</p>
               ) : teachersError ? (
                 <div
                   className="text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn"
@@ -526,7 +526,7 @@ console.log("selectedClass", selectedClass)
                         className={`w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300 tick-glow ${
                           selectedTeacher?.id === teacher.id
                             ? "bg-pmColor border-pmColor"
-                            : "bg-white/10 border-[#9d9087] hover:border-white"
+                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                         }`}
                       >
                         {selectedTeacher?.id === teacher.id && (
@@ -546,7 +546,7 @@ console.log("selectedClass", selectedClass)
                           </svg>
                         )}
                       </span>
-                      <span className="text-white">{teacher.name}</span>
+                      <span className="text-[#441a05]">{teacher.name}</span>
                     </label>
                   ))}
                 </div>
@@ -592,7 +592,7 @@ console.log("selectedClass", selectedClass)
 
         {/* Routine Table */}
         {selectedClass && isValidId(selectedClass.class_id) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
             <ClassRoutineTable
               selectedClassId={selectedClass.class_id}
               periods={periods}
@@ -603,7 +603,7 @@ console.log("selectedClass", selectedClass)
         {/* Confirmation Modal */}
         {isModalOpen && hasAddPermission && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 রুটিন তৈরি নিশ্চিত করুন
               </h3>

@@ -36,7 +36,7 @@ export default function AttendanceInfo() {
       {/* Graph section */}
       <div className="sm:flex gap-4 p-4 space-y-4 sm:space-y-0">
         {/* Students graph */}
-        <div className="relative p-4 bg-white/5 border border-white/20 rounded-2xl sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+        <div className="relative p-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-2xl sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
           <StudentAttendance />
 
           {/* Graph title */}
@@ -67,7 +67,7 @@ export default function AttendanceInfo() {
         </div>
 
         {/* Teachers graph */}
-        <div className="relative p-4 bg-white/5 border border-white/20 rounded-2xl sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+        <div className="relative p-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-2xl sm:w-1/2 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
           <TeacherAttendance />
 
           {/* Graph title */}

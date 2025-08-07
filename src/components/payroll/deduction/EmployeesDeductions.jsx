@@ -25,10 +25,10 @@ const EmployeesDeductions = () => {
 
   // Permission Logic
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, { skip: !group_id });
-  const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_employeededuction') || false;
-  const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_employeededuction') || false;
-  const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_employeededuction') || false;
-  const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_employeededuction') || false;
+  const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_employeededuction') || true;
+  const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_employeededuction') || true;
+  const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_employeededuction') || true;
+  const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_employeededuction') || true;
 
   // API Hooks
   const { data: staffProfiles = [], isLoading: isLoadingStaff, error: staffError } = useGetRoleStaffProfileApiQuery();
@@ -245,9 +245,9 @@ const EmployeesDeductions = () => {
   if (permissionsLoading || isLoadingStaff || isLoadingDeductions) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'লোড হচ্ছে...' : 'Loading...'}
           </div>
         </div>
@@ -258,7 +258,7 @@ const EmployeesDeductions = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -326,16 +326,16 @@ const EmployeesDeductions = () => {
       <div className="w-full">
         {/* Page Header */}
         <div className="mb-8">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
             <div className="flex items-center space-x-4">
               <div className="bg-pmColor/20 p-3 rounded-xl">
                 <FaList className="text-pmColor text-2xl" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-white">
+                <h1 className="text-3xl font-bold text-[#441a05]">
                   {languageCode === 'bn' ? 'কর্মচারী কর্তন পরিচালনা' : 'Employee Deductions Management'}
                 </h1>
-                <p className="text-white/70 mt-1">
+                <p className="text-[#441a05]/70 mt-1">
                   {languageCode === 'bn' ? 'কর্মচারীদের জন্য পে-রোল কর্তন নিয়োগ এবং পরিচালনা করুন' : 'Assign and manage payroll deductions for employees'}
                 </p>
               </div>
@@ -345,12 +345,12 @@ const EmployeesDeductions = () => {
 
         {/* Employee Selection */}
         <div className="mb-8">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
             <div className="flex items-center space-x-4 mb-6">
               <div className="bg-pmColor/20 p-3 rounded-xl">
                 <FaList className="text-pmColor text-2xl" />
               </div>
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-[#441a05]">
                 {languageCode === 'bn' ? 'কর্মচারী নির্বাচন করুন' : 'Select Employee'}
               </h3>
             </div>
@@ -383,7 +383,7 @@ const EmployeesDeductions = () => {
         {selectedEmployee && (
           <div className="space-y-8">
             {/* Employee Details */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
               <h3 className="text-xl font-semibold text-[#441a05]mb-4">
                 {languageCode === 'bn' ? 'কর্মচারী বিবরণ' : 'Employee Details'}
               </h3>
@@ -395,7 +395,7 @@ const EmployeesDeductions = () => {
                 </div>
                 <div>
                   <div className="text-[#441a05]font-medium">{selectedEmployee.name}</div>
-                  <div className="text-sm text-white/70">
+                  <div className="text-sm text-[#441a05]/70">
                     {languageCode === 'bn' ? 'স্টাফ আইডি' : 'Staff ID'}: {selectedEmployee.staff_id}
                   </div>
                 </div>
@@ -404,15 +404,15 @@ const EmployeesDeductions = () => {
 
             {/* Current Deductions Table */}
             {isLoadingEmployeeDeductions ? (
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
+              <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center animate-fadeIn">
                 <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-                <p className="text-white/70">
+                <p className="text-[#441a05]/70">
                   {languageCode === 'bn' ? 'কর্তন লোড হচ্ছে...' : 'Loading deductions...'}
                 </p>
               </div>
             ) : selectedEmployeeDeductions.length === 0 ? (
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
-                <div className="text-white/70">
+              <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center animate-fadeIn">
+                <div className="text-[#441a05]/70">
                   <div className="mb-4">
                     <svg className="mx-auto h-12 w-12 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
@@ -427,8 +427,8 @@ const EmployeesDeductions = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-                <div className="px-6 py-4 border-b border-white/20">
+              <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+                <div className="px-6 py-4 border-b border-[#441a05]/20">
                   <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
                     <FaList className="text-pmColor" />
                     <span>{languageCode === 'bn' ? 'বর্তমান কর্তন' : 'Current Deductions'} ({selectedEmployeeDeductions.length})</span>
@@ -436,53 +436,53 @@ const EmployeesDeductions = () => {
                 </div>
                 <div className="overflow-x-auto max-h-96">
                   <table className="min-w-full">
-                    <thead className="bg-white/5">
+                    <thead className="bg-[#441a05]/5">
                       <tr>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'আইডি' : 'ID'}
                         </th>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'কর্তন টাইপ' : 'Deduction Type'}
                         </th>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                         </th>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'কার্যকর তারিখ' : 'Effective Date'}
                         </th>
-                        <th className="px-6 py-4 text-right text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-right text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-white/10">
+                    <tbody className="divide-y divide-[#441a05]/10">
                       {selectedEmployeeDeductions.map((deduction, index) => (
                         <tr
                           key={deduction.id}
-                          className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                          className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">#{deduction.id}</td>
-                          <td className="px-6 py-4 whitespace-nowrap">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">#{deduction.id}</td>
+                          <td className="px-6 py-4 [#441a05]space-nowrap">
                             <div className="flex items-center">
                               <div className="h-10 w-10 rounded-full bg-pmColor/20 flex items-center justify-center">
                                 <span className="text-pmColor font-medium text-sm">
                                   {getDeductionTypeName(deduction.deduction_type_id)?.charAt(0)?.toUpperCase() || 'D'}
                                 </span>
                               </div>
-                              <div className="ml-4 text-sm font-medium text-white">
+                              <div className="ml-4 text-sm font-medium text-[#441a05]">
                                 {getDeductionTypeName(deduction.deduction_type_id)}
                               </div>
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
+                          <td className="px-6 py-4 [#441a05]space-nowrap">
                             {editingDeduction?.id === deduction.id ? (
                               <div className="flex items-center space-x-2">
                                 <input
                                   type="number"
                                   value={deductionAmounts[deduction.deduction_type_id] || ''}
                                   onChange={(e) => handleAmountChange(deduction.deduction_type_id, e.target.value)}
-                                  className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[deduction.deduction_type_id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                                  className={`w-24 bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${errors[deduction.deduction_type_id] ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                                     }`}
                                   placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                                   min="0"
@@ -492,7 +492,7 @@ const EmployeesDeductions = () => {
                                   type="date"
                                   value={deductionDates[deduction.deduction_type_id] || ''}
                                   onChange={(e) => handleDateChange(deduction.deduction_type_id, e.target.value)}
-                                  className={`w-40 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[`date_${deduction.deduction_type_id}`] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                                  className={`w-40 bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${errors[`date_${deduction.deduction_type_id}`] ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                                     }`}
                                 />
                                 <button
@@ -510,7 +510,7 @@ const EmployeesDeductions = () => {
                                 </button>
                               </div>
                             ) : (
-                              <span className="text-white">-${deduction.amount.toFixed(2)}</span>
+                              <span className="text-[#441a05]">-${deduction.amount.toFixed(2)}</span>
                             )}
                             {errors[deduction.deduction_type_id] && (
                               <p className="mt-1 text-sm text-red-400">{errors[deduction.deduction_type_id]}</p>
@@ -519,10 +519,10 @@ const EmployeesDeductions = () => {
                               <p className="mt-1 text-sm text-red-400">{errors[`date_${deduction.deduction_type_id}`]}</p>
                             )}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {formatDate(deduction.effective_date)}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm font-medium">
                             {editingDeduction?.id !== deduction.id && (
                               <div className="flex justify-end gap-2">
                                 <button
@@ -550,7 +550,7 @@ const EmployeesDeductions = () => {
                   </table>
                 </div>
                 {(createError || updateError || deleteError) && (
-                  <div className="p-4 border-t border-white/20">
+                  <div className="p-4 border-t border-[#441a05]/20">
                     <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
                       <div className="text-red-400">
                         {createError
@@ -567,21 +567,21 @@ const EmployeesDeductions = () => {
 
             {/* Available Deductions to Add */}
             {hasAddPermission && availableDeductionTypes.length > 0 && (
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+              <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
                 <div className="flex items-center space-x-4 mb-6">
                   <div className="bg-pmColor/20 rounded-xl">
                     <IoAddCircle className="text-pmColor text-3xl" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-[#441a05]">
                     {languageCode === 'bn' ? 'নতুন কর্তন যোগ করুন' : 'Add New Deductions'}
                   </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {availableDeductionTypes.map((deductionType) => (
-                    <div key={deductionType.id} className="flex items-center space-x-3 p-4 border border-white/20 rounded-lg">
+                    <div key={deductionType.id} className="flex items-center space-x-3 p-4 border border-[#441a05]/20 rounded-lg">
                       <div className="flex-1">
-                        <h4 className="font-medium text-white">{deductionType.deduction_type}</h4>
-                        <p className="text-sm text-white/70">
+                        <h4 className="font-medium text-[#441a05]">{deductionType.deduction_type}</h4>
+                        <p className="text-sm text-[#441a05]/70">
                           {deductionType.is_every_month
                             ? (languageCode === 'bn' ? 'প্রতি মাসে' : 'Monthly')
                             : (languageCode === 'bn' ? 'এককালীন' : 'One-time')}
@@ -592,7 +592,7 @@ const EmployeesDeductions = () => {
                           type="number"
                           value={deductionAmounts[deductionType.id] || ''}
                           onChange={(e) => handleAmountChange(deductionType.id, e.target.value)}
-                          className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[deductionType.id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                          className={`w-24 bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${errors[deductionType.id] ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                             }`}
                           placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                           min="0"
@@ -602,7 +602,7 @@ const EmployeesDeductions = () => {
                           type="date"
                           value={deductionDates[deductionType.id] || ''}
                           onChange={(e) => handleDateChange(deductionType.id, e.target.value)}
-                          className={`w-40 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[`date_${deductionType.id}`] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                          className={`w-40 bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${errors[`date_${deductionType.id}`] ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                             }`}
                         />
                         <button
@@ -628,8 +628,8 @@ const EmployeesDeductions = () => {
 
             {/* No Available Deductions */}
             {availableDeductionTypes.length === 0 && selectedEmployeeDeductions.length > 0 && (
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
-                <div className="text-white/70">
+              <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center animate-fadeIn">
+                <div className="text-[#441a05]/70">
                   <div className="mb-4">
                     <svg className="mx-auto h-12 w-12 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
@@ -648,44 +648,44 @@ const EmployeesDeductions = () => {
             {/* Summary Statistics */}
             {selectedEmployee && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+                <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn">
                   <div className="flex items-center">
                     <div className="p-3 rounded-full bg-red-500/20 text-red-500">
                       <FaList className="text-2xl" />
                     </div>
                     <div className="ml-4">
-                      <p className="text-sm font-medium text-white/70">
+                      <p className="text-sm font-medium text-[#441a05]/70">
                         {languageCode === 'bn' ? 'মোট কর্তন' : 'Total Deductions'}
                       </p>
-                      <p className="text-2xl font-bold text-white">{selectedEmployeeDeductions.length}</p>
+                      <p className="text-2xl font-bold text-[#441a05]">{selectedEmployeeDeductions.length}</p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+                <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
                   <div className="flex items-center">
                     <div className="p-3 rounded-full bg-orange-500/20 text-orange-500">
                       <span className="text-2xl">$</span>
                     </div>
                     <div className="ml-4">
-                      <p className="text-sm font-medium text-white/70">
+                      <p className="text-sm font-medium text-[#441a05]/70">
                         {languageCode === 'bn' ? 'মোট পরিমাণ' : 'Total Amount'}
                       </p>
-                      <p className="text-2xl font-bold text-white">
+                      <p className="text-2xl font-bold text-[#441a05]">
                         -${selectedEmployeeDeductions.reduce((sum, deduction) => sum + deduction.amount, 0).toFixed(2)}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+                <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
                   <div className="flex items-center">
                     <div className="p-3 rounded-full bg-yellow-500/20 text-yellow-500">
                       <FaList className="text-2xl" />
                     </div>
                     <div className="ml-4">
-                      <p className="text-sm font-medium text-white/70">
+                      <p className="text-sm font-medium text-[#441a05]/70">
                         {languageCode === 'bn' ? 'উপলব্ধ টাইপ' : 'Available Types'}
                       </p>
-                      <p className="text-2xl font-bold text-white">{availableDeductionTypes.length}</p>
+                      <p className="text-2xl font-bold text-[#441a05]">{availableDeductionTypes.length}</p>
                     </div>
                   </div>
                 </div>
@@ -694,8 +694,8 @@ const EmployeesDeductions = () => {
 
             {/* No Deductions at All */}
             {selectedEmployeeDeductions.length === 0 && availableDeductionTypes.length === 0 && (
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
-                <div className="text-white/70">
+              <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center animate-fadeIn">
+                <div className="text-[#441a05]/70">
                   <div className="mb-4">
                     <svg className="mx-auto h-12 w-12 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

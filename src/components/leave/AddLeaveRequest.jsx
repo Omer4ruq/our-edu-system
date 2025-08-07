@@ -167,9 +167,9 @@ const AddLeaveRequest = () => {
       </style>
 
       {/* Form to Add Leave Request */}
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6">
-          <IoAddCircle className="text-3xl text-white" />
+          <IoAddCircle className="text-3xl text-[#441a05]" />
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন ছুটির আবেদন যোগ</h3>
         </div>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -191,7 +191,7 @@ const AddLeaveRequest = () => {
                   }
                 }}
                 placeholder="ইউজার খুঁজুন (অন্তত ৩টি অক্ষর)"
-                className="w-full outline-none bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
+                className="w-full outline-none bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]"
                 disabled={isCreatingLeave || isCreatingMeal}
                 aria-describedby={errors.user_id ? "user_id-error" : undefined}
                 aria-label="ইউজার খুঁজুন"
@@ -217,7 +217,7 @@ const AddLeaveRequest = () => {
                       </div>
                     ))
                   ) : (
-                    <div className="p-2 text-white">কোনো ইউজার পাওয়া যায়নি</div>
+                    <div className="p-2 text-[#441a05]">কোনো ইউজার পাওয়া যায়নি</div>
                   )}
                 </div>
               )}
@@ -263,7 +263,7 @@ const AddLeaveRequest = () => {
               value={formData.start_date}
               onChange={handleChange}
               onClick={handleDateClick}
-              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
+              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]"
               disabled={isCreatingLeave || isCreatingMeal}
               required
               aria-describedby={errors.start_date ? "start_date-error" : undefined}
@@ -285,7 +285,7 @@ const AddLeaveRequest = () => {
               value={formData.end_date}
               onChange={handleChange}
               onClick={handleDateClick}
-              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
+              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]"
               disabled={isCreatingLeave || isCreatingMeal}
               required
               aria-describedby={errors.end_date ? "end_date-error" : undefined}
@@ -331,7 +331,7 @@ const AddLeaveRequest = () => {
               name="leave_description"
               value={formData.leave_description}
               onChange={handleChange}
-              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
+              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]"
               rows="4"
               placeholder="বিবরণ প্রবেশ করুন"
               disabled={isCreatingLeave || isCreatingMeal}

@@ -296,9 +296,9 @@ const AllocatedStudentsTable = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -309,7 +309,7 @@ const AllocatedStudentsTable = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-secColor text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -376,16 +376,16 @@ const AllocatedStudentsTable = () => {
       </style>
 
       {/* Page Header */}
-      {/* <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      {/* <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'বরাদ্দকৃত ছাত্র ব্যবস্থাপনা' : 'Allocated Students Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'ছাত্রদের হোস্টেল বরাদ্দ পরিচালনা করুন' : 'Manage student hostel allocations'}
             </p>
           </div>
@@ -393,7 +393,7 @@ const AllocatedStudentsTable = () => {
       </div> */}
 
       {/* Search and Actions */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="relative w-full max-w-md">
             <input
@@ -401,17 +401,17 @@ const AllocatedStudentsTable = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={languageCode === 'bn' ? 'ব্যবহারকারীর নাম, আইডি, প্যাকেজ বা রুম দ্বারা অনুসন্ধান করুন...' : 'Search by username, ID, package, or room...'}
-              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full pl-10 bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
-                className="absolute right-3 top-3 text-white/60 hover:text-white"
+                className="absolute right-3 top-3 text-[#441a05]/60 hover:text-[#441a05]"
               >
                 ✕
               </button>
             )}
-            <FaSearch className="absolute left-3 top-4 text-white/60" />
+            <FaSearch className="absolute left-3 top-4 text-[#441a05]/60" />
           </div>
           <button
             onClick={generatePDFReport}
@@ -421,15 +421,15 @@ const AllocatedStudentsTable = () => {
           </button>
         </div>
         {searchTerm && (
-          <div className="mt-4 text-sm text-white/70">
+          <div className="mt-4 text-sm text-[#441a05]/70">
             {languageCode === 'bn' ? `${filteredAllocations.length}টি বরাদ্দ দেখানো হচ্ছে মোট ${allocations.length}টির মধ্যে` : `Showing ${filteredAllocations.length} of ${allocations.length} allocations`}
           </div>
         )}
       </div>
 
       {/* Allocations Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'বরাদ্দকৃত ছাত্রদের তালিকা' : 'Allocated Students List'}</span>
@@ -440,7 +440,7 @@ const AllocatedStudentsTable = () => {
           {isLoading ? (
             <div className="p-8 text-center">
               <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'বরাদ্দ লোড হচ্ছে...' : 'Loading allocations...'}
               </p>
             </div>
@@ -454,42 +454,42 @@ const AllocatedStudentsTable = () => {
             </div>
           ) : filteredAllocations.length === 0 ? (
             <div className="p-8 text-center">
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? (searchTerm ? 'কোনো বরাদ্দ পাওয়া যায়নি।' : 'কোনো বরাদ্দ উপলব্ধ নেই।') : (searchTerm ? 'No allocations found.' : 'No allocations available.')}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ছাত্র' : 'Student'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'স্থিতি' : 'Status'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'প্যাকেজ' : 'Package'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'রুম' : 'Room'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'বরাদ্দের তারিখ' : 'Allocated Date'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {filteredAllocations.map((allocation, index) => (
                   <tr
                     key={allocation.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
@@ -503,7 +503,7 @@ const AllocatedStudentsTable = () => {
                         </div>
                         <div className="ml-4">
                           <div className="text-[#441a05]font-medium">{allocation.student?.name || 'Unknown Student'}</div>
-                          <div className="text-white/70 text-sm">
+                          <div className="text-[#441a05]/70 text-sm">
                             @{allocation.student?.username || 'N/A'} | ID: {allocation.student_id || 'N/A'}
                           </div>
                         </div>
@@ -532,7 +532,7 @@ const AllocatedStudentsTable = () => {
                       <div className="text-[#441a05]font-medium">{getRoomName(allocation.room)}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">{formatDate(allocation.created_at)}</div>
+                      <div className="text-[#441a05]/70 text-sm">{formatDate(allocation.created_at)}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-3">
@@ -564,7 +564,7 @@ const AllocatedStudentsTable = () => {
         </div>
 
         {(isDeleting || deleteError || updateError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting
@@ -579,9 +579,9 @@ const AllocatedStudentsTable = () => {
       {/* Statistics Cards */}
       {allocations.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8 animate-fadeIn">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-            <div className="text-white/70 font-semibold">{languageCode === 'bn' ? 'মোট বরাদ্দ' : 'Total Allocations'}</div>
-            <div className="text-2xl font-bold text-white">{allocations.length}</div>
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
+            <div className="text-[#441a05]/70 font-semibold">{languageCode === 'bn' ? 'মোট বরাদ্দ' : 'Total Allocations'}</div>
+            <div className="text-2xl font-bold text-[#441a05]">{allocations.length}</div>
           </div>
           <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-6">
             <div className="text-green-400 font-semibold">{languageCode === 'bn' ? 'সক্রিয়' : 'Active'}</div>

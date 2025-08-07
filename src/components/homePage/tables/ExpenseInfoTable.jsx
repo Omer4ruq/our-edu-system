@@ -64,7 +64,7 @@ export default function ExpenseInfoTable() {
         <table className="w-full text-center text-textGray divide-y">
           <tbody>
             {expenses.map((expense, index) => (
-              <tr key={index} className="border-b border-white">
+              <tr key={index} className="border-b border-[#441a05]">
                 <td className="w-[25%] py-1">{expense.type}</td>
                 <td className="w-[25%] py-1">{expense.amount}</td>
                 <td className="w-[50%] py-1">{expense.description}</td>

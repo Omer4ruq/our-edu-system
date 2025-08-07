@@ -7,7 +7,7 @@ export default function ExpenseInfo() {
   const { t } = useTranslation();
 
   return (
-    <div className="rounded-md text-sm bg-white">
+    <div className="rounded-md text-sm bg-[#441a05]">
       <SectionHeader title={t("module.dashboard.expense_information")} />
       <div className="p-2 sm:p-4 rounded-b-md">
         <ExpenseInfoForm />

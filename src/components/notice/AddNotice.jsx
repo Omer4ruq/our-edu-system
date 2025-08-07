@@ -279,7 +279,7 @@ const AddNotice = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
-          <FaSpinner className="animate-spin text-2xl text-white" />
+          <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
           <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
@@ -380,10 +380,10 @@ const AddNotice = () => {
         {(hasAddPermission || hasChangePermission) && (
           <div
             ref={formRef}
-            className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl w-full"
+            className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl w-full"
           >
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 নোটিশ যোগ করুন
               </h3>
@@ -395,7 +395,7 @@ const AddNotice = () => {
               encType="multipart/form-data"
             >
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">
+                <label className="block text-sm font-medium text-[#441a05]">
                   নোটিশ শিরোনাম
                 </label>
                 <input
@@ -404,7 +404,7 @@ const AddNotice = () => {
                   onChange={(e) =>
                     setNewNotice({ ...newNotice, notice_title: e.target.value })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                   placeholder="নোটিশ শিরোনাম"
                   disabled={isCreating || isUpdating}
                   aria-label="নোটিশ শিরোনাম লিখুন"
@@ -412,7 +412,7 @@ const AddNotice = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">
+                <label className="block text-sm font-medium text-[#441a05]">
                   প্রকাশের তারিখ
                 </label>
                 <input
@@ -429,7 +429,7 @@ const AddNotice = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">
+                <label className="block text-sm font-medium text-[#441a05]">
                   মেয়াদ শেষের তারিখ
                 </label>
                 <input
@@ -446,7 +446,7 @@ const AddNotice = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">
+                <label className="block text-sm font-medium text-[#441a05]">
                   একাডেমিক বছর
                 </label>
                 <select
@@ -457,7 +457,7 @@ const AddNotice = () => {
                       academic_year: e.target.value,
                     })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                   disabled={isCreating || isUpdating}
                   aria-label="একাডেমিক বছর নির্বাচন করুন"
                   title="একাডেমিক বছর নির্বাচন করুন / Select academic year"
@@ -473,7 +473,7 @@ const AddNotice = () => {
                 </select>
               </div>
               <div className="space-y-2 md:col-span-2">
-                <label className="block text-sm font-medium text-white">
+                <label className="block text-sm font-medium text-[#441a05]">
                   নোটিশ বিবরণ
                 </label>
                 <textarea
@@ -484,7 +484,7 @@ const AddNotice = () => {
                       notice_description: e.target.value,
                     })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                   placeholder="নোটিশ বিবরণ"
                   disabled={isCreating || isUpdating}
                   rows="4"
@@ -493,7 +493,7 @@ const AddNotice = () => {
                 />
               </div>
               <div className="space-y-2 md:col-span-2">
-                <label className="block text-sm font-medium text-white">
+                <label className="block text-sm font-medium text-[#441a05]">
                   ফাইল সংযুক্তি (ঐচ্ছিক)
                 </label>
                 <input
@@ -505,7 +505,7 @@ const AddNotice = () => {
                   title="ফাইল সংযুক্তি নির্বাচন করুন / Select file attachment"
                 />
                 {newNotice.existing_file && !newNotice.file_attached && (
-                  <p className="text-sm text-white/70 max-w-[300px] overflow-auto text-nowrap">
+                  <p className="text-sm text-[#441a05]/70 max-w-[300px] overflow-auto text-nowrap">
                     Existing file: {newNotice.existing_file}
                   </p>
                 )}
@@ -579,88 +579,88 @@ const AddNotice = () => {
 
         {/* Notices Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 w-full">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
             নোটিশের তালিকা
           </h3>
           {noticesLoading ? (
-            <div className="p-4 text-white/70 flex items-center space-x-4 animate-fadeIn">
+            <div className="p-4 text-[#441a05]/70 flex items-center space-x-4 animate-fadeIn">
               <FaSpinner className="animate-spin text-lg" />
               <span>নোটিশ লোড হচ্ছে...</span>
             </div>
           ) : notices?.length === 0 ? (
-            <p className="p-4 text-white/70 animate-fadeIn">
+            <p className="p-4 text-[#441a05]/70 animate-fadeIn">
               কোনো নোটিশ উপলব্ধ নেই।
             </p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শিরোনাম
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বিবরণ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       প্রকাশের তারিখ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       মেয়াদ শেষের তারিখ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       একাডেমিক বছর
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আপডেটের সময়
                     </th>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্রিয়াকলাপ
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {notices?.map((notice, index) => (
                     <tr
                       key={notice.id}
-                      className="animate-fadeIn hover:bg-white/10 transition-colors duration-200"
+                      className="animate-fadeIn hover:bg-[#441a05]/10 transition-colors duration-200"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {notice.notice_title}
                       </td>
                       <td className="px-6 py-4 text-sm text-[#441a05]max-w-xs truncate">
                         {notice.notice_description}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {new Date(notice.date).toLocaleDateString("bn-BD", {
                           dateStyle: "short",
                         })}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {new Date(notice.expire_date).toLocaleDateString(
                           "bn-BD",
                           { dateStyle: "short" }
                         )}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {academicYears?.find(
                           (year) => year.id === notice.academic_year
                         )?.name || "N/A"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(notice.created_at).toLocaleString("bn-BD")}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(notice.updated_at).toLocaleString("bn-BD")}
                       </td>
                       {(hasChangePermission || hasDeletePermission) && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditClick(notice)}
@@ -707,7 +707,7 @@ const AddNotice = () => {
         {isModalOpen &&
           (hasAddPermission || hasChangePermission || hasDeletePermission) && (
             <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10001]">
-              <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+              <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
                 <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                   {modalAction === "create" && "নতুন নোটিশ নিশ্চিত করুন"}
                   {modalAction === "update" && "নোটিশ আপডেট নিশ্চিত করুন"}

@@ -8,7 +8,7 @@ export default function ProfileInfo() {
   } = useSelector((state) => state.auth);
 
   return (
-    <div className="h-full glass-card bg-white/5 border border-white/10 rounded-2xl px-4 relative shadow-xl animate-fadeIn text-center space-y-4 transition-all duration-500">
+    <div className="h-full glass-card bg-[#441a05]/5 border border-[#441a05]/10 rounded-2xl px-4 relative shadow-xl animate-fadeIn text-center space-y-4 transition-all duration-500">
       <style>
         {`
           @keyframes fadeIn {
@@ -84,19 +84,19 @@ export default function ProfileInfo() {
 
       {/* Social Icons */}
       <div className="flex justify-center gap-4 pt-2">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-[#441a05]/10 border border-[#441a05]/20 rounded-full p-2 hover:bg-pmColor transition">
           <FaFacebookF className="text-[#441a05]text-sm" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-[#441a05]/10 border border-[#441a05]/20 rounded-full p-2 hover:bg-pmColor transition">
           <FaLinkedinIn className="text-[#441a05]text-sm" />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-[#441a05]/10 border border-[#441a05]/20 rounded-full p-2 hover:bg-pmColor transition">
           <FaGithub className="text-[#441a05]text-sm" />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-[#441a05]/10 border border-[#441a05]/20 rounded-full p-2 hover:bg-pmColor transition">
           <FaInstagram className="text-[#441a05]text-sm" />
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-[#441a05]/10 border border-[#441a05]/20 rounded-full p-2 hover:bg-pmColor transition">
           <FaTwitter className="text-[#441a05]text-sm" />
         </a>
       </div>

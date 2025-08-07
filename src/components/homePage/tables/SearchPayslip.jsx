@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SearchPayslipTable() {
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-b-xl animate-fadeIn">
+    <div className="bg-[#441a05]/20 backdrop-blur-sm rounded-b-xl animate-fadeIn">
       <style>
         {`
           @keyframes fadeIn {

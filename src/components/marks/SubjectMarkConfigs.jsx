@@ -314,7 +314,7 @@ console.log("selectedMainClassId", selectedMainClassId)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
-          <FaSpinner className="animate-spin text-2xl text-white" />
+          <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
           <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
@@ -331,7 +331,7 @@ console.log("selectedMainClassId", selectedMainClassId)
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 text-center animate-fadeIn">
           <div className="text-red-500 text-5xl mb-4">⚠️</div>
           <h2 className="text-xl font-semibold text-[#441a05]mb-2">বিষয় লোডে ত্রুটি</h2>
-          <p className="text-white/70">দয়া করে পৃষ্ঠাটি রিফ্রেশ করুন বা সহায়তার জন্য যোগাযোগ করুন।</p>
+          <p className="text-[#441a05]/70">দয়া করে পৃষ্ঠাটি রিফ্রেশ করুন বা সহায়তার জন্য যোগাযোগ করুন।</p>
         </div>
       </div>
     );
@@ -391,7 +391,7 @@ console.log("selectedMainClassId", selectedMainClassId)
       <div className="">
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-5">
-          <IoAddCircle className="text-4xl text-white" />
+          <IoAddCircle className="text-4xl text-[#441a05]" />
           <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             বিষয় মার্ক কনফিগারেশন
           </h1>
@@ -411,7 +411,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 animate-scaleIn ${
                   selectedClassId === cls?.student_class?.id
                     ? 'bg-pmColor text-[#441a05]shadow-lg ring-2 ring-[#9d9087]'
-                    : 'bg-white/10 text-[#441a05]hover:bg-white/20 hover:shadow-md'
+                    : 'bg-[#441a05]/10 text-[#441a05]hover:bg-[#441a05]/20 hover:shadow-md'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 aria-label={`ক্লাস নির্বাচন ${cls?.student_class?.name}`}
@@ -422,7 +422,7 @@ console.log("selectedMainClassId", selectedMainClassId)
             ))}
           </div>
           {selectedClassId && (
-            <div className="mt-4 p-4 bg-white/10 rounded-lg animate-fadeIn">
+            <div className="mt-4 p-4 bg-[#441a05]/10 rounded-lg animate-fadeIn">
               <p className="text-[#441a05]font-medium">
                 ✓ নির্বাচিত: <span className="font-bold">{getSelectedClass()?.student_class?.name}</span>
               </p>
@@ -446,7 +446,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                 const remainingMarks = subjectMaxMark - totalDistributed;
 
                 return (
-                  <div key={subject.id} className="bg-white/10 border border-white/20 rounded-2xl p-6 hover:shadow-lg transition-all duration-200 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div key={subject.id} className="bg-[#441a05]/10 border border-[#441a05]/20 rounded-2xl p-6 hover:shadow-lg transition-all duration-200 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-bold text-[#441a05]truncate flex-1">{subject?.name}</h3>
                       <div className="flex space-x-2">
@@ -482,7 +482,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                         <select
                           value={subjectConfigs[subject.id]?.subject_type || 'COMPULSARY'}
                           onChange={(e) => handleInputChange(subject.id, 'subject_type', e.target.value)}
-                          className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                          className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                           aria-label={`বিষয়ের ধরন ${subject.name}`}
                           title={`বিষয়ের ধরন নির্বাচন করুন / Select subject type for ${subject.name}`}
                           disabled={!hasChangePermission}
@@ -500,7 +500,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                             type="number"
                             value={subjectConfigs[subject.id]?.max_mark || ''}
                             onChange={(e) => handleInputChange(subject.id, 'max_mark', e.target.value)}
-                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                             placeholder="100"
                             min="0"
                             aria-label={`সর্বোচ্চ মার্ক ${subject.name}`}
@@ -514,7 +514,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                             type="number"
                             value={subjectConfigs[subject.id]?.subject_serial || ''}
                             onChange={(e) => handleInputChange(subject.id, 'subject_serial', e.target.value)}
-                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                             placeholder={index + 1}
                             min="1"
                             aria-label={`ক্রমিক নং ${subject.name}`}
@@ -525,13 +525,13 @@ console.log("selectedMainClassId", selectedMainClassId)
                       </div>
                     </div>
 
-                    <div className="border-t border-white/20 pt-4">
+                    <div className="border-t border-[#441a05]/20 pt-4">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold text-white">মার্ক বণ্টন</h4>
+                        <h4 className="font-semibold text-[#441a05]">মার্ক বণ্টন</h4>
                         <div className={`text-xs font-medium px-2 py-1 rounded-full ${
                           isOverLimit ? 'bg-red-100 text-red-600' :
                           remainingMarks === 0 ? 'bg-green-100 text-green-600' :
-                          'bg-pmColor/20 text-white'
+                          'bg-pmColor/20 text-[#441a05]'
                         }`}>
                           {totalDistributed}/{subjectMaxMark}
                         </div>
@@ -541,7 +541,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                         {markTypes.map((markType, idx) => (
                           <div key={markType.id} className={`rounded-lg p-4 ${markType.name === 'MCQ' ? 'bg-blue-50/10' : 'bg-green-50/10'} animate-fadeIn`} style={{ animationDelay: `${idx * 0.1}s` }}>
                             <div className="flex items-center mb-2">
-                              <span className={`font-medium text-sm ${markType.name === 'MCQ' ? 'text-white' : 'text-white'}`}>
+                              <span className={`font-medium text-sm ${markType.name === 'MCQ' ? 'text-[#441a05]' : 'text-[#441a05]'}`}>
                                 {markType.name === 'MCQ' ? '📝' : '✍️'} {markType.name}
                               </span>
                             </div>
@@ -551,7 +551,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                                   type="number"
                                   value={getMarkConfigValue(subject.id, markType.name, 'max_mark')}
                                   onChange={(e) => handleInputChange(subject.id, 'max_mark', e.target.value, markType.name)}
-                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-white/10 text-[#441a05]animate-scaleIn tick-glow`}
+                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow`}
                                   placeholder="সর্বোচ্চ মার্ক"
                                   min="0"
                                   aria-label={`সর্বোচ্চ মার্ক ${markType.name} ${subject.name}`}
@@ -564,7 +564,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                                   type="number"
                                   value={getMarkConfigValue(subject.id, markType.name, 'pass_mark')}
                                   onChange={(e) => handleInputChange(subject.id, 'pass_mark', e.target.value, markType.name)}
-                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-white/10 text-[#441a05]animate-scaleIn tick-glow`}
+                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow`}
                                   placeholder="পাস মার্ক"
                                   min="0"
                                   aria-label={`পাস মার্ক ${markType.name} ${subject.name}`}
@@ -582,7 +582,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                           <span>বণ্টন অগ্রগতি</span>
                           <span>{((totalDistributed / subjectMaxMark) * 100).toFixed(0)}%</span>
                         </div>
-                        <div className="w-full bg-white/20 rounded-full h-2">
+                        <div className="w-full bg-[#441a05]/20 rounded-full h-2">
                           <div
                             className={`h-2 rounded-full transition-all duration-300 ${
                               isOverLimit ? 'bg-red-500' :
@@ -621,7 +621,7 @@ console.log("selectedMainClassId", selectedMainClassId)
           <div className="text-center py-12 animate-fadeIn">
             <div className="text-6xl mb-4">🎯</div>
             <h3 className="text-xl font-semibold text-[#441a05]mb-2">কনফিগারেশন শুরু করতে প্রস্তুত?</h3>
-            <p className="text-white/70">বিষয় মার্ক কনফিগার করতে উপরে একটি ক্লাস নির্বাচন করুন</p>
+            <p className="text-[#441a05]/70">বিষয় মার্ক কনফিগার করতে উপরে একটি ক্লাস নির্বাচন করুন</p>
           </div>
         )}
 
@@ -629,7 +629,7 @@ console.log("selectedMainClassId", selectedMainClassId)
         {isModalOpen && (hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'delete' && 'কনফিগারেশন মুছে ফেলা নিশ্চিত করুন'}

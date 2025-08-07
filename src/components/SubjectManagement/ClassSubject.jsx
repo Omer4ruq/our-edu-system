@@ -163,7 +163,7 @@ const ClassSubject = () => {
     return (
       <div className="text-center animate-fadeIn">
         <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
-        <p className="text-white/70">লোড হচ্ছে...</p>
+        <p className="text-[#441a05]/70">লোড হচ্ছে...</p>
       </div>
     );
   }
@@ -227,16 +227,16 @@ const ClassSubject = () => {
         {/* Header */}
         {/* Class Tabs */}
         <div className="mb-6">
-          <div className="border-b border-white/20 bg-black/10 backdrop-blur-sm rounded-2xl p-2">
+          <div className="border-b border-[#441a05]/20 bg-black/10 backdrop-blur-sm rounded-2xl p-2">
             <div className="flex items-center space-x-4 m-6 animate-fadeIn">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 ক্লাস বিষয় ব্যবস্থাপনা
               </h1>
             </div>
             <nav className="flex space-x-4 overflow-x-auto px-8 pb-5 pt-3">
               {classesLoading ? (
-                <span className="text-white/70 p-4 animate-fadeIn">
+                <span className="text-[#441a05]/70 p-4 animate-fadeIn">
                   ক্লাস লোড হচ্ছে...
                 </span>
               ) : classesError ? (
@@ -248,10 +248,10 @@ const ClassSubject = () => {
                   <button
                     key={cls.id}
                     onClick={() => handleClassSelect(cls?.student_class.id)}
-                    className={`whitespace-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
+                    className={`[#441a05]space-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
                       selectedClassId === cls.student_class.id
                         ? "bg-pmColor text-[#441a05]shadow-md"
-                        : "text-[#441a05]hover:bg-white/10 hover:text-white"
+                        : "text-[#441a05]hover:bg-[#441a05]/10 hover:text-[#441a05]"
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                     aria-label={`ক্লাস নির্বাচন ${cls?.student_class?.name}`}
@@ -261,7 +261,7 @@ const ClassSubject = () => {
                   </button>
                 ))
               ) : (
-                <span className="text-white/70 p-4 animate-fadeIn">
+                <span className="text-[#441a05]/70 p-4 animate-fadeIn">
                   কোনো ক্লাস পাওয়া যায়নি
                 </span>
               )}
@@ -278,7 +278,7 @@ const ClassSubject = () => {
             {gSubjectsLoading ? (
               <div className="text-center animate-fadeIn">
                 <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
-                <p className="text-white/70">বিষয় লোড হচ্ছে...</p>
+                <p className="text-[#441a05]/70">বিষয় লোড হচ্ছে...</p>
               </div>
             ) : gSubjectsError ? (
               <p className="text-red-400 text-center animate-fadeIn">
@@ -295,7 +295,7 @@ const ClassSubject = () => {
                   return (
                     <li
                       key={subject.id}
-                      className="flex items-center justify-between p-4 bg-white/10 rounded-md hover:bg-white/20 transition-all duration-300 animate-fadeIn"
+                      className="flex items-center justify-between p-4 bg-[#441a05]/10 rounded-md hover:bg-[#441a05]/20 transition-all duration-300 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <label className="flex items-center cursor-pointer">
@@ -317,7 +317,7 @@ const ClassSubject = () => {
                           className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                             existingSubject?.is_active
                               ? "bg-pmColor border-pmColor"
-                              : "bg-white/10 border-[#9d9087] hover:border-white"
+                              : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                           }`}
                         >
                           {existingSubject?.is_active && (
@@ -337,7 +337,7 @@ const ClassSubject = () => {
                             </svg>
                           )}
                         </span>
-                        <span className="ml-3 text-sm text-white">
+                        <span className="ml-3 text-sm text-[#441a05]">
                           {subject.name} (SL: {subject.sl})
                         </span>
                       </label>
@@ -346,7 +346,7 @@ const ClassSubject = () => {
                 })}
               </ul>
             ) : (
-              <p className="text-white/70 text-center animate-fadeIn">
+              <p className="text-[#441a05]/70 text-center animate-fadeIn">
                 এই ক্লাসের জন্য কোনো বিষয় পাওয়া যায়নি
               </p>
             )}
@@ -357,7 +357,7 @@ const ClassSubject = () => {
         {subjectsLoading || classesLoading ? (
           <div className="text-center animate-fadeIn">
             <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
-            <p className="text-white/70">লোড হচ্ছে...</p>
+            <p className="text-[#441a05]/70">লোড হচ্ছে...</p>
           </div>
         ) : subjectsError || classesError ? (
           <p className="text-red-400 text-center animate-fadeIn">
@@ -365,18 +365,18 @@ const ClassSubject = () => {
           </p>
         ) : (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-            <div className="flex justify-between items-center p-4 border-b border-white/20">
-              <h3 className="text-lg font-semibold text-white">
+            <div className="flex justify-between items-center p-4 border-b border-[#441a05]/20">
+              <h3 className="text-lg font-semibold text-[#441a05]">
                 সক্রিয় ক্লাস বিষয় তালিকা
               </h3>
               
               {/* Class Filter Dropdown */}
               <div className="flex items-center space-x-2">
-                <label className="text-sm text-white/70">ক্লাস ফিল্টার:</label>
+                <label className="text-sm text-[#441a05]/70">ক্লাস ফিল্টার:</label>
                 <select
                   value={filterClassId}
                   onChange={(e) => setFilterClassId(e.target.value)}
-                  className="px-3 py-1 bg-white/10 border border-white/20 rounded-md text-[#441a05]text-sm focus:outline-none focus:ring-2 focus:ring-pmColor focus:border-transparent"
+                  className="px-3 py-1 bg-[#441a05]/10 border border-[#441a05]/20 rounded-md text-[#441a05]text-sm focus:outline-none focus:ring-2 focus:ring-pmColor focus:border-transparent"
                 >
                   <option value="all">সকল ক্লাস</option>
                   {classes.map((cls) => (
@@ -388,38 +388,38 @@ const ClassSubject = () => {
               </div>
             </div>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আইডি
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ক্লাস
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বিষয়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       SL
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       স্ট্যাটাস
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আপডেটের সময়
                     </th>
                     {hasDeletePermission && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্রিয়াকলাপ
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {classSubjects
                     ?.filter((subject) => {
                       // Filter by active status
@@ -436,34 +436,34 @@ const ClassSubject = () => {
                       return (
                         <tr
                           key={subject.id}
-                          className="bg-white/5 animate-fadeIn"
+                          className="bg-[#441a05]/5 animate-fadeIn"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {index + 1}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {subject.class_info?.name || "অজানা"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {subject.name || "অজানা"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             {subject.sl || "-"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                               সক্রিয়
                             </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {new Date(subject.created_at).toLocaleString("bn-BD")}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {new Date(subject.updated_at).toLocaleString("bn-BD")}
                           </td>
                           {hasDeletePermission && (
-                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                               <button
                                 onClick={() => handleDelete(subject.id)}
                                 disabled={deleteLoading}
@@ -496,7 +496,7 @@ const ClassSubject = () => {
               
               return true;
             }).length === 0 && (
-              <p className="text-white/70 p-4 text-center animate-fadeIn">
+              <p className="text-[#441a05]/70 p-4 text-center animate-fadeIn">
                 {filterClassId === "all" 
                   ? "কোনো সক্রিয় ক্লাস বিষয় পাওয়া যায়নি" 
                   : "নির্বাচিত ক্লাসের জন্য কোনো সক্রিয় বিষয় পাওয়া যায়নি"}
@@ -508,7 +508,7 @@ const ClassSubject = () => {
         {/* Confirmation Modal */}
         {isModalOpen && hasDeletePermission && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 বিষয় মুছে ফেলা নিশ্চিত করুন
               </h3>

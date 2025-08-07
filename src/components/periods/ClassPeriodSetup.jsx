@@ -178,7 +178,7 @@ const ClassPeriodSetup = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
-          <FaSpinner className="animate-spin text-2xl text-white" />
+          <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
           <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
@@ -265,7 +265,7 @@ const ClassPeriodSetup = () => {
       <div className="">
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-5">
-          <IoAddCircle className="text-4xl text-white" />
+          <IoAddCircle className="text-4xl text-[#441a05]" />
           <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             ক্লাস ঘন্টা সেটআপ
           </h1>
@@ -273,7 +273,7 @@ const ClassPeriodSetup = () => {
 
         {/* Class Tabs */}
         <div className="mb-6">
-          <div className="border-b border-white/20 bg-black/10 backdrop-blur-sm rounded-lg p-2">
+          <div className="border-b border-[#441a05]/20 bg-black/10 backdrop-blur-sm rounded-lg p-2">
             <h2 className="text-xl font-semibold text-[#441a05]mb-4 flex items-center px-5 pt-3">
               <span className="bg-pmColor/20 text-[#441a05]rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">
                 ১
@@ -282,11 +282,11 @@ const ClassPeriodSetup = () => {
             </h2>
             <nav className="flex space-x-4 overflow-x-auto px-5 pb-5">
               {isClassesLoading ? (
-                <span className="text-white/70 p-4 animate-fadeIn">
+                <span className="text-[#441a05]/70 p-4 animate-fadeIn">
                   ক্লাস লোড হচ্ছে...
                 </span>
               ) : activeClasses.length === 0 ? (
-                <span className="text-white/70 p-4 animate-fadeIn">
+                <span className="text-[#441a05]/70 p-4 animate-fadeIn">
                   কোনো সক্রিয় ক্লাস পাওয়া যায়নি
                 </span>
               ) : (
@@ -294,10 +294,10 @@ const ClassPeriodSetup = () => {
        <button
   key={cls.id}
   onClick={() => setSelectedClassId(cls.id)}
-  className={`whitespace-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
+  className={`[#441a05]space-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
     selectedClassId === cls.id
       ? "bg-pmColor text-[#441a05]shadow-md"
-      : "text-[#441a05]hover:bg-white/10 hover:text-white"
+      : "text-[#441a05]hover:bg-[#441a05]/10 hover:text-[#441a05]"
   }`}
   style={{ animationDelay: `${index * 0.1}s` }}
   aria-label={`ক্লাস নির্বাচন ${cls.class_name}${cls.section_name ? ` ${cls.section_name}` : ''}${cls.shift_name ? ` ${cls.shift_name}` : ''}`}
@@ -369,7 +369,7 @@ const ClassPeriodSetup = () => {
                     className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                       isBreakTime
                         ? "bg-pmColor border-pmColor"
-                        : "bg-white/10 border-[#9d9087] hover:border-white"
+                        : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                     }`}
                   >
                     {isBreakTime && (
@@ -389,7 +389,7 @@ const ClassPeriodSetup = () => {
                       </svg>
                     )}
                   </span>
-                  <span className="ml-3 text-sm text-white">
+                  <span className="ml-3 text-sm text-[#441a05]">
                     বিরতির সময়
                   </span>
                 </label>
@@ -411,16 +411,16 @@ const ClassPeriodSetup = () => {
         {/* Existing Periods */}
         {selectedClassId && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
               বিদ্যমান পিরিয়ডসমূহ
             </h2>
             {isPeriodsLoading ? (
               <div className="text-center animate-fadeIn">
                 <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
-                <p className="text-white/70">পিরিয়ড লোড হচ্ছে...</p>
+                <p className="text-[#441a05]/70">পিরিয়ড লোড হচ্ছে...</p>
               </div>
             ) : periods.length === 0 ? (
-              <p className="text-white/70 p-4 text-center animate-fadeIn">
+              <p className="text-[#441a05]/70 p-4 text-center animate-fadeIn">
                 এই ক্লাসের জন্য কোনো পিরিয়ড পাওয়া যায়নি
               </p>
             ) : (
@@ -428,20 +428,20 @@ const ClassPeriodSetup = () => {
                 {periods.map((period, index) => (
                   <li
                     key={period.period_id}
-                    className="border border-white/20 p-4 rounded-md bg-white/10 hover:bg-white/20 transition-all duration-300 animate-fadeIn"
+                    className="border border-[#441a05]/20 p-4 rounded-md bg-[#441a05]/10 hover:bg-[#441a05]/20 transition-all duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="flex justify-between items-center">
                       <div>
-                        <p className="text-white">
+                        <p className="text-[#441a05]">
                           <strong>সময়:</strong> {period.start_time} -{" "}
                           {period.end_time}
                         </p>
-                        <p className="text-white">
+                        <p className="text-[#441a05]">
                           <strong>বিরতি:</strong>{" "}
                           {period.break_time ? "হ্যাঁ" : "না"}
                         </p>
-                        <p className="text-white">
+                        <p className="text-[#441a05]">
                           <strong>পিরিয়ড আইডি:</strong> {period.period_id}
                         </p>
                       </div>
@@ -467,7 +467,7 @@ const ClassPeriodSetup = () => {
         {/* Confirmation/Update Modal */}
         {isModalOpen && (hasAddPermission || hasChangePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "add" && "পিরিয়ড যোগ নিশ্চিত করুন"}
                 {modalAction === "update" && "পিরিয়ড আপডেট নিশ্চিত করুন"}
@@ -531,7 +531,7 @@ const ClassPeriodSetup = () => {
                         className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                           editPeriod.breakTime
                             ? "bg-pmColor border-pmColor"
-                            : "bg-white/10 border-[#9d9087] hover:border-white"
+                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                         }`}
                       >
                         {editPeriod.breakTime && (
@@ -551,7 +551,7 @@ const ClassPeriodSetup = () => {
                           </svg>
                         )}
                       </span>
-                      <span className="ml-3 text-sm text-white">
+                      <span className="ml-3 text-sm text-[#441a05]">
                         বিরতির সময়
                       </span>
                     </label>

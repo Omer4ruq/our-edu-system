@@ -184,7 +184,7 @@ const customStyles = `
     max-width: 1123px;
     height: 794px;
     margin: 0 auto 20px;
-    background: white;
+    background: [#441a05];
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 20px;
     box-sizing: border-box;
@@ -740,13 +740,13 @@ const ResultSheet = () => {
       <style>{customStyles}</style>
       <div className="mx-auto">
         {/* Selection Form */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight mb-6">
             ফলাফল শীট তৈরি করুন
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="relative">
-              <label htmlFor="examSelect" className="block font-medium text-white">
+              <label htmlFor="examSelect" className="block font-medium text-[#441a05]">
                 পরীক্ষা নির্বাচন <span className="text-red-600">*</span>
               </label>
               <Select
@@ -763,7 +763,7 @@ const ResultSheet = () => {
               />
             </div>
             <div className="relative">
-              <label htmlFor="classSelect" className="block font-medium text-white">
+              <label htmlFor="classSelect" className="block font-medium text-[#441a05]">
                 ক্লাস নির্বাচন <span className="text-red-600">*</span>
               </label>
               <Select
@@ -780,7 +780,7 @@ const ResultSheet = () => {
               />
             </div>
             <div className="relative">
-              <label htmlFor="yearSelect" className="block font-medium text-white">
+              <label htmlFor="yearSelect" className="block font-medium text-[#441a05]">
                 শিক্ষাবর্ষ নির্বাচন <span className="text-red-600">*</span>
               </label>
               <Select
@@ -818,16 +818,16 @@ const ResultSheet = () => {
         {/* Result Display (aligned with PDF layout) */}
         <div className="">
           {isLoading ? (
-            <p className="p-4 text-white/70 animate-scaleIn flex justify-center items-center h-full">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn flex justify-center items-center h-full">
               <FaSpinner className="animate-spin text-lg mr-2" />
               ফলাফল লোড হচ্ছে...
             </p>
           ) : !selectedExam || !selectedClassConfig || !selectedAcademicYear ? (
-            <p className="p-4 text-white/70 animate-scaleIn flex justify-center items-center h-full">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn flex justify-center items-center h-full">
               অনুগ্রহ করে পরীক্ষা, ক্লাস এবং শিক্ষাবর্ষ নির্বাচন করুন।
             </p>
           ) : resultData.length === 0 ? (
-            <p className="p-4 text-white/70 animate-scaleIn flex justify-center items-center h-full">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn flex justify-center items-center h-full">
               কোনো ফলাফল পাওয়া যায়নি।
             </p>
           ) : (

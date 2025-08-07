@@ -600,9 +600,9 @@ console.log("staffData", staffData)
   if (isLoading || permissionsLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+        <div className="flex items-center gap-4 p-6 bg-[#441a05]/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
           <FaSpinner className="animate-spin text-3xl text-pmColor" />
-          <span className="text-lg font-medium text-white">
+          <span className="text-lg font-medium text-[#441a05]">
             লোড হচ্ছে...
           </span>
         </div>
@@ -681,7 +681,7 @@ console.log("staffData", staffData)
           .fixed-col {
             position: sticky;
           font-size:14px;
-            background: white;
+            background: [#441a05];
             // backdrop-filter: blur(10px);
             transition: transform 0.3s ease; /* Smooth transition for fixed columns */
           }
@@ -762,7 +762,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
             border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
-            color:white;
+            color:[#441a05];
             text-transform: uppercase;
           }
           
@@ -839,7 +839,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="name"
               value={filters.name}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 outline-none border border-[#441a05]/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="নাম"
             />
             <input
@@ -847,7 +847,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="user_id"
               value={filters.user_id}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 outline-none border border-[#441a05]/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ইউজার আইডি"
             />
             <input
@@ -855,7 +855,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="phone_number"
               value={filters.phone_number}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 outline-none border border-[#441a05]/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ফোন নম্বর"
             />
             <input
@@ -863,7 +863,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="email"
               value={filters.email}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 outline-none border border-[#441a05]/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="ইমেইল"
             />
             <input
@@ -871,7 +871,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               name="designation"
               value={filters.designation}
               onChange={handleFilterChange}
-              className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 outline-none border border-white/30 rounded-lg transition-all duration-300 focus:border-pmColor"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 outline-none border border-[#441a05]/30 rounded-lg transition-all duration-300 focus:border-pmColor"
               placeholder="পদবী"
             />
           </div>
@@ -881,7 +881,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
         {editStaffId && hasChangePermission && (
           <div className="edit-form-card p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6">
-              <FaEdit className="text-3xl text-white" />
+              <FaEdit className="text-3xl text-[#441a05]" />
               <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                 স্টাফের তথ্য সম্পাদনা
               </h3>
@@ -897,7 +897,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onChange={(e) =>
                   setEditStaffData({ ...editStaffData, name: e.target.value })
                 }
-                className="w-full bg-white/10 backdrop-blur-sm text-[#441a05]placeholder-white/70 pl-3 py-2 border border-white/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-white/20"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 border border-[#441a05]/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-[#441a05]/20"
                 placeholder="নাম"
                 disabled={isUpdating || !hasChangePermission}
               />
@@ -908,7 +908,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onChange={(e) =>
                   setEditStaffData({ ...editStaffData, user_id: e.target.value })
                 }
-                className="w-full bg-white/10 backdrop-blur-sm text-[#441a05]placeholder-white/70 pl-3 py-2 border border-white/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-white/20"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 border border-[#441a05]/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-[#441a05]/20"
                 placeholder="ইউজার আইডি"
                 disabled={isUpdating || !hasChangePermission}
               />
@@ -919,7 +919,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onChange={(e) =>
                   setEditStaffData({ ...editStaffData, phone_number: e.target.value })
                 }
-                className="w-full bg-white/10 backdrop-blur-sm text-[#441a05]placeholder-white/70 pl-3 py-2 border border-white/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-white/20"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 border border-[#441a05]/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-[#441a05]/20"
                 placeholder="ফোন নম্বর"
                 disabled={isUpdating || !hasChangePermission}
               />
@@ -930,7 +930,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onChange={(e) =>
                   setEditStaffData({ ...editStaffData, email: e.target.value })
                 }
-                className="w-full bg-white/10 backdrop-blur-sm text-[#441a05]placeholder-white/70 pl-3 py-2 border border-white/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-white/20"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 border border-[#441a05]/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-[#441a05]/20"
                 placeholder="ইমেইল"
                 disabled={isUpdating || !hasChangePermission}
               />
@@ -941,7 +941,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onChange={(e) =>
                   setEditStaffData({ ...editStaffData, designation: e.target.value })
                 }
-                className="w-full bg-white/10 backdrop-blur-sm text-[#441a05]placeholder-white/70 pl-3 py-2 border border-white/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-white/20"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 border border-[#441a05]/20 rounded-lg transition-all duration-300 animate-scaleIn focus:border-pmColor focus:bg-[#441a05]/20"
                 placeholder="পদবী"
                 disabled={isUpdating || !hasChangePermission}
               />
@@ -994,7 +994,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
           {isLoading ? (
             <div className="p-4 flex items-center justify-center">
               <FaSpinner className="animate-spin text-[#441a05]text-2xl mr-2" />
-              <p className="text-white/70">লোড হচ্ছে...</p>
+              <p className="text-[#441a05]/70">লোড হচ্ছে...</p>
             </div>
           ) : isError ? (
             <p className="p-4 text-red-400">
@@ -1002,7 +1002,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               {JSON.stringify(error?.data || {})}
             </p>
           ) : staff.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো স্টাফ পাওয়া যায়নি।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো স্টাফ পাওয়া যায়নি।</p>
           ) : (
             <table className="min-w-full">
               <thead className="sticky-header">
@@ -1043,7 +1043,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                         )}
                       </td>
                       <td className="table-cell fixed-col user_id" style={{ width: '120px' }}>
-                        <span className="font-mono bg-white/20 px-2 py-1 rounded text-xs">
+                        <span className="font-mono bg-[#441a05]/20 px-2 py-1 rounded text-xs">
                           {staffMember.user_id}
                         </span>
                       </td>
@@ -1108,7 +1108,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               disabled={!hasPreviousPage}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 btn-glow ${
                 !hasPreviousPage
-                  ? 'bg-gray-500/20 text-white/30 cursor-not-allowed'
+                  ? 'bg-gray-500/20 text-[#441a05]/30 cursor-not-allowed'
                   : 'bg-pmColor text-[#441a05]hover:text-[#441a05]backdrop-blur-sm'
               }`}
             >
@@ -1120,8 +1120,8 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onClick={() => handlePageChange(pageNumber)}
                 className={`px-3 py-1 rounded-lg font-medium transition-all duration-300 backdrop-blur-sm ${
                   page === pageNumber
-                    ? 'bg-pmColor text-white'
-                    : 'bg-white/20 text-[#441a05]hover:bg-white/30'
+                    ? 'bg-pmColor text-[#441a05]'
+                    : 'bg-[#441a05]/20 text-[#441a05]hover:bg-[#441a05]/30'
                 }`}
               >
                 {pageNumber}
@@ -1132,7 +1132,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
               disabled={!hasNextPage}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 btn-glow ${
                 !hasNextPage
-                  ? 'bg-gray-500/20 text-white/30 cursor-not-allowed'
+                  ? 'bg-gray-500/20 text-[#441a05]/30 cursor-not-allowed'
                   : 'bg-pmColor text-[#441a05]hover:text-[#441a05]backdrop-blur-sm'
               }`}
             >
@@ -1145,7 +1145,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
       {/* Confirmation Modal */}
       {isModalOpen && hasDeletePermission && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end justify-center z-50">
-          <div className="bg-white/90 backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp shadow-xl">
+          <div className="bg-[#441a05]/90 backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp shadow-xl">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               স্টাফ মুছে ফেলা নিশ্চিত করুন
             </h3>
@@ -1163,7 +1163,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
                 onClick={confirmAction}
                 disabled={isDeleting}
                 className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow backdrop-blur-sm ${
-                  isDeleting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'
+                  isDeleting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'
                 }`}
               >
                 {isDeleting ? (

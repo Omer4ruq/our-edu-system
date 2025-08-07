@@ -45,7 +45,7 @@ const UserInfoCell = ({ userId }) => {
     return (
       <div>
         <div className="font-medium text-red-500">ইউজার পাওয়া যায়নি</div>
-        <div className="text-xs text-white/70">ID: {userId}</div>
+        <div className="text-xs text-[#441a05]/70">ID: {userId}</div>
       </div>
     );
   }
@@ -77,7 +77,7 @@ const UserInfoCell = ({ userId }) => {
   return (
     <div>
       <div className="font-medium">{displayInfo.name}</div>
-      <div className="text-xs text-white/70">{displayInfo.details}</div>
+      <div className="text-xs text-[#441a05]/70">{displayInfo.details}</div>
     </div>
   );
 };
@@ -260,7 +260,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
       {/* Confirmation Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ছুটির আবেদন মুছে ফেলা নিশ্চিত করুন
             </h3>
@@ -278,7 +278,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
                 onClick={confirmDelete}
                 disabled={isDeleting}
                 className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
-                  isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
+                  isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-[#441a05]"
                 }`}
                 aria-label="ছুটির আবেদন মুছুন নিশ্চিত করুন"
               >
@@ -299,7 +299,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
       {/* Leave Requests Table */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-[#441a05]border-b border-white/20 pb-2">
+          <h3 className="text-lg font-semibold text-[#441a05]border-b border-[#441a05]/20 pb-2">
             জমাকৃত ছুটির আবেদনসমূহ
           </h3>
           <button
@@ -319,7 +319,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
         </div>
 
         {leaveRequestsLoading ? (
-          <div className="p-4 text-white/70 flex items-center space-x-2">
+          <div className="p-4 text-[#441a05]/70 flex items-center space-x-2">
             <FaSpinner className="animate-spin text-lg" />
             <span>লোড হচ্ছে...</span>
           </div>
@@ -328,61 +328,61 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
             ত্রুটি: {leaveRequestsError.status || "অজানা"} - {JSON.stringify(leaveRequestsError.data || {})}
           </p>
         ) : !leaveRequests || leaveRequests.length === 0 ? (
-          <p className="p-4 text-white/70">কোনো ছুটির আবেদন উপলব্ধ নেই।</p>
+          <p className="p-4 text-[#441a05]/70">কোনো ছুটির আবেদন উপলব্ধ নেই।</p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-white/20">
-              <thead className="bg-white/5">
+            <table className="min-w-full divide-y divide-[#441a05]/20">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ইউজার
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ধরন
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ছুটির ধরন
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     শুরুর তারিখ
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     শেষের তারিখ
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     বিবরণ
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     অবস্থা
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ক্রিয়াকলাপ
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/20">
+              <tbody className="divide-y divide-[#441a05]/20">
                 {leaveRequests.map((request, index) => {
                   const leaveTypeName = leaveTypes.find(lt => lt.id === request.leave_type)?.name || "অজানা";
 
                   return (
                     <tr 
                       key={request.id} 
-                      className="bg-white/5 animate-fadeIn hover:bg-white/10 transition-colors duration-200" 
+                      className="bg-[#441a05]/5 animate-fadeIn hover:bg-[#441a05]/10 transition-colors duration-200" 
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         <UserInfoCell userId={request.user_id} />
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         <UserTypeBadge userId={request.user_id} />
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {leaveTypeName}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {request.start_date}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {request.end_date}
                       </td>
                       <td className="px-6 py-4 text-sm text-[#441a05]max-w-xs">
@@ -390,7 +390,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
                           {request.leave_description || 'কোনো বিবরণ নেই'}
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
                           request.status === 'Pending' 
                             ? 'bg-yellow-100 text-yellow-800' 
@@ -406,7 +406,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
                            request.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm">
                         <button
                           onClick={() => {
                             console.log("Delete button clicked for ID:", request.id);

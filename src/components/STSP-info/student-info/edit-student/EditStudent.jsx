@@ -12,7 +12,7 @@ export default function EditStudent() {
    }
 
     return (
-   <div className="my-4 rounded p-4 md:p-6 bg-white">
+   <div className="my-4 rounded p-4 md:p-6 bg-[#441a05]">
       <h3 className="text-2xl font-medium mb-4">Edit student</h3>
 
       <EditSForm studentData={studentData} handleChange={handleChange} />

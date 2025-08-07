@@ -149,9 +149,9 @@ const AddClass = () => {
   if (isLoading || isListLoading || permissionsLoading || isCreating || isDeleting) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
           <FaSpinner className="animate-spin text-3xl text-pmColor" />
-          <span className="text-lg font-medium text-white">
+          <span className="text-lg font-medium text-[#441a05]">
             লোড হচ্ছে...
           </span>
         </div>
@@ -236,7 +236,7 @@ const AddClass = () => {
 
       <div className="flex flex-col sm:flex-row justify-end items-start sm:items-center animate-fadeIn w-full">
         {/* <div className="flex items-center space-x-4 mb-4 sm:mb-0">
-          <IoSchool className="text-4xl text-white" />
+          <IoSchool className="text-4xl text-[#441a05]" />
           <h2 className="text-3xl font-bold text-[#441a05]tracking-tight">
             ক্লাস যোগ করুন
           </h2>
@@ -252,15 +252,15 @@ const AddClass = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left: Select Classes */}
         {hasAddPermission && (
-          <div className="lg:col-span-1 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 animate-fadeIn h-full border border-white/20">
-            <h3 className="text-lg font-semibold text-[#441a05]border-b border-white/20 pb-2 mb-4">
+          <div className="lg:col-span-1 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 animate-fadeIn h-full border border-[#441a05]/20">
+            <h3 className="text-lg font-semibold text-[#441a05]border-b border-[#441a05]/20 pb-2 mb-4">
               ক্লাস নির্বাচন করুন
             </h3>
             <div className="space-y-4 max-h-[60vh] overflow-y-auto">
               {classData?.map((classItem, index) => (
                 <div
                   key={classItem.id}
-                  className="flex items-center justify-between p-3 hover:bg-white/20 border border-white/30 rounded-lg transition-colors duration-300 animate-fadeIn"
+                  className="flex items-center justify-between p-3 hover:bg-[#441a05]/20 border border-[#441a05]/30 rounded-lg transition-colors duration-300 animate-fadeIn"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <span className="text-[#441a05]font-medium">
@@ -277,7 +277,7 @@ const AddClass = () => {
                       className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                         selectedClasses[classItem.id]
                           ? "bg-pmColor border-pmColor"
-                          : "bg-white/10 border-[#9d9087] hover:border-white"
+                          : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                       }`}
                     >
                       {selectedClasses[classItem.id] && (
@@ -305,13 +305,13 @@ const AddClass = () => {
         )}
 
         {/* Right: Selected Classes */}
-        <div className="lg:col-span-3 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 animate-fadeIn max-h-[72vh] overflow-y-auto flex flex-col border border-white/20">
-          <h3 className="text-lg font-semibold text-[#441a05]border-b border-white/20 pb-2 mb-4">
+        <div className="lg:col-span-3 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 animate-fadeIn max-h-[72vh] overflow-y-auto flex flex-col border border-[#441a05]/20">
+          <h3 className="text-lg font-semibold text-[#441a05]border-b border-[#441a05]/20 pb-2 mb-4">
             নির্বাচিত ক্লাস
           </h3>
           {Object.keys(selectedClasses).length === 0 ||
           !Object.values(selectedClasses).some((v) => v) ? (
-            <p className="text-white/70 italic">
+            <p className="text-[#441a05]/70 italic">
               এখনও কোনো ক্লাস নির্বাচন করা হয়নি।
             </p>
           ) : (
@@ -325,7 +325,7 @@ const AddClass = () => {
                   return classItem ? (
                     <div
                       key={id}
-                      className="p-3 border border-white/30 rounded-lg flex items-center justify-between animate-scaleIn"
+                      className="p-3 border border-[#441a05]/30 rounded-lg flex items-center justify-between animate-scaleIn"
                     >
                       <span className="text-[#441a05]font-medium">
                         {classItem?.name}
@@ -375,7 +375,7 @@ const AddClass = () => {
       {isModalOpen && (hasAddPermission) && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
           <div
-            className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+            className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
           >
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               নির্বাচিত ক্লাস নিশ্চিত করুন

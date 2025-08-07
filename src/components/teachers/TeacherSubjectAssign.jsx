@@ -256,7 +256,7 @@ const TeacherSubjectAssign = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
-          <FaSpinner className="animate-spin text-2xl text-white" />
+          <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
           <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
@@ -329,9 +329,9 @@ const TeacherSubjectAssign = () => {
       <div className="">
         {/* Header and Form */}
         {(hasAddPermission || hasChangePermission) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h2 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 শিক্ষকের জন্য বিষয় অ্যাসাইনমেন্ট
               </h2>
@@ -359,7 +359,7 @@ const TeacherSubjectAssign = () => {
                     // However, if the assignment already exists and the user can't change it,
                     // this select could also be disabled. For now, assuming if they can see the form, they can select.
                   />
-                  {teachersLoading && <p className="text-white/70 mt-2 animate-fadeIn">শিক্ষক লোড হচ্ছে...</p>}
+                  {teachersLoading && <p className="text-[#441a05]/70 mt-2 animate-fadeIn">শিক্ষক লোড হচ্ছে...</p>}
                 </div>
 
                 {/* Academic Year Selection */}
@@ -381,7 +381,7 @@ const TeacherSubjectAssign = () => {
                     title="একাডেমিক বছর নির্বাচন করুন / Select academic year"
                     disabled={!hasAddPermission && !hasChangePermission} // Disable if no permission to add/change
                   />
-                  {yearsLoading && <p className="text-white/70 mt-2 animate-fadeIn">একাডেমিক বছর লোড হচ্ছে...</p>}
+                  {yearsLoading && <p className="text-[#441a05]/70 mt-2 animate-fadeIn">একাডেমিক বছর লোড হচ্ছে...</p>}
                 </div>
               </div>
 
@@ -406,7 +406,7 @@ const TeacherSubjectAssign = () => {
                           className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                             selectedClasses.includes(classItem.id)
                               ? 'bg-pmColor border-pmColor'
-                              : 'bg-white/10 border-[#9d9087] hover:border-white'
+                              : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                           }`}
                         >
                           {selectedClasses.includes(classItem.id) && (
@@ -426,14 +426,14 @@ const TeacherSubjectAssign = () => {
                             </svg>
                           )}
                         </span>
-                        <span className="ml-2 text-sm text-white">
+                        <span className="ml-2 text-sm text-[#441a05]">
                           {classItem.class_name} - {classItem.section_name} ({classItem.shift_name})
                         </span>
                       </label>
                     </div>
                   ))}
                 </div>
-                {classesLoading && <p className="text-white/70 mt-2 animate-fadeIn">ক্লাস লোড হচ্ছে...</p>}
+                {classesLoading && <p className="text-[#441a05]/70 mt-2 animate-fadeIn">ক্লাস লোড হচ্ছে...</p>}
               </div>
 
               {/* Subject Selection */}
@@ -459,7 +459,7 @@ const TeacherSubjectAssign = () => {
                             className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                               selectedSubjects.includes(subject.id)
                                 ? 'bg-pmColor border-pmColor'
-                                : 'bg-white/10 border-[#9d9087] hover:border-white'
+                                : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                             }`}
                           >
                             {selectedSubjects.includes(subject.id) && (
@@ -479,12 +479,12 @@ const TeacherSubjectAssign = () => {
                               </svg>
                             )}
                           </span>
-                          <span className="ml-2 text-sm text-white">{subject.name}</span>
+                          <span className="ml-2 text-sm text-[#441a05]">{subject.name}</span>
                         </label>
                       </div>
                     ))}
                 </div>
-                {subjectsLoading && <p className="text-white/70 mt-2 animate-fadeIn">বিষয় লোড হচ্ছে...</p>}
+                {subjectsLoading && <p className="text-[#441a05]/70 mt-2 animate-fadeIn">বিষয় লোড হচ্ছে...</p>}
               </div>
 
               {/* Submit Button */}
@@ -518,53 +518,53 @@ const TeacherSubjectAssign = () => {
         {/* Assignment Table */}
         {selectedTeacher && teacherAssignments?.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">বর্তমান অ্যাসাইনমেন্ট</h3>
+            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">বর্তমান অ্যাসাইনমেন্ট</h3>
             {assignmentsLoading ? (
-              <p className="text-white/70 p-4 animate-fadeIn">অ্যাসাইনমেন্ট লোড হচ্ছে...</p>
+              <p className="text-[#441a05]/70 p-4 animate-fadeIn">অ্যাসাইনমেন্ট লোড হচ্ছে...</p>
             ) : (
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-white/20">
-                  <thead className="bg-white/5">
+                <table className="min-w-full divide-y divide-[#441a05]/20">
+                  <thead className="bg-[#441a05]/5">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         শিক্ষক
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্লাস
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         বিষয়
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         একাডেমিক বছর
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {teacherAssignments.map((assignment, index) => (
                       <tr
                         key={assignment.id}
-                        className="bg-white/5 animate-fadeIn"
+                        className="bg-[#441a05]/5 animate-fadeIn"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {teachers?.find(t => t.id === assignment.teacher_id)?.name || 'অজানা'}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {assignment.class_assigns
                             ?.map(id => classes?.find(c => c.id === id))
                             .filter(Boolean)
                             .map(c => `${c.class_name} - ${c.section_name} (${c.shift_name})`)
                             .join(', ') || 'কোনো ক্লাস নেই'}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {assignment.subject_assigns
                             ?.map(id => classSubjects?.find(s => s.id === id))
                             .filter(Boolean)
                             .map(s => s.name)
                             .join(', ') || 'কোনো বিষয় নেই'}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {academicYears?.find(y => y.id === assignment.academic_year)?.name || 'অজানা'}
                         </td>
                       </tr>
@@ -576,7 +576,7 @@ const TeacherSubjectAssign = () => {
           </div>
         )}
         {selectedTeacher && !assignmentsLoading && teacherAssignments?.length === 0 && (
-          <p className="text-white/70 mt-4 animate-fadeIn">
+          <p className="text-[#441a05]/70 mt-4 animate-fadeIn">
             এই শিক্ষকের জন্য কোনো অ্যাসাইনমেন্ট পাওয়া যায়নি।
           </p>
         )}
@@ -585,7 +585,7 @@ const TeacherSubjectAssign = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'অ্যাসাইনমেন্ট তৈরি নিশ্চিত করুন'}

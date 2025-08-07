@@ -376,14 +376,14 @@ const ExamRoutine = () => {
       <div className="">
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-2">
-          <FaCalendarAlt className="text-3xl text-white" />
+          <FaCalendarAlt className="text-3xl text-[#441a05]" />
           <h2 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             পরীক্ষার রুটিন
           </h2>
         </div>
 
         {/* Form */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl card">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl card">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Exam Selection */}
             <div className="relative">
@@ -441,7 +441,7 @@ const ExamRoutine = () => {
 
         {/* Class Tabs and Schedules */}
         {selectedExam && selectedYear && classes.length > 0 && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl card">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl card">
             {/* Class Tabs */}
             <div className="flex flex-wrap gap-3 mb-8">
               {classes.map((cls, index) => (
@@ -450,8 +450,8 @@ const ExamRoutine = () => {
                   onClick={() => setActiveTab(cls.student_class.id)}
                   className={`px-6 py-3 rounded-lg font-semibold text-[#441a05]transition-all duration-300 animate-scaleIn ${
                     activeTab === cls.student_class.id
-                      ? "bg-pmColor text-white"
-                      : "bg-white/10 hover:bg-white/10"
+                      ? "bg-pmColor text-[#441a05]"
+                      : "bg-[#441a05]/10 hover:bg-[#441a05]/10"
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                   aria-label={`শ্রেণি নির্বাচন: ${cls.student_class.name}`}
@@ -477,7 +477,7 @@ const ExamRoutine = () => {
                         return (
                           <div
                             key={subject.id}
-                            className="p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl animate-scaleIn card"
+                            className="p-6 bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl animate-scaleIn card"
                             style={{ animationDelay: `${index * 0.1}s` }}
                           >
                             <h4 className="font-semibold text-lg text-[#441a05]mb-4">
@@ -618,7 +618,7 @@ const ExamRoutine = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-8 w-full max-w-lg border border-white/20 animate-slideUp card">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-8 w-full max-w-lg border border-[#441a05]/20 animate-slideUp card">
               <h3 className="text-xl font-semibold text-[#441a05]mb-4">
                 রুটিন তৈরি নিশ্চিত করুন
               </h3>
@@ -642,15 +642,15 @@ const ExamRoutine = () => {
                   </thead>
                   <tbody>
                     {modalData?.schedules?.map((schedule, index) => (
-                      <tr key={index} className="border-b border-white/20">
-                        <td className="p-2 text-white">
+                      <tr key={index} className="border-b border-[#441a05]/20">
+                        <td className="p-2 text-[#441a05]">
                           {subjects.find((s) => s.id === schedule.subject_id)
                             ?.name || schedule.subject_id}
                         </td>
-                        <td className="p-2 text-white">
+                        <td className="p-2 text-[#441a05]">
                           {schedule.exam_date}
                         </td>
-                        <td className="p-2 text-white">
+                        <td className="p-2 text-[#441a05]">
                           {`${formatTimeForDisplay(schedule.start_time)} - ${formatTimeForDisplay(schedule.end_time)}`}
                         </td>
                       </tr>

@@ -368,12 +368,12 @@ const TeacherPerformance = () => {
   // Render performance table
   const renderPerformanceTable = () => {
     if (!selectedTeacher || !selectedMonth || !selectedAcademicYear) return (
-      <p className="p-4 text-white/70 animate-fadeIn flex justify-center items-center h-full">
+      <p className="p-4 text-[#441a05]/70 animate-fadeIn flex justify-center items-center h-full">
         শিক্ষক, মাস এবং শিক্ষাবর্ষ নির্বাচন করুন
       </p>
     );
     if (isMetricsLoading || isPerformanceLoading) return (
-      <p className="p-4 text-white/70 animate-fadeIn flex justify-center items-center h-full">
+      <p className="p-4 text-[#441a05]/70 animate-fadeIn flex justify-center items-center h-full">
         <FaSpinner className="animate-spin text-lg mr-2" />
         কর্মক্ষমতা ডেটা লোড হচ্ছে...
       </p>
@@ -388,21 +388,21 @@ const TeacherPerformance = () => {
         কর্মক্ষমতা ত্রুটি: {performanceError.status || 'অজানা'} - {JSON.stringify(performanceError.data || {})}
       </div>
     );
-    if (performanceMetrics.length === 0) return <p className="p-4 text-white/70 animate-fadeIn flex justify-center items-center h-full">কোনো কর্মক্ষমতা মেট্রিক্স নেই</p>;
+    if (performanceMetrics.length === 0) return <p className="p-4 text-[#441a05]/70 animate-fadeIn flex justify-center items-center h-full">কোনো কর্মক্ষমতা মেট্রিক্স নেই</p>;
 
     return (
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-white/20 !border-red-400">
+        <table className="min-w-full divide-y divide-[#441a05]/20 !border-red-400">
           <thead className="">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white">চেকবক্স</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white">কর্মক্ষমতা মেট্রিক</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]">চেকবক্স</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]">কর্মক্ষমতা মেট্রিক</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/20">
+          <tbody className="divide-y divide-[#441a05]/20">
             {performanceMetrics.map((metric, index) => (
-              <tr key={metric.id} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                <td className="px-6 py-4 whitespace-nowrap text-white">
+              <tr key={metric.id} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                   <label htmlFor={`checkbox-${metric.id}`} className="inline-flex items-center cursor-pointer">
                     <input
                       id={`checkbox-${metric.id}`}
@@ -416,7 +416,7 @@ const TeacherPerformance = () => {
                       className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                         performanceData[metric.name]
                           ? 'bg-pmColor border-pmColor'
-                          : 'bg-white/10 border-[#9d9087] hover:border-white'
+                          : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                       }`}
                     >
                       {performanceData[metric.name] && (
@@ -433,7 +433,7 @@ const TeacherPerformance = () => {
                     </span>
                   </label>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{metric.name}</td>
+                <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{metric.name}</td>
               </tr>
             ))}
           </tbody>
@@ -534,9 +534,9 @@ const TeacherPerformance = () => {
       </style>
 
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-2 mb-6">
-            <IoAddCircle className="text-3xl text-white" />
+            <IoAddCircle className="text-3xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">শিক্ষক কর্মক্ষমতা মূল্যায়ন</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -619,13 +619,13 @@ const TeacherPerformance = () => {
           )}
 
           {isTeachersLoading && (
-            <div className="flex items-center space-x-2 text-white/70 animate-fadeIn mt-4">
+            <div className="flex items-center space-x-2 text-[#441a05]/70 animate-fadeIn mt-4">
               <FaSpinner className="animate-spin text-lg" />
               <span>শিক্ষক লোড হচ্ছে...</span>
             </div>
           )}
           {isAcademicYearsLoading && (
-            <div className="flex items-center space-x-2 text-white/70 animate-fadeIn mt-4">
+            <div className="flex items-center space-x-2 text-[#441a05]/70 animate-fadeIn mt-4">
               <FaSpinner className="animate-spin text-lg" />
               <span>শিক্ষাবর্ষ লোড হচ্ছে...</span>
             </div>
@@ -644,8 +644,8 @@ const TeacherPerformance = () => {
       )}
 
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
-          <h3 className="text-lg font-semibold text-white">কর্মক্ষমতা মেট্রিক্স</h3>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-[#441a05]/20">
+          <h3 className="text-lg font-semibold text-[#441a05]">কর্মক্ষমতা মেট্রিক্স</h3>
         </div>
         {renderPerformanceTable()}
       </div>

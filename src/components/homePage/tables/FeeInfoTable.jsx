@@ -59,7 +59,7 @@ export default function FeeInfoTable() {
   ];
 
   return (
-    <div className="mt-4 border border-white/20 rounded-2xl p-4 animate-fadeIn">
+    <div className="mt-4 border border-[#441a05]/20 rounded-2xl p-4 animate-fadeIn">
       <style>
         {`
           @keyframes fadeIn {
@@ -77,7 +77,7 @@ export default function FeeInfoTable() {
       </h5>
       <div className="max-h-52 overflow-y-auto scrollbar-thin scrollbar-thumb-[#9d9087] scrollbar-track-transparent">
         <table
-          className="w-full text-center bg-white/5  divide-[#9d9087]"
+          className="w-full text-center bg-[#441a05]/5  divide-[#9d9087]"
           aria-label="ফি সংক্রান্ত তথ্য সারণী / Fee Information Table"
         >
           <thead>
@@ -95,13 +95,13 @@ export default function FeeInfoTable() {
                 className="animate-fadeIn"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <td className="w-[40%] py-1 text-white">{student.name}</td>
-                <td className="w-[20%] py-1 text-white">{student.class}</td>
-                <td className="w-[20%] py-1 text-white">{student.amount} টাকা</td>
+                <td className="w-[40%] py-1 text-[#441a05]">{student.name}</td>
+                <td className="w-[20%] py-1 text-[#441a05]">{student.class}</td>
+                <td className="w-[20%] py-1 text-[#441a05]">{student.amount} টাকা</td>
                 <td className="w-[20%] py-1">
                   <span
                     className={`text-[#441a05]px-3 py-[2px] rounded-full text-xs ${
-                      student.status === 'পরিশোধিত' ? 'text-pmColor' : 'text-white'
+                      student.status === 'পরিশোধিত' ? 'text-pmColor' : 'text-[#441a05]'
                     }`}
                   >
                     {student.status}

@@ -67,7 +67,7 @@ const SalaryAssign = () => {
           {t("module.payroll.listFee")}
         </button>
       </div>
-      <div className="border rounded shadow-md bg-white">
+      <div className="border rounded shadow-md bg-[#441a05]">
         <table className="w-full text-textGray text-sm leading-8">
           <thead className="border-b-2 bg-bgBlue">
             <tr>
@@ -78,21 +78,21 @@ const SalaryAssign = () => {
                   onChange={handleAllCheckboxChange}
                 />
               </th>
-              <th className="px-1 whitespace-nowrap w-1/12 pt-1">{t("module.payroll.id")}</th>
-              <th className="px-1 whitespace-nowrap w-2/12 pt-1">{t("module.payroll.name")}</th>
-              <th className="px-1 whitespace-nowrap w-2/12 pt-1">
+              <th className="px-1 [#441a05]space-nowrap w-1/12 pt-1">{t("module.payroll.id")}</th>
+              <th className="px-1 [#441a05]space-nowrap w-2/12 pt-1">{t("module.payroll.name")}</th>
+              <th className="px-1 [#441a05]space-nowrap w-2/12 pt-1">
                 {t("module.payroll.designation")}
               </th>
-              <th className="px-1 whitespace-nowrap w-2/12 pt-1">
+              <th className="px-1 [#441a05]space-nowrap w-2/12 pt-1">
                 {t("module.payroll.netSalary")}
               </th>
-              <th className="px-1 whitespace-nowrap w-2/12 pt-1">
+              <th className="px-1 [#441a05]space-nowrap w-2/12 pt-1">
                 {t("module.payroll.basicSalary")}
               </th>
-              <th className="px-1 whitespace-nowrap w-1/12 pt-1">
+              <th className="px-1 [#441a05]space-nowrap w-1/12 pt-1">
                 {t("module.payroll.+Addition")}
               </th>
-              <th className="px-1 whitespace-nowrap w-1/12 pt-1">
+              <th className="px-1 [#441a05]space-nowrap w-1/12 pt-1">
                 {t("module.payroll.-Deduction")}
               </th>
             </tr>
@@ -100,42 +100,42 @@ const SalaryAssign = () => {
           <tbody className="divide-y-2 font-medium">
             {employeeData.map((row, i) => (
               <tr key={row.id} className="text-center">
-                <td className="px-1 whitespace-nowrap w-1/12">
+                <td className="px-1 [#441a05]space-nowrap w-1/12">
                   <input
                     type="checkbox"
                     checked={checkedState[row.id] || false}
                     onChange={() => handleCheckboxChange(row.id)}
                   />
                 </td>
-                <td className="px-1 whitespace-nowrap w-1/12">{row.id}</td>
-                <td className="px-1 whitespace-nowrap w-2/12">{row.name}</td>
-                <td className="px-1 whitespace-nowrap w-2/12">{row.designation}</td>
-                <td className="px-1 whitespace-nowrap w-2/12">
+                <td className="px-1 [#441a05]space-nowrap w-1/12">{row.id}</td>
+                <td className="px-1 [#441a05]space-nowrap w-2/12">{row.name}</td>
+                <td className="px-1 [#441a05]space-nowrap w-2/12">{row.designation}</td>
+                <td className="px-1 [#441a05]space-nowrap w-2/12">
                   {row.basic_salary + row.addition - row.deduction}
                 </td>
-                <td className="px-1 whitespace-nowrap w-2/12">
+                <td className="px-1 [#441a05]space-nowrap w-2/12">
                   <input
                     onChange={(e) =>
                       updateEmployeeData(i, "basic_salary", e.target.value)
                     }
-                    className="px-1 whitespace-nowrap w-16 disabled:bg-transparent disabled:border-none border pl-1 my-1"
+                    className="px-1 [#441a05]space-nowrap w-16 disabled:bg-transparent disabled:border-none border pl-1 my-1"
                     disabled={!checkedState[row.id]}
                     type="number"
                     defaultValue={row.basic_salary}
                   />
                 </td>
-                <td className="px-1 whitespace-nowrap w-1/12">
+                <td className="px-1 [#441a05]space-nowrap w-1/12">
                   <input
                     onChange={(e) =>
                       updateEmployeeData(i, "addition", e.target.value)
                     }
-                    className="px-1 whitespace-nowrap w-16 disabled:bg-transparent disabled:border-none border pl-1 my-1"
+                    className="px-1 [#441a05]space-nowrap w-16 disabled:bg-transparent disabled:border-none border pl-1 my-1"
                     disabled={!checkedState[row.id]}
                     type="number"
                     defaultValue={row.addition}
                   />
                 </td>
-                <td className="px-1 whitespace-nowrap w-1/12">
+                <td className="px-1 [#441a05]space-nowrap w-1/12">
                   <input
                     onChange={(e) =>
                       updateEmployeeData(i, "deduction", e.target.value)

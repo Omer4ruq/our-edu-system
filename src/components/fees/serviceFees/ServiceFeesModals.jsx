@@ -226,7 +226,7 @@ const ServiceFeesModals = ({
       {/* Create Confirmation Modal */}
       {hasAddPermission && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">সার্ভিস ফি কনফিগারেশন জমা নিশ্চিত করুন</h3>
             <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে নির্বাচিত সার্ভিস ফি কনফিগারেশনগুলি জমা দিতে চান?</p>
             <div className="flex justify-end space-x-4">
@@ -239,7 +239,7 @@ const ServiceFeesModals = ({
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -258,7 +258,7 @@ const ServiceFeesModals = ({
       {/* Update Modal */}
       {hasChangePermission && isUpdateModalOpen && selectedFee && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">সার্ভিস ফি কনফিগারেশন আপডেট করুন</h3>
             <div className="space-y-4">
               <div>
@@ -313,7 +313,7 @@ const ServiceFeesModals = ({
                         }}
                         className={`flex items-center px-3 py-2 rounded-lg text-sm transition-all duration-300 ${
                           isSelected
-                            ? `${service.color} text-white`
+                            ? `${service.color} text-[#441a05]`
                             : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'
                         }`}
                       >
@@ -346,7 +346,7 @@ const ServiceFeesModals = ({
               <button
                 onClick={handleUpdateSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -365,7 +365,7 @@ const ServiceFeesModals = ({
       {/* Delete Confirmation Modal */}
       {hasDeletePermission && isDeleteModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">সার্ভিস ফি কনফিগারেশন মুছে ফেলুন</h3>
             <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে সার্ভিস ফি কনফিগারেশন "{selectedFee?.fees_title}" মুছে ফেলতে চান?</p>
             <div className="flex justify-end space-x-4">

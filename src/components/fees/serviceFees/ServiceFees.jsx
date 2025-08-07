@@ -174,7 +174,7 @@ const ServiceFees = () => {
         hasDeletePermission={hasDeletePermission}
       />
 
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
         {(hasAddPermission || hasChangePermission) && (
           <div>
             <ServiceTypeSelector 

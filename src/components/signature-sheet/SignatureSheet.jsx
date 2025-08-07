@@ -304,7 +304,7 @@ const SignatureSheet = () => {
         `}
       </style>
 
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight mb-6 animate-fadeIn">
           স্বাক্ষর শীট তৈরি করুন
         </h3>
@@ -362,7 +362,7 @@ const SignatureSheet = () => {
 
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
         <div ref={tableRef} className="print-container">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20 no-print">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20 no-print">
             স্বাক্ষর শীট {selectedClass?.value && selectedExam?.value && `- ক্লাস: ${activeClasses.find(cls => cls.g_class_id === parseInt(selectedClass.value.g_class_id))?.class_name} ${activeClasses.find(cls => cls.g_class_id === parseInt(selectedClass.value.g_class_id))?.section_name}, পরীক্ষা: ${exams.find(exam => exam.id === parseInt(selectedExam.value))?.name}`}
           </h3>
           {(isClassesLoading || isExamsLoading || isStudentsLoading || isSubjectsLoading || instituteLoading) && (
@@ -378,8 +378,8 @@ const SignatureSheet = () => {
             <p className="p-4 text-black">এই ক্লাসে কোনো সক্রিয় বিষয় নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20 print-table">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20 print-table">
+                <thead className="bg-[#441a05]/5">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider border border-black">
                       শিক্ষার্থীর নাম
@@ -405,23 +405,23 @@ const SignatureSheet = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {students.map((student, index) => (
                     <tr
                       key={student.id}
-                      className="bg-white/5 animate-fadeIn border"
+                      className="bg-[#441a05]/5 animate-fadeIn border"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-black border border-black">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-black border border-black">
                         {student.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-black border border-black">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-black border border-black">
                         {student.roll_no || ''}
                       </td>
                       {activeSubjects.map((subject) => (
                         <td
                           key={subject.id}
-                          className="px-6 py-4 whitespace-nowrap text-sm text-black border border-black"
+                          className="px-6 py-4 [#441a05]space-nowrap text-sm text-black border border-black"
                         >
                           {/* Placeholder for signature or mark */}
                         </td>
