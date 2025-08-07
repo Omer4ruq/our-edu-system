@@ -1157,6 +1157,11 @@ const mainMenu = [
           title: `${languageCode == 'bn' ? "বেতনের পরিমাণ বৃদ্ধি " : "Salary Increments"}`,
           link: "/payroll/settings/salary-increments",
         },
+           {
+          id: "13/01/06",
+          title: `${languageCode == 'bn' ? "মৌলিক বেতন" : "Basic Salary"}`,
+          link: "/payroll/settings/basic-salary",
+        },
       ]
     }
   ]

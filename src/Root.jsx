@@ -97,6 +97,7 @@ import AddDeduction from "./components/payroll/deduction/AddDeduction";
 import EmployeesAdditions from "./components/payroll/addition/EmployeesAdditions";
 import EmployeesDeductions from "./components/payroll/deduction/EmployeesDeductions";
 import SalaryIncrements from "./components/payroll/salary-assign/SalaryIncrements";
+import BasicSalary from "./components/payroll/salary-assign/BasicSalary";
 
 
 function Root() {
@@ -608,6 +609,10 @@ function Root() {
                        {
                       path: "salary-increments",
                       element: <SalaryIncrements/>,
+                    },
+                      {
+                      path: "basic-salary",
+                      element: <BasicSalary/>,
                     },
                   ]
                 }
