@@ -47,7 +47,7 @@ const UserInfoCell = ({ userId }) => {
     return (
       <div>
         <div className="font-medium text-red-500">ইউজার পাওয়া যায়নি</div>
-        <div className="text-xs text-white/70">ID: {userId}</div>
+        <div className="text-xs text-[#441a05]/70">ID: {userId}</div>
       </div>
     );
   }
@@ -79,7 +79,7 @@ const UserInfoCell = ({ userId }) => {
   return (
     <div>
       <div className="font-medium">{displayInfo.name}</div>
-      <div className="text-xs text-white/70">{displayInfo.details}</div>
+      <div className="text-xs text-[#441a05]/70">{displayInfo.details}</div>
     </div>
   );
 };
@@ -560,9 +560,9 @@ const MealStatus = () => {
   if (statusesLoading || usersLoading || permissionsLoading || instituteLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
           <FaSpinner className="animate-spin text-3xl text-pmColor" />
-          <span className="text-lg font-medium text-white">
+          <span className="text-lg font-medium text-[#441a05]">
             লোড হচ্ছে...
           </span>
         </div>
@@ -634,12 +634,12 @@ const MealStatus = () => {
       <div>
         {/* Add/Edit Meal Status Form */}
         {(hasAddPermission || hasChangePermission) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               {editingId ? (
-                <FaEdit className="text-4xl text-white" />
+                <FaEdit className="text-4xl text-[#441a05]" />
               ) : (
-                <IoAddCircle className="text-4xl text-white" />
+                <IoAddCircle className="text-4xl text-[#441a05]" />
               )}
               <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 {editingId ? 'খাবারের স্থিতি সম্পাদনা করুন' : 'নতুন খাবারের স্থিতি যোগ করুন'}
@@ -662,21 +662,21 @@ const MealStatus = () => {
                   required
                 />
                 {isUserDropdownOpen && searchTerm.length >= 3 && (
-                  <div className="absolute z-[10000] mt-1 w-full bg-black/10 backdrop-blur-sm border border-white/20 rounded-lg shadow-lg max-h-60 overflow-auto">
+                  <div className="absolute z-[10000] mt-1 w-full bg-black/10 backdrop-blur-sm border border-[#441a05]/20 rounded-lg shadow-lg max-h-60 overflow-auto">
                     {usersLoading ? (
-                      <p className="px-4 py-2 text-sm text-white/70">লোড হচ্ছে...</p>
+                      <p className="px-4 py-2 text-sm text-[#441a05]/70">লোড হচ্ছে...</p>
                     ) : jointUsers.length > 0 ? (
                       jointUsers.map((user) => (
                         <div
                           key={user.id}
                           onClick={() => handleUserSelect(user)}
-                          className="px-4 py-2 hover:bg-white/10 cursor-pointer text-sm text-white"
+                          className="px-4 py-2 hover:bg-[#441a05]/10 cursor-pointer text-sm text-[#441a05]"
                         >
                           {user.name || user.user_id} ({user?.student_profile?.class_name || user?.staff_profile?.designation || "N/A"})
                         </div>
                       ))
                     ) : (
-                      <p className="px-4 py-2 text-sm text-white/70">কোনো ব্যবহারকারী পাওয়া যায়নি</p>
+                      <p className="px-4 py-2 text-sm text-[#441a05]/70">কোনো ব্যবহারকারী পাওয়া যায়নি</p>
                     )}
                   </div>
                 )}
@@ -692,7 +692,7 @@ const MealStatus = () => {
                   value={formData.start_time}
                   onChange={handleInputChange}
                   onClick={handleDateClick}
-                  className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
+                  className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]"
                   disabled={isFormDisabled}
                   required
                   aria-label="শুরুর তারিখ"
@@ -710,7 +710,7 @@ const MealStatus = () => {
                   value={formData.end_time}
                   onChange={handleInputChange}
                   onClick={handleDateClick}
-                  className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
+                  className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]"
                   disabled={isFormDisabled}
                   required
                   aria-label="শেষের তারিখ"
@@ -809,7 +809,7 @@ const MealStatus = () => {
         {/* Meal Statuses Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">খাবারের স্থিতির তালিকা</h3>
+            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">খাবারের স্থিতির তালিকা</h3>
             <button
               onClick={generatePDFReport}
               disabled={!mealStatuses || mealStatuses.length === 0}
@@ -827,76 +827,76 @@ const MealStatus = () => {
           </div>
 
           {statusesLoading ? (
-            <p className="p-4 text-white/70">খাবারের স্থিতি লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">খাবারের স্থিতি লোড হচ্ছে...</p>
           ) : statusesError ? (
             <p className="p-4 text-red-400">
               খাবারের স্থিতি লোড করতে ত্রুটি: {statusesError.status || 'অজানা'} - {JSON.stringify(statusesError.data || {})}
             </p>
           ) : mealStatuses?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো খাবারের স্থিতি উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো খাবারের স্থিতি উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আইডি
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ব্যবহারকারী
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ধরন
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শুরুর তারিখ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শেষের তারিখ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       স্থিতি
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       মন্তব্য
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আপডেটের সময়
                     </th>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্রিয়াকলাপ
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {mealStatuses?.map((status, index) => {
                     return (
                       <tr
                         key={status.id}
-                        className="bg-white/5 animate-fadeIn hover:bg-white/10 transition-colors duration-200"
+                        className="bg-[#441a05]/5 animate-fadeIn hover:bg-[#441a05]/10 transition-colors duration-200"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {status.id}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           <UserInfoCell userId={status.meal_user} />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                           <UserTypeBadge userId={status.meal_user} />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {status.start_time}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {status.end_time}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                           <label className="inline-flex items-center cursor-pointer">
                             <input
                               type="checkbox"
@@ -911,7 +911,7 @@ const MealStatus = () => {
                               className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                                 status.status === 'ACTIVE'
                                   ? 'bg-pmColor border-pmColor'
-                                  : 'bg-white/10 border-[#9d9087] hover:border-white'
+                                  : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                               }`}
                             >
                               {status.status === 'ACTIVE' && (
@@ -933,17 +933,17 @@ const MealStatus = () => {
                             </span>
                           </label>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {status.remarks || '-'}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                           {new Date(status.created_at).toLocaleString('bn-BD')}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                           {new Date(status.updated_at).toLocaleString('bn-BD')}
                         </td>
                         {(hasChangePermission || hasDeletePermission) && (
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                             {hasChangePermission && (
                               <button
                                 onClick={() => handleEdit(status)}
@@ -996,7 +996,7 @@ const MealStatus = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন খাবারের স্থিতি নিশ্চিত করুন'}

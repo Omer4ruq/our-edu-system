@@ -310,9 +310,9 @@ const HostelAllocation = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -323,7 +323,7 @@ const HostelAllocation = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-red-400 text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -364,16 +364,16 @@ const HostelAllocation = () => {
 
       <div className="mx-auto">
         {/* Page Header */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4">
             <div className="bg-pmColor/20 p-3 rounded-xl">
               <FaHome className="text-pmColor text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">
+              <h1 className="text-3xl font-bold text-[#441a05]">
                 {languageCode === 'bn' ? 'হোস্টেল বরাদ্দ ব্যবস্থাপনা' : 'Hostel Allocation Management'}
               </h1>
-              <p className="text-white/70 mt-1">
+              <p className="text-[#441a05]/70 mt-1">
                 {languageCode === 'bn' ? 'শিক্ষার্থীদের হোস্টেল রুম এবং প্যাকেজ বরাদ্দ করুন' : 'Allocate students to hostel rooms and packages'}
               </p>
             </div>
@@ -382,12 +382,12 @@ const HostelAllocation = () => {
 
         {/* Allocation Form */}
         {/* {hasAddPermission && ( */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
             <div className="flex items-center space-x-4 mb-6">
               <div className="bg-pmColor/20 rounded-xl">
                 <IoAddCircle className="text-pmColor text-3xl" />
               </div>
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-[#441a05]">
                 {languageCode === 'bn' ? "নতুন বরাদ্দ যোগ করুন" : "New Allocation"}
               </h3>
             </div>
@@ -395,7 +395,7 @@ const HostelAllocation = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Student Search */}
               <div className="student-search-container">
-                <label className="block text-sm font-medium text-white/80 mb-2">
+                <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                   <FaUser className="inline mr-2" />
                   {languageCode === 'bn' ? "শিক্ষার্থী *" : "Student *"}
                 </label>
@@ -405,10 +405,10 @@ const HostelAllocation = () => {
                     value={studentSearchTerm}
                     onChange={(e) => handleStudentSearch(e.target.value)}
                     onFocus={() => setShowStudentSearch(true)}
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 pl-12 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                    className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 pl-12 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                     placeholder={languageCode === 'bn' ? "ইউজার আইডি বা ইউজারনেম দিয়ে খুঁজুন..." : "Search by User ID or Username..."}
                   />
-                  <FaSearch className="absolute left-4 top-[24px] transform -translate-y-1/2 text-white/60" />
+                  <FaSearch className="absolute left-4 top-[24px] transform -translate-y-1/2 text-[#441a05]/60" />
                   
                   {/* Loading state */}
                   {studentLoading && (
@@ -419,12 +419,12 @@ const HostelAllocation = () => {
 
                   {/* Student Search Results */}
                   {showStudentSearch && searchResults.length > 0 && !selectedStudent && (
-                    <div className="absolute z-10 w-full mt-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                    <div className="absolute z-10 w-full mt-1 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                       {searchResults.map((student) => (
                         <div
                           key={student.id}
                           onClick={() => handleStudentSelect(student)}
-                          className="px-4 py-3 hover:bg-white/5 cursor-pointer border-b border-white/10 last:border-b-0 transition-colors duration-200"
+                          className="px-4 py-3 hover:bg-[#441a05]/5 cursor-pointer border-b border-[#441a05]/10 last:border-b-0 transition-colors duration-200"
                         >
                           <div className="flex items-center space-x-3">
                             <div className="flex-shrink-0">
@@ -435,11 +435,11 @@ const HostelAllocation = () => {
                               </div>
                             </div>
                             <div className="flex-1">
-                              <div className="font-medium text-white">{student.name}</div>
-                              <div className="text-sm text-white/70">
+                              <div className="font-medium text-[#441a05]">{student.name}</div>
+                              <div className="text-sm text-[#441a05]/70">
                                 {languageCode === 'bn' ? 'ইউজারনেম:' : 'Username:'} {student.username} | {languageCode === 'bn' ? 'ইউজার আইডি:' : 'User ID:'} {formatNumber(student.user_id)}
                               </div>
-                              <div className="text-sm text-white/70">
+                              <div className="text-sm text-[#441a05]/70">
                                 {languageCode === 'bn' ? 'ক্লাস:' : 'Class:'} {student.class_name} | {languageCode === 'bn' ? 'রোল:' : 'Roll:'} {formatNumber(student.roll_no)} | {languageCode === 'bn' ? 'ফোন:' : 'Phone:'} {student.phone_number}
                               </div>
                             </div>
@@ -451,8 +451,8 @@ const HostelAllocation = () => {
 
                   {/* No results message */}
                   {showStudentSearch && searchParams && !studentLoading && searchResults.length === 0 && (
-                    <div className="absolute z-10 w-full mt-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg">
-                      <div className="px-4 py-3 text-white/70 text-center">
+                    <div className="absolute z-10 w-full mt-1 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl shadow-lg">
+                      <div className="px-4 py-3 text-[#441a05]/70 text-center">
                         {languageCode === 'bn' ? 'এই অনুসন্ধান টার্ম দিয়ে কোনো শিক্ষার্থী পাওয়া যায়নি' : 'No student found with this search term'}
                       </div>
                     </div>
@@ -469,16 +469,16 @@ const HostelAllocation = () => {
                             </span>
                           </div>
                           <div>
-                            <div className="font-medium text-white">
+                            <div className="font-medium text-[#441a05]">
                               {selectedStudent.name}
                             </div>
-                            <div className="text-sm text-white/70">
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'ইউজারনেম:' : 'Username:'} {selectedStudent.username} | {languageCode === 'bn' ? 'ইউজার আইডি:' : 'User ID:'} {formatNumber(selectedStudent.user_id)}
                             </div>
-                            <div className="text-sm text-white/70">
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'ক্লাস:' : 'Class:'} {selectedStudent.class_name} | {languageCode === 'bn' ? 'সেকশন:' : 'Section:'} {selectedStudent.section_name} | {languageCode === 'bn' ? 'রোল:' : 'Roll:'} {formatNumber(selectedStudent.roll_no)}
                             </div>
-                            <div className="text-sm text-white/70">
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'ফোন:' : 'Phone:'} {selectedStudent.phone_number} | {languageCode === 'bn' ? 'লিঙ্গ:' : 'Gender:'} {selectedStudent.gender}
                             </div>
                           </div>
@@ -504,14 +504,14 @@ const HostelAllocation = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Status */}
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">
+                  <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                     {languageCode === 'bn' ? "অবস্থা *" : "Status *"}
                   </label>
                   <select
                     name="status"
                     value={formData.status}
                     onChange={handleInputChange}
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                    className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                   >
                     <option value="Active" className="bg-gray-800">
                       {languageCode === 'bn' ? 'সক্রিয়' : 'Active'}
@@ -527,7 +527,7 @@ const HostelAllocation = () => {
 
                 {/* Academic Year */}
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">
+                  <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                     {languageCode === 'bn' ? "শিক্ষাবর্ষ *" : "Academic Year *"}
                   </label>
                   <Select
@@ -544,7 +544,7 @@ const HostelAllocation = () => {
 
                 {/* Hostel Package */}
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">
+                  <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                     {languageCode === 'bn' ? "হোস্টেল প্যাকেজ *" : "Hostel Package *"}
                   </label>
                   <Select
@@ -561,7 +561,7 @@ const HostelAllocation = () => {
 
                 {/* Hostel Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">
+                  <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                     {languageCode === 'bn' ? "হোস্টেলের নাম *" : "Hostel Name *"}
                   </label>
                   <Select
@@ -579,7 +579,7 @@ const HostelAllocation = () => {
 
               {/* Room Selection Display */}
               <div>
-                <label className="block text-sm font-medium text-white/80 mb-2">
+                <label className="block text-sm font-medium text-[#441a05]/80 mb-2">
                   <FaBed className="inline mr-2" />
                   {languageCode === 'bn' ? "রুম নির্বাচন *" : "Room Selection *"}
                 </label>
@@ -612,13 +612,13 @@ const HostelAllocation = () => {
                   <button
                     type="button"
                     onClick={() => setShowRoomSidebar(true)}
-                    className="w-full p-4 border-2 border-dashed border-white/30 rounded-xl text-white/60 hover:border-pmColor hover:text-pmColor transition-all duration-300 flex items-center justify-center space-x-2"
+                    className="w-full p-4 border-2 border-dashed border-[#441a05]/30 rounded-xl text-[#441a05]/60 hover:border-pmColor hover:text-pmColor transition-all duration-300 flex items-center justify-center space-x-2"
                   >
                     <FaBed />
                     <span>{languageCode === 'bn' ? `${selectedHostel.name} এর জন্য রুম নির্বাচন করতে ক্লিক করুন` : `Click to select room for ${selectedHostel.name}`}</span>
                   </button>
                 ) : (
-                  <div className="p-4 bg-white/5 border border-white/20 rounded-xl text-white/60 flex items-center justify-center space-x-2">
+                  <div className="p-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-xl text-[#441a05]/60 flex items-center justify-center space-x-2">
                     <FaBed />
                     <span>{languageCode === 'bn' ? 'প্রথমে একটি হোস্টেল নির্বাচন করুন' : 'Please select a hostel first'}</span>
                   </div>
@@ -740,7 +740,7 @@ const HostelAllocation = () => {
           <div className="fixed top-14 inset-0 bg-black/50 backdrop-blur-sm overflow-hidden z-[9999]">
             <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex z-50">
               <div className="w-screen max-w-md">
-                <div className="h-full flex flex-col bg-white/10 backdrop-blur-md border-l border-white/20 shadow-xl">
+                <div className="h-full flex flex-col bg-[#441a05]/10 backdrop-blur-md border-l border-[#441a05]/20 shadow-xl">
                   <div className="px-4 py-6 bg-pmColor/20 sm:px-6">
                     <div className="flex items-center justify-between">
                       <h2 className="text-lg font-medium text-[#441a05]flex items-center space-x-2">
@@ -749,12 +749,12 @@ const HostelAllocation = () => {
                       </h2>
                       <button
                         onClick={() => setShowRoomSidebar(false)}
-                        className="text-white/70 hover:text-[#441a05]transition-colors"
+                        className="text-[#441a05]/70 hover:text-[#441a05]transition-colors"
                       >
                         <IoClose className="w-6 h-6" />
                       </button>
                     </div>
-                    <p className="mt-1 text-sm text-white/70">
+                    <p className="mt-1 text-sm text-[#441a05]/70">
                       {selectedHostel.name}
                     </p>
                   </div>
@@ -766,8 +766,8 @@ const HostelAllocation = () => {
                     
                     {availableRooms.length === 0 ? (
                       <div className="text-center py-8">
-                        <div className="text-white/40 text-6xl mb-4">🏠</div>
-                        <p className="text-white/70">
+                        <div className="text-[#441a05]/40 text-6xl mb-4">🏠</div>
+                        <p className="text-[#441a05]/70">
                           {languageCode === 'bn' ? 'এই হোস্টেলে কোনো রুম উপলব্ধ নেই' : 'No rooms available in this hostel'}
                         </p>
                       </div>
@@ -777,15 +777,15 @@ const HostelAllocation = () => {
                           <div
                             key={room.id}
                             onClick={() => handleRoomSelect(room)}
-                            className="p-4 bg-white/5 border border-white/20 rounded-xl cursor-pointer hover:border-pmColor hover:bg-pmColor/10 transition-all duration-300 animate-fadeIn"
+                            className="p-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-xl cursor-pointer hover:border-pmColor hover:bg-pmColor/10 transition-all duration-300 animate-fadeIn"
                             style={{ animationDelay: `${index * 0.05}s` }}
                           >
                             <div className="flex justify-between items-center">
                               <div>
-                                <div className="font-medium text-white">
+                                <div className="font-medium text-[#441a05]">
                                   {room.room_name}
                                 </div>
-                                <div className="text-sm text-white/70">
+                                <div className="text-sm text-[#441a05]/70">
                                   {languageCode === 'bn' ? 'সিট:' : 'Seat:'} {room.seat_no}
                                 </div>
                               </div>

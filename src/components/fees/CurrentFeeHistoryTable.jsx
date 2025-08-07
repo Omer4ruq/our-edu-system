@@ -290,7 +290,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
           }
           .date-filter-active {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
           }
           .date-filter-inactive {
             background-color: transparent;
@@ -302,7 +302,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
           }
           .report-button {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
             padding: 8px 16px;
             border-radius: 8px;
             transition: background-color 0.3s;
@@ -320,9 +320,9 @@ console.log("filteredFeeRecords", filteredFeeRecords)
       </style>
 
       {/* Header with filters */}
-      <div className="flex flex-col gap-4 p-4 border-b border-white/20">
+      <div className="flex flex-col gap-4 p-4 border-b border-[#441a05]/20">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <h2 className="text-lg font-semibold text-white">ফি ইতিহাস</h2>
+          <h2 className="text-lg font-semibold text-[#441a05]">ফি ইতিহাস</h2>
           
           {/* Main filter buttons */}
           <div className="flex flex-wrap gap-2">
@@ -375,7 +375,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                   className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                   placeholder="শুরু"
                 />
-                <span className="text-white">থেকে</span>
+                <span className="text-[#441a05]">থেকে</span>
                 <input
                   type={dateFilterType === 'month' ? 'month' : 'date'}
                   name="endDate"
@@ -413,7 +413,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
 
       {/* Table */}
       {filteredFeeRecords.length === 0 ? (
-        <p className="p-4 text-white/70 text-center">
+        <p className="p-4 text-[#441a05]/70 text-center">
           {filterType === 'all' 
             ? 'এই ছাত্রের জন্য কোনো ফি ইতিহাস উপলব্ধ নেই।' 
             : `${filterType === 'due' ? 'বকেয়া' : 'পরিশোধিত'} ফি পাওয়া যায়নি।`
@@ -421,32 +421,32 @@ console.log("filteredFeeRecords", filteredFeeRecords)
         </p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-white/20">
-            <thead className="bg-white/5">
+          <table className="min-w-full divide-y divide-[#441a05]/20">
+            <thead className="bg-[#441a05]/5">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   ফি প্রকার
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   মোট প্রদান পরিমাণ
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   ওয়েভার পরিমাণ
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   ডিসকাউন্ট পরিমাণ
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   স্থিতি
                 </th>
                 {(hasChangePermission || hasDeletePermission) && (
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ক্রিয়াকলাপ
                   </th>
                 )}
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/20">
+            <tbody className="divide-y divide-[#441a05]/20">
               {filteredFeeRecords.map((fee, index) => {
                 const feeNameRecord = feesNameRecords?.find((f) => f.id === fee.feetype_id);
                 const waiverAmount = feeNameRecord
@@ -456,22 +456,22 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                 return (
                   <tr
                     key={fee.id}
-                    className="bg-white/5 animate-fadeIn"
+                    className="bg-[#441a05]/5 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       {fee.feetype_name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       {fee.amount}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       {fee.waiver_amount || waiverAmount}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       {fee.discount_amount}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       <span
                         className={`px-2 py-1 text-xs font-semibold rounded-full ${
                           fee.status === 'PAID'
@@ -485,7 +485,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                       </span>
                     </td>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                         {hasChangePermission && (
                           <button
                             onClick={() =>

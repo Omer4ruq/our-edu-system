@@ -309,7 +309,7 @@ const SubjectMarks = () => {
       case 'saved':
         return (
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 text-[#441a05]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
@@ -317,7 +317,7 @@ const SubjectMarks = () => {
       case 'error':
         return (
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 text-[#441a05]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </div>
@@ -335,7 +335,7 @@ const SubjectMarks = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
-          <FaSpinner className="animate-spin text-2xl text-white" />
+          <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
           <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
@@ -400,7 +400,7 @@ const SubjectMarks = () => {
       <div className="">
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-5">
-          <IoAddCircle className="text-4xl text-white" />
+          <IoAddCircle className="text-4xl text-[#441a05]" />
           <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             বিষয় মার্ক এন্ট্রি
           </h1>
@@ -414,11 +414,11 @@ const SubjectMarks = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-white">পরীক্ষা</label>
+              <label className="block text-sm font-medium text-[#441a05]">পরীক্ষা</label>
               <select
                 value={examId}
                 onChange={(e) => setExamId(e.target.value)}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                 aria-label="পরীক্ষা নির্বাচন করুন"
                 title="পরীক্ষা নির্বাচন করুন / Select exam"
               >
@@ -431,11 +431,11 @@ const SubjectMarks = () => {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-white">শিক্ষাবর্ষ</label>
+              <label className="block text-sm font-medium text-[#441a05]">শিক্ষাবর্ষ</label>
               <select
                 value={academicYearId}
                 onChange={(e) => setAcademicYearId(e.target.value)}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                 aria-label="শিক্ষাবর্ষ নির্বাচন করুন"
                 title="শিক্ষাবর্ষ নির্বাচন করুন / Select academic year"
               >
@@ -448,11 +448,11 @@ const SubjectMarks = () => {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-white">ক্লাস</label>
+              <label className="block text-sm font-medium text-[#441a05]">ক্লাস</label>
               <select
                 value={selectedClassConfigId}
                 onChange={handleClassChange}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                 aria-label="ক্লাস নির্বাচন করুন"
                 title="ক্লাস নির্বাচন করুন / Select class"
               >
@@ -465,11 +465,11 @@ const SubjectMarks = () => {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-white">বিষয়</label>
+              <label className="block text-sm font-medium text-[#441a05]">বিষয়</label>
               <select
                 value={subjectId}
                 onChange={(e) => setSubjectId(e.target.value)}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!classId}
                 aria-label="বিষয় নির্বাচন করুন"
                 title="বিষয় নির্বাচন করুন / Select subject"
@@ -487,7 +487,7 @@ const SubjectMarks = () => {
 
         {/* No Data Messages */}
         {selectedClassConfigId && !subjectMarkConfigs?.length && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-pmColor/20 rounded-full flex items-center justify-center">
                 <svg className="w-6 h-6 text-pmColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -495,15 +495,15 @@ const SubjectMarks = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">কোনো বিষয় পাওয়া যায়নি</h3>
-                <p className="text-white/70">নির্বাচিত ক্লাসের জন্য কোনো বিষয় কনফিগার করা হয়নি।</p>
+                <h3 className="text-lg font-semibold text-[#441a05]">কোনো বিষয় পাওয়া যায়নি</h3>
+                <p className="text-[#441a05]/70">নির্বাচিত ক্লাসের জন্য কোনো বিষয় কনফিগার করা হয়নি।</p>
               </div>
             </div>
           </div>
         )}
 
         {selectedClassConfigId && !students?.length && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-pmColor/20 rounded-full flex items-center justify-center">
                 <svg className="w-6 h-6 text-pmColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -511,8 +511,8 @@ const SubjectMarks = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">কোনো ছাত্র পাওয়া যায়নি</h3>
-                <p className="text-white/70">নির্বাচিত ক্লাসে কোনো সক্রিয় ছাত্র পাওয়া যায়নি।</p>
+                <h3 className="text-lg font-semibold text-[#441a05]">কোনো ছাত্র পাওয়া যায়নি</h3>
+                <p className="text-[#441a05]/70">নির্বাচিত ক্লাসে কোনো সক্রিয় ছাত্র পাওয়া যায়নি।</p>
               </div>
             </div>
           </div>
@@ -520,11 +520,11 @@ const SubjectMarks = () => {
 
         {/* Marks Table */}
         {students?.length > 0 && markConfigs.length > 0 && (
-          <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden animate-fadeIn">
+          <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 overflow-hidden animate-fadeIn">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-white/10 border-b border-white/20">
+                  <tr className="bg-[#441a05]/10 border-b border-[#441a05]/20">
                     <th className="px-6 py-4 text-left text-sm font-bold text-[#441a05]uppercase tracking-wider">
                       ছাত্রের তথ্য
                     </th>
@@ -532,7 +532,7 @@ const SubjectMarks = () => {
                       <th key={config.id} className="px-6 py-4 text-center text-sm font-bold text-[#441a05]uppercase tracking-wider min-w-[140px]">
                         <div className="space-y-1">
                           <div className="font-semibold">{config.mark_type_name}</div>
-                          <div className="text-xs text-white/70 normal-case">
+                          <div className="text-xs text-[#441a05]/70 normal-case">
                             সর্বোচ্চ: {config.max_mark} | পাস: {config.pass_mark}
                           </div>
                         </div>
@@ -550,17 +550,17 @@ const SubjectMarks = () => {
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {students.map((student, index) => (
-                    <tr key={student.id} className="hover:bg-white/10 transition-colors duration-200 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <tr key={student.id} className="hover:bg-[#441a05]/10 transition-colors duration-200 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
                       <td className="px-6 py-4">
                         <div className="flex items-center space-x-4">
                           <div className="w-10 h-10 bg-pmColor/20 rounded-full flex items-center justify-center text-[#441a05]font-bold text-sm">
                             {student.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div className="font-semibold text-white">{student.name}</div>
-                            <div className="text-sm text-white/70">রোল: {student.roll_no}</div>
+                            <div className="font-semibold text-[#441a05]">{student.name}</div>
+                            <div className="text-sm text-[#441a05]/70">রোল: {student.roll_no}</div>
                           </div>
                         </div>
                       </td>
@@ -575,8 +575,8 @@ const SubjectMarks = () => {
                               onKeyPress={(e) => handleMarkKeyPress(e, student.id, config.id, e.target.value)}
                               className={`w-20 h-12 text-center border-2 rounded-lg font-semibold transition-all duration-200 tick-glow ${
                                 absentStudents.has(student.id)
-                                  ? 'bg-gray-100 border-[#9d9087] text-white/50 cursor-not-allowed'
-                                  : 'bg-white/10 border-[#9d9087] text-[#441a05]hover:border-pmColor focus:ring-2 focus:ring-pmColor focus:border-pmColor'
+                                  ? 'bg-gray-100 border-[#9d9087] text-[#441a05]/50 cursor-not-allowed'
+                                  : 'bg-[#441a05]/10 border-[#9d9087] text-[#441a05]hover:border-pmColor focus:ring-2 focus:ring-pmColor focus:border-pmColor'
                               }`}
                               disabled={absentStudents.has(student.id) || !hasChangePermission}
                               min="0"
@@ -624,8 +624,8 @@ const SubjectMarks = () => {
             </div>
 
             {/* Table Footer with Stats */}
-            <div className="bg-white/10 px-6 py-4 border-t border-white/20">
-              <div className="flex items-center justify-between text-sm text-white">
+            <div className="bg-[#441a05]/10 px-6 py-4 border-t border-[#441a05]/20">
+              <div className="flex items-center justify-between text-sm text-[#441a05]">
                 <div className="flex items-center space-x-6">
                   <span className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -640,7 +640,7 @@ const SubjectMarks = () => {
                     <span>উপস্থিত: {students.length - absentStudents.size}</span>
                   </span>
                 </div>
-                <div className="text-xs text-white/70">
+                <div className="text-xs text-[#441a05]/70">
                   স্বয়ংক্রিয় সংরক্ষণ সক্রিয় • সংরক্ষণের জন্য এন্টার চাপুন বা বাইরে ক্লিক করুন
                 </div>
               </div>
@@ -651,7 +651,7 @@ const SubjectMarks = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 মার্ক মুছে ফেলা নিশ্চিত করুন
               </h3>

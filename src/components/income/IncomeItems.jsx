@@ -559,15 +559,15 @@ const IncomeItems = () => {
     return (
       <div className="py-8 w-full relative">
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">আয় আইটেম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">আয় আইটেম তালিকা</h3>
           {isItemsLoading ? (
-            <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
           ) : itemsError ? (
             <p className="p-4 text-red-400">
               আয় আইটেম লোড করতে ত্রুটি: {itemsError.status || "অজানা"} - {JSON.stringify(itemsError.data || {})}
             </p>
           ) : safeIncomeItems.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো আয় আইটেম উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো আয় আইটেম উপলব্ধ নেই।</p>
           ) : (
             <IncomeItemsList incomeItems={safeIncomeItems} incomeHeads={incomeHeads} fundTypes={fundTypes} academicYears={academicYears} />
           )}
@@ -577,7 +577,7 @@ const IncomeItems = () => {
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -641,7 +641,7 @@ const IncomeItems = () => {
             }
             .report-button {
               background-color: #441a05;
-              color: white;
+              color: [#441a05];
               padding: 8px 16px;
               border-radius: 8px;
               transition: background-color 0.3s;
@@ -655,7 +655,7 @@ const IncomeItems = () => {
         {/* Confirmation Modal */}
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 আয় আইটেম মুছে ফেলা নিশ্চিত করুন
               </h3>
@@ -674,7 +674,7 @@ const IncomeItems = () => {
                   onClick={confirmDelete}
                   disabled={isDeleting}
                   className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
-                    isDeleting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'
+                    isDeleting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'
                   }`}
                   aria-label="নিশ্চিত করুন"
                 >
@@ -694,9 +694,9 @@ const IncomeItems = () => {
 
         {/* Form to Add/Edit Income Item */}
         {hasAddPermission && !editId && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                 নতুন আয় আইটেম যোগ করুন
               </h3>
@@ -958,9 +958,9 @@ const IncomeItems = () => {
 
         {/* Edit Form */}
         {hasChangePermission && editId && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6">
-              <FaEdit className="text-3xl text-white" />
+              <FaEdit className="text-3xl text-[#441a05]" />
               <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                 আয় আইটেম সম্পাদনা করুন
               </h3>
@@ -1247,13 +1247,13 @@ const IncomeItems = () => {
         {/* Income Items Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh]">
           {isItemsLoading ? (
-            <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
           ) : itemsError ? (
             <p className="p-4 text-red-400">
               আয় আইটেম লোড করতে ত্রুটি: {itemsError.status || "অজানা"} - {JSON.stringify(itemsError.data || {})}
             </p>
           ) : safeIncomeItems.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো আয় আইটেম উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো আয় আইটেম উপলব্ধ নেই।</p>
           ) : (
             <IncomeItemsList 
               incomeItems={safeIncomeItems} 

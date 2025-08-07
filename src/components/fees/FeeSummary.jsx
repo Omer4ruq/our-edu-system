@@ -13,7 +13,7 @@ const FeeTabs = () => {
           onClick={() => setActiveTab("current")}
           className={`px-4 py-2 rounded ${
             activeTab === "current"
-              ? "bg-pmColor text-white"
+              ? "bg-pmColor text-[#441a05]"
               : "bg-gray-200 text-black"
           }`}
         >
@@ -23,7 +23,7 @@ const FeeTabs = () => {
           onClick={() => setActiveTab("previous")}
           className={`px-4 py-2 rounded ${
             activeTab === "previous"
-              ? "bg-pmColor text-white"
+              ? "bg-pmColor text-[#441a05]"
               : "bg-gray-200 text-black"
           }`}
         >

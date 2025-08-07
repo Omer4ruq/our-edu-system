@@ -91,7 +91,7 @@ const ServiceFeesForm = ({
   };
 
   if (yearsLoading || subheadsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">ফর্ম লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">ফর্ম লোড হচ্ছে...</div>;
   }
 
   return (
@@ -122,11 +122,11 @@ const ServiceFeesForm = ({
       {/* Fee Subheads Selection */}
       {hasAddPermission && (
         <div className="mb-6">
-          <div className="bg-white/5 rounded-lg overflow-x-auto">
-            <h4 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি সাবহেড নির্বাচন করুন</h4>
+          <div className="bg-[#441a05]/5 rounded-lg overflow-x-auto">
+            <h4 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ফি সাবহেড নির্বাচন করুন</h4>
             <div className="p-4 grid grid-cols-3 gap-4">
               {feeSubheads?.length === 0 ? (
-                <p className="text-white/70 col-span-3">কোনো ফি সাবহেড পাওয়া যায়নি।</p>
+                <p className="text-[#441a05]/70 col-span-3">কোনো ফি সাবহেড পাওয়া যায়নি।</p>
               ) : (
                 feeSubheads?.map((sub) => (
                   <div key={sub.id} className="flex items-center gap-2">
@@ -142,7 +142,7 @@ const ServiceFeesForm = ({
                         className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                           selectedFeeSubheads.includes(sub.id)
                             ? 'bg-pmColor border-pmColor'
-                            : 'bg-white/10 border-[#9d9087] hover:border-white'
+                            : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                         }`}
                       >
                         {selectedFeeSubheads.includes(sub.id) && (
@@ -162,7 +162,7 @@ const ServiceFeesForm = ({
                         )}
                       </span>
                     </label>
-                    <span className="text-white">{sub.name}</span>
+                    <span className="text-[#441a05]">{sub.name}</span>
                   </div>
                 ))
               )}
@@ -194,37 +194,37 @@ const ServiceFeesForm = ({
 
       {/* Configurations Table */}
       {(hasAddPermission || hasChangePermission) && configurations.length > 0 && (
-        <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">নির্বাচিত কনফিগারেশন</h3>
+        <div className="mb-6 bg-[#441a05]/5 rounded-lg overflow-x-auto">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">নির্বাচিত কনফিগারেশন</h3>
           <table className="w-full border-collapse">
-            <thead className="bg-white/10">
+            <thead className="bg-[#441a05]/10">
               <tr>
-                <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
-                <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
-                <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">সার্ভিস ধরন</th>
-                <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
-                <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
+                <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি সাবহেড</th>
+                <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শিক্ষাবর্ষ</th>
+                <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">সার্ভিস ধরন</th>
+                <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শুরুর তারিখ</th>
+                <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শেষের তারিখ</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/20">
+            <tbody className="divide-y divide-[#441a05]/20">
               {configurations.map((config, index) => (
-                <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <td className="border border-white/20 p-3 text-sm text-white">{config.subheadName}</td>
-                  <td className="border border-white/20 p-3 text-sm text-white">
+                <tr key={index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{config.subheadName}</td>
+                  <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                     {academicYears?.find((y) => y.id === parseInt(config.academicYear))?.name || config.academicYear}
                   </td>
-                  <td className="border border-white/20 p-3 text-sm text-white">
+                  <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${
                         config.serviceType === 'hostel' ? 'bg-blue-500' :
                         config.serviceType === 'transport' ? 'bg-green-500' :
                         config.serviceType === 'coaching' ? 'bg-purple-500' : 'bg-gray-500'
-                      } text-white`}
+                      } text-[#441a05]`}
                     >
                       {config.serviceLabel}
                     </span>
                   </td>
-                  <td className="border border-white/20 p-3 text-sm text-white">
+                  <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                     <input
                       type="date"
                       value={config.startDate}
@@ -232,7 +232,7 @@ const ServiceFeesForm = ({
                       className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     />
                   </td>
-                  <td className="border border-white/20 p-3 text-sm text-white">
+                  <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                     <input
                       type="date"
                       value={config.endDate}

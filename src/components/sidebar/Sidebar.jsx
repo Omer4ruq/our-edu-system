@@ -52,7 +52,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
           }
           .report-button {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
             padding: 8px 16px;
             border-radius: 8px;
             transition: all 0.3s;
@@ -104,7 +104,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
         {/* <div className="absolute inset-0 bg-black opacity-20 z-0"></div> */}
 
         {/* Sidebar Content */}
-        <div className="relative h-full overflow-y-auto scrollbar-webkit z-10 text-[#441a05]bg-white/10 backdrop-blur-3xl rounded-xl">
+        <div className="relative h-full overflow-y-auto scrollbar-webkit z-10 text-[#441a05]bg-[#441a05]/10 backdrop-blur-3xl rounded-xl">
           <SidebarHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           {!searchTerm ? (
             <SidebarMenu />

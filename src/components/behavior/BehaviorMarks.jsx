@@ -178,14 +178,14 @@ const BehaviorMarks = () => {
 
       <div className="">
         <div className="flex items-center space-x-4 mb-10 animate-fadeIn">
-          <IoAddCircle className="text-4xl text-white" />
+          <IoAddCircle className="text-4xl text-[#441a05]" />
           <h2 className="text-3xl font-bold text-[#441a05]tracking-tight">Add Behavior Marks</h2>
         </div>
 
         {/* Form to Add Behavior Marks */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-            <IoAddCircle className="text-4xl text-white" />
+            <IoAddCircle className="text-4xl text-[#441a05]" />
             <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">Add New Behavior Marks</h3>
           </div>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl">
@@ -246,7 +246,7 @@ const BehaviorMarks = () => {
                 max={maxMarks}
                 min={0}
               />
-              <span className="text-white/70">/ {maxMarks}</span>
+              <span className="text-[#441a05]/70">/ {maxMarks}</span>
             </div>
             <button
               type="submit"
@@ -289,9 +289,9 @@ const BehaviorMarks = () => {
 
         {/* Edit Behavior Marks Form */}
         {editMarkId && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <FaEdit className="text-3xl text-white" />
+              <FaEdit className="text-3xl text-[#441a05]" />
               <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">Edit Behavior Marks</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
@@ -352,7 +352,7 @@ const BehaviorMarks = () => {
                   max={maxMarks}
                   min={0}
                 />
-                <span className="text-white/70">/ {maxMarks}</span>
+                <span className="text-[#441a05]/70">/ {maxMarks}</span>
               </div>
               <button
                 type="submit"
@@ -399,16 +399,16 @@ const BehaviorMarks = () => {
 
         {/* Behavior Marks Cards */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">Behavior Marks List</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">Behavior Marks List</h3>
           {marksLoading ? (
-            <p className="p-4 text-white/70">Loading behavior marks...</p>
+            <p className="p-4 text-[#441a05]/70">Loading behavior marks...</p>
           ) : marksError ? (
             <p className="p-4 text-red-400">
               Error loading behavior marks: {marksError.status || "Unknown"} -{" "}
               {JSON.stringify(marksError.data || {})}
             </p>
           ) : behaviorMarksList?.length === 0 ? (
-            <p className="p-4 text-white/70">No behavior marks available.</p>
+            <p className="p-4 text-[#441a05]/70">No behavior marks available.</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
               {behaviorMarksList?.map((mark, index) => {
@@ -418,21 +418,21 @@ const BehaviorMarks = () => {
                 return (
                   <div
                     key={mark.id}
-                    className="bg-white/5 p-6 rounded-lg shadow-md animate-fadeIn"
+                    className="bg-[#441a05]/5 p-6 rounded-lg shadow-md animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <h4 className="text-lg font-semibold text-white">
+                    <h4 className="text-lg font-semibold text-[#441a05]">
                       {student?.name || "Unknown Student"}
                     </h4>
-                    <p className="text-white/70">Class: {classInfo?.class_name || "Not Assigned"}</p>
-                    <p className="text-white/70">Behavior: {behavior?.name || "Unknown Behavior"}</p>
-                    <p className="text-white/70">
+                    <p className="text-[#441a05]/70">Class: {classInfo?.class_name || "Not Assigned"}</p>
+                    <p className="text-[#441a05]/70">Behavior: {behavior?.name || "Unknown Behavior"}</p>
+                    <p className="text-[#441a05]/70">
                       Marks: {mark.mark} / {behavior?.obtain_mark || 0}
                     </p>
-                    <p className="text-white/70 text-sm">
+                    <p className="text-[#441a05]/70 text-sm">
                       Created: {new Date(mark.created_at).toLocaleString()}
                     </p>
-                    <p className="text-white/70 text-sm">
+                    <p className="text-[#441a05]/70 text-sm">
                       Updated: {new Date(mark.updated_at).toLocaleString()}
                     </p>
                     <div className="flex gap-4 mt-4">

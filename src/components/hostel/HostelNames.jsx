@@ -171,9 +171,9 @@ const HostelNames = () => {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
           </div>
         </div>
@@ -184,7 +184,7 @@ const HostelNames = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -196,9 +196,9 @@ const HostelNames = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'হোস্টেলের নাম লোড হচ্ছে...' : 'Loading hostel names...'}
           </div>
         </div>
@@ -243,16 +243,16 @@ const HostelNames = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'হোস্টেলের নাম ব্যবস্থাপনা' : 'Hostel Names Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'হোস্টেলের নাম তৈরি, সম্পাদনা এবং পরিচালনা করুন' : 'Create, edit and manage hostel names'}
             </p>
           </div>
@@ -261,7 +261,7 @@ const HostelNames = () => {
 
       {/* Add/Edit Hostel Name Form */}
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               {editHostelNameId ? (
@@ -270,7 +270,7 @@ const HostelNames = () => {
                 <IoAddCircle className="text-pmColor text-3xl" />
               )}
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {editHostelNameId 
                 ? (languageCode === 'bn' ? "হোস্টেলের নাম সম্পাদনা করুন" : "Edit Hostel Name")
                 : (languageCode === 'bn' ? "নতুন হোস্টেলের নাম যোগ করুন" : "Add New Hostel Name")
@@ -285,7 +285,7 @@ const HostelNames = () => {
                 id="hostelName"
                 value={hostelName}
                 onChange={(e) => setHostelName(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "হোস্টেলের নাম" : "Hostel Name"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "হোস্টেলের নাম" : "Hostel Name"}
@@ -349,8 +349,8 @@ const HostelNames = () => {
       )}
 
       {/* Hostel Names Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'হোস্টেলের নামের তালিকা' : 'Hostel Names List'} ({formatNumber(hostelNames.length)})</span>
@@ -360,46 +360,46 @@ const HostelNames = () => {
         <div className="overflow-x-auto max-h-96">
           {hostelNames.length === 0 ? (
             <div className="p-8 text-center">
-              <div className="text-white/40 text-6xl mb-4">🏨</div>
+              <div className="text-[#441a05]/40 text-6xl mb-4">🏨</div>
               <h3 className="text-lg font-medium text-[#441a05]mb-2">
                 {languageCode === 'bn' ? 'কোনো হোস্টেলের নাম পাওয়া যায়নি' : 'No hostel names found'}
               </h3>
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'শুরু করতে আপনার প্রথম হোস্টেলের নাম তৈরি করুন।' : 'Create your first hostel name to get started.'}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আইডি' : 'ID'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'হোস্টেলের নাম' : 'Hostel Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdUpdate className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'আপডেটের সময়' : 'Updated'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {hostelNames?.map((hostelNameObj, index) => (
                   <tr
                     key={hostelNameObj.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
@@ -416,7 +416,7 @@ const HostelNames = () => {
                         </div>
                         <div className="ml-4">
                           <div className="text-[#441a05]font-medium">{hostelNameObj.name}</div>
-                          <div className="text-white/60 text-sm">
+                          <div className="text-[#441a05]/60 text-sm">
                             {hostelNameObj.name?.length > 30 ? 
                               `${hostelNameObj.name.substring(0, 30)}...` : 
                               hostelNameObj.name
@@ -426,12 +426,12 @@ const HostelNames = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {formatDate(hostelNameObj.created_at)}
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {formatDate(hostelNameObj.updated_at)}
                       </div>
                     </td>
@@ -465,7 +465,7 @@ const HostelNames = () => {
         </div>
         
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting
@@ -481,30 +481,30 @@ const HostelNames = () => {
       {/* Summary Stats */}
       {hostelNames.length > 0 && (
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fadeIn">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-pmColor/20 rounded-xl flex items-center justify-center border border-pmColor/30">
                 <span className="text-pmColor text-xl">🏨</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'মোট হোস্টেলের নাম' : 'Total Hostel Names'}
                 </p>
-                <p className="text-2xl font-semibold text-white">{formatNumber(hostelNames.length)}</p>
+                <p className="text-2xl font-semibold text-[#441a05]">{formatNumber(hostelNames.length)}</p>
               </div>
             </div>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-green-500/20 rounded-xl flex items-center justify-center border border-green-500/30">
                 <span className="text-green-400 text-xl">📅</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'সাম্প্রতিক যোগ করা' : 'Recently Added'}
                 </p>
-                <p className="text-2xl font-semibold text-white">
+                <p className="text-2xl font-semibold text-[#441a05]">
                   {formatNumber(hostelNames.filter(hostelNameObj => {
                     const createdDate = new Date(hostelNameObj.created_at);
                     const weekAgo = new Date();
@@ -516,16 +516,16 @@ const HostelNames = () => {
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-orange-500/20 rounded-xl flex items-center justify-center border border-orange-500/30">
                 <span className="text-orange-400 text-xl">🔧</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'সাম্প্রতিক আপডেট' : 'Recently Updated'}
                 </p>
-                <p className="text-2xl font-semibold text-white">
+                <p className="text-2xl font-semibold text-[#441a05]">
                   {formatNumber(hostelNames.filter(hostelNameObj => {
                     const updatedDate = new Date(hostelNameObj.updated_at);
                     const createdDate = new Date(hostelNameObj.created_at);

@@ -5,7 +5,7 @@ import Year from './singleField/Year';
 
 export default function FeeInfoForm() {
   return (
-    <div className="my-4 backdrop-blur-sm border border-white/20 p-4 sm:p-6 rounded-2xl shadow-xl animate-fadeIn">
+    <div className="my-4 backdrop-blur-sm border border-[#441a05]/20 p-4 sm:p-6 rounded-2xl shadow-xl animate-fadeIn">
       <style>
         {`
           @keyframes fadeIn {

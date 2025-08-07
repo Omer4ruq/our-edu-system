@@ -150,7 +150,7 @@ const customStyles = `
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     padding: 10px 20px;
-    color: white;
+    color: [#441a05];
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -502,7 +502,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
               >
                 <div className="flex items-center space-x-3">
                   <MdCorporateFare className="text-3xl text-pmColor" />
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-[#441a05]">
                     {languageCode === 'bn' ? 'মৌলিক তথ্য' : 'Basic Information'}
                   </h3>
                 </div>
@@ -577,7 +577,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
               >
                 <div className="flex items-center space-x-3">
                   <MdSchool className="text-3xl text-pmColor" />
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-[#441a05]">
                     {languageCode === 'bn' ? 'প্রতিষ্ঠানের বিবরণ' : 'Institute Details'}
                   </h3>
                 </div>
@@ -643,7 +643,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
               >
                 <div className="flex items-center space-x-3">
                   <FaGlobe className="text-3xl text-pmColor" />
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-[#441a05]">
                     {languageCode === 'bn' ? 'অনলাইন তথ্য' : 'Online Information'}
                   </h3>
                 </div>
@@ -708,7 +708,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
               >
                 <div className="flex items-center space-x-3">
                   <MdAccountCircle className="text-3xl text-pmColor" />
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-[#441a05]">
                     {languageCode === 'bn' ? 'ইনচার্জ ম্যানেজার' : 'Manager Information'}
                   </h3>
                 </div>
@@ -762,7 +762,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
               >
                 <div className="flex items-center space-x-3">
                   <FaInfoCircle className="text-3xl text-pmColor" />
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-[#441a05]">
                     {languageCode === 'bn' ? 'অতিরিক্ত তথ্য' : 'Additional Information'}
                   </h3>
                 </div>

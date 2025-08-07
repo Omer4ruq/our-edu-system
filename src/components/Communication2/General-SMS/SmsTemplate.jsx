@@ -189,7 +189,7 @@ const SmsTemplate = () => {
       <Toaster position="top-right" reverseOrder={false} />
       <style>{customStyles}</style>
       <div className="">
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-2xl font-bold text-[#441a05]animate-fadeIn">SMS Templates</h3>
             <button
@@ -210,10 +210,10 @@ const SmsTemplate = () => {
           {showForm && (
             <form onSubmit={handleSubmit} className="space-y-6 mb-8 animate-fadeIn">
               <div>
-                <p className="text-sm text-white/70 mb-2">
+                <p className="text-sm text-[#441a05]/70 mb-2">
                   বি: দ্র: ইংরেজিতে ১৬০ Character এ একটি SMS এবং বাংলায় ৭০ Character এ একটি SMS।
                 </p>
-                <label className="block text-lg font-medium text-white" htmlFor="smsTitle">
+                <label className="block text-lg font-medium text-[#441a05]" htmlFor="smsTitle">
                   SMS Title <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -222,12 +222,12 @@ const SmsTemplate = () => {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Leave a Title here"
-                  className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                   aria-label="SMS Title"
                 />
               </div>
               <div>
-                <label className="block text-lg font-medium text-white" htmlFor="smsBody">
+                <label className="block text-lg font-medium text-[#441a05]" htmlFor="smsBody">
                   SMS Body <span className="text-red-600">*</span>
                 </label>
                 <textarea
@@ -235,11 +235,11 @@ const SmsTemplate = () => {
                   value={smsBody}
                   onChange={handleSmsBodyChange}
                   placeholder="Leave a SMS Body here"
-                  className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
+                  className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
                   rows={4}
                   aria-label="SMS Body"
                 />
-                <div className="text-sm text-white/70 mt-1">
+                <div className="text-sm text-[#441a05]/70 mt-1">
                   Character Count: {characterCount} | Number of SMS: {smsCount} | Max Characters: {maxCharsPerSms}
                 </div>
               </div>
@@ -256,33 +256,33 @@ const SmsTemplate = () => {
           {/* Table */}
           <div className="table-container">
             {templates.length === 0 ? (
-              <p className="p-4 text-white/70 animate-scaleIn">No templates available. Add a new template.</p>
+              <p className="p-4 text-[#441a05]/70 animate-scaleIn">No templates available. Add a new template.</p>
             ) : (
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       Title
                     </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       SMS Body
                     </th>
-                    <th className="px-6 py-3 text-center text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-center text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-3 text-right text-sm font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-sm font-medium text-[#441a05]/70 uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {templates.map((template, index) => (
                     <tr
                       key={template.id}
-                      className="bg-white/5 hover:bg-white/10 transition-colors duration-200 animate-fadeIn"
+                      className="bg-[#441a05]/5 hover:bg-[#441a05]/10 transition-colors duration-200 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {template.title}
                       </td>
                       <td className="px-6 py-4 text-sm text-[#441a05]max-w-xs truncate">
@@ -299,7 +299,7 @@ const SmsTemplate = () => {
                           {template.isActive ? 'Active' : 'Inactive'}
                         </button>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm">
                         <button
                           onClick={() => handleEdit(template)}
                           className="text-pmColor hover:text-[#441a05]mr-4 transition-colors duration-200"

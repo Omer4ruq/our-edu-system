@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer
-      className="p-3 px-6 bg-black/10 backdrop-blur-sm border border-white/20 text-[#441a05]text-base rounded-lg shadow-xl animate-fadeIn"
+      className="p-3 px-6 bg-black/10 backdrop-blur-sm border border-[#441a05]/20 text-[#441a05]text-base rounded-lg shadow-xl animate-fadeIn"
       aria-label="Footer"
     >
       <style>

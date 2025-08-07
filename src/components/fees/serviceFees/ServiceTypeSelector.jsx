@@ -35,7 +35,7 @@ const ServiceTypeSelector = ({
   return (
     <div>
       <div className="flex items-center space-x-4 mb-6">
-        <IoAddCircle className="text-4xl text-white" />
+        <IoAddCircle className="text-4xl text-[#441a05]" />
         <h2 className="text-2xl font-bold text-[#441a05]tracking-tight">সার্ভিস ফি কনফিগারেশন যোগ করুন</h2>
       </div>
 

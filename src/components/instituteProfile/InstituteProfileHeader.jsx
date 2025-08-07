@@ -9,7 +9,7 @@ export default function InstituteProfileHeader({data}) {
    const { t } = useTranslation();
     return (
       <div className="my-4 shadow-lg">
-      <div className="rounded-md bg-white">
+      <div className="rounded-md bg-[#441a05]">
          {/* cover image */}
          <img src={instituteCover} alt="Institute Cover Image" className="object-cover rounded-t-md" />
          {/* header content */}

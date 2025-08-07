@@ -148,9 +148,9 @@ const MealItems = () => {
   if (isItemsLoading || permissionsLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
           <FaSpinner className="animate-spin text-3xl text-pmColor" />
-          <span className="text-lg font-medium text-white">
+          <span className="text-lg font-medium text-[#441a05]">
             লোড হচ্ছে...
           </span>
         </div>
@@ -220,12 +220,12 @@ const MealItems = () => {
       <div>
         {/* Add/Edit Meal Item Form */}
         {(hasAddPermission || hasChangePermission) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               {editingId ? (
-                <FaEdit className="text-4xl text-white" />
+                <FaEdit className="text-4xl text-[#441a05]" />
               ) : (
-                <IoAddCircle className="text-4xl text-white" />
+                <IoAddCircle className="text-4xl text-[#441a05]" />
               )}
               <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 {editingId ? 'খাবার সম্পাদনা করুন' : 'নতুন খাবার যোগ করুন'}
@@ -293,59 +293,59 @@ const MealItems = () => {
 
         {/* Meal Items Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">খাবারের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">খাবারের তালিকা</h3>
           {isItemsLoading ? (
-            <p className="p-4 text-white/70">খাবার লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">খাবার লোড হচ্ছে...</p>
           ) : itemsError ? (
             <p className="p-4 text-red-400">
               খাবার লোড করতে ত্রুটি: {itemsError.status || 'অজানা'} - {JSON.stringify(itemsError.data || {})}
             </p>
           ) : mealItems?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো খাবার উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো খাবার উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আইডি
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       নাম
                     </th>
                     {hasChangePermission && ( // Conditionally render active column
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         সক্রিয়
                       </th>
                     )}
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আপডেটের সময়
                     </th>
                     {(hasChangePermission || hasDeletePermission) && ( // Conditionally render actions column
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্রিয়াকলাপ
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {mealItems?.map((item, index) => (
                     <tr
                       key={item.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {item.id}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {item.name}
                       </td>
                       {hasChangePermission && ( // Conditionally render active toggle
-                        <td className="px-6 py-4 whitespace-nowrap text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                           <label className="inline-flex items-center cursor-pointer">
                             <input
                               type="checkbox"
@@ -358,7 +358,7 @@ const MealItems = () => {
                               className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
                                 item.is_active
                                   ? 'bg-pmColor border-pmColor'
-                                  : 'bg-white/10 border-[#9d9087] hover:border-white'
+                                  : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                               }`}
                             >
                               {item.is_active && (
@@ -381,14 +381,14 @@ const MealItems = () => {
                           </label>
                         </td>
                       )}
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(item.created_at).toLocaleString('bn-BD')}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(item.updated_at).toLocaleString('bn-BD')}
                       </td>
                       {(hasChangePermission || hasDeletePermission) && ( // Conditionally render action buttons
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEdit(item)}
@@ -433,7 +433,7 @@ const MealItems = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && ( // Only show if user has relevant permissions
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন খাবার নিশ্চিত করুন'}

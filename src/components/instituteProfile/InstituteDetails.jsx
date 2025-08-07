@@ -56,7 +56,7 @@ const customStyles = `
   
   .link-item:hover {
     background: ${primaryColor};
-    color: white;
+    color: [#441a05];
     transform: translateX(4px);
   }
   
@@ -105,7 +105,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center p-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-12 text-center animate-pulse">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-12 text-center animate-pulse">
           <div className="text-pmColor text-2xl font-semibold">
             {languageCode === 'bn' ? 'লোড হচ্ছে...' : 'Loading...'}
           </div>
@@ -117,7 +117,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center p-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-12 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-12 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' 
               ? 'এই পৃষ্ঠাটি দেখার অনুমতি নেই।' 
@@ -129,13 +129,13 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
   }
 
   const InfoItem = ({ icon: Icon, label, value, isLink = false, href = null }) => (
-    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/20 hover:border-pmColor/50 transition-all duration-300 animate-slideIn">
+    <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl p-6 hover:bg-[#441a05]/20 hover:border-pmColor/50 transition-all duration-300 animate-slideIn">
       <div className="flex items-start space-x-4">
         <div className="text-pmColor text-xl mt-1">
           <Icon />
         </div>
         <div className="flex-1">
-          <div className="text-white/80 font-medium text-sm mb-2">{label}</div>
+          <div className="text-[#441a05]/80 font-medium text-sm mb-2">{label}</div>
           <div className="text-[#441a05]font-semibold">
             {isLink && href ? (
               <a
@@ -162,11 +162,11 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
 
       {/* Page Header */}
       <div className="mx-auto mb-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center animate-fadeIn">
           <h1 className="text-3xl font-bold text-[#441a05]mb-4">
             {languageCode === 'bn' ? 'প্রতিষ্ঠান ড্যাশবোর্ড' : 'Institute Dashboard'}
           </h1>
-          <p className="text-white/80">
+          <p className="text-[#441a05]/80">
             {languageCode === 'bn' 
               ? 'আপনার প্রতিষ্ঠানের সম্পূর্ণ তথ্য ব্যবস্থাপনা' 
               : 'Complete management of your institute information'}
@@ -182,21 +182,21 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
           return (
             <div
               key={institute.id}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 animate-fadeIn"
+              className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 animate-fadeIn"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Institute Header */}
               <div className="bg-gradient-to-r from-pmColor to-secColor p-8">
                 <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0">
                   <div className="flex items-center space-x-6">
-                    <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
+                    <div className="bg-[#441a05]/20 backdrop-blur-sm p-4 rounded-2xl">
                       <MdCorporateFare className="text-[#441a05]text-4xl" />
                     </div>
                     <div>
                       <h2 className="text-[#441a05]text-3xl lg:text-4xl font-bold mb-2">
                         {institute.institute_name}
                       </h2>
-                      <div className="flex flex-wrap items-center gap-4 text-white/90">
+                      <div className="flex flex-wrap items-center gap-4 text-[#441a05]/90">
                         <div className="flex items-center space-x-2">
                           <MdSchool />
                           <span>{institute.institute_type?.name || (languageCode === 'bn' ? 'অজানা' : 'Unknown')}</span>
@@ -206,7 +206,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                           <span>{institute.institute_address || (languageCode === 'bn' ? 'অজানা' : 'Unknown')}</span>
                         </div>
                         <div className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                          institute.status === 'Active' ? 'bg-pmColor text-white' : 'bg-secColor text-white'
+                          institute.status === 'Active' ? 'bg-pmColor text-[#441a05]' : 'bg-secColor text-[#441a05]'
                         }`}>
                           <div className="flex items-center space-x-2">
                             <div className="w-2 h-2 rounded-full bg-[#441a05]animate-pulse"></div>
@@ -230,7 +230,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
               </div>
 
               {/* Tab Navigation */}
-              <div className="bg-white/5 backdrop-blur-sm border-b border-white/10 p-6">
+              <div className="bg-[#441a05]/5 backdrop-blur-sm border-b border-[#441a05]/10 p-6">
                 <div className="flex flex-wrap gap-3">
                   {[
                     { 
@@ -261,7 +261,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                         className={`flex items-center space-x-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
                           activeTab === tab.id 
                             ? 'bg-pmColor text-[#441a05]shadow-lg' 
-                            : 'bg-white/10 text-white/80 border border-white/20 hover:bg-white/20 hover:border-pmColor/50'
+                            : 'bg-[#441a05]/10 text-[#441a05]/80 border border-[#441a05]/20 hover:bg-[#441a05]/20 hover:border-pmColor/50'
                         }`}
                         onClick={() => setActiveTab(institute.id, tab.id)}
                       >
@@ -278,7 +278,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                 {activeTab === 'basic' && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className="space-y-6">
-                      <h3 className="section-title text-2xl font-bold text-white">
+                      <h3 className="section-title text-2xl font-bold text-[#441a05]">
                         {languageCode === 'bn' ? 'মৌলিক তথ্য ' : 'Basic Information'}
                       </h3>
                       
@@ -302,7 +302,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                     </div>
                     
                     <div className="space-y-6">
-                      <h3 className="section-title text-2xl font-bold text-white">
+                      <h3 className="section-title text-2xl font-bold text-[#441a05]">
                         {languageCode === 'bn' ? 'প্রতিষ্ঠানের বিবরণ' : 'Institute Details'}
                       </h3>
                       
@@ -406,7 +406,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                 {activeTab === 'additional' && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className="space-y-6">
-                      <h3 className="section-title text-2xl font-bold text-white">
+                      <h3 className="section-title text-2xl font-bold text-[#441a05]">
                         {languageCode === 'bn' ? 'অতিরিক্ত তথ্য' : 'Additional Information'}
                       </h3>
                       
@@ -424,7 +424,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                     </div>
                     
                     <div className="space-y-6">
-                      <h3 className="section-title text-2xl font-bold text-white">
+                      <h3 className="section-title text-2xl font-bold text-[#441a05]">
                         {languageCode === 'bn' ? 'শিক্ষা বিবরণ' : 'Education Details'}
                       </h3>
                       

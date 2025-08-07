@@ -53,7 +53,7 @@ export default function SearchPayslip() {
         </div>
 
         {/* Payslip table */}
-        <div className="rounded-2xl bg-white/5 border border-[#9d9087]/50">
+        <div className="rounded-2xl bg-[#441a05]/5 border border-[#9d9087]/50">
           <h5 className="text-[#441a05]font-bold bg-pmColor p-2 rounded-t-2xl">
             পেস্লিপ আইডি: ১২৩৪৫৬৭
           </h5>

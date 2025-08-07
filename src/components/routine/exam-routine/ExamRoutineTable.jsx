@@ -174,7 +174,7 @@ const ExamRoutineTable = ({
             font-family: Arial, sans-serif; 
             margin: 0; 
             padding: 20px; 
-            background: white;
+            background: [#441a05];
             font-size: 14px;
           }
           .header { 
@@ -405,7 +405,7 @@ const ExamRoutineTable = ({
         
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-[#441a05]whitespace-nowrap">
+            <label className="text-sm font-medium text-[#441a05][#441a05]space-nowrap">
               PDF এর জন্য ক্লাস:
             </label>
             <Select
@@ -509,7 +509,7 @@ const ExamRoutineTable = ({
                 return (
                   <tr
                     key={`${schedule.id || index}-${schedule.className}-${schedule.subject_id}`}
-                    className={`${index % 2 === 1 ? "bg-white/5" : "bg-white/10"} text-[#441a05]animate-scaleIn hover:bg-white/20 transition-colors duration-200`}
+                    className={`${index % 2 === 1 ? "bg-[#441a05]/5" : "bg-[#441a05]/10"} text-[#441a05]animate-scaleIn hover:bg-[#441a05]/20 transition-colors duration-200`}
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     {selectedClassForPDF === null && (
@@ -557,7 +557,7 @@ const ExamRoutineTable = ({
           </table>
         </div>
       ) : (
-        <p className="text-white/70 animate-scaleIn mt-4 text-center">
+        <p className="text-[#441a05]/70 animate-scaleIn mt-4 text-center">
           🤷‍♂️ {selectedClassForPDF === null ? "কোনো রুটিন উপলব্ধ নেই।" : "এই ক্লাসের জন্য কোনো রুটিন উপলব্ধ নেই।"}
         </p>
       )}

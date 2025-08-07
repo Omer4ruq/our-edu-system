@@ -36,7 +36,7 @@ export default function DropDownSearch({ data, searchTerm }) {
             isOpen && show?.children && "w-[7px] h-[7px] bg-[#441a05fff90]"
           }`}
         ></span>
-        <h5 className={`flex-1 ${isOpen && show?.children && "text-white"}`}>
+        <h5 className={`flex-1 ${isOpen && show?.children && "text-[#441a05]"}`}>
           {data.title}
         </h5>
       </NavLink>

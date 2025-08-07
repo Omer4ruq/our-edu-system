@@ -7,7 +7,7 @@ export default function VoucherDeleteSearch() {
     <form className="md:flex gap-7 items-center mb-2">
       {/* Search Voucher By ID */}
       <div className="flex items-center w-full gap-2 my-2">
-        <label className="pr-2 whitespace-nowrap">
+        <label className="pr-2 [#441a05]space-nowrap">
           {t("module.accounts.voucher_search")}
         </label>
         <input

@@ -235,9 +235,9 @@ const TransportPackages = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -248,7 +248,7 @@ const TransportPackages = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-secColor text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -313,16 +313,16 @@ const TransportPackages = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaBus className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'পরিবহন প্যাকেজ' : 'Transport Packages'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'পরিবহন প্যাকেজ এবং তাদের বিবরণ পরিচালনা করুন' : 'Manage transport packages and their details'}
             </p>
           </div>
@@ -331,12 +331,12 @@ const TransportPackages = () => {
 
       {/* Create New Package Form */}
       {/* {hasAddPermission && ( */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4 mb-6">
           <div className="bg-pmColor/20 rounded-xl">
             <IoAddCircle className="text-pmColor text-3xl" />
           </div>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-[#441a05]">
             {languageCode === 'bn' ? 'নতুন প্যাকেজ তৈরি করুন' : 'Create New Transport Package'}
           </h3>
         </div>
@@ -350,7 +350,7 @@ const TransportPackages = () => {
               type="text"
               value={formData.package_name}
               onChange={(e) => handleInputChange('package_name', e.target.value)}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
               placeholder={languageCode === 'bn' ? 'প্যাকেজের নাম লিখুন' : 'Enter package name'}
               disabled={isCreating}
             />
@@ -363,7 +363,7 @@ const TransportPackages = () => {
               type="number"
               value={formData.amount}
               onChange={(e) => handleInputChange('amount', e.target.value)}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
               placeholder={languageCode === 'bn' ? 'মূল্য লিখুন' : 'Enter amount'}
               disabled={isCreating}
               min="0"
@@ -386,7 +386,7 @@ const TransportPackages = () => {
               isDisabled={isCreating || isAcademicYearsLoading}
             />
             {isAcademicYearsLoading && (
-              <p className="text-sm text-white/70 mt-1">
+              <p className="text-sm text-[#441a05]/70 mt-1">
                 {languageCode === 'bn' ? 'শিক্ষাবর্ষ লোড হচ্ছে...' : 'Loading academic years...'}
               </p>
             )}
@@ -433,12 +433,12 @@ const TransportPackages = () => {
       {/* )} */}
 
       {/* Search by ID */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4 mb-6">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaSearch className="text-pmColor text-2xl" />
           </div>
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-xl font-bold text-[#441a05]">
             {languageCode === 'bn' ? 'আইডি দিয়ে প্যাকেজ অনুসন্ধান' : 'Search Package by ID'}
           </h3>
         </div>
@@ -447,7 +447,7 @@ const TransportPackages = () => {
             type="text"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
-            className="flex-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+            className="flex-1 bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
             placeholder={languageCode === 'bn' ? 'প্যাকেজ আইডি লিখুন' : 'Enter package ID'}
           />
           <button
@@ -460,20 +460,20 @@ const TransportPackages = () => {
           </button>
         </div>
         {isLoadingSelected && (
-          <div className="mt-3 flex items-center text-white/70">
+          <div className="mt-3 flex items-center text-[#441a05]/70">
             <FaSpinner className="animate-spin text-pmColor mr-2" />
             {languageCode === 'bn' ? 'অনুসন্ধান করা হচ্ছে...' : 'Searching...'}
           </div>
         )}
         {selectedPackage && (
-          <div className="mt-3 p-4 bg-white/5 rounded-xl border border-white/20 animate-scaleIn">
-            <h3 className="font-medium text-white">
+          <div className="mt-3 p-4 bg-[#441a05]/5 rounded-xl border border-[#441a05]/20 animate-scaleIn">
+            <h3 className="font-medium text-[#441a05]">
               {languageCode === 'bn' ? 'পাওয়া প্যাকেজ:' : 'Found Package:'}
             </h3>
-            <p className="text-white/70">{languageCode === 'bn' ? 'আইডি:' : 'ID:'} {selectedPackage.id}</p>
-            <p className="text-white/70">{languageCode === 'bn' ? 'নাম:' : 'Name:'} {selectedPackage.package_name}</p>
-            <p className="text-white/70">{languageCode === 'bn' ? 'মূল্য:' : 'Amount:'} ${Number(selectedPackage.amount).toLocaleString()}</p>
-            <p className="text-white/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'} {getAcademicYearName(selectedPackage.academic_year)}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'আইডি:' : 'ID:'} {selectedPackage.id}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'নাম:' : 'Name:'} {selectedPackage.package_name}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'মূল্য:' : 'Amount:'} ${Number(selectedPackage.amount).toLocaleString()}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'} {getAcademicYearName(selectedPackage.academic_year)}</p>
           </div>
         )}
         {selectedPackageError && (
@@ -487,29 +487,29 @@ const TransportPackages = () => {
 
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-pmColor/20 text-pmColor">
               <FaBus className="text-2xl" />
             </div>
             <div className="ml-4">
-              <p className="text-sm font-medium text-white/70">
+              <p className="text-sm font-medium text-[#441a05]/70">
                 {languageCode === 'bn' ? 'মোট প্যাকেজ' : 'Total Packages'}
               </p>
-              <p className="text-2xl font-bold text-white">{packages.length}</p>
+              <p className="text-2xl font-bold text-[#441a05]">{packages.length}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-green-500/20 text-green-500">
               <span className="text-2xl">💰</span>
             </div>
             <div className="ml-4">
-              <p className="text-sm font-medium text-white/70">
+              <p className="text-sm font-medium text-[#441a05]/70">
                 {languageCode === 'bn' ? 'গড় মূল্য' : 'Average Amount'}
               </p>
-              <p className="text-2xl font-bold text-white">
+              <p className="text-2xl font-bold text-[#441a05]">
                 ${packages.length > 0
                   ? Math.round(packages.reduce((sum, pkg) => sum + Number(pkg.amount || 0), 0) / packages.length).toLocaleString()
                   : 0}
@@ -517,24 +517,24 @@ const TransportPackages = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-purple-500/20 text-purple-500">
               <span className="text-2xl">🎓</span>
             </div>
             <div className="ml-4">
-              <p className="text-sm font-medium text-white/70">
+              <p className="text-sm font-medium text-[#441a05]/70">
                 {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Years'}
               </p>
-              <p className="text-2xl font-bold text-white">{new Set(packages.map(pkg => pkg.academic_year)).size}</p>
+              <p className="text-2xl font-bold text-[#441a05]">{new Set(packages.map(pkg => pkg.academic_year)).size}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Packages Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h2 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'সমস্ত পরিবহন প্যাকেজ' : 'All Transport Packages'} ({packages.length})</span>
@@ -544,7 +544,7 @@ const TransportPackages = () => {
         {isLoading ? (
           <div className="p-8 text-center">
             <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-            <p className="text-white/70">
+            <p className="text-[#441a05]/70">
               {languageCode === 'bn' ? 'প্যাকেজ লোড হচ্ছে...' : 'Loading packages...'}
             </p>
           </div>
@@ -564,72 +564,72 @@ const TransportPackages = () => {
           </div>
         ) : packages.length === 0 ? (
           <div className="p-8 text-center">
-            <div className="text-white/70 text-xl mb-2">🚌</div>
-            <p className="text-white/70">
+            <div className="text-[#441a05]/70 text-xl mb-2">🚌</div>
+            <p className="text-[#441a05]/70">
               {languageCode === 'bn' ? 'কোনো প্যাকেজ পাওয়া যায়নি। উপরে আপনার প্রথম প্যাকেজ তৈরি করুন!' : 'No transport packages found. Create your first package above!'}
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto max-h-96">
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আইডি' : 'ID'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'প্যাকেজের নাম' : 'Package Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'মূল্য' : 'Amount'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-right text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {packages.map((pkg, index) => (
                   <tr
                     key={pkg.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {editingPackage === pkg.id ? (
                       <>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">#{pkg.id}</td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">#{pkg.id}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap">
                           <input
                             type="text"
                             value={editData.package_name}
                             onChange={(e) => handleEditInputChange('package_name', e.target.value)}
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                            className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                             placeholder={languageCode === 'bn' ? 'প্যাকেজের নাম' : 'Package name'}
                             disabled={isUpdating || isPatching}
                           />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 [#441a05]space-nowrap">
                           <input
                             type="number"
                             value={editData.amount}
                             onChange={(e) => handleEditInputChange('amount', e.target.value)}
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                            className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                             placeholder={languageCode === 'bn' ? 'মূল্য' : 'Amount'}
                             disabled={isUpdating || isPatching}
                             min="0"
                             step="0.01"
                           />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 [#441a05]space-nowrap">
                           <Select
                             value={editData.academic_year}
                             onChange={(option) => handleEditInputChange('academic_year', option)}
@@ -642,10 +642,10 @@ const TransportPackages = () => {
                             isDisabled={isUpdating || isPatching || isAcademicYearsLoading}
                           />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                           {pkg.created_at ? new Date(pkg.created_at).toLocaleString(languageCode === 'bn' ? 'bn-BD' : 'en-US') : 'N/A'}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm font-medium">
                           <div className="flex justify-end gap-2">
                             <button
                               onClick={(e) => handleSaveEdit(pkg.id, e)}
@@ -675,23 +675,23 @@ const TransportPackages = () => {
                       </>
                     ) : (
                       <>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">#{pkg.id}</td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">#{pkg.id}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap">
                           <div className="flex items-center">
                             <div className="h-10 w-10 rounded-full bg-pmColor/20 flex items-center justify-center">
                               <span className="text-pmColor font-medium text-sm">
                                 {pkg.package_name?.charAt(0)?.toUpperCase() || 'P'}
                               </span>
                             </div>
-                            <div className="ml-4 text-sm font-medium text-white">{pkg.package_name}</div>
+                            <div className="ml-4 text-sm font-medium text-[#441a05]">{pkg.package_name}</div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-green-400">${Number(pkg.amount || 0).toLocaleString()}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{getAcademicYearName(pkg.academic_year)}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-green-400">${Number(pkg.amount || 0).toLocaleString()}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">{getAcademicYearName(pkg.academic_year)}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                           {pkg.created_at ? new Date(pkg.created_at).toLocaleString(languageCode === 'bn' ? 'bn-BD' : 'en-US') : 'N/A'}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm font-medium">
                           <div className="flex justify-end gap-2">
                             {/* {hasChangePermission && ( */}
                               <button
@@ -724,7 +724,7 @@ const TransportPackages = () => {
         )}
 
         {(isDeleting || updateError || patchError || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting

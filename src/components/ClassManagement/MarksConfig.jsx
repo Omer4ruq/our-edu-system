@@ -118,15 +118,15 @@ const MarksConfig = () => {
         `}
       </style>
 
-      <h3 className="text-lg font-semibold text-[#441a05]mb-6 border-b border-white/20 pb-2 animate-fadeIn">
+      <h3 className="text-lg font-semibold text-[#441a05]mb-6 border-b border-[#441a05]/20 pb-2 animate-fadeIn">
         Marks Configuration for {classId ? classId.replace('class-', 'Class ') : 'Unknown'}
       </h3>
 
       {/* Form to Add/Edit Configuration */}
-      <div className="backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-6 animate-fadeIn shadow-xl">
+      <div className="backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-6 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-4 animate-fadeIn">
-          <IoSettings className="text-3xl text-white" />
-          <h4 className="text-lg font-semibold text-white">
+          <IoSettings className="text-3xl text-[#441a05]" />
+          <h4 className="text-lg font-semibold text-[#441a05]">
             {editId ? 'Edit Configuration' : 'Add New Configuration'}
           </h4>
         </div>
@@ -137,7 +137,7 @@ const MarksConfig = () => {
             value={formData.subject}
             onChange={handleInputChange}
             placeholder="Subject (e.g., Mathematics)"
-            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <input
@@ -146,7 +146,7 @@ const MarksConfig = () => {
             value={formData.examType}
             onChange={handleInputChange}
             placeholder="Exam Type (e.g., Final Exam)"
-            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <input
@@ -155,7 +155,7 @@ const MarksConfig = () => {
             value={formData.maxMarks}
             onChange={handleInputChange}
             placeholder="Max Marks (e.g., 100)"
-            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <input
@@ -164,7 +164,7 @@ const MarksConfig = () => {
             value={formData.weightage}
             onChange={handleInputChange}
             placeholder="Weightage (e.g., 40%)"
-            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <div className="flex gap-2">
@@ -172,7 +172,7 @@ const MarksConfig = () => {
               type="submit"
               disabled={isSubmitting}
               className={`relative inline-flex items-center px-4 py-2 w-full rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
-                isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'
+                isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'
               }`}
               title={editId ? 'Update configuration' : 'Add configuration'}
             >
@@ -206,52 +206,52 @@ const MarksConfig = () => {
       </div>
 
       {/* Configurations Table */}
-      <div className="backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] border border-white/20">
-        <h4 className="text-base font-semibold text-[#441a05]p-4 border-b border-white/20">
+      <div className="backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] border border-[#441a05]/20">
+        <h4 className="text-base font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
           Marks Configurations
         </h4>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-white/20">
-            <thead className="bg-white/5">
+          <table className="min-w-full divide-y divide-[#441a05]/20">
+            <thead className="bg-[#441a05]/5">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Subject
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Exam Type
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Max Marks
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Weightage
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/20">
+            <tbody className="divide-y divide-[#441a05]/20">
               {configs.length > 0 ? (
                 configs.map((config, index) => (
                   <tr
                     key={config.id}
-                    className="bg-white/5 animate-fadeIn hover:bg-white/10 transition-all duration-300"
+                    className="bg-[#441a05]/5 animate-fadeIn hover:bg-[#441a05]/10 transition-all duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                       {config.subject}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {config.examType}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {config.maxMarks}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {config.weightage}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                       <button
                         onClick={() => handleEdit(config)}
                         className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
@@ -273,7 +273,7 @@ const MarksConfig = () => {
                 <tr>
                   <td
                     colSpan="5"
-                    className="text-center py-8 text-white/70 text-base animate-fadeIn"
+                    className="text-center py-8 text-[#441a05]/70 text-base animate-fadeIn"
                   >
                     No marks configurations available for this class.
                   </td>

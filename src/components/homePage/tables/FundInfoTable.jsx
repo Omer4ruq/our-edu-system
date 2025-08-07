@@ -34,7 +34,7 @@ export default function FundInfoTable() {
         <table className="w-full text-center text-textGray divide-y">
           <tbody>
             {funds.map((fund, index) => (
-              <tr key={index} className="border-b border-white">
+              <tr key={index} className="border-b border-[#441a05]">
                 <td className="w-[20%] py-1">{fund.date}</td>
                 <td className="w-[20%] py-1">{fund.name}</td>
                 <td className="w-[20%] py-1">{fund.debit}</td>

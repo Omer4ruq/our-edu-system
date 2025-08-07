@@ -249,7 +249,7 @@ const AddEvent = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
-          <FaSpinner className="animate-spin text-2xl text-white" />
+          <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
           <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
@@ -342,9 +342,9 @@ const AddEvent = () => {
       {/* Header and Form */}
       <div className="">
         {(hasAddPermission || hasChangePermission) && (
-          <div ref={formRef} className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl w-full">
+          <div ref={formRef} className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl w-full">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 ইভেন্ট যোগ করুন
               </h3>
@@ -355,14 +355,14 @@ const AddEvent = () => {
               className="grid grid-cols-1 md:grid-cols-4 gap-6"
             >
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">ইভেন্ট শিরোনাম</label>
+                <label className="block text-sm font-medium text-[#441a05]">ইভেন্ট শিরোনাম</label>
                 <input
                   type="text"
                   value={newEvent.title}
                   onChange={(e) =>
                     setNewEvent({ ...newEvent, title: e.target.value })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                   placeholder="ইভেন্ট শিরোনাম"
                   disabled={isCreating || isUpdating}
                   aria-label="ইভেন্ট শিরোনাম লিখুন"
@@ -370,7 +370,7 @@ const AddEvent = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">শুরুর তারিখ</label>
+                <label className="block text-sm font-medium text-[#441a05]">শুরুর তারিখ</label>
                 <input
                   type="date"
                   value={newEvent.startDate}
@@ -383,7 +383,7 @@ const AddEvent = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">শুরুর সময়</label>
+                <label className="block text-sm font-medium text-[#441a05]">শুরুর সময়</label>
                 <input
                   type="time"
                   value={newEvent.startTime}
@@ -396,7 +396,7 @@ const AddEvent = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">শেষের তারিখ</label>
+                <label className="block text-sm font-medium text-[#441a05]">শেষের তারিখ</label>
                 <input
                   type="date"
                   value={newEvent.endDate}
@@ -409,7 +409,7 @@ const AddEvent = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">শেষের সময়</label>
+                <label className="block text-sm font-medium text-[#441a05]">শেষের সময়</label>
                 <input
                   type="time"
                   value={newEvent.endTime}
@@ -422,13 +422,13 @@ const AddEvent = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-white">একাডেমিক বছর</label>
+                <label className="block text-sm font-medium text-[#441a05]">একাডেমিক বছর</label>
                 <select
                   value={newEvent.academic_year}
                   onChange={(e) =>
                     setNewEvent({ ...newEvent, academic_year: e.target.value })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
                   disabled={isCreating || isUpdating}
                   aria-label="একাডেমিক বছর নির্বাচন করুন"
                   title="একাডেমিক বছর নির্বাচন করুন / Select academic year"
@@ -502,75 +502,75 @@ const AddEvent = () => {
 
         {/* Events Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 w-full">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
             ইভেন্টের তালিকা
           </h3>
           {eventsLoading ? (
-            <div className="p-4 text-white/70 flex items-center space-x-4 animate-fadeIn">
+            <div className="p-4 text-[#441a05]/70 flex items-center space-x-4 animate-fadeIn">
               <FaSpinner className="animate-spin text-lg" />
               <span>ইভেন্ট লোড হচ্ছে...</span>
             </div>
           ) : events?.length === 0 ? (
-            <p className="p-4 text-white/70 animate-fadeIn">কোনো ইভেন্ট উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70 animate-fadeIn">কোনো ইভেন্ট উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
                 <thead>
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শিরোনাম
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শুরু
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শেষ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       একাডেমিক বছর
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আপডেটের সময়
                     </th>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্রিয়াকলাপ
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {events?.map((event, index) => (
                     <tr
                       key={event.id}
-                      className="animate-fadeIn hover:bg-white/10 transition-colors duration-200"
+                      className="animate-fadeIn hover:bg-[#441a05]/10 transition-colors duration-200"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {event.title}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {new Date(event.start).toLocaleString("bn-BD", { dateStyle: "short", timeStyle: "short" })}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {new Date(event.end).toLocaleString("bn-BD", { dateStyle: "short", timeStyle: "short" })}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {academicYears?.find(
                           (year) => year.id === event.academic_year
                         )?.name || "N/A"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(event.created_at).toLocaleString("bn-BD")}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {new Date(event.updated_at).toLocaleString("bn-BD")}
                       </td>
                       {(hasChangePermission || hasDeletePermission) && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditClick(event)}
@@ -614,7 +614,7 @@ const AddEvent = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10001]">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন ইভেন্ট নিশ্চিত করুন"}
                 {modalAction === "update" && "ইভেন্ট আপডেট নিশ্চিত করুন"}

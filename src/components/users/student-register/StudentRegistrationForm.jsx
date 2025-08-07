@@ -310,9 +310,9 @@ const StudentRegistrationForm = () => {
   if (isListLoading || isConfigLoading || isYearLoading || permissionsLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 animate-fadeIn">
+        <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
           <FaSpinner className="animate-spin text-3xl text-pmColor" />
-          <span className="text-lg font-medium text-white">
+          <span className="text-lg font-medium text-[#441a05]">
             লোড হচ্ছে...
           </span>
         </div>
@@ -415,7 +415,7 @@ const StudentRegistrationForm = () => {
             z-index: 1000;
           }
           .modal-content {
-            background: white;
+            background: [#441a05];
             padding: 24px;
             border-radius: 12px;
             width: 90%;
@@ -471,7 +471,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="bulk_upload"
-                    className="block font-medium text-white"
+                    className="block font-medium text-[#441a05]"
                   >
                     এক্সেল ফাইল আপলোড করুন
                   </label>
@@ -481,7 +481,7 @@ const StudentRegistrationForm = () => {
                     id="bulk_upload"
                     accept=".xlsx"
                     onChange={handleFileChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]pl-10 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="এক্সেল ফাইল আপলোড"
                     disabled={isBulkLoading || !hasAddPermission} // Disable if no add permission
                   />
@@ -538,7 +538,7 @@ const StudentRegistrationForm = () => {
         {hasAddPermission && ( // Only show the main form if has add permission
           <form onSubmit={handleSubmit} className="rounded-2xl space-y-10">
             {/* ব্যক্তিগত তথ্য */}
-            <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl shadow-md animate-fadeIn">
+            <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-xl shadow-md animate-fadeIn">
               <div className="flex items-center justify-center mb-4">
                 <FaUser className="text-3xl text-pmColor" />
               </div>
@@ -548,7 +548,7 @@ const StudentRegistrationForm = () => {
             <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {/* পূর্ণ নাম */}
     <div className="relative">
-      <label htmlFor="name" className="block text-lg font-medium text-white">
+      <label htmlFor="name" className="block text-lg font-medium text-[#441a05]">
         পূর্ণ নাম <span className="text-pmColor">*</span>
       </label>
       <FaUser className="absolute left-3 top-[50px] text-pmColor" />
@@ -558,7 +558,7 @@ const StudentRegistrationForm = () => {
         name="name"
         value={formData.name}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="পূর্ণ নাম লিখুন"
         required
         disabled={!hasAddPermission} // Disable if no add permission
@@ -567,7 +567,7 @@ const StudentRegistrationForm = () => {
 
     {/* পাসওয়ার্ড */}
     <div className="relative">
-      <label htmlFor="password" className="block text-lg font-medium text-white">
+      <label htmlFor="password" className="block text-lg font-medium text-[#441a05]">
         পাসওয়ার্ড
       </label>
       <FaLock className="absolute left-3 top-[50px] text-pmColor" />
@@ -577,7 +577,7 @@ const StudentRegistrationForm = () => {
         name="password"
         value={formData.password}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="পাসওয়ার্ড লিখুন (ঐচ্ছিক)"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -585,7 +585,7 @@ const StudentRegistrationForm = () => {
 
     {/* ইউজার আইডি */}
     <div className="relative">
-      <label htmlFor="user_id" className="block text-lg font-medium text-white">
+      <label htmlFor="user_id" className="block text-lg font-medium text-[#441a05]">
         ইউজার আইডি <span className="text-pmColor">*</span>
       </label>
       <FaIdCard className="absolute left-3 top-[50px] text-pmColor" />
@@ -595,7 +595,7 @@ const StudentRegistrationForm = () => {
         name="user_id"
         value={formData.user_id}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="ইউজার আইডি লিখুন"
         required
         disabled={!hasAddPermission} // Disable if no add permission
@@ -604,7 +604,7 @@ const StudentRegistrationForm = () => {
 
     {/* লিঙ্গ */}
     <div className="relative">
-      <label htmlFor="gender" className="block text-lg font-medium text-white">
+      <label htmlFor="gender" className="block text-lg font-medium text-[#441a05]">
         লিঙ্গ
       </label>
       <FaVenusMars className="absolute left-3 top-[50px] text-pmColor" />
@@ -613,7 +613,7 @@ const StudentRegistrationForm = () => {
         name="gender"
         value={formData.gender}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       >
         <option value="">লিঙ্গ নির্বাচন করুন</option>
@@ -625,7 +625,7 @@ const StudentRegistrationForm = () => {
 
     {/* জন্ম তারিখ */}
     <div className="relative">
-      <label htmlFor="dob" className="block text-lg font-medium text-white">
+      <label htmlFor="dob" className="block text-lg font-medium text-[#441a05]">
         জন্ম তারিখ
       </label>
       <FaCalendarAlt className="absolute left-3 top-[50px] text-pmColor" />
@@ -635,14 +635,14 @@ const StudentRegistrationForm = () => {
         name="dob"
         value={formData.dob}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       />
     </div>
 
     {/* রক্তের গ্রুপ */}
     <div className="relative">
-      <label htmlFor="blood_group" className="block text-lg font-medium text-white">
+      <label htmlFor="blood_group" className="block text-lg font-medium text-[#441a05]">
         রক্তের গ্রুপ
       </label>
       <FaHeart className="absolute left-3 top-[50px] text-pmColor" />
@@ -651,7 +651,7 @@ const StudentRegistrationForm = () => {
         name="blood_group"
         value={formData.blood_group}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       >
         <option value="">রক্তের গ্রুপ নির্বাচন করুন</option>
@@ -668,7 +668,7 @@ const StudentRegistrationForm = () => {
 
     {/* জাতীয়তা */}
     <div className="relative">
-      <label htmlFor="nationality" className="block text-lg font-medium text-white">
+      <label htmlFor="nationality" className="block text-lg font-medium text-[#441a05]">
         জাতীয়তা
       </label>
       <FaUser className="absolute left-3 top-[50px] text-pmColor" />
@@ -678,7 +678,7 @@ const StudentRegistrationForm = () => {
         name="nationality"
         value={formData.nationality}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="জাতীয়তা লিখুন"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -686,7 +686,7 @@ const StudentRegistrationForm = () => {
 
     {/* জন্ম সনদ নম্বর */}
     <div className="relative">
-      <label htmlFor="birth_certificate_no" className="block text-lg font-medium text-white">
+      <label htmlFor="birth_certificate_no" className="block text-lg font-medium text-[#441a05]">
         জন্ম সনদ নম্বর
       </label>
       <FaIdCard className="absolute left-3 top-[50px] text-pmColor" />
@@ -696,7 +696,7 @@ const StudentRegistrationForm = () => {
         name="birth_certificate_no"
         value={formData.birth_certificate_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="জন্ম সনদ নম্বর লিখুন"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -704,7 +704,7 @@ const StudentRegistrationForm = () => {
 
     {/* স্থিতি */}
     <div className="relative">
-      <label htmlFor="status" className="block text-lg font-medium text-white">
+      <label htmlFor="status" className="block text-lg font-medium text-[#441a05]">
         স্থিতি
       </label>
       <FaUserGraduate className="absolute left-3 top-[50px] text-pmColor" />
@@ -713,7 +713,7 @@ const StudentRegistrationForm = () => {
         name="status"
         value={formData.status}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       >
         <option value="">স্থিতি নির্বাচন করুন</option>
@@ -724,7 +724,7 @@ const StudentRegistrationForm = () => {
 
     {/* প্রতিবন্ধকতার তথ্য (Full width) */}
     <div className="relative col-span-1 sm:col-span-2 md:col-span-3">
-      <label htmlFor="disability_info" className="block text-lg font-medium text-white">
+      <label htmlFor="disability_info" className="block text-lg font-medium text-[#441a05]">
         প্রতিবন্ধকতার তথ্য
       </label>
       <FaUser className="absolute left-3 top-[50px] text-pmColor" />
@@ -733,7 +733,7 @@ const StudentRegistrationForm = () => {
         name="disability_info"
         value={formData.disability_info}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="প্রতিবন্ধকতার তথ্য লিখুন (ঐচ্ছিক)"
         rows="3"
         disabled={!hasAddPermission} // Disable if no add permission
@@ -744,7 +744,7 @@ const StudentRegistrationForm = () => {
             </div>
 
             {/* যোগাযোগের তথ্য */}
-            <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl shadow-md">
+            <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-xl shadow-md">
               <div className="flex items-center justify-center mb-4">
                 <FaPhone className="text-3xl text-pmColor" />
               </div>
@@ -755,7 +755,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="phone_number"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     ফোন নম্বর
                   </label>
@@ -766,7 +766,7 @@ const StudentRegistrationForm = () => {
                     name="phone_number"
                     value={formData.phone_number}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ফোন নম্বর লিখুন"
                     aria-label="ফোন নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -775,7 +775,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="email"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     ইমেইল
                   </label>
@@ -786,7 +786,7 @@ const StudentRegistrationForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ইমেইল ঠিকানা লিখুন"
                     aria-label="ইমেইল"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -795,7 +795,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="rfid"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     আরএফআইডি
                   </label>
@@ -806,7 +806,7 @@ const StudentRegistrationForm = () => {
                     name="rfid"
                     value={formData.rfid}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="আরএফআইডি লিখুন (ঐচ্ছিক)"
                     aria-label="আরএফআইডি"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -815,7 +815,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="present_address"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     বর্তমান ঠিকানা
                   </label>
@@ -826,7 +826,7 @@ const StudentRegistrationForm = () => {
                     name="present_address"
                     value={formData.present_address}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="বর্তমান ঠিকানা লিখুন"
                     aria-label="বর্তমান ঠিকানা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -835,7 +835,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="permanent_address"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     স্থায়ী ঠিকানা
                   </label>
@@ -846,7 +846,7 @@ const StudentRegistrationForm = () => {
                     name="permanent_address"
                     value={formData.permanent_address}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="স্থায়ী ঠিকানা লিখুন"
                     aria-label="স্থায়ী ঠিকানা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -855,7 +855,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="village"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     গ্রাম
                   </label>
@@ -866,7 +866,7 @@ const StudentRegistrationForm = () => {
                     name="village"
                     value={formData.village}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="গ্রামের নাম লিখুন"
                     aria-label="গ্রাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -875,7 +875,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="post_office"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     পোস্ট অফিস
                   </label>
@@ -886,7 +886,7 @@ const StudentRegistrationForm = () => {
                     name="post_office"
                     value={formData.post_office}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পোস্ট অফিসের নাম লিখুন"
                     aria-label="পোস্ট অফিস"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -895,7 +895,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="ps_or_upazilla"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     থানা/উপজেলা
                   </label>
@@ -906,7 +906,7 @@ const StudentRegistrationForm = () => {
                     name="ps_or_upazilla"
                     value={formData.ps_or_upazilla}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="থানা বা উপজেলার নাম লিখুন"
                     aria-label="থানা/উপজেলা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -915,7 +915,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="district"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     জেলা
                   </label>
@@ -926,7 +926,7 @@ const StudentRegistrationForm = () => {
                     name="district"
                     value={formData.district}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="জেলার নাম লিখুন"
                     aria-label="জেলা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -936,7 +936,7 @@ const StudentRegistrationForm = () => {
             </div>
 
             {/* শিক্ষাগত তথ্য */}
-            <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl shadow-md">
+            <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-xl shadow-md">
               <div className="flex items-center justify-center mb-4">
                 <FaBook className="text-3xl text-pmColor" />
               </div>
@@ -946,7 +946,7 @@ const StudentRegistrationForm = () => {
             <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {/* ভর্তি বছর */}
     <div className="relative">
-      <label htmlFor="admission_year_id" className="block text-lg font-medium text-white">
+      <label htmlFor="admission_year_id" className="block text-lg font-medium text-[#441a05]">
         ভর্তি বছর <span className="text-pmColor">*</span>
       </label>
       <FaCalendarAlt className="absolute left-3 top-[50px] text-pmColor" />
@@ -955,7 +955,7 @@ const StudentRegistrationForm = () => {
         name="admission_year_id"
         value={formData.admission_year_id}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         required
         disabled={!hasAddPermission} // Disable if no add permission
       >
@@ -968,7 +968,7 @@ const StudentRegistrationForm = () => {
 
     {/* ক্লাস */}
     <div className="relative">
-      <label htmlFor="class_id" className="block text-lg font-medium text-white">
+      <label htmlFor="class_id" className="block text-lg font-medium text-[#441a05]">
         ক্লাস <span className="text-pmColor">*</span>
       </label>
       <FaSchool className="absolute left-3 top-[50px] text-pmColor" />
@@ -977,7 +977,7 @@ const StudentRegistrationForm = () => {
         name="class_id"
         value={formData.class_id}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         required
         disabled={!hasAddPermission} // Disable if no add permission
       >
@@ -992,7 +992,7 @@ const StudentRegistrationForm = () => {
 
     {/* রোল নম্বর */}
     <div className="relative">
-      <label htmlFor="roll_no" className="block text-lg font-medium text-white">
+      <label htmlFor="roll_no" className="block text-lg font-medium text-[#441a05]">
         রোল নম্বর
       </label>
       <FaIdCard className="absolute left-3 top-[50px] text-pmColor" />
@@ -1002,7 +1002,7 @@ const StudentRegistrationForm = () => {
         name="roll_no"
         value={formData.roll_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="রোল নম্বর লিখুন"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -1010,7 +1010,7 @@ const StudentRegistrationForm = () => {
 
     {/* ভর্তি তারিখ */}
     <div className="relative">
-      <label htmlFor="admission_date" className="block text-lg font-medium text-white">
+      <label htmlFor="admission_date" className="block text-lg font-medium text-[#441a05]">
         ভর্তি তারিখ
       </label>
       <FaCalendarAlt className="absolute left-3 top-[50px] text-pmColor" />
@@ -1020,14 +1020,14 @@ const StudentRegistrationForm = () => {
         name="admission_date"
         value={formData.admission_date}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       />
     </div>
 
     {/* নাম ট্যাগ */}
     <div className="relative">
-      <label htmlFor="name_tag" className="block text-lg font-medium text-white">
+      <label htmlFor="name_tag" className="block text-lg font-medium text-[#441a05]">
         নাম ট্যাগ
       </label>
       <FaUserTag className="absolute left-3 top-[50px] text-pmColor" />
@@ -1037,7 +1037,7 @@ const StudentRegistrationForm = () => {
         name="name_tag"
         value={formData.name_tag}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="নাম ট্যাগ লিখুন (যেমন: মেধা)"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -1045,7 +1045,7 @@ const StudentRegistrationForm = () => {
 
     {/* স্থানান্তর সনদ নম্বর */}
     <div className="relative">
-      <label htmlFor="tc_no" className="block text-lg font-medium text-white">
+      <label htmlFor="tc_no" className="block text-lg font-medium text-[#441a05]">
         স্থানান্তর সনদ নম্বর
       </label>
       <FaFileAlt className="absolute left-3 top-[50px] text-pmColor" />
@@ -1055,7 +1055,7 @@ const StudentRegistrationForm = () => {
         name="tc_no"
         value={formData.tc_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="স্থানান্তর সনদ নম্বর লিখুন (ঐচ্ছিক)"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -1080,7 +1080,7 @@ const StudentRegistrationForm = () => {
             disabled={!hasAddPermission} // Disable if no add permission
           />
           <span className="relative flex items-center">
-            <span className="w-5 h-5 rounded-full border-2 border-[#9d9087] bg-white/10 group-hover:border-pmColor transition-all duration-300 flex items-center justify-center">
+            <span className="w-5 h-5 rounded-full border-2 border-[#9d9087] bg-[#441a05]/10 group-hover:border-pmColor transition-all duration-300 flex items-center justify-center">
               {formData.residential_status === "Residential" && (
                 <span className="w-3 h-3 rounded-full bg-pmColor scale-100 transition-transform duration-200"></span>
               )}
@@ -1103,7 +1103,7 @@ const StudentRegistrationForm = () => {
             disabled={!hasAddPermission} // Disable if no add permission
           />
           <span className="relative flex items-center">
-            <span className="w-5 h-5 rounded-full border-2 border-[#9d9087] bg-white/10 group-hover:border-pmColor transition-all duration-300 flex items-center justify-center">
+            <span className="w-5 h-5 rounded-full border-2 border-[#9d9087] bg-[#441a05]/10 group-hover:border-pmColor transition-all duration-300 flex items-center justify-center">
               {formData.residential_status === "NonResidential" && (
                 <span className="w-3 h-3 rounded-full bg-pmColor scale-100 transition-transform duration-200"></span>
               )}
@@ -1120,7 +1120,7 @@ const StudentRegistrationForm = () => {
             </div>
 
             {/* অভিভাবকের তথ্য */}
-            <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl shadow-md">
+            <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-xl shadow-md">
               <div className="flex items-center justify-center mb-4">
                 <FaHome className="text-3xl text-pmColor" />
               </div>
@@ -1131,7 +1131,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="parent_name"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     অভিভাবকের নাম <span className="text-pmColor">*</span>
                   </label>
@@ -1142,7 +1142,7 @@ const StudentRegistrationForm = () => {
                     name="name"
                     value={formData.parent.name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের নাম লিখুন"
                     required
                     aria-label="অভিভাবকের নাম"
@@ -1152,7 +1152,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="parent_password"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     অভিভাবকের পাসওয়ার্ড
                   </label>
@@ -1163,7 +1163,7 @@ const StudentRegistrationForm = () => {
                     name="password"
                     value={formData.parent.password}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পাসওয়ার্ড লিখুন (ঐচ্ছিক)"
                     aria-label="অভিভাবকের পাসওয়ার্ড"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1172,7 +1172,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="father_name"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     পিতার নাম
                   </label>
@@ -1183,7 +1183,7 @@ const StudentRegistrationForm = () => {
                     name="father_name"
                     value={formData.parent.father_name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার নাম লিখুন"
                     aria-label="পিতার নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1192,7 +1192,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="father_mobile_no"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     পিতার মোবাইল নম্বর
                   </label>
@@ -1203,7 +1203,7 @@ const StudentRegistrationForm = () => {
                     name="father_mobile_no"
                     value={formData.parent.father_mobile_no}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মোবাইল নম্বর লিখুন"
                     aria-label="পিতার মোবাইল নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1212,7 +1212,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="mother_name"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     মাতার নাম
                   </label>
@@ -1223,7 +1223,7 @@ const StudentRegistrationForm = () => {
                     name="mother_name"
                     value={formData.parent.mother_name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার নাম লিখুন"
                     aria-label="মাতার নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1232,7 +1232,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="mother_mobile_no"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     মাতার মোবাইল নম্বর
                   </label>
@@ -1243,7 +1243,7 @@ const StudentRegistrationForm = () => {
                     name="mother_mobile_no"
                     value={formData.parent.mother_mobile_no}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মোবাইল নম্বর লিখুন"
                     aria-label="মাতার মোবাইল নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1252,7 +1252,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="relation"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     ছাত্রের সাথে সম্পর্ক
                   </label>
@@ -1262,7 +1262,7 @@ const StudentRegistrationForm = () => {
                     name="relation"
                     value={formData.parent.relation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="ছাত্রের সাথে সম্পর্ক"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -1275,7 +1275,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="f_occupation"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     পিতার পেশা
                   </label>
@@ -1286,7 +1286,7 @@ const StudentRegistrationForm = () => {
                     name="f_occupation"
                     value={formData.parent.f_occupation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার পেশা লিখুন"
                     aria-label="পিতার পেশা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1295,7 +1295,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="m_occupation"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     মাতার পেশা
                   </label>
@@ -1306,7 +1306,7 @@ const StudentRegistrationForm = () => {
                     name="m_occupation"
                     value={formData.parent.m_occupation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার পেশা লিখুন"
                     aria-label="মাতার পেশা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1315,7 +1315,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="g_occupation"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     অভিভাবকের পেশা
                   </label>
@@ -1326,7 +1326,7 @@ const StudentRegistrationForm = () => {
                     name="g_occupation"
                     value={formData.parent.g_occupation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের পেশা লিখুন"
                     aria-label="অভিভাবকের পেশা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1335,7 +1335,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="f_nid"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     পিতার জাতীয় পরিচয়পত্র
                   </label>
@@ -1346,7 +1346,7 @@ const StudentRegistrationForm = () => {
                     name="f_nid"
                     value={formData.parent.f_nid}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার জাতীয় পরিচয়পত্র নম্বর লিখুন"
                     aria-label="পিতার জাতীয় পরিচয়পত্র"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1355,7 +1355,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="m_nid"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     মাতার জাতীয় পরিচয়পত্র
                   </label>
@@ -1366,7 +1366,7 @@ const StudentRegistrationForm = () => {
                     name="m_nid"
                     value={formData.parent.m_nid}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার জাতীয় পরিচয়পত্র নম্বর লিখুন"
                     aria-label="মাতার জাতীয় পরিচয়পত্র"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1375,7 +1375,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="g_name"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     অভিভাবকের নাম
                   </label>
@@ -1386,7 +1386,7 @@ const StudentRegistrationForm = () => {
                     name="g_name"
                     value={formData.parent.g_name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের নাম লিখুন"
                     aria-label="অভিভাবকের নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1395,7 +1395,7 @@ const StudentRegistrationForm = () => {
                 <div className="relative input-icon">
                   <label
                     htmlFor="g_mobile_no"
-                    className="block text-lg font-medium text-white"
+                    className="block text-lg font-medium text-[#441a05]"
                   >
                     অভিভাবকের মোবাইল নম্বর{" "}
                     <span className="text-pmColor">*</span>
@@ -1407,7 +1407,7 @@ const StudentRegistrationForm = () => {
                     name="g_mobile_no"
                     value={formData.parent.g_mobile_no}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-[#441a05]/10 text-[#441a05]placeholder-[#441a05]/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের মোবাইল নম্বর লিখুন"
                     required
                     aria-label="অভিভাবকের মোবাইল নম্বর"

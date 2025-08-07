@@ -170,9 +170,9 @@ const TransportRoutes = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -183,7 +183,7 @@ const TransportRoutes = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-secColor text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -214,17 +214,17 @@ const TransportRoutes = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <div className="bg-pmColor/20 p-3 rounded-xl">
               <FaBus className="text-pmColor text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">
+              <h1 className="text-3xl font-bold text-[#441a05]">
                 {languageCode === 'bn' ? 'পরিবহন রুট' : 'Transport Routes'}
               </h1>
-              <p className="text-white/70 mt-1">
+              <p className="text-[#441a05]/70 mt-1">
                 {languageCode === 'bn' ? 'পরিবহন রুট এবং সময়সূচী পরিচালনা করুন' : 'Manage transportation routes and schedules'}
               </p>
             </div>
@@ -243,7 +243,7 @@ const TransportRoutes = () => {
 
       {/* Create/Edit Form */}
       {/* {showCreateForm && hasAddPermission && ( */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               {editingRoute ? (
@@ -252,7 +252,7 @@ const TransportRoutes = () => {
                 <IoAddCircle className="text-pmColor text-3xl" />
               )}
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {editingRoute
                 ? (languageCode === 'bn' ? 'রুট সম্পাদনা করুন' : 'Edit Route')
                 : (languageCode === 'bn' ? 'নতুন রুট তৈরি করুন' : 'Create New Route')}
@@ -269,7 +269,7 @@ const TransportRoutes = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'রুটের নাম লিখুন (যেমন, রুট এ, সিটি সেন্টার লাইন)' : 'Enter route name (e.g., Route A, City Center Line)'}
                 disabled={isCreating || isUpdating}
               />
@@ -283,7 +283,7 @@ const TransportRoutes = () => {
                 name="start_point"
                 value={formData.start_point}
                 onChange={handleInputChange}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'শুরুর স্থান লিখুন' : 'Enter starting location'}
                 disabled={isCreating || isUpdating}
               />
@@ -297,7 +297,7 @@ const TransportRoutes = () => {
                 name="end_point"
                 value={formData.end_point}
                 onChange={handleInputChange}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'গন্তব্য স্থান লিখুন' : 'Enter destination location'}
                 disabled={isCreating || isUpdating}
               />
@@ -345,8 +345,8 @@ const TransportRoutes = () => {
       {/* )} */}
 
       {/* Routes Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h2 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'সমস্ত রুট' : 'All Routes'} ({routes.length})</span>
@@ -356,7 +356,7 @@ const TransportRoutes = () => {
         {isLoading ? (
           <div className="p-8 text-center">
             <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-            <p className="text-white/70">
+            <p className="text-[#441a05]/70">
               {languageCode === 'bn' ? 'রুট লোড হচ্ছে...' : 'Loading routes...'}
             </p>
           </div>
@@ -376,56 +376,56 @@ const TransportRoutes = () => {
           </div>
         ) : routes.length === 0 ? (
           <div className="p-8 text-center">
-            <div className="text-white/70 text-xl mb-2">🚌</div>
-            <p className="text-white/70">
+            <div className="text-[#441a05]/70 text-xl mb-2">🚌</div>
+            <p className="text-[#441a05]/70">
               {languageCode === 'bn' ? 'কোনো রুট পাওয়া যায়নি। শুরু করতে আপনার প্রথম রুট তৈরি করুন।' : 'No routes found. Create your first transport route to get started.'}
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto max-h-96">
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আইডি' : 'ID'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'রুটের নাম' : 'Route Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শুরুর স্থান' : 'Start Point'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শেষের স্থান' : 'End Point'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created At'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdUpdate className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'আপডেটের সময়' : 'Updated At'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-right text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {routes.map((route, index) => (
                   <tr
                     key={route.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-white">#{route.id}</div>
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
+                      <div className="text-sm font-medium text-[#441a05]">#{route.id}</div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <div className="flex items-center">
                         <div className="h-10 w-10 flex-shrink-0">
                           <div className="h-10 w-10 rounded-full bg-pmColor/20 flex items-center justify-center">
@@ -435,11 +435,11 @@ const TransportRoutes = () => {
                           </div>
                         </div>
                         <div className="ml-4">
-                          <div className="text-sm font-medium text-white">{route.name}</div>
+                          <div className="text-sm font-medium text-[#441a05]">{route.name}</div>
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <div className="flex items-center">
                         <div className="h-8 w-8 flex-shrink-0">
                           <div className="h-8 w-8 rounded bg-blue-500/20 flex items-center justify-center">
@@ -447,11 +447,11 @@ const TransportRoutes = () => {
                           </div>
                         </div>
                         <div className="ml-3">
-                          <div className="text-sm text-white">{route.start_point}</div>
+                          <div className="text-sm text-[#441a05]">{route.start_point}</div>
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <div className="flex items-center">
                         <div className="h-8 w-8 flex-shrink-0">
                           <div className="h-8 w-8 rounded bg-red-500/20 flex items-center justify-center">
@@ -459,17 +459,17 @@ const TransportRoutes = () => {
                           </div>
                         </div>
                         <div className="ml-3">
-                          <div className="text-sm text-white">{route.end_point}</div>
+                          <div className="text-sm text-[#441a05]">{route.end_point}</div>
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {formatDate(route.created_at)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {formatDate(route.updated_at)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm font-medium">
                       <div className="flex justify-end gap-2">
                         {/* {hasChangePermission && ( */}
                           <button
@@ -500,7 +500,7 @@ const TransportRoutes = () => {
         )}
 
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting
@@ -515,55 +515,55 @@ const TransportRoutes = () => {
       {/* Summary Stats */}
       {routes.length > 0 && (
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn">
             <div className="flex items-center">
               <div className="h-12 w-12 bg-pmColor/20 rounded-lg flex items-center justify-center">
                 <FaBus className="text-pmColor text-xl" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'মোট রুট' : 'Total Routes'}
                 </p>
-                <p className="text-2xl font-semibold text-white">{routes.length}</p>
+                <p className="text-2xl font-semibold text-[#441a05]">{routes.length}</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center">
               <div className="h-12 w-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-blue-500 text-xl">📍</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'অনন্য শুরুর স্থান' : 'Unique Start Points'}
                 </p>
-                <p className="text-2xl font-semibold text-white">{new Set(routes.map(route => route.start_point)).size}</p>
+                <p className="text-2xl font-semibold text-[#441a05]">{new Set(routes.map(route => route.start_point)).size}</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center">
               <div className="h-12 w-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-red-500 text-xl">🎯</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'অনন্য গন্তব্য' : 'Unique Destinations'}
                 </p>
-                <p className="text-2xl font-semibold text-white">{new Set(routes.map(route => route.end_point)).size}</p>
+                <p className="text-2xl font-semibold text-[#441a05]">{new Set(routes.map(route => route.end_point)).size}</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.3s' }}>
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center">
               <div className="h-12 w-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-orange-500 text-xl">📅</span>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-white/70">
+                <p className="text-sm font-medium text-[#441a05]/70">
                   {languageCode === 'bn' ? 'সম্প্রতি যোগ করা' : 'Recently Added'}
                 </p>
-                <p className="text-2xl font-semibold text-white">
+                <p className="text-2xl font-semibold text-[#441a05]">
                   {routes.filter(route => {
                     const createdDate = new Date(route.created_at);
                     const weekAgo = new Date();
@@ -579,33 +579,33 @@ const TransportRoutes = () => {
 
       {/* Route Overview */}
       {routes.length > 0 && (
-        <div className="mt-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+        <div className="mt-8 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 p-3 rounded-xl">
               <FaBus className="text-pmColor text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'রুট ওভারভিউ' : 'Route Overview'}
             </h3>
           </div>
           <div className="space-y-3">
             {routes.slice(0, 5).map((route) => (
-              <div key={route.id} className="flex items-center p-3 bg-white/5 rounded-lg">
+              <div key={route.id} className="flex items-center p-3 bg-[#441a05]/5 rounded-lg">
                 <div className="flex items-center flex-1">
                   <span className="text-sm font-medium text-[#441a05]bg-pmColor/20 px-2 py-1 rounded">
                     {route.name}
                   </span>
-                  <span className="mx-3 text-white/70">🚩</span>
-                  <span className="text-sm text-white">{route.start_point}</span>
-                  <span className="mx-3 text-white/70">→</span>
-                  <span className="text-sm text-white">{route.end_point}</span>
-                  <span className="mx-3 text-white/70">🏁</span>
+                  <span className="mx-3 text-[#441a05]/70">🚩</span>
+                  <span className="text-sm text-[#441a05]">{route.start_point}</span>
+                  <span className="mx-3 text-[#441a05]/70">→</span>
+                  <span className="text-sm text-[#441a05]">{route.end_point}</span>
+                  <span className="mx-3 text-[#441a05]/70">🏁</span>
                 </div>
               </div>
             ))}
             {routes.length > 5 && (
               <div className="text-center py-2">
-                <span className="text-sm text-white/70">
+                <span className="text-sm text-[#441a05]/70">
                   {languageCode === 'bn' ? `এবং আরও ${routes.length - 5}টি রুট...` : `And ${routes.length - 5} more routes...`}
                 </span>
               </div>

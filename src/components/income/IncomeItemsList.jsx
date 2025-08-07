@@ -303,8 +303,8 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
     return (
       <div className="py-8 w-full relative">
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn p-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
-            <h3 className="text-lg font-semibold text-white">আয় আইটেম তালিকা</h3>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-[#441a05]/20">
+            <h3 className="text-lg font-semibold text-[#441a05]">আয় আইটেম তালিকা</h3>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3 w-full md:w-auto">
               <div className="flex flex-wrap gap-2">
                 <button
@@ -390,74 +390,74 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
           {isAllItemsLoading || isTypesLoading || isFundLoading || isYearsLoading ? (
             <div className="p-4 flex items-center justify-center">
               <FaSpinner className="animate-spin text-[#441a05]text-2xl mr-2" />
-              <p className="text-white/70">লোড হচ্ছে...</p>
+              <p className="text-[#441a05]/70">লোড হচ্ছে...</p>
             </div>
           ) : allItemsError || fundError ? (
             <p className="p-4 text-red-400 bg-red-500/10 rounded-lg">
               ত্রুটি: {allItemsError?.status || fundError?.status || "অজানা"} - {JSON.stringify(allItemsError?.data || fundError?.data || {})}
             </p>
           ) : filteredItems.length === 0 ? (
-            <p className="p-4 text-white/70 text-center">কোনো আয় আইটেম পাওয়া যায়নি।</p>
+            <p className="p-4 text-[#441a05]/70 text-center">কোনো আয় আইটেম পাওয়া যায়নি।</p>
           ) : (
             <div className="table-container">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5 sticky top-0 z-10">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5 sticky top-0 z-10">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       আয়ের ধরন
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       নাম
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তহবিল
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       লেনদেন নম্বর
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ইনভয়েস নম্বর
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তারিখ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       পরিমাণ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শিক্ষাবর্ষ
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredItems.map((item, index) => (
                     <tr
                       key={item.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {incomeTypes.find((type) => type.id === item.incometype_id)?.incometype || "অজানা"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {item.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {fundTypes.find((fund) => fund.id === item.fund_id)?.name || item.fund_id}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {item.transaction_number || "-"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {item.invoice_number || "-"}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {item.income_date}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {item.amount}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {academicYears.find((year) => year.id === item.academic_year)?.name || item.academic_year}
                       </td>
                     </tr>
@@ -472,7 +472,7 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -536,7 +536,7 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
           }
           .report-button {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
             padding: 8px 16px;
             border-radius: 8px;
             transition: background-color 0.3s;
@@ -568,7 +568,7 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
       {/* Modal */}
       {(hasDeletePermission) && isModalOpen && (
         <div className="fixed inset-0 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               আয় আইটেম মুছে ফেলা নিশ্চিত করুন
             </h3>
@@ -586,7 +586,7 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-[#441a05]"}`}
                 aria-label="নিশ্চিত করুন"
               >
                 {isDeleting ? (
@@ -605,8 +605,8 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
 
       {/* Income Items List */}
       <div className="animate-fadeIn p-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
-          <h3 className="text-lg font-semibold text-white">আয় আইটেম তালিকা</h3>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-[#441a05]/20">
+          <h3 className="text-lg font-semibold text-[#441a05]">আয় আইটেম তালিকা</h3>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3 w-full md:w-auto">
             {/* Tabs */}
             <div className="flex flex-wrap gap-2">
@@ -695,83 +695,83 @@ const IncomeItemsList = ({ onEditClick, onDelete }) => {
         {isAllItemsLoading || isTypesLoading || isFundLoading || isYearsLoading ? (
           <div className="p-4 flex items-center justify-center">
             <FaSpinner className="animate-spin text-[#441a05]text-2xl mr-2" />
-            <p className="text-white/70">লোড হচ্ছে...</p>
+            <p className="text-[#441a05]/70">লোড হচ্ছে...</p>
           </div>
         ) : allItemsError || fundError ? (
           <p className="p-4 text-red-400 bg-red-500/10 rounded-lg">
             ত্রুটি: {allItemsError?.status || fundError?.status || "অজানা"} - {JSON.stringify(allItemsError?.data || fundError?.data || {})}
           </p>
         ) : filteredItems.length === 0 ? (
-          <p className="p-4 text-white/70 text-center">কোনো আয় আইটেম পাওয়া যায়নি।</p>
+          <p className="p-4 text-[#441a05]/70 text-center">কোনো আয় আইটেম পাওয়া যায়নি।</p>
         ) : (
           <div className="table-container">
-            <table className="min-w-full divide-y divide-white/20">
-              <thead className="bg-white/5 sticky top-0 z-10">
+            <table className="min-w-full divide-y divide-[#441a05]/20">
+              <thead className="bg-[#441a05]/5 sticky top-0 z-10">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     আয়ের ধরন
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     নাম
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     তহবিল
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     লেনদেন নম্বর
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     ইনভয়েস নম্বর
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     তারিখ
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     পরিমাণ
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                     শিক্ষাবর্ষ
                   </th>
                   {(hasChangePermission || hasDeletePermission) && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       অ্যাকশন
                     </th>
                   )}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/20">
+              <tbody className="divide-y divide-[#441a05]/20">
                 {filteredItems.map((item, index) => (
                   <tr
                     key={item.id}
-                    className="bg-white/5 animate-fadeIn"
+                    className="bg-[#441a05]/5 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {incomeTypes.find((type) => type.id === item.incometype_id)?.incometype || "অজানা"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {item.name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {fundTypes.find((fund) => fund.id === item.fund_id)?.name || item.fund_id}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {item.transaction_number || "-"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {item.invoice_number || "-"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {item.income_date}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {item.amount}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {academicYears.find((year) => year.id === item.academic_year)?.name || item.academic_year}
                     </td>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm">
                         {hasChangePermission && (
                           <button
                             onClick={() => onEditClick(item)}

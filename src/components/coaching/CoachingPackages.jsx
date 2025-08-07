@@ -293,9 +293,9 @@ const CoachingPackages = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -306,7 +306,7 @@ const CoachingPackages = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-secColor text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -373,16 +373,16 @@ const CoachingPackages = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'কোচিং প্যাকেজ ব্যবস্থাপনা' : 'Coaching Packages Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'কোচিং প্যাকেজ তৈরি, সম্পাদনা এবং পরিচালনা করুন' : 'Create, edit, and manage coaching packages'}
             </p>
           </div>
@@ -391,7 +391,7 @@ const CoachingPackages = () => {
 
       {/* Create/Edit Package Form */}
       {/* {(hasAddPermission || hasChangePermission) && ( */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4 mb-6">
           <div className="bg-pmColor/20 rounded-xl">
             {editingPackage ? (
@@ -400,7 +400,7 @@ const CoachingPackages = () => {
               <IoAddCircle className="text-pmColor text-3xl" />
             )}
           </div>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-[#441a05]">
             {editingPackage
               ? (languageCode === 'bn' ? 'প্যাকেজ সম্পাদনা করুন' : 'Edit Package')
               : (languageCode === 'bn' ? 'নতুন প্যাকেজ তৈরি করুন' : 'Create New Package')}
@@ -424,7 +424,7 @@ const CoachingPackages = () => {
               isDisabled={isCreating || isUpdating || isPatching || isBatchesLoading}
             />
             {isBatchesLoading && (
-              <p className="text-sm text-white/70 mt-1">
+              <p className="text-sm text-[#441a05]/70 mt-1">
                 {languageCode === 'bn' ? 'ব্যাচ লোড হচ্ছে...' : 'Loading batches...'}
               </p>
             )}
@@ -437,7 +437,7 @@ const CoachingPackages = () => {
               type="number"
               value={editingPackage ? editData.amount : formData.amount}
               onChange={(e) => (editingPackage ? handleEditInputChange('amount', e.target.value) : handleInputChange('amount', e.target.value))}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
               placeholder={languageCode === 'bn' ? 'মূল্য লিখুন' : 'Enter amount'}
               disabled={isCreating || isUpdating || isPatching}
               min="0"
@@ -460,7 +460,7 @@ const CoachingPackages = () => {
               isDisabled={isCreating || isUpdating || isPatching || isAcademicYearsLoading}
             />
             {isAcademicYearsLoading && (
-              <p className="text-sm text-white/70 mt-1">
+              <p className="text-sm text-[#441a05]/70 mt-1">
                 {languageCode === 'bn' ? 'শিক্ষাবর্ষ লোড হচ্ছে...' : 'Loading academic years...'}
               </p>
             )}
@@ -557,12 +557,12 @@ const CoachingPackages = () => {
       {/* )} */}
 
       {/* Search by ID */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4 mb-6">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaSearch className="text-pmColor text-2xl" />
           </div>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-[#441a05]">
             {languageCode === 'bn' ? 'আইডি দ্বারা প্যাকেজ অনুসন্ধান' : 'Search Package by ID'}
           </h3>
         </div>
@@ -573,10 +573,10 @@ const CoachingPackages = () => {
               value={searchId}
               onChange={(e) => setSearchId(e.target.value)}
               placeholder={languageCode === 'bn' ? 'প্যাকেজ আইডি লিখুন' : 'Enter package ID'}
-              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full pl-10 bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
               disabled={isLoadingSelected}
             />
-            <FaSearch className="absolute left-3 top-4 text-white/60" />
+            <FaSearch className="absolute left-3 top-4 text-[#441a05]/60" />
           </div>
           <button
             onClick={handleSearchById}
@@ -589,16 +589,16 @@ const CoachingPackages = () => {
           </button>
         </div>
         {selectedPackage && (
-          <div className="mt-4 bg-white/5 border border-white/20 rounded-xl p-4 animate-scaleIn">
+          <div className="mt-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-xl p-4 animate-scaleIn">
             <h3 className="text-[#441a05]font-semibold">{languageCode === 'bn' ? 'পাওয়া প্যাকেজ:' : 'Found Package:'}</h3>
-            <p className="text-white/70">ID: {selectedPackage.id}</p>
-            <p className="text-white/70">{languageCode === 'bn' ? 'নাম:' : 'Name:'} {selectedPackage.package_name}</p>
-            <p className="text-white/70">{languageCode === 'bn' ? 'মূল্য:' : 'Amount:'} ${Number(selectedPackage.amount).toLocaleString()}</p>
-            <p className="text-white/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'} {academicYears.find(year => year.id === selectedPackage.academic_year)?.year || selectedPackage.academic_year}</p>
+            <p className="text-[#441a05]/70">ID: {selectedPackage.id}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'নাম:' : 'Name:'} {selectedPackage.package_name}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'মূল্য:' : 'Amount:'} ${Number(selectedPackage.amount).toLocaleString()}</p>
+            <p className="text-[#441a05]/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'} {academicYears.find(year => year.id === selectedPackage.academic_year)?.year || selectedPackage.academic_year}</p>
           </div>
         )}
         {isLoadingSelected && (
-          <div className="mt-4 flex items-center text-white/70">
+          <div className="mt-4 flex items-center text-[#441a05]/70">
             <FaSpinner className="animate-spin text-pmColor mr-2" />
             {languageCode === 'bn' ? 'অনুসন্ধান করা হচ্ছে...' : 'Searching...'}
           </div>
@@ -613,8 +613,8 @@ const CoachingPackages = () => {
       </div>
 
       {/* Packages Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'প্যাকেজের তালিকা' : 'Packages List'} ({packages.length})</span>
@@ -625,7 +625,7 @@ const CoachingPackages = () => {
           {isLoading ? (
             <div className="p-8 text-center">
               <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'প্যাকেজ লোড হচ্ছে...' : 'Loading packages...'}
               </p>
             </div>
@@ -645,48 +645,48 @@ const CoachingPackages = () => {
             </div>
           ) : packages.length === 0 ? (
             <div className="p-8 text-center">
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'কোনো প্যাকেজ উপলব্ধ নেই।' : 'No packages available.'}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'প্যাকেজের নাম' : 'Package Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আইডি' : 'ID'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'মূল্য' : 'Amount'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdUpdate className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'আপডেটের সময়' : 'Updated'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {packages.map((pkg, index) => (
                   <tr
                     key={pkg.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
@@ -714,7 +714,7 @@ const CoachingPackages = () => {
                           type="number"
                           value={editData.amount}
                           onChange={(e) => handleEditInputChange('amount', e.target.value)}
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                          className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-2 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                           disabled={isUpdating || isPatching}
                           min="0"
                           step="0.01"
@@ -742,12 +742,12 @@ const CoachingPackages = () => {
                       )}
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {pkg.created_at ? new Date(pkg.created_at).toLocaleString(languageCode === 'bn' ? 'bn-BD' : 'en-US') : 'N/A'}
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {pkg.updated_at ? new Date(pkg.updated_at).toLocaleString(languageCode === 'bn' ? 'bn-BD' : 'en-US') : 'N/A'}
                       </div>
                     </td>
@@ -812,7 +812,7 @@ const CoachingPackages = () => {
         </div>
 
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting

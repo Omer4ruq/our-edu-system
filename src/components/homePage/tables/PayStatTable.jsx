@@ -47,7 +47,7 @@ export default function PayStatTable() {
   ];
 
   return (
-    <div className="mt-4 bg-white/5 backdrop-blur-sm border border-[#9d9087]/60 rounded-2xl p-4 animate-fadeIn">
+    <div className="mt-4 bg-[#441a05]/5 backdrop-blur-sm border border-[#9d9087]/60 rounded-2xl p-4 animate-fadeIn">
       <style>
         {`
           @keyframes fadeIn {
@@ -81,9 +81,9 @@ export default function PayStatTable() {
                 className="animate-fadeIn"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <td className="w-[20%] py-1 text-white">{singleClass.name}</td>
-                <td className="w-[20%] py-1 text-white">{singleClass.section}</td>
-                <td className="w-[20%] py-1 text-white">{singleClass.totalStudents}</td>
+                <td className="w-[20%] py-1 text-[#441a05]">{singleClass.name}</td>
+                <td className="w-[20%] py-1 text-[#441a05]">{singleClass.section}</td>
+                <td className="w-[20%] py-1 text-[#441a05]">{singleClass.totalStudents}</td>
                 <td className="w-[20%] py-1 text-pmColor">{singleClass.paid}</td>
                 <td className="w-[20%] py-1 text-[#9d9087]">{singleClass.unpaid}</td>
               </tr>

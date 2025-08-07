@@ -169,7 +169,7 @@ const customStyles = `
     max-width: 595.28px;
     height: 841.89px;
     margin: 0 auto 20px;
-    background: white;
+    background: [#441a05];
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 20px;
     box-sizing: border-box;
@@ -676,7 +676,7 @@ const PersonalMarkSheet = () => {
       <style>{customStyles}</style>
       <div className="mx-auto">
         {/* Selection Form */}
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight mb-6">
             ব্যক্তিগত ফলাফল শীট
           </h3>
@@ -684,7 +684,7 @@ const PersonalMarkSheet = () => {
             <div className="relative">
               <label
                 htmlFor="examSelect"
-                className="block font-medium text-white"
+                className="block font-medium text-[#441a05]"
               >
                 পরীক্ষা নির্বাচন <span className="text-red-600">*</span>
               </label>
@@ -709,7 +709,7 @@ const PersonalMarkSheet = () => {
             <div className="relative">
               <label
                 htmlFor="classSelect"
-                className="block font-medium text-white"
+                className="block font-medium text-[#441a05]"
               >
                 ক্লাস নির্বাচন <span className="text-red-600">*</span>
               </label>
@@ -735,7 +735,7 @@ const PersonalMarkSheet = () => {
             <div className="relative">
               <label
                 htmlFor="yearSelect"
-                className="block font-medium text-white"
+                className="block font-medium text-[#441a05]"
               >
                 শিক্ষাবর্ষ নির্বাচন <span className="text-red-600">*</span>
               </label>
@@ -761,7 +761,7 @@ const PersonalMarkSheet = () => {
             <div className="relative">
               <label
                 htmlFor="studentSelect"
-                className="block font-medium text-white"
+                className="block font-medium text-[#441a05]"
               >
                 শিক্ষার্থী নির্বাচন <span className="text-red-600">*</span>
               </label>
@@ -806,7 +806,7 @@ const PersonalMarkSheet = () => {
         {/* Result Display (aligned with ResultSheet.jsx) */}
         <div>
           {isLoading ? (
-            <p className="p-4 text-white/70 animate-scaleIn flex justify-center items-center h-full">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn flex justify-center items-center h-full">
               <FaSpinner className="animate-spin text-lg mr-2" />
               ফলাফল লোড হচ্ছে...
             </p>
@@ -814,12 +814,12 @@ const PersonalMarkSheet = () => {
             !selectedClassConfig ||
             !selectedAcademicYear ||
             !selectedStudent ? (
-            <p className="p-4 text-white/70 animate-scaleIn flex justify-center items-center h-full">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn flex justify-center items-center h-full">
               অনুগ্রহ করে পরীক্ষা, ক্লাস, শিক্ষাবর্ষ এবং শিক্ষার্থী নির্বাচন
               করুন।
             </p>
           ) : !marksData ? (
-            <p className="p-4 text-white/70 animate-scaleIn flex justify-center items-center h-full">
+            <p className="p-4 text-[#441a05]/70 animate-scaleIn flex justify-center items-center h-full">
               কোনো ফলাফল পাওয়া যায়নি।
             </p>
           ) : (

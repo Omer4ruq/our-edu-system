@@ -87,7 +87,7 @@ const ClassWiseChart = () => {
   };
 
   return (
-    <div className="glass-card bg-white/5 border border-white/10 rounded-2xl relative shadow-xl animate-fadeIn transition-all duration-500">
+    <div className="glass-card bg-[#441a05]/5 border border-[#441a05]/10 rounded-2xl relative shadow-xl animate-fadeIn transition-all duration-500">
       <style>
         {`
                     @keyframes fadeIn {

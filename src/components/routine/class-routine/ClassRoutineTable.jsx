@@ -496,7 +496,7 @@ console.log("selectedClassId",selectedClassId)
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected ? '#DB9E30' : state.isFocused ? '#f3e8d7' : 'white',
+      backgroundColor: state.isSelected ? '#DB9E30' : state.isFocused ? '#f3e8d7' : '[#441a05]',
       color: '#441a05'
     }),
     singleValue: (provided) => ({
@@ -529,7 +529,7 @@ console.log("selectedClassId",selectedClassId)
           .search-tab-active { background-color: #DB9E30; color: #441a05; font-weight: bold; border-color: #DB9E30; }
           .search-tab-inactive { background-color: transparent; color: #441a05; border-color: #9d9087; }
           .search-tab-inactive:hover { background-color: rgba(219, 158, 48, 0.1); border-color: #DB9E30; }
-          .report-button { background-color: #441a05; color: white; padding: 8px 16px; border-radius: 8px; transition: background-color 0.3s; border: none; cursor: pointer; }
+          .report-button { background-color: #441a05; color: [#441a05]; padding: 8px 16px; border-radius: 8px; transition: background-color 0.3s; border: none; cursor: pointer; }
           .report-button:hover { background-color: #5a2e0a; }
           .report-button:disabled { opacity: 0.6; cursor: not-allowed; }
           ::-webkit-scrollbar { width: 8px; }
@@ -540,11 +540,11 @@ console.log("selectedClassId",selectedClassId)
       </style>
 
       {/* Search Controls - Fixed positioning */}
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-6 animate-fadeIn shadow-xl relative z-50">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-6 animate-fadeIn shadow-xl relative z-50">
         <div className="flex flex-col gap-6">
           {/* Search Type Tabs */}
           <div className="flex items-center gap-4">
-            <h2 className="text-xl font-bold text-white">রুটিন খুঁজুন</h2>
+            <h2 className="text-xl font-bold text-[#441a05]">রুটিন খুঁজুন</h2>
             <div className="flex gap-2">
               <button
                 onClick={() => handleSearchTypeChange('class')}
@@ -703,7 +703,7 @@ console.log("selectedClassId",selectedClassId)
       {/* Confirmation Modal for delete */}
       {isModalOpen && hasDeletePermission && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               রুটিন মুছে ফেলা নিশ্চিত করুন
             </h3>

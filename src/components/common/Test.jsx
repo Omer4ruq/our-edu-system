@@ -91,8 +91,8 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
                 to={childPath}
                 className={`px-4 py-2 rounded-md text-sm capitalize transition-colors ${
                   isActive
-                    ? "bg-#DB9E30 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-#DB9E30 hover:text-white"
+                    ? "bg-#DB9E30 text-[#441a05]"
+                    : "bg-gray-200 text-gray-700 hover:bg-#DB9E30 hover:text-[#441a05]"
                 }`}
               >
                 {t(child.title)}

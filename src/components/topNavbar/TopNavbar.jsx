@@ -104,7 +104,7 @@ export default function TopNavbar({ setShowSidebar }) {
         {/* Left Section */}
         <div className="flex gap-3 sm:gap-4 items-center">
           <button
-            className="w-8 h-8 p-1.5 rounded border border-white/30 bg-pmColor text-[#441a05]hover:bg-blue-600/20 btn-glow xl:hidden transition-all duration-300 ease-in-out"
+            className="w-8 h-8 p-1.5 rounded border border-[#441a05]/30 bg-pmColor text-[#441a05]hover:bg-blue-600/20 btn-glow xl:hidden transition-all duration-300 ease-in-out"
             onClick={() => setShowSidebar((state) => !state)}
             aria-label="Toggle sidebar"
             title="Toggle sidebar"
@@ -136,7 +136,7 @@ export default function TopNavbar({ setShowSidebar }) {
             {showLanguageMenu && (
               <div
                 ref={languageMenuRef}
-                className={`absolute right-0 mt-2 w-48 bg-black/50 backdrop-blur-3xl border border-white/20 text-pmColor p-2 rounded-lg z-[99999999] animate-scaleIn`}
+                className={`absolute right-0 mt-2 w-48 bg-black/50 backdrop-blur-3xl border border-[#441a05]/20 text-pmColor p-2 rounded-lg z-[99999999] animate-scaleIn`}
               >
                 <h4 className="font-semibold text-sm px-1 mb-2">Choose Language</h4>
                 {languages.map((item) => (
@@ -147,8 +147,8 @@ export default function TopNavbar({ setShowSidebar }) {
                       setShowLanguageMenu(false);
                       window.location.reload();
                     }}
-                    className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-200 ${
-                      language.code === item.code ? "bg-white/5" : ""
+                    className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-[#441a05]/10 transition-all duration-200 ${
+                      language.code === item.code ? "bg-[#441a05]/5" : ""
                     }`}
                   >
                     <img
@@ -179,7 +179,7 @@ export default function TopNavbar({ setShowSidebar }) {
             {showThemeMenu && (
               <div
                 ref={themeMenuRef}
-                className={`fixed -right-3 top-0 h-screen bg-black/50 backdrop-blur-3xl border-l border-white/20 text-pmColor w-72 p-3 z-[99999999] space-y-2 ${showThemeMenu ? "animate-slideInFromRight" : "animate-slideOutToRight"}`}
+                className={`fixed -right-3 top-0 h-screen bg-black/50 backdrop-blur-3xl border-l border-[#441a05]/20 text-pmColor w-72 p-3 z-[99999999] space-y-2 ${showThemeMenu ? "animate-slideInFromRight" : "animate-slideOutToRight"}`}
               >
                 <h4 className="font-semibold text-sm px-1">Choose Theme</h4>
                 <div className="max-h-[calc(100vh-100px)] overflow-y-auto">
@@ -200,7 +200,7 @@ export default function TopNavbar({ setShowSidebar }) {
                           style={{ backgroundImage: `url(${item.bg})` }}
                         >
                           {isSelected && (
-                            <div className="absolute top-[50%] translate-y-[-50%] translate-x-[50%] left-[-50%] w-full h-20 bg-white/5 flex items-center justify-center text-pmColor text-sm rounded-lg">
+                            <div className="absolute top-[50%] translate-y-[-50%] translate-x-[50%] left-[-50%] w-full h-20 bg-[#441a05]/5 flex items-center justify-center text-pmColor text-sm rounded-lg">
                               <IoCheckmarkCircleOutline className="text-4xl" />
                             </div>
                           )}

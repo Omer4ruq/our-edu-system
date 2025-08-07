@@ -419,13 +419,13 @@ const AddFeesName = () => {
     return (
       <div className="py-8 w-full relative">
         <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
           <h2 className="text-2xl font-bold text-[#441a05]tracking-tight mb-6">ফি কনফিগারেশন</h2>
           
           {/* Filter Panel */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-white">ফিল্টার</h3>
+              <h3 className="text-lg font-semibold text-[#441a05]">ফিল্টার</h3>
               <button
                 onClick={() => handleFilterChange('showFilters', !filters.showFilters)}
                 className="flex items-center px-3 py-2 bg-pmColor text-[#441a05]rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
@@ -436,7 +436,7 @@ const AddFeesName = () => {
             </div>
 
             {filters.showFilters && (
-              <div className="bg-white/5 p-4 rounded-lg border border-white/20">
+              <div className="bg-[#441a05]/5 p-4 rounded-lg border border-[#441a05]/20">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {/* Class Filter */}
                   <div>
@@ -509,46 +509,46 @@ const AddFeesName = () => {
           </div>
 
           {filteredFeesName?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
           ) : (
-            <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-              <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+            <div className="mb-6 bg-[#441a05]/5 rounded-lg overflow-x-auto">
+              <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
                 সকল ফি কনফিগারেশন ({filteredFeesName?.length} টি)
               </h3>
               <table className="w-full border-collapse">
-                <thead className="bg-white/10">
+                <thead className="bg-[#441a05]/10">
                   <tr>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি টাইটেল</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শ্রেণি</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">বোর্ডিং</th>
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">স্ট্যাটাস</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি টাইটেল</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শ্রেণি</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শিক্ষাবর্ষ</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি সাবহেড</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শুরুর তারিখ</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শেষের তারিখ</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">বোর্ডিং</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">স্ট্যাটাস</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredFeesName?.map((fee, index) => {
                     const className = classes?.find((c) => c.id === feePackages?.find((p) => p.id === fee.fee_amount_id)?.student_class)?.student_class.name || 'অজানা';
                     const subheadName = feeSubheads?.find((s) => s.id === fee.fees_sub_type)?.name || 'অজানা';
                     const academicYearName = academicYears?.find((y) => y.id === fee.academic_year)?.name || 'অজানা';
                     return (
-                      <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                        <td className="border border-white/20 p-3 text-sm text-white">{fee.fees_title}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{className}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{academicYearName}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{subheadName}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">
+                      <tr key={index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{fee.fees_title}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{className}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{academicYearName}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{subheadName}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                           <span
-                            className={`px-2 py-1 rounded-full text-xs font-medium ${fee.is_boarding ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white'}`}
+                            className={`px-2 py-1 rounded-full text-xs font-medium ${fee.is_boarding ? 'bg-pmColor text-[#441a05]' : 'bg-gray-500/20 text-[#441a05]'}`}
                           >
                             {fee.is_boarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}
                           </span>
                         </td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
                       </tr>
                     );
                   })}
@@ -562,7 +562,7 @@ const AddFeesName = () => {
   }
 
   if (permissionsLoading || classesLoading || yearsLoading || packagesLoading || subheadsLoading || headsLoading || feesLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -621,7 +621,7 @@ const AddFeesName = () => {
       {/* Create Confirmation Modal */}
       {hasAddPermission && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">ফি কনফিগারেশন জমা নিশ্চিত করুন</h3>
             <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে নির্বাচিত ফি কনফিগারেশনগুলি জমা দিতে চান?</p>
             <div className="flex justify-end space-x-4">
@@ -634,7 +634,7 @@ const AddFeesName = () => {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -653,7 +653,7 @@ const AddFeesName = () => {
       {/* Update Modal */}
       {hasChangePermission && isUpdateModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">ফি কনফিগারেশন আপডেট করুন</h3>
             <div className="space-y-4">
               <div>
@@ -724,7 +724,7 @@ const AddFeesName = () => {
               <button
                 onClick={handleUpdateSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-[#441a05]'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -743,7 +743,7 @@ const AddFeesName = () => {
       {/* Delete Confirmation Modal */}
       {hasDeletePermission && isDeleteModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">ফি কনফিগারেশন মুছে ফেলুন</h3>
             <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে ফি কনফিগারেশন "{selectedFee?.fees_title}" মুছে ফেলতে চান?</p>
             <div className="flex justify-end space-x-4">
@@ -772,11 +772,11 @@ const AddFeesName = () => {
         </div>
       )}
 
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
         {(hasAddPermission || hasChangePermission) && (
           <div>
             <div className="flex items-center space-x-4 mb-6">
-              <IoAddCircle className="text-4xl text-white" />
+              <IoAddCircle className="text-4xl text-[#441a05]" />
               <h2 className="text-2xl font-bold text-[#441a05]tracking-tight">ফি কনফিগারেশন যোগ করুন</h2>
             </div>
 
@@ -804,7 +804,7 @@ const AddFeesName = () => {
             {hasAddPermission && (
               <div className="mb-6 flex flex-wrap gap-2">
                 <button
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === null ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'}`}
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === null ? 'bg-pmColor text-[#441a05]' : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'}`}
                   onClick={() => handleClassSelection(null)}
                   aria-label="সকল শ্রেণি নির্বাচন করুন"
                 >
@@ -813,7 +813,7 @@ const AddFeesName = () => {
                 {classes?.map((cls) => (
                   <button
                     key={cls.id}
-                    className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === cls.id ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'}`}
+                    className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === cls.id ? 'bg-pmColor text-[#441a05]' : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'}`}
                     onClick={() => handleClassSelection(cls.id)}
                     aria-label={`শ্রেণি নির্বাচন করুন ${cls.student_class.name}`}
                   >
@@ -850,19 +850,19 @@ const AddFeesName = () => {
             {/* Fee Packages and Subheads Table */}
             {hasAddPermission && (
               <div className="mb-6">
-                <div className="bg-white/5 rounded-lg overflow-x-auto">
+                <div className="bg-[#441a05]/5 rounded-lg overflow-x-auto">
                   <table className="w-full border-collapse">
-                    <thead className="bg-white/10">
+                    <thead className="bg-[#441a05]/10">
                       <tr>
-                        <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি প্যাকেজ</th>
-                        <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
+                        <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি প্যাকেজ</th>
+                        <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি সাবহেড</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-white/20 p-3 align-top">
+                        <td className="border border-[#441a05]/20 p-3 align-top">
                           {filteredFeePackages.length === 0 ? (
-                            <p className="text-white/70">কোনো ফি প্যাকেজ পাওয়া যায়নি।</p>
+                            <p className="text-[#441a05]/70">কোনো ফি প্যাকেজ পাওয়া যায়নি।</p>
                           ) : (
                             filteredFeePackages.map((pkg) => {
                               const className = classes?.find((c) => c.id === pkg.student_class)?.student_class.name || 'অজানা';
@@ -881,7 +881,7 @@ const AddFeesName = () => {
                                       className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                                         selectedFeePackages.includes(pkg.id)
                                           ? 'bg-pmColor border-pmColor'
-                                          : 'bg-white/10 border-[#9d9087] hover:border-white'
+                                          : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                                       }`}
                                     >
                                       {selectedFeePackages.includes(pkg.id) && (
@@ -902,7 +902,7 @@ const AddFeesName = () => {
                                       )}
                                     </span>
                                   </label>
-                                  <span className="text-white">{`${className} - ${feeHeadName}`}</span>
+                                  <span className="text-[#441a05]">{`${className} - ${feeHeadName}`}</span>
                                 </div>
                               );
                             })
@@ -911,9 +911,9 @@ const AddFeesName = () => {
                             <p className="text-red-400 text-sm mt-2">{errors.feePackages}</p>
                           )}
                         </td>
-                        <td className="border border-white/20 p-3 align-top grid grid-cols-3">
+                        <td className="border border-[#441a05]/20 p-3 align-top grid grid-cols-3">
                           {feeSubheads?.length === 0 ? (
-                            <p className="text-white/70">কোনো ফি সাবহেড পাওয়া যায়নি।</p>
+                            <p className="text-[#441a05]/70">কোনো ফি সাবহেড পাওয়া যায়নি।</p>
                           ) : (
                             feeSubheads?.map((sub) => (
                               <div key={sub.id} className="flex items-center mb-3 gap-2">
@@ -929,7 +929,7 @@ const AddFeesName = () => {
                                     className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                                       selectedFeeSubheads.includes(sub.id)
                                         ? 'bg-pmColor border-pmColor'
-                                        : 'bg-white/10 border-[#9d9087] hover:border-white'
+                                        : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                                     }`}
                                   >
                                     {selectedFeeSubheads.includes(sub.id) && (
@@ -950,7 +950,7 @@ const AddFeesName = () => {
                                     )}
                                   </span>
                                 </label>
-                                <span className="text-white">{sub.name}</span>
+                                <span className="text-[#441a05]">{sub.name}</span>
                               </div>
                             ))
                           )}
@@ -985,37 +985,37 @@ const AddFeesName = () => {
 
             {/* Configurations Table */}
             {(hasAddPermission || hasChangePermission) && configurations.length > 0 && (
-              <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-                <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">নির্বাচিত কনফিগারেশন</h3>
+              <div className="mb-6 bg-[#441a05]/5 rounded-lg overflow-x-auto">
+                <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">নির্বাচিত কনফিগারেশন</h3>
                 <table className="w-full border-collapse">
-                  <thead className="bg-white/10">
+                  <thead className="bg-[#441a05]/10">
                     <tr>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শ্রেণি</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি প্যাকেজ</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">বোর্ডিং</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
-                      <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শ্রেণি</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি প্যাকেজ</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি সাবহেড</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শিক্ষাবর্ষ</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">বোর্ডিং</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শুরুর তারিখ</th>
+                      <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শেষের তারিখ</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {configurations.map((config, index) => (
-                      <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                        <td className="border border-white/20 p-3 text-sm text-white">{config.className}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{config.packageName}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">{config.subheadName}</td>
-                        <td className="border border-white/20 p-3 text-sm text-white">
+                      <tr key={index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{config.className}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{config.packageName}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{config.subheadName}</td>
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                           {academicYears?.find((y) => y.id === parseInt(config.academicYear))?.name || config.academicYear}
                         </td>
-                        <td className="border border-white/20 p-3 text-sm text-white">
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                           <span
-                            className={`px-2 py-1 rounded-full text-xs font-medium ${config.isBoarding ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white'}`}
+                            className={`px-2 py-1 rounded-full text-xs font-medium ${config.isBoarding ? 'bg-pmColor text-[#441a05]' : 'bg-gray-500/20 text-[#441a05]'}`}
                           >
                             {config.isBoarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}
                           </span>
                         </td>
-                        <td className="border border-white/20 p-3 text-sm text-white">
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                           <input
                             type="date"
                             value={config.startDate}
@@ -1023,7 +1023,7 @@ const AddFeesName = () => {
                             className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                           />
                         </td>
-                        <td className="border border-white/20 p-3 text-sm text-white">
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                           <input
                             type="date"
                             value={config.endDate}
@@ -1064,9 +1064,9 @@ const AddFeesName = () => {
         )}
 
         {/* Fees Table from useGetFeesNamesQuery */}
-        <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-          <div className="flex items-center justify-between p-4 border-b border-white/20">
-            <h3 className="text-lg font-semibold text-white">
+        <div className="mb-6 bg-[#441a05]/5 rounded-lg overflow-x-auto">
+          <div className="flex items-center justify-between p-4 border-b border-[#441a05]/20">
+            <h3 className="text-lg font-semibold text-[#441a05]">
               সকল ফি কনফিগারেশন ({filteredFeesName?.length} টি)
             </h3>
             <button
@@ -1080,7 +1080,7 @@ const AddFeesName = () => {
 
           {/* Compact Filter Panel */}
           {filters.showFilters && (
-            <div className="bg-white/10 p-3 border-b border-white/20 animate-fadeIn">
+            <div className="bg-[#441a05]/10 p-3 border-b border-[#441a05]/20 animate-fadeIn">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {/* Class Filter */}
                 <div>
@@ -1149,47 +1149,47 @@ const AddFeesName = () => {
             </div>
           )}
           {filteredFeesName?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
           ) : (
             <table className="w-full border-collapse">
-              <thead className="bg-white/10">
+              <thead className="bg-[#441a05]/10">
                 <tr>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি টাইটেল</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শ্রেণি</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">বোর্ডিং</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">স্ট্যাটাস</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি টাইটেল</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শ্রেণি</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শিক্ষাবর্ষ</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি সাবহেড</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শুরুর তারিখ</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শেষের তারিখ</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">বোর্ডিং</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">স্ট্যাটাস</th>
                   {(hasChangePermission || hasDeletePermission) && (
-                    <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ক্রিয়া</th>
+                    <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ক্রিয়া</th>
                   )}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/20">
+              <tbody className="divide-y divide-[#441a05]/20">
                 {filteredFeesName?.map((fee, index) => {
                   const className = classes?.find((c) => c.id === feePackages?.find((p) => p.id === fee.fee_amount_id)?.student_class)?.student_class.name || 'অজানা';
                   const subheadName = feeSubheads?.find((s) => s.id === fee.fees_sub_type)?.name || 'অজানা';
                   const academicYearName = academicYears?.find((y) => y.id === fee.academic_year)?.name || 'অজানা';
                   return (
-                    <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <td className="border border-white/20 p-3 text-sm text-white">{fee.fees_title}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{className}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{academicYearName}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{subheadName}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">
+                    <tr key={index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{fee.fees_title}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{className}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{academicYearName}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{subheadName}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                         <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${fee.is_boarding ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white'}`}
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${fee.is_boarding ? 'bg-pmColor text-[#441a05]' : 'bg-gray-500/20 text-[#441a05]'}`}
                         >
                           {fee.is_boarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}
                         </span>
                       </td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
                       {(hasChangePermission || hasDeletePermission) && (
-                        <td className="border border-white/20 p-3 text-sm text-white">
+                        <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                           <div className="flex space-x-2">
                             {hasChangePermission && (
                               <button

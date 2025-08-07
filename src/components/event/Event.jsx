@@ -301,7 +301,7 @@ const Event = () => {
       </style>
 
       {/* Calendar */}
-      <div className=" border border-white/20 py-8 rounded-2xl animate-fadeIn">
+      <div className=" border border-[#441a05]/20 py-8 rounded-2xl animate-fadeIn">
         <div style={styles.calendarContainer}>
           <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin]}
@@ -331,7 +331,7 @@ const Event = () => {
       {/* Modal for Creating/Editing/Deleting Events */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               {modalAction === "create"
                 ? "নতুন ইভেন্ট তৈরি করুন"
@@ -512,7 +512,7 @@ const styles = {
   calendarContainer: {
     // width: "100%",
     // maxWidth: "1200px",
-    background: "white",
+    background: "[#441a05]",
     borderRadius: "16px",
     padding: "20px",
     transition: "transform 0.3s ease",

@@ -38,7 +38,7 @@ export default function PaymentStat() {
         </h5>
 
         {/* Table starts from here */}
-        <div className="rounded-2xl border border-[#9d9087]/50 bg-white/5 animate-fadeIn">
+        <div className="rounded-2xl border border-[#9d9087]/50 bg-[#441a05]/5 animate-fadeIn">
           {/* Table heading */}
           <h4 className="bg-pmColor text-[#441a05]font-bold p-2 text-center rounded-t-2xl animate-scaleIn">
             পেমেন্ট বকেয়া সারাংশ

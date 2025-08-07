@@ -54,7 +54,7 @@
 //       color: #a64b00;
 //     ">
 //       <div style="
-//         background: white;
+//         background: [#441a05];
 //         padding: 40px;
 //         border-radius: 16px;
 //         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -174,7 +174,7 @@ export default BASE_URL
 //       color: #a64b00;
 //     ">
 //       <div style="
-//         background: white;
+//         background: [#441a05];
 //         padding: 40px;
 //         border-radius: 16px;
 //         box-shadow: 0 10px 30px rgba(0,0,0,0.1);

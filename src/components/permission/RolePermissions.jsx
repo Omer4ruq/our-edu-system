@@ -174,10 +174,10 @@ console.log("selectedGroup", selectedGroup)
         `}
       </style>
 
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center space-x-4">
-            <FaLock className="text-4xl text-white" />
+            <FaLock className="text-4xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               রোল পারমিশন ম্যানেজমেন্ট
             </h3>
@@ -209,7 +209,7 @@ console.log("selectedGroup", selectedGroup)
         {(isGroupsLoading ||
           isPermissionsLoading ||
           isGroupPermissionsLoading) && (
-          <div className="flex items-center space-x-2 text-white/70 animate-fadeIn mt-4">
+          <div className="flex items-center space-x-2 text-[#441a05]/70 animate-fadeIn mt-4">
             <FaSpinner className="animate-spin text-lg" />
             <span>ডেটা লোড হচ্ছে...</span>
           </div>
@@ -253,7 +253,7 @@ console.log("selectedGroup", selectedGroup)
                 onClick={() => handleGroupSelect(group)}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors duration-300 animate-scaleIn ${
                   selectedGroup?.id === group.id
-                    ? "bg-pmColor text-white"
+                    ? "bg-pmColor text-[#441a05]"
                     : "bg-gray-100 text-[#441a05]hover:bg-gray-300"
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -269,7 +269,7 @@ console.log("selectedGroup", selectedGroup)
       {/* Permissions List */}
       {selectedGroup ? (
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
             {selectedGroup.name.charAt(0).toUpperCase() +
               selectedGroup.name.slice(1)}{" "}
             এর জন্য পারমিশন
@@ -280,7 +280,7 @@ console.log("selectedGroup", selectedGroup)
               .map((appLabel, index) => (
                 <div
                   key={appLabel}
-                  className="mb-6 bg-white/5 rounded-lg p-6"
+                  className="mb-6 bg-[#441a05]/5 rounded-lg p-6"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h3 className="text-lg font-medium text-[#441a05]mb-4 capitalize">
@@ -310,12 +310,12 @@ console.log("selectedGroup", selectedGroup)
                           className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                             selectedPermissions.includes(permission.id)
                               ? "bg-pmColor border-pmColor tick-glow"
-                              : "bg-white/10 border-[#9d9087] hover:border-white"
+                              : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                           }`}
                         >
                           {selectedPermissions.includes(permission.id) && (
                             <svg
-                              className="w-4 h-4 text-white"
+                              className="w-4 h-4 text-[#441a05]"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -332,7 +332,7 @@ console.log("selectedGroup", selectedGroup)
                         </span>
 
                         {/* Label Text */}
-                        <span className="text-white">
+                        <span className="text-[#441a05]">
                           {permission.name}
                         </span>
                       </label>
@@ -341,11 +341,11 @@ console.log("selectedGroup", selectedGroup)
                 </div>
               ))
           ) : (
-            <p className="p-4 text-white/70">কোনো পারমিশন উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো পারমিশন উপলব্ধ নেই।</p>
           )}
         </div>
       ) : (
-        <p className="p-4 text-white/70 animate-fadeIn">
+        <p className="p-4 text-[#441a05]/70 animate-fadeIn">
           পারমিশন দেখতে এবং ম্যানেজ করতে একটি রোল নির্বাচন করুন।
         </p>
       )}
@@ -353,7 +353,7 @@ console.log("selectedGroup", selectedGroup)
       {/* Confirmation Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               পারমিশন আনলক নিশ্চিত করুন
             </h3>

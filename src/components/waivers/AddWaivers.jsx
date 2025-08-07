@@ -548,8 +548,8 @@ const AddWaivers = () => {
           }}
         />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn py-2 px-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
-            <h3 className="text-lg font-semibold text-white">ওয়েভার তালিকা</h3>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-[#441a05]/20">
+            <h3 className="text-lg font-semibold text-[#441a05]">ওয়েভার তালিকা</h3>
 
             {/* Filter Section (View Only Mode) */}
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
@@ -583,53 +583,53 @@ const AddWaivers = () => {
           {/* Waiver List Table (View Only Mode) */}
           <div className="overflow-y-auto max-h-[60vh]">
             {isWaiverLoading || isStudentLoading || isAcademicYearLoading || isFeeHeadsLoading || isFundsLoading ? (
-              <p className="p-4 text-white/70">ওয়েভার লোড হচ্ছে...</p>
+              <p className="p-4 text-[#441a05]/70">ওয়েভার লোড হচ্ছে...</p>
             ) : filteredWaivers.length === 0 ? (
-              <p className="p-4 text-white/70">কোনো ওয়েভার পাওয়া যায়নি।</p>
+              <p className="p-4 text-[#441a05]/70">কোনো ওয়েভার পাওয়া যায়নি।</p>
             ) : (
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-white/20">
-                  <thead className="bg-white/5">
+                <table className="min-w-full divide-y divide-[#441a05]/20">
+                  <thead className="bg-[#441a05]/5">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ছাত্র
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         বৃত্তির পরিমাণ (%)
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         শিক্ষাবর্ষ
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ফি প্রকার
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ফান্ড
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         বর্ণনা
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {filteredWaivers.map((waiver, index) => (
                       <tr
                         key={waiver.id}
-                        className="bg-white/5 animate-fadeIn"
+                        className="bg-[#441a05]/5 animate-fadeIn"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           {students?.find((s) => s.id === waiver.student_id)?.name ||
                             `ছাত্র ${waiver.student_id}`}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                           {waiver.waiver_amount}%
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                           {academicYears?.find((y) => y.id === waiver.academic_year)?.name ||
                             `বছর ${waiver.academic_year}`}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                           {waiver.fee_types
                             .map(
                               (id) =>
@@ -637,11 +637,11 @@ const AddWaivers = () => {
                             )
                             .join(", ")}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                           {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                             `ফান্ড ${waiver.fund_id}`}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                           {waiver.description || "-"}
                         </td>
                       </tr>
@@ -657,7 +657,7 @@ const AddWaivers = () => {
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -694,7 +694,7 @@ const AddWaivers = () => {
           }
           .report-button {
             background-color: #441a05;
-            color: white;
+            color: [#441a05];
             padding: 8px 16px;
             border-radius: 8px;
             transition: background-color 0.3s;
@@ -729,7 +729,7 @@ const AddWaivers = () => {
       {/* Modal */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
             <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ওয়েভার মুছে ফেলা নিশ্চিত করুন
             </h3>
@@ -747,7 +747,7 @@ const AddWaivers = () => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-[#441a05]"
                   }`}
                 aria-label="নিশ্চিত করুন"
               >
@@ -767,9 +767,9 @@ const AddWaivers = () => {
 
       {/* Add Waiver Form */}
       {hasAddPermission && isAdd && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-            <IoAddCircle className="text-4xl text-white" />
+            <IoAddCircle className="text-4xl text-[#441a05]" />
             <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               নতুন ওয়েভার যোগ করুন
             </h3>
@@ -810,41 +810,41 @@ const AddWaivers = () => {
                 ছাত্র নির্বাচন করুন
               </h4>
               {isStudentLoading ? (
-                <p className="text-white/70">ছাত্রদের লোড হচ্ছে...</p>
+                <p className="text-[#441a05]/70">ছাত্রদের লোড হচ্ছে...</p>
               ) : filteredStudents.length === 0 ? (
-                <p className="text-white/70">কোনো ছাত্র পাওয়া যায়নি।</p>
+                <p className="text-[#441a05]/70">কোনো ছাত্র পাওয়া যায়নি।</p>
               ) : (
                 <div className="overflow-x-auto max-h-[30vh]">
-                  <table className="min-w-full divide-y divide-white/20">
-                    <thead className="bg-white/5">
+                  <table className="min-w-full divide-y divide-[#441a05]/20">
+                    <thead className="bg-[#441a05]/5">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           নির্বাচন
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           নাম
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           ইউজার আইডি
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           ফি প্রকার
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           ওয়েভার পরিমাণ (%)
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           শিক্ষাবর্ষ
                         </th>
-                        {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        {/* <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           ফান্ড
                         </th> */}
-                        <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                           বর্ণনা
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-white/20">
+                    <tbody className="divide-y divide-[#441a05]/20">
                       {filteredStudents.map((student, index) => {
                         const waiver = studentWaivers[student.id] || {};
                         const isDisabled = isCreating || !selectedStudents.includes(student.id);
@@ -853,10 +853,10 @@ const AddWaivers = () => {
                         return (
                           <tr
                             key={student.id}
-                            className="bg-white/5 animate-fadeIn"
+                            className="bg-[#441a05]/5 animate-fadeIn"
                             style={{ animationDelay: `${index * 0.1}s` }}
                           >
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                               <label className="inline-flex items-center cursor-pointer">
                                 <input
                                   type="checkbox"
@@ -867,7 +867,7 @@ const AddWaivers = () => {
                                 <span
                                   className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn ${selectedStudents.includes(student.id)
                                       ? "bg-pmColor border-pmColor"
-                                      : "bg-white/10 border-[#9d9087] hover:border-white"
+                                      : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
                                     }`}
                                 >
                                   {selectedStudents.includes(student.id) && (
@@ -890,15 +890,15 @@ const AddWaivers = () => {
                               </label>
                             </td>
 
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                               {student.name}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                               {student.user_id}
                             </td>
 
                             {/* Fee Types Select */}
-                            <td className="px-6 py-4 whitespace-nowrap">
+                            <td className="px-6 py-4 [#441a05]space-nowrap">
                               <Select
                                 isMulti
                                 options={feeTypeOptions}
@@ -923,7 +923,7 @@ const AddWaivers = () => {
                             </td>
 
                             {/* Waiver Amount Input */}
-                            <td className="px-6 py-4 whitespace-nowrap">
+                            <td className="px-6 py-4 [#441a05]space-nowrap">
                               <input
                                 type="number"
                                 value={waiver.waiver_amount || ""}
@@ -944,7 +944,7 @@ const AddWaivers = () => {
                             </td>
 
                             {/* Academic Year Select */}
-                            <td className="px-6 py-4 whitespace-nowrap">
+                            <td className="px-6 py-4 [#441a05]space-nowrap">
                               <Select
                                 options={academicYearOptions}
                                 value={
@@ -970,7 +970,7 @@ const AddWaivers = () => {
                             </td>
 
                             {/* Fund Select */}
-                            {/* <td className="px-6 py-4 whitespace-nowrap">
+                            {/* <td className="px-6 py-4 [#441a05]space-nowrap">
                               <Select
                                 options={fundOptions}
                                 value={
@@ -995,7 +995,7 @@ const AddWaivers = () => {
                             </td> */}
 
                             {/* Description Input */}
-                            <td className="px-6 py-4 whitespace-nowrap">
+                            <td className="px-6 py-4 [#441a05]space-nowrap">
                               <input
                                 type="text"
                                 value={waiver.description || ""}
@@ -1029,49 +1029,49 @@ const AddWaivers = () => {
                 নির্বাচিত ছাত্রদের তথ্য
               </h4>
               <div className="overflow-x-auto max-h-[30vh]">
-                <table className="min-w-full divide-y divide-white/20">
-                  <thead className="bg-white/5">
+                <table className="min-w-full divide-y divide-[#441a05]/20">
+                  <thead className="bg-[#441a05]/5">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         নাম
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ইউজার আইডি
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ফি প্রকার
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ওয়েভার পরিমাণ (%)
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         শিক্ষাবর্ষ
                       </th>
-                      {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      {/* <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ফান্ড
                       </th> */}
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         বর্ণনা
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {selectedStudents.map((studentId, index) => {
                       const student = students?.find((s) => s.id === studentId);
                       const waiver = studentWaivers[studentId] || {};
                       return (
                         <tr
                           key={studentId}
-                          className="bg-white/5 animate-fadeIn"
+                          className="bg-[#441a05]/5 animate-fadeIn"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {student?.name || `ছাত্র ${studentId}`}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {student?.user_id || "-"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {waiver.fee_types
                               ?.map(
                                 (id) =>
@@ -1080,19 +1080,19 @@ const AddWaivers = () => {
                               )
                               .join(", ") || "-"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {waiver.waiver_amount || "-"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {academicYearOptions.find(
                               (opt) => opt.value === waiver.academic_year
                             )?.label || "-"}
                           </td>
-                          {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          {/* <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                               "-"}
                           </td> */}
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                             {waiver.description || "-"}
                           </td>
                         </tr>
@@ -1132,9 +1132,9 @@ const AddWaivers = () => {
 
       {/* Edit Waiver Form */}
       {hasChangePermission && !isAdd && (
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-            <FaEdit className="text-3xl text-white" />
+            <FaEdit className="text-3xl text-[#441a05]" />
             <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
               ওয়েভার সম্পাদনা করুন
             </h3>
@@ -1321,8 +1321,8 @@ const AddWaivers = () => {
 
       {/* Waiver List */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn py-2 px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-white/20">
-          <h3 className="text-lg font-semibold text-white">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4 border-b border-[#441a05]/20">
+          <h3 className="text-lg font-semibold text-[#441a05]">
             ওয়েভার তালিকা
           </h3>
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
@@ -1356,58 +1356,58 @@ const AddWaivers = () => {
         </div>
         <div className="overflow-y-auto max-h-[60vh]">
           {isWaiverLoading || isStudentLoading || isAcademicYearLoading || isFeeHeadsLoading || isFundsLoading ? (
-            <p className="p-4 text-white/70">ওয়েভার লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">ওয়েভার লোড হচ্ছে...</p>
           ) : filteredWaivers.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো ওয়েভার পাওয়া যায়নি।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ওয়েভার পাওয়া যায়নি।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5 sticky top-0 z-10">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5 sticky top-0 z-10">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ছাত্র
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বৃত্তির পরিমাণ (%)
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       শিক্ষাবর্ষ
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ফি প্রকার
                     </th>
-                    {/* <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    {/* <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ফান্ড
                     </th> */}
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       বর্ণনা
                     </th>
                     {(hasChangePermission || hasDeletePermission) && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         অ্যাকশন
                       </th>
                     )}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredWaivers.map((waiver, index) => (
                     <tr
                       key={waiver.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {students?.find((s) => s.id === waiver.student_id)?.name ||
                           `ছাত্র ${waiver.student_id}`}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {waiver.waiver_amount}%
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {academicYears?.find((y) => y.id === waiver.academic_year)?.name ||
                           `বছর ${waiver.academic_year}`}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {waiver.fee_types
                           .map(
                             (id) =>
@@ -1415,15 +1415,15 @@ const AddWaivers = () => {
                           )
                           .join(", ")}
                       </td>
-                      {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      {/* <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {fundOptions.find((opt) => opt.value === waiver.fund_id)?.label ||
                           `ফান্ড ${waiver.fund_id}`}
                       </td> */}
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                         {waiver.description || "-"}
                       </td>
                       {(hasChangePermission || hasDeletePermission) && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditClick(waiver)}

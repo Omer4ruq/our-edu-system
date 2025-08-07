@@ -105,14 +105,14 @@ const Testimonial = () => {
   const renderCertificate = () => {
     if (!selectedStudent || !selectedYear) {
       return (
-        <p className="p-4 text-white/70 animate-fadeIn">
+        <p className="p-4 text-[#441a05]/70 animate-fadeIn">
           ছাত্র এবং শিক্ষাবর্ষ নির্বাচন করুন
         </p>
       );
     }
     if (isStudentsLoading || isYearsLoading || isInstituteLoading) {
       return (
-        <p className="p-4 text-white/70 animate-fadeIn">
+        <p className="p-4 text-[#441a05]/70 animate-fadeIn">
           <FaSpinner className="animate-spin text-lg mr-2" />
           প্রত্যয়ন পত্র ডেটা লোড হচ্ছে...
         </p>
@@ -204,7 +204,7 @@ const Testimonial = () => {
         </div>
 
         {/* Serial and Date */}
-        <div className="flex justify-between mt-[0mm] text-[5mm] text-white">
+        <div className="flex justify-between mt-[0mm] text-[5mm] text-[#441a05]">
           <div>
             ক্রমিকঃ{" "}
             <input
@@ -215,7 +215,7 @@ const Testimonial = () => {
           <div>
             তারিখঃ{" "}
             <input
-              className="w-[30mm] text-center bg-transparent border-b border-white"
+              className="w-[30mm] text-center bg-transparent border-b border-[#441a05]"
               defaultValue={formattedDate}
             />
           </div>
@@ -432,7 +432,7 @@ const Testimonial = () => {
         `}
       </style>
 
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-2 mb-6">
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             প্রত্যয়ন পত্র
@@ -483,7 +483,7 @@ const Testimonial = () => {
           </label>
         </div>
         {(isStudentsLoading || isYearsLoading || isInstituteLoading) && (
-          <div className="flex items-center space-x-2 text-white/70 animate-fadeIn mt-4">
+          <div className="flex items-center space-x-2 text-[#441a05]/70 animate-fadeIn mt-4">
             <FaSpinner className="animate-spin text-lg" />
             <span>ডেটা লোড হচ্ছে...</span>
           </div>

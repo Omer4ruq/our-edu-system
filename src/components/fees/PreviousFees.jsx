@@ -339,7 +339,7 @@ const PreviousFees = () => {
   })) || [];
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -352,9 +352,9 @@ const PreviousFees = () => {
         <div className="py-8">
             <Toaster position="top-right" reverseOrder={false} />
              {/* Student Search Form */}
-             <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
+             <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
                 <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-                    <IoAddCircle className="text-3xl text-white" />
+                    <IoAddCircle className="text-3xl text-[#441a05]" />
                     <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                     পূর্ববর্তী ফি
                     </h3>
@@ -389,7 +389,7 @@ const PreviousFees = () => {
 
             {/* Student Information */}
             {selectedStudent && (
-              <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+              <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
                 <h2 className="text-xl font-semibold text-[#441a05]mb-4">ছাত্রের তথ্য</h2>
                 <p><strong>নাম:</strong> {selectedStudent.name}</p>
                 <p><strong>পিতার নাম:</strong> {selectedStudent.father_name || 'অজানা'}</p>
@@ -401,34 +401,34 @@ const PreviousFees = () => {
             {/* Read-only Fees Table */}
             {filteredFees.length > 0 && (
                 <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-                    <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">পূর্ববর্তী ফি</h2>
+                    <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">পূর্ববর্তী ফি</h2>
                     <div className="overflow-x-auto">
-                        <table className="min-w-full divide-y divide-white/20">
-                            <thead className="bg-white/5">
+                        <table className="min-w-full divide-y divide-[#441a05]/20">
+                            <thead className="bg-[#441a05]/5">
                                 <tr>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি শিরোনাম</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পরিমাণ</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ওয়েভার</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ডিসকাউন্ট</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">প্রদান করা হয়েছে</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">বাকি</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">স্থিতি</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ফি শিরোনাম</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পরিমাণ</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ওয়েভার</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ডিসকাউন্ট</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">প্রদান করা হয়েছে</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">বাকি</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">স্থিতি</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/20">
+                            <tbody className="divide-y divide-[#441a05]/20">
                                 {filteredFees.map((fee, index) => {
                                     const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
                                     const { status, discountAmount, paidAmount } = getFeeStatus(fee);
                                     const dueAmount = (parseFloat(payableAfterWaiver) - parseFloat(discountAmount) - parseFloat(paidAmount)).toFixed(2);
                                     return (
-                                        <tr key={fee.id} className="bg-white/5">
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.fees_title}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.amount}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{waiverAmount}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{discountAmount}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{paidAmount}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400">{Math.max(0, dueAmount).toFixed(2)}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                        <tr key={fee.id} className="bg-[#441a05]/5">
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{fee.fees_title}</td>
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{fee.amount}</td>
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{waiverAmount}</td>
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{discountAmount}</td>
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{paidAmount}</td>
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-red-400">{Math.max(0, dueAmount).toFixed(2)}</td>
+                                            <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                                                 <span className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID' ? 'text-[#441a05]bg-pmColor' : status === 'PARTIAL' ? 'text-yellow-800 bg-yellow-100/50' : 'text-red-800 bg-red-100/50'}`}>
                                                     {status === 'PAID' ? 'প্রদান' : status === 'PARTIAL' ? 'আংশিক' : 'অপ্রদান'}
                                                 </span>
@@ -457,9 +457,9 @@ const PreviousFees = () => {
       <div>
         {/* Student Search */}
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && (
-            <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
+            <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
                 <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-                    <IoAddCircle className="text-3xl text-white" />
+                    <IoAddCircle className="text-3xl text-[#441a05]" />
                     <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                     পূর্ববর্তী ফি
                     </h3>
@@ -517,7 +517,7 @@ const PreviousFees = () => {
 
         {/* Student Information */}
         {selectedStudent && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <h2 className="text-xl font-semibold text-[#441a05]mb-4">ছাত্রের তথ্য</h2>
             <p><strong>নাম:</strong> {selectedStudent.name}</p>
             <p><strong>পিতার নাম:</strong> {selectedStudent.father_name || 'অজানা'}</p>
@@ -532,22 +532,22 @@ const PreviousFees = () => {
         {/* Previous Fees Table */}
         {(hasAddPermission || hasChangePermission) && filteredFees.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">পূর্ববর্তী ফি</h2>
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">পূর্ববর্তী ফি</h2>
             <form onSubmit={handleSubmit}>
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-white/20">
-                  <thead className="bg-white/5">
+                <table className="min-w-full divide-y divide-[#441a05]/20">
+                  <thead className="bg-[#441a05]/5">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি শিরোনাম</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পরিমাণ</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ওয়েভার পরিমাণ</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ডিসকাউন্ট ইনপুট</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পেয়েবল পরিমাণ</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">এখন প্রদান</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">বাকি পরিমাণ</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ডিসকাউন্ট পরিমাণ</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">স্থিতি</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ফি শিরোনাম</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পরিমাণ</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ওয়েভার পরিমাণ</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ডিসকাউন্ট ইনপুট</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পেয়েবল পরিমাণ</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">এখন প্রদান</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">বাকি পরিমাণ</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ডিসকাউন্ট পরিমাণ</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">স্থিতি</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         <label className="inline-flex items-center cursor-pointer">
                           <input
                             type="checkbox"
@@ -557,14 +557,14 @@ const PreviousFees = () => {
                             className="hidden"
                           />
                           <span className={`w-6 h-6 border-2 rounded-md flex items-center justify-center`}>
-                            {selectAll && <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>}
+                            {selectAll && <svg className="w-4 h-4 text-[#441a05]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>}
                           </span>
-                          <span className="ml-2 text-white/70 text-nowrap">সব নির্বাচন</span>
+                          <span className="ml-2 text-[#441a05]/70 text-nowrap">সব নির্বাচন</span>
                         </label>
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/20">
+                  <tbody className="divide-y divide-[#441a05]/20">
                     {filteredFees.map((fee, index) => {
                       const { waiverAmount, payableAfterWaiver } = calculatePayableAmount(fee, waivers);
                       const { status, discountAmount, paidAmount } = getFeeStatus(fee);
@@ -576,7 +576,7 @@ const PreviousFees = () => {
                       const dueAmount = (parseFloat(finalPayable) - paidNow).toFixed(2);
 
                       return (
-                        <tr key={fee.id} className={`bg-white/5`}>
+                        <tr key={fee.id} className={`bg-[#441a05]/5`}>
                           <td className="px-6 py-4">{fee.fees_title}</td>
                           <td className="px-6 py-4">{fee.amount}</td>
                           <td className="px-6 py-4">{waiverAmount}</td>
@@ -629,16 +629,16 @@ const PreviousFees = () => {
           </div>
         )}
         {(hasAddPermission || hasChangePermission) && filteredFees.length === 0 && selectedStudent && (
-          <p className="text-white/70 mb-8 animate-fadeIn">এই ছাত্রের জন্য কোনো পূর্ববর্তী ফি উপলব্ধ নেই।</p>
+          <p className="text-[#441a05]/70 mb-8 animate-fadeIn">এই ছাত্রের জন্য কোনো পূর্ববর্তী ফি উপলব্ধ নেই।</p>
         )}
 
         {/* Fee History Table */}
         {feesData?.fees_records?.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি ইতিহাস</h2>
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">ফি ইতিহাস</h2>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
                     <th className="px-6 py-3">ফি প্রকার</th>
                     <th className="px-6 py-3">মোট প্রদান পরিমাণ</th>
@@ -647,7 +647,7 @@ const PreviousFees = () => {
                     <th className="px-6 py-3">ক্রিয়াকলাপ</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {feesData.fees_records.map((fee, index) => (
                     <tr key={fee.id} >
                       <td className="px-6 py-4">{fee.feetype_name}</td>

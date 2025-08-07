@@ -38,7 +38,7 @@ const ViewOnlyServiceFees = ({ selectedServiceType, setSelectedServiceType, serv
 
   return (
     <div className="py-8 w-full relative">
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
         <h2 className="text-2xl font-bold text-[#441a05]tracking-tight mb-6">সার্ভিস ফি কনফিগারেশন</h2>
         
         {/* Service Type Tabs - View Only */}
@@ -51,7 +51,7 @@ const ViewOnlyServiceFees = ({ selectedServiceType, setSelectedServiceType, serv
                 onClick={() => setSelectedServiceType(service.key)}
                 className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${
                   selectedServiceType === service.key
-                    ? `${service.color} text-white`
+                    ? `${service.color} text-[#441a05]`
                     : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'
                 }`}
               >
@@ -63,44 +63,44 @@ const ViewOnlyServiceFees = ({ selectedServiceType, setSelectedServiceType, serv
         </div>
 
         {filteredFeesName?.length === 0 ? (
-          <p className="p-4 text-white/70">কোনো {serviceTypes.find(s => s.key === selectedServiceType)?.label} ফি কনফিগারেশন পাওয়া যায়নি।</p>
+          <p className="p-4 text-[#441a05]/70">কোনো {serviceTypes.find(s => s.key === selectedServiceType)?.label} ফি কনফিগারেশন পাওয়া যায়নি।</p>
         ) : (
-          <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+          <div className="mb-6 bg-[#441a05]/5 rounded-lg overflow-x-auto">
+            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
               {serviceTypes.find(s => s.key === selectedServiceType)?.label} ফি কনফিগারেশন
             </h3>
             <table className="w-full border-collapse">
-              <thead className="bg-white/10">
+              <thead className="bg-[#441a05]/10">
                 <tr>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি টাইটেল</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শিক্ষাবর্ষ</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">ফি সাবহেড</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শুরুর তারিখ</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">শেষের তারিখ</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">সার্ভিস ধরন</th>
-                  <th className="border border-white/20 p-3 text-left text-sm font-medium text-white/70">স্ট্যাটাস</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি টাইটেল</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শিক্ষাবর্ষ</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">ফি সাবহেড</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শুরুর তারিখ</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">শেষের তারিখ</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">সার্ভিস ধরন</th>
+                  <th className="border border-[#441a05]/20 p-3 text-left text-sm font-medium text-[#441a05]/70">স্ট্যাটাস</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/20">
+              <tbody className="divide-y divide-[#441a05]/20">
                 {filteredFeesName?.map((fee, index) => {
                   const subheadName = feeSubheads?.find((s) => s.id === fee.fees_sub_type)?.name || 'অজানা';
                   const academicYearName = academicYears?.find((y) => y.id === fee.academic_year)?.name || 'অজানা';
                   const serviceDisplay = getServiceTypeDisplay(fee);
                   return (
-                    <tr key={index} className="bg-white/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <td className="border border-white/20 p-3 text-sm text-white">{fee.fees_title}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{academicYearName}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{subheadName}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
-                      <td className="border border-white/20 p-3 text-sm text-white">
+                    <tr key={index} className="bg-[#441a05]/5 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{fee.fees_title}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{academicYearName}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{subheadName}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{format(new Date(fee.startdate), 'dd-MM-yyyy')}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{format(new Date(fee.enddate), 'dd-MM-yyyy')}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">
                         <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${serviceDisplay.color} text-white`}
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${serviceDisplay.color} text-[#441a05]`}
                         >
                           {serviceDisplay.label}
                         </span>
                       </td>
-                      <td className="border border-white/20 p-3 text-sm text-white">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
+                      <td className="border border-[#441a05]/20 p-3 text-sm text-[#441a05]">{fee.status === 'ACTIVE' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</td>
                     </tr>
                   );
                 })}

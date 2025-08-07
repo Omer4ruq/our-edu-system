@@ -249,9 +249,9 @@ const CoachingAllocation = () => {
   // if (permissionsLoading) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-  //         <div className="text-white">
+  //         <div className="text-[#441a05]">
   //           {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
   //         </div>
   //       </div>
@@ -262,7 +262,7 @@ const CoachingAllocation = () => {
   // if (!hasViewPermission) {
   //   return (
   //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+  //       <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
   //         <div className="text-secColor text-xl font-semibold">
   //           {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
   //         </div>
@@ -328,16 +328,16 @@ const CoachingAllocation = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'কোচিং বরাদ্দ' : 'Coaching Allocation'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'শিক্ষার্থীদের কোচিং প্যাকেজ এবং ব্যাচে বরাদ্দ করুন' : 'Allocate students to coaching packages and batches'}
             </p>
           </div>
@@ -348,12 +348,12 @@ const CoachingAllocation = () => {
 
       {/* Allocation Form */}
       {/* {hasAddPermission && ( */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               <IoAddCircle className="text-pmColor text-3xl" />
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'নতুন বরাদ্দ' : 'New Allocation'}
             </h3>
           </div>
@@ -370,22 +370,22 @@ const CoachingAllocation = () => {
                   value={studentSearchTerm}
                   onChange={(e) => handleStudentSearch(e.target.value)}
                   onFocus={() => setShowStudentSearch(true)}
-                  className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                  className="w-full pl-10 bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                   placeholder={languageCode === 'bn' ? 'ইউজার আইডি বা ইউজারনেম দিয়ে অনুসন্ধান করুন...' : 'Search by User ID or Username...'}
                 />
-                <FaSearch className="absolute left-3 top-4 text-white/60" />
+                <FaSearch className="absolute left-3 top-4 text-[#441a05]/60" />
                 {studentLoading && (
                   <div className="absolute right-3 top-3.5">
                     <FaSpinner className="animate-spin text-pmColor" />
                   </div>
                 )}
                 {showStudentSearch && searchResults.length > 0 && (
-                  <div className="absolute z-10 w-full mt-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                  <div className="absolute z-10 w-full mt-1 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                     {searchResults.map((student) => (
                       <div
                         key={student.id}
                         onClick={() => handleStudentSelect(student)}
-                        className="px-4 py-3 hover:bg-white/5 cursor-pointer border-b border-white/10 last:border-b-0"
+                        className="px-4 py-3 hover:bg-[#441a05]/5 cursor-pointer border-b border-[#441a05]/10 last:border-b-0"
                       >
                         <div className="flex items-center space-x-3">
                           <div className="flex-shrink-0">
@@ -396,11 +396,11 @@ const CoachingAllocation = () => {
                             </div>
                           </div>
                           <div className="flex-1">
-                            <div className="font-medium text-white">{student.name}</div>
-                            <div className="text-sm text-white/70">
+                            <div className="font-medium text-[#441a05]">{student.name}</div>
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'ইউজারনেম:' : 'Username:'} {student.username} | {languageCode === 'bn' ? 'ইউজার আইডি:' : 'User ID:'} {student.user_id}
                             </div>
-                            <div className="text-sm text-white/70">
+                            <div className="text-sm text-[#441a05]/70">
                               {languageCode === 'bn' ? 'শ্রেণি:' : 'Class:'} {student.class_name} | {languageCode === 'bn' ? 'রোল:' : 'Roll:'} {student.roll_no} | {languageCode === 'bn' ? 'ফোন:' : 'Phone:'} {student.phone_number}
                             </div>
                           </div>
@@ -410,14 +410,14 @@ const CoachingAllocation = () => {
                   </div>
                 )}
                 {showStudentSearch && searchParams && !studentLoading && searchResults.length === 0 && (
-                  <div className="absolute z-10 w-full mt-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg">
-                    <div className="px-4 py-3 text-white/70 text-center">
+                  <div className="absolute z-10 w-full mt-1 bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-xl shadow-lg">
+                    <div className="px-4 py-3 text-[#441a05]/70 text-center">
                       {languageCode === 'bn' ? 'এই অনুসন্ধান শব্দের সাথে কোনো শিক্ষার্থী পাওয়া যায়নি' : 'No student found with this search term'}
                     </div>
                   </div>
                 )}
                 {selectedStudent && (
-                  <div className="mt-2 p-4 bg-white/5 border border-white/20 rounded-xl animate-scaleIn">
+                  <div className="mt-2 p-4 bg-[#441a05]/5 border border-[#441a05]/20 rounded-xl animate-scaleIn">
                     <div className="flex justify-between items-start">
                       <div className="flex items-center space-x-3">
                         <div className="h-12 w-12 rounded-full bg-pmColor/20 flex items-center justify-center">
@@ -426,16 +426,16 @@ const CoachingAllocation = () => {
                           </span>
                         </div>
                         <div>
-                          <div className="font-medium text-white">
+                          <div className="font-medium text-[#441a05]">
                             {selectedStudent.name}
                           </div>
-                          <div className="text-sm text-white/70">
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'ইউজারনেম:' : 'Username:'} {selectedStudent.username} | {languageCode === 'bn' ? 'ইউজার আইডি:' : 'User ID:'} {selectedStudent.user_id}
                           </div>
-                          <div className="text-sm text-white/70">
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'শ্রেণি:' : 'Class:'} {selectedStudent.class_name} | {languageCode === 'bn' ? 'সেকশন:' : 'Section:'} {selectedStudent.section_name} | {languageCode === 'bn' ? 'রোল:' : 'Roll:'} {selectedStudent.roll_no}
                           </div>
-                          <div className="text-sm text-white/70">
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'ফোন:' : 'Phone:'} {selectedStudent.phone_number} | {languageCode === 'bn' ? 'লিঙ্গ:' : 'Gender:'} {selectedStudent.gender}
                           </div>
                         </div>
@@ -447,7 +447,7 @@ const CoachingAllocation = () => {
                           setStudentSearchTerm('');
                           setSearchResults([]);
                         }}
-                        className="text-white/70 hover:text-white"
+                        className="text-[#441a05]/70 hover:text-[#441a05]"
                       >
                         ✕
                       </button>
@@ -498,7 +498,7 @@ const CoachingAllocation = () => {
                 isDisabled={isCreating || isAcademicYearsLoading}
               />
               {isAcademicYearsLoading && (
-                <p className="text-sm text-white/70 mt-1">
+                <p className="text-sm text-[#441a05]/70 mt-1">
                   {languageCode === 'bn' ? 'শিক্ষাবর্ষ লোড হচ্ছে...' : 'Loading academic years...'}
                 </p>
               )}
@@ -521,7 +521,7 @@ const CoachingAllocation = () => {
                 isDisabled={isCreating || isPackagesLoading}
               />
               {isPackagesLoading && (
-                <p className="text-sm text-white/70 mt-1">
+                <p className="text-sm text-[#441a05]/70 mt-1">
                   {languageCode === 'bn' ? 'প্যাকেজ লোড হচ্ছে...' : 'Loading packages...'}
                 </p>
               )}
@@ -544,7 +544,7 @@ const CoachingAllocation = () => {
                 isDisabled={isCreating || isBatchesLoading}
               />
               {isBatchesLoading && (
-                <p className="text-sm text-white/70 mt-1">
+                <p className="text-sm text-[#441a05]/70 mt-1">
                   {languageCode === 'bn' ? 'ব্যাচ লোড হচ্ছে...' : 'Loading batches...'}
                 </p>
               )}
@@ -593,53 +593,53 @@ const CoachingAllocation = () => {
 
       {/* Allocation Summary */}
       {formData.student_id && formData.academic_year?.value && formData.coaching_package?.value && formData.batch?.value && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 p-3 rounded-xl">
               <FaList className="text-pmColor text-2xl" />
             </div>
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'বরাদ্দের সারাংশ' : 'Allocation Summary'}
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'শিক্ষার্থী:' : 'Student:'}</span>
-              <div className="text-white">
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'শিক্ষার্থী:' : 'Student:'}</span>
+              <div className="text-[#441a05]">
                 {selectedStudent?.name} ({selectedStudent?.username})
               </div>
-              <div className="text-sm text-white/70">
+              <div className="text-sm text-[#441a05]/70">
                 {languageCode === 'bn' ? 'ইউজার আইডি:' : 'User ID:'} {selectedStudent?.user_id} | {languageCode === 'bn' ? 'শ্রেণি:' : 'Class:'} {selectedStudent?.class_name}
               </div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'অবস্থা:' : 'Status:'}</span>
-              <div className="text-white">{formData.status.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'অবস্থা:' : 'Status:'}</span>
+              <div className="text-[#441a05]">{formData.status.label}</div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'}</span>
-              <div className="text-white">{formData.academic_year.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'শিক্ষাবর্ষ:' : 'Academic Year:'}</span>
+              <div className="text-[#441a05]">{formData.academic_year.label}</div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'প্যাকেজ:' : 'Package:'}</span>
-              <div className="text-white">
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'প্যাকেজ:' : 'Package:'}</span>
+              <div className="text-[#441a05]">
                 {getPackageName(formData.coaching_package.value)}
-                <span className="text-sm text-white/70 ml-2">
+                <span className="text-sm text-[#441a05]/70 ml-2">
                   (${getPackageAmount(formData.coaching_package.value)})
                 </span>
               </div>
             </div>
             <div>
-              <span className="text-sm font-medium text-white/70">{languageCode === 'bn' ? 'ব্যাচ:' : 'Batch:'}</span>
-              <div className="text-white">{formData.batch.label}</div>
+              <span className="text-sm font-medium text-[#441a05]/70">{languageCode === 'bn' ? 'ব্যাচ:' : 'Batch:'}</span>
+              <div className="text-[#441a05]">{formData.batch.label}</div>
             </div>
           </div>
         </div>
       )}
 
       {/* Recent Allocations */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'সাম্প্রতিক বরাদ্দ' : 'Recent Allocations'} ({allocations.length})</span>
@@ -650,7 +650,7 @@ const CoachingAllocation = () => {
           {isAllocationsLoading ? (
             <div className="p-8 text-center">
               <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'বরাদ্দ লোড হচ্ছে...' : 'Loading allocations...'}
               </p>
             </div>
@@ -670,30 +670,30 @@ const CoachingAllocation = () => {
             </div>
           ) : allocations.length === 0 ? (
             <div className="p-8 text-center">
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'কোনো বরাদ্দ পাওয়া যায়নি। উপরে আপনার প্রথম বরাদ্দ তৈরি করুন!' : 'No allocations found. Create your first allocation above!'}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শিক্ষার্থী' : 'Student'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'অবস্থা' : 'Status'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'প্যাকেজ' : 'Package'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ব্যাচ' : 'Batch'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
@@ -701,14 +701,14 @@ const CoachingAllocation = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {allocations.slice(0, 10).map((allocation, index) => (
                   <tr
                     key={allocation.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <div className="flex items-center">
                         <div className="h-8 w-8 rounded-full bg-pmColor/20 flex items-center justify-center">
                           <span className="text-pmColor font-medium text-xs">
@@ -716,16 +716,16 @@ const CoachingAllocation = () => {
                           </span>
                         </div>
                         <div className="ml-3">
-                          <div className="text-sm font-medium text-white">
+                          <div className="text-sm font-medium text-[#441a05]">
                             {allocation.student?.name || 'N/A'}
                           </div>
-                          <div className="text-sm text-white/70">
+                          <div className="text-sm text-[#441a05]/70">
                             {languageCode === 'bn' ? 'আইডি:' : 'ID:'} {allocation.student_id}
                           </div>
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 [#441a05]space-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                         allocation.status === 'Active' 
                           ? 'bg-green-500/20 text-green-500'
@@ -738,16 +738,16 @@ const CoachingAllocation = () => {
                           : allocation.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {getPackageName(allocation.coaching_package)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {getBatchName(allocation.batch)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">
                       {getAcademicYearName(allocation.academic_year)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white/70">
+                    <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                       {allocation.created_at ? new Date(allocation.created_at).toLocaleString(languageCode === 'bn' ? 'bn-BD' : 'en-US') : 'N/A'}
                     </td>
                   </tr>
@@ -760,42 +760,42 @@ const CoachingAllocation = () => {
 
             {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn">
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-pmColor/20 text-pmColor">
               <FaList className="text-2xl" />
             </div>
             <div className="ml-4">
-              <p className="text-sm font-medium text-white/70">
+              <p className="text-sm font-medium text-[#441a05]/70">
                 {languageCode === 'bn' ? 'মোট বরাদ্দ' : 'Total Allocations'}
               </p>
-              <p className="text-2xl font-bold text-white">{allocationStats.total}</p>
+              <p className="text-2xl font-bold text-[#441a05]">{allocationStats.total}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-green-500/20 text-green-500">
               <FaList className="text-2xl" />
             </div>
             <div className="ml-4">
-              <p className="text-sm font-medium text-white/70">
+              <p className="text-sm font-medium text-[#441a05]/70">
                 {languageCode === 'bn' ? 'সক্রিয় বরাদ্দ' : 'Active Allocations'}
               </p>
-              <p className="text-2xl font-bold text-white">{allocationStats.active}</p>
+              <p className="text-2xl font-bold text-[#441a05]">{allocationStats.active}</p>
             </div>
           </div>
         </div>
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
           <div className="flex items-center">
             <div className="p-3 rounded-full bg-purple-500/20 text-purple-500">
               <FaList className="text-2xl" />
             </div>
             <div className="ml-4">
-              <p className="text-sm font-medium text-white/70">
+              <p className="text-sm font-medium text-[#441a05]/70">
                 {languageCode === 'bn' ? 'উপলব্ধ প্যাকেজ' : 'Available Packages'}
               </p>
-              <p className="text-2xl font-bold text-white">{coachingPackages.length}</p>
+              <p className="text-2xl font-bold text-[#441a05]">{coachingPackages.length}</p>
             </div>
           </div>
         </div>

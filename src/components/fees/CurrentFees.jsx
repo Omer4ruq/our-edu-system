@@ -811,32 +811,32 @@ console.log("fees",fees)
       <div className="py-8">
         <Toaster position="top-right" reverseOrder={false} />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">বর্তমান ফি</h2>
+          <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">বর্তমান ফি</h2>
           {studentLoading ? (
-            <p className="p-4 text-white/70">লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">লোড হচ্ছে...</p>
           ) : studentError ? (
             <p className="p-4 text-red-400">ত্রুটি: {studentError.status || "অজানা"} - {JSON.stringify(studentError.data || {})}</p>
           ) : !selectedStudent ? (
-            <p className="p-4 text-white/70">কোনো ছাত্র নির্বাচিত নয়।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো ছাত্র নির্বাচিত নয়।</p>
           ) : filteredFees.length === 0 ? (
-            <p className="p-4 text-white/70">এই ছাত্রের জন্য কোনো বর্তমান ফি উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">এই ছাত্রের জন্য কোনো বর্তমান ফি উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ফি শিরোনাম</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পরিমাণ</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ওয়েভার পরিমাণ</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">লেট ফি</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ডিসকাউন্ট</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">পেয়েবল পরিমাণ</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">ইতিমধ্যে প্রদান</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">বাকি পরিমাণ</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">স্থিতি</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ফি শিরোনাম</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পরিমাণ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ওয়েভার পরিমাণ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">লেট ফি</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ডিসকাউন্ট</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">পেয়েবল পরিমাণ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">ইতিমধ্যে প্রদান</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">বাকি পরিমাণ</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">স্থিতি</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {filteredFees.map((fee, index) => {
                     const { waiverAmount, totalPayableWithLateFee, lateFeeAmount } = calculateTotalPayableAmount(fee, waivers);
                     const { status, storedDiscountAmount, totalPaidAmount } = getFeeStatus(fee);
@@ -845,16 +845,16 @@ console.log("fees",fees)
                     const rowClass = status === 'PAID' ? 'bg-green-50/10' : status === 'PARTIAL' ? 'bg-yellow-50/10' : '';
 
                     return (
-                      <tr key={fee.id} className={`bg-white/5 animate-fadeIn ${rowClass}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.fees_title}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.amount}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{waiverAmount}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-400">{lateFeeAmount}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{storedDiscountAmount}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{finalPayableAmount.toFixed(2)}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{totalPaidAmount}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-800">{dueAmount}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <tr key={fee.id} className={`bg-[#441a05]/5 animate-fadeIn ${rowClass}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{fee.fees_title}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{fee.amount}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{waiverAmount}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-orange-400">{lateFeeAmount}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{storedDiscountAmount}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{finalPayableAmount.toFixed(2)}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">{totalPaidAmount}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-red-800">{dueAmount}</td>
+                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                           <span className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID' ? 'text-[#441a05]bg-pmColor' : status === 'PARTIAL' ? 'text-yellow-800' : 'text-red-800'}`}>
                             {status === 'PAID' ? 'প্রদান' : status === 'PARTIAL' ? 'আংশিক' : 'অপ্রদান'}
                           </span>
@@ -872,7 +872,7 @@ console.log("fees",fees)
   }
 
   if (permissionsLoading) {
-    return <div className="p-4 text-white/70 animate-fadeIn">লোড হচ্ছে...</div>;
+    return <div className="p-4 text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</div>;
   }
 
   if (!hasViewPermission) {
@@ -933,9 +933,9 @@ console.log("fees",fees)
       <div>
         {/* Main Form Section with User ID Input and Student Information Side by Side */}
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-              <IoAddCircle className="text-3xl text-white" />
+              <IoAddCircle className="text-3xl text-[#441a05]" />
               <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                 বর্তমান ফি
               </h3>
@@ -953,7 +953,7 @@ console.log("fees",fees)
                     onChange={(e) => setUserId(e.target.value)}
                     onFocus={() => setIsUserDropdownOpen(true)}
                     placeholder="ইউজার আইডি লিখুন"
-                    className="w-full bg-transparent p-3 text-[#441a05]placeholder-white/70 pl-4 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:shadow-lg"
+                    className="w-full bg-transparent p-3 text-[#441a05]placeholder-[#441a05]/70 pl-4 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:shadow-lg"
                     disabled={isCreating || isUpdating}
                     aria-label="ইউজার আইডি"
                     title="ইউজার আইডি / User ID"
@@ -962,7 +962,7 @@ console.log("fees",fees)
                     <p className="text-red-400 text-sm mt-2 animate-fadeIn">ইউজার আইডি দিয়ে কোনো ছাত্র পাওয়া যায়নি: {userId}</p>
                   )}
                   {studentLoading && (
-                    <p className="text-white/70 text-sm mt-2 flex items-center space-x-2">
+                    <p className="text-[#441a05]/70 text-sm mt-2 flex items-center space-x-2">
                       <FaSpinner className="animate-spin" />
                       <span>খোঁজা হচ্ছে...</span>
                     </p>
@@ -989,34 +989,34 @@ console.log("fees",fees)
               </div>
 
               {/* Right Side: Student Information */}
-              <div className="bg-white/5 p-6 rounded-xl border border-white/10">
+              <div className="bg-[#441a05]/5 p-6 rounded-xl border border-[#441a05]/10">
                 <h4 className="text-lg font-semibold text-[#441a05]mb-4 flex items-center space-x-2">
                   <div className="w-2 h-2 bg-pmColor rounded-full"></div>
                   <span>ছাত্রের তথ্য</span>
                 </h4>
                 {selectedStudent ? (
                   <div className="space-y-3 animate-fadeIn">
-                    <div className="flex justify-between items-center py-2 border-b border-white/10">
-                      <span className="text-white/70 text-sm">নাম:</span>
+                    <div className="flex justify-between items-center py-2 border-b border-[#441a05]/10">
+                      <span className="text-[#441a05]/70 text-sm">নাম:</span>
                       <span className="text-[#441a05]font-medium">{selectedStudent.name}</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-white/10">
-                      <span className="text-white/70 text-sm">রোল নং:</span>
+                    <div className="flex justify-between items-center py-2 border-b border-[#441a05]/10">
+                      <span className="text-[#441a05]/70 text-sm">রোল নং:</span>
                       <span className="text-[#441a05]font-medium">{selectedStudent.roll_no || 'অজানা'}</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-white/10">
-                      <span className="text-white/70 text-sm">পিতার নাম:</span>
+                    <div className="flex justify-between items-center py-2 border-b border-[#441a05]/10">
+                      <span className="text-[#441a05]/70 text-sm">পিতার নাম:</span>
                       <span className="text-[#441a05]font-medium">{selectedStudent.father_name || 'অজানা'}</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-white/70 text-sm">মাতার নাম:</span>
+                      <span className="text-[#441a05]/70 text-sm">মাতার নাম:</span>
                       <span className="text-[#441a05]font-medium">{selectedStudent.mother_name || 'অজানা'}</span>
                     </div>
                   </div>
                 ) : (
-                  <div className="flex items-center justify-center py-8 text-white/50">
+                  <div className="flex items-center justify-center py-8 text-[#441a05]/50">
                     <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/10 flex items-center justify-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-[#441a05]/10 flex items-center justify-center">
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
@@ -1055,14 +1055,14 @@ console.log("fees",fees)
       {/* Current Fees Table */}
 {(hasAddPermission || hasChangePermission) && filteredFees.length > 0 && (
   <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-    <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">বর্তমান ফি</h2>
+    <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">বর্তমান ফি</h2>
     <form onSubmit={handleSubmit}>
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-white/20">
-          <thead className="bg-white/5">
+        <table className="min-w-full divide-y divide-[#441a05]/20">
+          <thead className="bg-[#441a05]/5">
             <tr>
               {/* Moved Select All column to the first position */}
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 <label className="inline-flex items-center cursor-pointer">
                   <input
                     type="checkbox"
@@ -1074,7 +1074,7 @@ console.log("fees",fees)
                     title="সব ফি নির্বাচন করুন / Select all fees"
                   />
                   <span
-                    className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${selectAll ? 'bg-pmColor border-pmColor' : 'bg-white/10 border-[#9d9087] hover:border-white'}`}
+                    className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${selectAll ? 'bg-pmColor border-pmColor' : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'}`}
                   >
                     {selectAll && (
                       <svg
@@ -1093,42 +1093,42 @@ console.log("fees",fees)
                       </svg>
                     )}
                   </span>
-                  <span className="ml-2 text-white/70 text-nowrap">সব নির্বাচন</span>
+                  <span className="ml-2 text-[#441a05]/70 text-nowrap">সব নির্বাচন</span>
                 </label>
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 ফি শিরোনাম
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 পরিমাণ
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 ওয়েভার পরিমাণ
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 লেট ফি
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 ডিসকাউন্ট ইনপুট
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 পেয়েবল পরিমাণ
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 ইতিমধ্যে প্রদান
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 এখন প্রদান
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 বাকি পরিমাণ
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                 স্থিতি
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/20">
+          <tbody className="divide-y divide-[#441a05]/20">
             {filteredFees.map((fee, index) => {
               const { waiverAmount, totalPayableWithLateFee, lateFeeAmount } = calculateTotalPayableAmount(fee, waivers);
               const { status, storedDiscountAmount, totalPaidAmount } = getFeeStatus(fee);
@@ -1151,11 +1151,11 @@ console.log("fees",fees)
               return (
                 <tr
                   key={fee.id}
-                  className={`bg-white/5 animate-fadeIn ${rowClass}`}
+                  className={`bg-[#441a05]/5 animate-fadeIn ${rowClass}`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Moved checkbox column to the first position */}
-                  <td className="px-6 py-4 whitespace-nowrap text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
                     <label className="inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
@@ -1169,7 +1169,7 @@ console.log("fees",fees)
                       <span
                         className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${selectedFees.includes(fee.id)
                           ? 'bg-pmColor border-pmColor'
-                          : 'bg-white/10 border-[#9d9087] hover:border-white'
+                          : 'bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]'
                           }`}
                       >
                         {selectedFees.includes(fee.id) && (
@@ -1191,7 +1191,7 @@ console.log("fees",fees)
                       </span>
                     </label>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     {fee.fees_title}
                     {existingRecord && (
                       <span className="ml-2 text-xs bg-blue-100/10 text-blue-400 px-2 py-1 rounded">
@@ -1199,16 +1199,16 @@ console.log("fees",fees)
                       </span>
                     )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     {fee.amount}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     {waiverAmount}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-400">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-orange-400">
                     {lateFeeAmount}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     <input
                       type="number"
                       value={discountInputs[fee.id] || ''}
@@ -1221,13 +1221,13 @@ console.log("fees",fees)
                       title="ডিসকাউন্ট ইনপুট / Discount input"
                     />
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     {finalPayableAmount.toFixed(2)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     {alreadyPaid.toFixed(2)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     <input
                       type="number"
                       value={paymentInputs[fee.id] || ''}
@@ -1240,10 +1240,10 @@ console.log("fees",fees)
                       title="এখন প্রদান / Pay now"
                     />
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-800">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-red-800">
                     {dueAmount}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                  <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                     <span
                       className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID'
                         ? 'text-[#441a05]bg-pmColor'
@@ -1291,7 +1291,7 @@ console.log("fees",fees)
   </div>
 )}
 {(hasAddPermission || hasChangePermission) && filteredFees.length === 0 && selectedStudent && (
-  <p className="text-white/70 mb-8 animate-fadeIn">এই ছাত্রের জন্য কোনো বর্তমান ফি উপলব্ধ নেই।</p>
+  <p className="text-[#441a05]/70 mb-8 animate-fadeIn">এই ছাত্রের জন্য কোনো বর্তমান ফি উপলব্ধ নেই।</p>
 )}
 
         {/* Fee History Table - Using the new component */}
@@ -1317,7 +1317,7 @@ console.log("fees",fees)
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'submit' && 'নির্বাচিত ফি নিশ্চিত করুন'}

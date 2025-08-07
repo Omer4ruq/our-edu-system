@@ -25,10 +25,10 @@ const EmployeesAdditions = () => {
 
   // Permission Logic
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, { skip: !group_id });
-  const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_employeeaddition') || false;
-  const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_employeeaddition') || false;
-  const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_employeeaddition') || false;
-  const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_employeeaddition') || false;
+  const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_employeeaddition') || true;
+  const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_employeeaddition') || true;
+  const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_employeeaddition') || true;
+  const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_employeeaddition') || true;
 
   // API Hooks
   const { data: staffProfiles = [], isLoading: isLoadingStaff, error: staffError } = useGetRoleStaffProfileApiQuery();
@@ -212,9 +212,9 @@ const EmployeesAdditions = () => {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
           </div>
         </div>
@@ -225,7 +225,7 @@ const EmployeesAdditions = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -290,16 +290,16 @@ const EmployeesAdditions = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'কর্মচারী অ্যাডিশন পরিচালনা' : 'Employee Additions Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'কর্মচারীদের জন্য পে-রোল অ্যাডিশন নিয়োগ এবং পরিচালনা করুন' : 'Assign and manage payroll additions for employees'}
             </p>
           </div>
@@ -307,12 +307,12 @@ const EmployeesAdditions = () => {
       </div>
 
       {/* Employee Selection */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4 mb-6">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-[#441a05]">
             {languageCode === 'bn' ? 'কর্মচারী নির্বাচন করুন' : 'Select Employee'}
           </h3>
         </div>
@@ -344,7 +344,7 @@ const EmployeesAdditions = () => {
       {selectedEmployee && (
         <div className="space-y-8">
           {/* Employee Details */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+          <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
             <h3 className="text-xl font-semibold text-[#441a05]mb-4">
               {languageCode === 'bn' ? 'কর্মচারী বিবরণ' : 'Employee Details'}
             </h3>
@@ -356,7 +356,7 @@ const EmployeesAdditions = () => {
               </div>
               <div>
                 <div className="text-[#441a05]font-medium">{selectedEmployee.name}</div>
-                <div className="text-sm text-white/70">
+                <div className="text-sm text-[#441a05]/70">
                   {languageCode === 'bn' ? 'স্টাফ আইডি' : 'Staff ID'}: {selectedEmployee.staff_id}
                 </div>
               </div>
@@ -365,21 +365,21 @@ const EmployeesAdditions = () => {
 
           {/* Add New Additions */}
           {hasAddPermission && availableAdditionTypes.length > 0 && (
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 animate-fadeIn">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="bg-pmColor/20 rounded-xl">
                   <IoAddCircle className="text-pmColor text-3xl" />
                 </div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-[#441a05]">
                   {languageCode === 'bn' ? 'নতুন অ্যাডিশন যোগ করুন' : 'Add New Additions'}
                 </h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {availableAdditionTypes.map((additionType) => (
-                  <div key={additionType.id} className="flex items-center space-x-3 p-4 border border-white/20 rounded-xl">
+                  <div key={additionType.id} className="flex items-center space-x-3 p-4 border border-[#441a05]/20 rounded-xl">
                     <div className="flex-1">
-                      <h4 className="font-medium text-white">{additionType.addition_type}</h4>
-                      <p className="text-sm text-white/70">
+                      <h4 className="font-medium text-[#441a05]">{additionType.addition_type}</h4>
+                      <p className="text-sm text-[#441a05]/70">
                         {additionType.is_every_month
                           ? (languageCode === 'bn' ? 'প্রতি মাসে' : 'Monthly')
                           : (languageCode === 'bn' ? 'এককালীন' : 'One-time')}
@@ -390,7 +390,7 @@ const EmployeesAdditions = () => {
                         type="number"
                         value={additionAmounts[additionType.id] || ''}
                         onChange={(e) => handleAmountChange(additionType.id, e.target.value)}
-                        className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[additionType.id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                        className={`w-24 bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${errors[additionType.id] ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                           }`}
                         placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                         min="0"
@@ -416,8 +416,8 @@ const EmployeesAdditions = () => {
 
           {/* Current Additions Table */}
           {selectedEmployeeAdditions.length > 0 && (
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-              <div className="px-6 py-4 border-b border-white/20">
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+              <div className="px-6 py-4 border-b border-[#441a05]/20">
                 <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
                   <FaList className="text-pmColor" />
                   <span>{languageCode === 'bn' ? 'বর্তমান অ্যাডিশন' : 'Current Additions'} ({selectedEmployeeAdditions.length})</span>
@@ -426,57 +426,57 @@ const EmployeesAdditions = () => {
               {isLoadingEmployeeAdditions ? (
                 <div className="p-8 text-center">
                   <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-                  <p className="text-white/70">
+                  <p className="text-[#441a05]/70">
                     {languageCode === 'bn' ? 'অ্যাডিশন লোড হচ্ছে...' : 'Loading additions...'}
                   </p>
                 </div>
               ) : (
                 <div className="overflow-x-auto max-h-96">
                   <table className="min-w-full">
-                    <thead className="bg-white/5">
+                    <thead className="bg-[#441a05]/5">
                       <tr>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'আইডি' : 'ID'}
                         </th>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'অ্যাডিশন টাইপ' : 'Addition Type'}
                         </th>
-                        <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                         </th>
-                        <th className="px-6 py-4 text-right text-xs font-medium text-white/80 uppercase tracking-wider">
+                        <th className="px-6 py-4 text-right text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                           {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-white/10">
+                    <tbody className="divide-y divide-[#441a05]/10">
                       {selectedEmployeeAdditions.map((addition, index) => (
                         <tr
                           key={addition.id}
-                          className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                          className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                           style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-white">#{addition.id}</td>
-                          <td className="px-6 py-4 whitespace-nowrap">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]">#{addition.id}</td>
+                          <td className="px-6 py-4 [#441a05]space-nowrap">
                             <div className="flex items-center">
                               <div className="h-10 w-10 rounded-full bg-pmColor/20 flex items-center justify-center">
                                 <span className="text-pmColor font-medium text-sm">
                                   {getAdditionTypeName(addition.addition_type_id)?.charAt(0)?.toUpperCase() || 'A'}
                                 </span>
                               </div>
-                              <div className="ml-4 text-sm font-medium text-white">
+                              <div className="ml-4 text-sm font-medium text-[#441a05]">
                                 {getAdditionTypeName(addition.addition_type_id)}
                               </div>
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
+                          <td className="px-6 py-4 [#441a05]space-nowrap">
                             {editingAddition?.id === addition.id ? (
                               <div className="flex items-center space-x-2">
                                 <input
                                   type="number"
                                   value={additionAmounts[addition.addition_type_id] || ''}
                                   onChange={(e) => handleAmountChange(addition.addition_type_id, e.target.value)}
-                                  className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[addition.addition_type_id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                                  className={`w-24 bg-[#441a05]/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none transition-all duration-300 ${errors[addition.addition_type_id] ? 'border-red-500' : 'border-[#441a05]/20 focus:border-pmColor focus:bg-[#441a05]/15'
                                     }`}
                                   placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                                   min="0"
@@ -497,13 +497,13 @@ const EmployeesAdditions = () => {
                                 </button>
                               </div>
                             ) : (
-                              <span className="text-white">${addition.amount.toFixed(2)}</span>
+                              <span className="text-[#441a05]">${addition.amount.toFixed(2)}</span>
                             )}
                             {errors[addition.addition_type_id] && (
                               <p className="mt-1 text-sm text-red-400">{errors[addition.addition_type_id]}</p>
                             )}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <td className="px-6 py-4 [#441a05]space-nowrap text-right text-sm font-medium">
                             {editingAddition?.id !== addition.id && (
                               <div className="flex justify-end gap-2">
                                 {hasChangePermission && (
@@ -536,7 +536,7 @@ const EmployeesAdditions = () => {
                 </div>
               )}
               {(createError || updateError || deleteError) && (
-                <div className="p-4 border-t border-white/20">
+                <div className="p-4 border-t border-[#441a05]/20">
                   <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
                     <div className="text-red-400">
                       {createError
@@ -558,44 +558,44 @@ const EmployeesAdditions = () => {
 
           {/* Statistics Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn">
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn">
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-blue-500/20 text-blue-500">
                   <FaList className="text-2xl" />
                 </div>
                 <div className="ml-4">
-                  <p className="text-sm font-medium text-white/70">
+                  <p className="text-sm font-medium text-[#441a05]/70">
                     {languageCode === 'bn' ? 'মোট অ্যাডিশন' : 'Total Additions'}
                   </p>
-                  <p className="text-2xl font-bold text-white">{selectedEmployeeAdditions.length}</p>
+                  <p className="text-2xl font-bold text-[#441a05]">{selectedEmployeeAdditions.length}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-green-500/20 text-green-500">
                   <span className="text-2xl">$</span>
                 </div>
                 <div className="ml-4">
-                  <p className="text-sm font-medium text-white/70">
+                  <p className="text-sm font-medium text-[#441a05]/70">
                     {languageCode === 'bn' ? 'মোট পরিমাণ' : 'Total Amount'}
                   </p>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold text-[#441a05]">
                     ${selectedEmployeeAdditions.reduce((sum, addition) => sum + addition.amount, 0).toFixed(2)}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-6 animate-scaleIn" style={{ animationDelay: '0.2s' }}>
               <div className="flex items-center">
                 <div className="p-3 rounded-full bg-purple-500/20 text-purple-500">
                   <FaList className="text-2xl" />
                 </div>
                 <div className="ml-4">
-                  <p className="text-sm font-medium text-white/70">
+                  <p className="text-sm font-medium text-[#441a05]/70">
                     {languageCode === 'bn' ? 'উপলব্ধ টাইপ' : 'Available Types'}
                   </p>
-                  <p className="text-2xl font-bold text-white">{availableAdditionTypes.length}</p>
+                  <p className="text-2xl font-bold text-[#441a05]">{availableAdditionTypes.length}</p>
                 </div>
               </div>
             </div>
@@ -604,8 +604,8 @@ const EmployeesAdditions = () => {
 
           {/* No Available Additions */}
           {availableAdditionTypes.length === 0 && selectedEmployeeAdditions.length > 0 && (
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
-              <div className="text-white/70">
+            <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center animate-fadeIn">
+              <div className="text-[#441a05]/70">
                 <p className="text-lg font-medium">
                   {languageCode === 'bn' ? 'সমস্ত অ্যাডিশন টাইপ নিয়োগ করা হয়েছে' : 'All Addition Types Assigned'}
                 </p>

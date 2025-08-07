@@ -69,7 +69,7 @@ export default function ClassRoutine() {
         <h4 className="text-[#441a05]text-end text-xs mt-4 mb-1">
           মোট ক্লাস পাওয়া গেছে: <span className="text-pmColor font-bold">০৬</span>
         </h4>
-        <div className="rounded-2xl bg-white/5 border border-[#9d9087]">
+        <div className="rounded-2xl bg-[#441a05]/5 border border-[#9d9087]">
           <h3 className="rounded-t-2xl p-2 font-medium bg-pmColor text-[#441a05]animate-scaleIn">
             ১২ জুলাই ২০২৪ | শ্রেণি: নবম | শাখা: ক
           </h3>

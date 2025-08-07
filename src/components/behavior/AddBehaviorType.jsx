@@ -206,9 +206,9 @@ const AddBehaviorType = () => {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
           </div>
         </div>
@@ -219,7 +219,7 @@ const AddBehaviorType = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -252,16 +252,16 @@ const AddBehaviorType = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'আচরণের ধরন ব্যবস্থাপনা' : 'Behavior Type Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'আচরণের ধরন তৈরি, সম্পাদনা এবং পরিচালনা করুন' : 'Create, edit and manage behavior types'}
             </p>
           </div>
@@ -270,7 +270,7 @@ const AddBehaviorType = () => {
 
       {/* Add/Edit Behavior Form */}
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               {editBehaviorId ? (
@@ -279,7 +279,7 @@ const AddBehaviorType = () => {
                 <IoAddCircle className="text-pmColor text-3xl" />
               )}
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {editBehaviorId 
                 ? (languageCode === 'bn' ? "আচরণের ধরন সম্পাদনা করুন" : "Edit Behavior Type")
                 : (languageCode === 'bn' ? "নতুন আচরণের ধরন যোগ করুন" : "Add New Behavior Type")
@@ -294,7 +294,7 @@ const AddBehaviorType = () => {
                 id="behaviorName"
                 value={behavior}
                 onChange={(e) => setBehavior(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "আচরণের ধরন" : "Behavior Type"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "আচরণের ধরন" : "Behavior Type"}
@@ -307,7 +307,7 @@ const AddBehaviorType = () => {
                 id="marks"
                 value={marks}
                 onChange={(e) => setMarks(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "নম্বর লিখুন" : "Enter marks"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "নম্বর" : "Marks"}
@@ -372,8 +372,8 @@ const AddBehaviorType = () => {
       )}
 
       {/* Behavior Types Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'আচরণের ধরনের তালিকা' : 'Behavior Types List'}</span>
@@ -384,7 +384,7 @@ const AddBehaviorType = () => {
           {isBehaviorLoading ? (
             <div className="p-8 text-center">
               <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'আচরণের ধরন লোড হচ্ছে...' : 'Loading behavior types...'}
               </p>
             </div>
@@ -398,45 +398,45 @@ const AddBehaviorType = () => {
             </div>
           ) : behaviorTypes?.length === 0 ? (
             <div className="p-8 text-center">
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'কোনো আচরণের ধরন উপলব্ধ নেই।' : 'No behavior types available.'}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'আচরণের ধরন' : 'Behavior Type'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'নম্বর' : 'Marks'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'সক্রিয়' : 'Active'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdUpdate className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'আপডেটের সময়' : 'Updated'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {behaviorTypes?.map((behavior, index) => (
                   <tr
                     key={behavior.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
@@ -458,12 +458,12 @@ const AddBehaviorType = () => {
                           className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
                             behavior.is_active
                               ? "bg-pmColor border-pmColor"
-                              : "bg-white/10 border-white/20 hover:border-white"
+                              : "bg-[#441a05]/10 border-[#441a05]/20 hover:border-[#441a05]"
                           }`}
                         >
                           {behavior.is_active && (
                             <svg
-                              className="w-4 h-4 text-white"
+                              className="w-4 h-4 text-[#441a05]"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -481,12 +481,12 @@ const AddBehaviorType = () => {
                       </label>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {new Date(behavior.created_at).toLocaleString(languageCode === 'bn' ? "bn-BD" : "en-US")}
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {new Date(behavior.updated_at).toLocaleString(languageCode === 'bn' ? "bn-BD" : "en-US")}
                       </div>
                     </td>
@@ -520,7 +520,7 @@ const AddBehaviorType = () => {
         </div>
         
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting

@@ -252,7 +252,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
 
               <div
                 ref={tabsContainerRef}
-                className="flex overflow-x-auto whitespace-nowrap no-scrollbar gap-2 py-1 rounded-t-lg pr-10"
+                className="flex overflow-x-auto [#441a05]space-nowrap no-scrollbar gap-2 py-1 rounded-t-lg pr-10"
               >
                 {firstLevelTabs.map((child, index) => {
                   const childPath = child.link || "#";
@@ -272,7 +272,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
                         `px-4 py-2 rounded-full text-xs md:text-sm capitalize transition-all duration-300 flex-shrink-0 tab-glow ${
                           isActive
                             ? "bg-pmColor text-[#441a05]font-bold"
-                            : "bg-secColor text-[#441a05]font-bold hover:bg-pmColor hover:text-white"
+                            : "bg-secColor text-[#441a05]font-bold hover:bg-pmColor hover:text-[#441a05]"
                         }`
                       }
                       style={{ animationDelay: `${0.2 + index * 0.1}s` }}
@@ -303,7 +303,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
 
       {/* Second-Level Tabs (Content Area) */}
       {secondLevelTabs.length > 0 && (
-        <div className="relative w-full mt-4 border-b border-white/50 pt-4 animate-fadeIn">
+        <div className="relative w-full mt-4 border-b border-[#441a05]/50 pt-4 animate-fadeIn">
           <div className="flex flex-wrap gap-3 rounded-xl">
             {secondLevelTabs.map((child, index) => {
               const childPath = child.link || "#";
@@ -325,7 +325,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
                   className={`relative px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-base capitalize font-semibold transition-all duration-300 flex-shrink-0 animate-scaleIn ${
                     isActive
                       ? "text-pmColor active-underline"
-                      : "text-white/80 hover:text-pmColor"
+                      : "text-[#441a05]/80 hover:text-pmColor"
                   }`}
                   style={{ animationDelay: `${0.3 + index * 0.1}s` }}
                   aria-current={isActive ? "page" : undefined}

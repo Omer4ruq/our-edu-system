@@ -183,9 +183,9 @@ const HostelPackages = () => {
   if (permissionsLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'অনুমতি লোড হচ্ছে...' : 'Loading permissions...'}
           </div>
         </div>
@@ -196,7 +196,7 @@ const HostelPackages = () => {
   if (!hasViewPermission) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <div className="text-secColor text-xl font-semibold">
             {languageCode === 'bn' ? 'এই পৃষ্ঠাটি দেখার অনুমতি আপনার নেই।' : 'You do not have permission to view this page.'}
           </div>
@@ -208,9 +208,9 @@ const HostelPackages = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 text-center">
           <FaSpinner className="animate-spin text-pmColor text-2xl mx-auto mb-4" />
-          <div className="text-white">
+          <div className="text-[#441a05]">
             {languageCode === 'bn' ? 'প্যাকেজ লোড হচ্ছে...' : 'Loading packages...'}
           </div>
         </div>
@@ -255,16 +255,16 @@ const HostelPackages = () => {
       </style>
 
       {/* Page Header */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
         <div className="flex items-center space-x-4">
           <div className="bg-pmColor/20 p-3 rounded-xl">
             <FaList className="text-pmColor text-2xl" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-[#441a05]">
               {languageCode === 'bn' ? 'হোস্টেল প্যাকেজ ব্যবস্থাপনা' : 'Hostel Package Management'}
             </h1>
-            <p className="text-white/70 mt-1">
+            <p className="text-[#441a05]/70 mt-1">
               {languageCode === 'bn' ? 'হোস্টেল প্যাকেজ তৈরি, সম্পাদনা এবং পরিচালনা করুন' : 'Create, edit and manage hostel packages'}
             </p>
           </div>
@@ -273,7 +273,7 @@ const HostelPackages = () => {
 
       {/* Add/Edit Package Form */}
       {(hasAddPermission || hasChangePermission) && (
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 mb-8 animate-fadeIn">
+        <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl p-8 mb-8 animate-fadeIn">
           <div className="flex items-center space-x-4 mb-6">
             <div className="bg-pmColor/20 rounded-xl">
               {editPackageId ? (
@@ -282,7 +282,7 @@ const HostelPackages = () => {
                 <IoAddCircle className="text-pmColor text-3xl" />
               )}
             </div>
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-2xl font-bold text-[#441a05]">
               {editPackageId 
                 ? (languageCode === 'bn' ? "প্যাকেজ সম্পাদনা করুন" : "Edit Package")
                 : (languageCode === 'bn' ? "নতুন প্যাকেজ যোগ করুন" : "Add New Package")
@@ -297,7 +297,7 @@ const HostelPackages = () => {
                 id="packageName"
                 value={packageName}
                 onChange={(e) => setPackageName(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "প্যাকেজের নাম" : "Package Name"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "প্যাকেজের নাম" : "Package Name"}
@@ -310,7 +310,7 @@ const HostelPackages = () => {
                 id="amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-[#441a05]/10 backdrop-blur-sm border border-[#441a05]/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-[#441a05]/60 focus:outline-none focus:border-pmColor focus:bg-[#441a05]/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "পরিমাণ" : "Amount"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "পরিমাণ" : "Amount"}
@@ -391,8 +391,8 @@ const HostelPackages = () => {
       )}
 
       {/* Packages Table */}
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
-        <div className="px-6 py-4 border-b border-white/20">
+      <div className="bg-[#441a05]/10 backdrop-blur-md border border-[#441a05]/20 rounded-2xl overflow-hidden animate-fadeIn">
+        <div className="px-6 py-4 border-b border-[#441a05]/20">
           <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'প্যাকেজের তালিকা' : 'Packages List'} ({packages.length})</span>
@@ -402,45 +402,45 @@ const HostelPackages = () => {
         <div className="overflow-x-auto max-h-96">
           {packages.length === 0 ? (
             <div className="p-8 text-center">
-              <p className="text-white/70">
+              <p className="text-[#441a05]/70">
                 {languageCode === 'bn' ? 'কোনো প্যাকেজ উপলব্ধ নেই।' : 'No packages available.'}
               </p>
             </div>
           ) : (
             <table className="min-w-full" key={refreshKey}>
-              <thead className="bg-white/5">
+              <thead className="bg-[#441a05]/5">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'প্যাকেজের নাম' : 'Package Name'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdAccessTime className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'তৈরির সময়' : 'Created'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     <div className="flex items-center space-x-1">
                       <MdUpdate className="text-pmColor" />
                       <span>{languageCode === 'bn' ? 'আপডেটের সময়' : 'Updated'}</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium text-white/80 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-medium text-[#441a05]/80 uppercase tracking-wider">
                     {languageCode === 'bn' ? 'ক্রিয়াকলাপ' : 'Actions'}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/10">
+              <tbody className="divide-y divide-[#441a05]/10">
                 {packages?.map((pkg, index) => (
                   <tr
                     key={pkg.id}
-                    className="hover:bg-white/5 transition-colors duration-300 animate-fadeIn"
+                    className="hover:bg-[#441a05]/5 transition-colors duration-300 animate-fadeIn"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
@@ -460,12 +460,12 @@ const HostelPackages = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {formatDate(pkg.created_at)}
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white/70 text-sm">
+                      <div className="text-[#441a05]/70 text-sm">
                         {formatDate(pkg.updated_at)}
                       </div>
                     </td>
@@ -499,7 +499,7 @@ const HostelPackages = () => {
         </div>
         
         {(isDeleting || deleteError) && (
-          <div className="p-4 border-t border-white/20">
+          <div className="p-4 border-t border-[#441a05]/20">
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
               <div className="text-red-400">
                 {isDeleting

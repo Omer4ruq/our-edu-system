@@ -270,7 +270,7 @@ const AttendanceSheet = () => {
   // Loading state
   if (classLoading || yearLoading || studentLoading || instituteLoading) {
     return (
-      <div className="p-8 text-white/70 animate-fadeIn">
+      <div className="p-8 text-[#441a05]/70 animate-fadeIn">
         লোড হচ্ছে...
       </div>
     );
@@ -337,9 +337,9 @@ const AttendanceSheet = () => {
         `}
       </style>
 
-      <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+      <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-          <IoPrint className="text-4xl text-white" />
+          <IoPrint className="text-4xl text-[#441a05]" />
           <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">হাজিরা শীট</h3>
         </div>
 
@@ -409,7 +409,7 @@ const AttendanceSheet = () => {
         {selectedClassConfig && selectedAcademicYear && selectedMonth && (
           <>
             <div className="mb-6">
-              <h2 className="text-xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-[#441a05]">
                 {selectedClassConfig.label} এর জন্য হাজিরা শীট - {selectedMonth.label} {academicYears?.find(y => y.id === selectedAcademicYear.value)?.name}
               </h2>
             </div>
@@ -430,10 +430,10 @@ const AttendanceSheet = () => {
                 <tbody>
                   {filteredStudents.map((student, index) => (
                     <tr key={student.id} className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <td className="px-4 py-2 whitespace-nowrap text-sm text-[#000] border border-black">{student.roll_no || ''}</td>
-                      <td className="px-4 py-2 whitespace-nowrap text-sm text-[#000] border border-black">{student.name}</td>
+                      <td className="px-4 py-2 [#441a05]space-nowrap text-sm text-[#000] border border-black">{student.roll_no || ''}</td>
+                      <td className="px-4 py-2 [#441a05]space-nowrap text-sm text-[#000] border border-black">{student.name}</td>
                       {getDaysInMonth().map(({ day }) => (
-                        <td key={day} className="px-2 py-2 whitespace-nowrap text-sm text-[#000] text-center border border-black"></td>
+                        <td key={day} className="px-2 py-2 [#441a05]space-nowrap text-sm text-[#000] text-center border border-black"></td>
                       ))}
                     </tr>
                   ))}

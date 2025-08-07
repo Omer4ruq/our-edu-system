@@ -118,13 +118,13 @@ const Login = () => {
 
       {/* Form Container */}
       <div className='w-full  max-w-md'>
-        <div className="relative z-10 bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl shadow-xl w-full max-w-md animate-fadeIn">
+        <div className="relative z-10 bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl shadow-xl w-full max-w-md animate-fadeIn">
           <h2 className="text-3xl font-bold text-center text-[#441a05]mb-6 tracking-tight">
             কওমী তালীম
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-white">
+              <label htmlFor="username" className="block text-sm font-medium text-[#441a05]">
                 ব্যবহারকারীর নাম
               </label>
               <input
@@ -141,7 +141,7 @@ const Login = () => {
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-white">
+              <label htmlFor="password" className="block text-sm font-medium text-[#441a05]">
                 পাসওয়ার্ড
               </label>
               <input

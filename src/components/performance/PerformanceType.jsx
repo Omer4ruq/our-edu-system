@@ -176,12 +176,12 @@ const PerformanceType = () => {
       <div>
         {/* Add/Edit Performance Form */}
         {(hasAddPermission || hasChangePermission) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               {editPerformanceId ? (
-                <FaEdit className="text-4xl text-white" />
+                <FaEdit className="text-4xl text-[#441a05]" />
               ) : (
-                <IoAddCircle className="text-4xl text-white" />
+                <IoAddCircle className="text-4xl text-[#441a05]" />
               )}
               <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 {editPerformanceId ? 'পারফরম্যান্সের ধরন সম্পাদনা করুন' : 'নতুন পারফরম্যান্সের ধরন যোগ করুন'}
@@ -250,42 +250,42 @@ const PerformanceType = () => {
 
         {/* Performance Types Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">
             পারফরম্যান্সের ধরনের তালিকা
           </h3>
           {isPerformanceLoading ? (
-            <p className="p-4 text-white/70">পারফরম্যান্সের ধরন লোড হচ্ছে...</p>
+            <p className="p-4 text-[#441a05]/70">পারফরম্যান্সের ধরন লোড হচ্ছে...</p>
           ) : performanceError ? (
             <p className="p-4 text-red-400">
               পারফরম্যান্সের ধরন লোড করতে ত্রুটি: {performanceError.status || 'অজানা'} -{' '}
               {JSON.stringify(performanceError.data || {})}
             </p>
           ) : performanceTypes?.length === 0 ? (
-            <p className="p-4 text-white/70">কোনো পারফরম্যান্সের ধরন উপলব্ধ নেই।</p>
+            <p className="p-4 text-[#441a05]/70">কোনো পারফরম্যান্সের ধরন উপলব্ধ নেই।</p>
           ) : (
             <div className="overflow-x-auto" key={refreshKey}>
-              <table className="min-w-full divide-y divide-white/20">
-                <thead className="bg-white/5">
+              <table className="min-w-full divide-y divide-[#441a05]/20">
+                <thead className="bg-[#441a05]/5">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       পারফরম্যান্সের ধরন
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       ক্রিয়াকলাপ
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/20">
+                <tbody className="divide-y divide-[#441a05]/20">
                   {performanceTypes?.map((performance, index) => (
                     <tr
                       key={performance.id}
-                      className="bg-white/5 animate-fadeIn"
+                      className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
                         {performance.name}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(performance)}
@@ -328,7 +328,7 @@ const PerformanceType = () => {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন পারফরম্যান্সের ধরন নিশ্চিত করুন'}

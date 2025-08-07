@@ -220,13 +220,13 @@ const SendSms = () => {
       <Toaster position="top-right" reverseOrder={false} />
       <style>{customStyles}</style>
       <div className="">
-        <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
+        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
           <h3 className="text-2xl font-bold text-[#441a05]mb-6 animate-fadeIn">Send SMS</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Select Wise */}
             <div className="animate-fadeIn">
-              <label className="block text-lg font-medium text-white" htmlFor="selectWise">
+              <label className="block text-lg font-medium text-[#441a05]" htmlFor="selectWise">
                 Select Recipient <span className="text-red-600">*</span>
               </label>
               <Select
@@ -250,7 +250,7 @@ const SendSms = () => {
             {/* Dynamic Field (Conditional) */}
             {dynamicFieldLabel && (
               <div className="animate-fadeIn">
-                <label className="block text-lg font-medium text-white" htmlFor="dynamicField">
+                <label className="block text-lg font-medium text-[#441a05]" htmlFor="dynamicField">
                   {dynamicFieldLabel} <span className="text-red-600">*</span>
                 </label>
                 <Select
@@ -271,7 +271,7 @@ const SendSms = () => {
 
             {/* Template Selection */}
             <div className="animate-fadeIn">
-              <label className="block text-lg font-medium text-white" htmlFor="templateSelect">
+              <label className="block text-lg font-medium text-[#441a05]" htmlFor="templateSelect">
                 Select Template
               </label>
               <Select
@@ -291,7 +291,7 @@ const SendSms = () => {
 
             {/* Admission Year */}
             <div className="animate-fadeIn">
-              <label className="block text-lg font-medium text-white" htmlFor="admissionYear">
+              <label className="block text-lg font-medium text-[#441a05]" htmlFor="admissionYear">
                 Select Admission Year
               </label>
               <Select
@@ -311,7 +311,7 @@ const SendSms = () => {
 
             {/* Academic Session */}
             <div className="animate-fadeIn">
-              <label className="block text-lg font-medium text-white" htmlFor="academicSession">
+              <label className="block text-lg font-medium text-[#441a05]" htmlFor="academicSession">
                 Select Academic Session
               </label>
               <Select
@@ -331,7 +331,7 @@ const SendSms = () => {
 
             {/* SMS Body */}
             <div className="animate-fadeIn">
-              <label className="block text-lg font-medium text-white" htmlFor="smsBody">
+              <label className="block text-lg font-medium text-[#441a05]" htmlFor="smsBody">
                 SMS Body <span className="text-red-600">*</span>
               </label>
               <textarea
@@ -339,11 +339,11 @@ const SendSms = () => {
                 value={smsBody}
                 onChange={(e) => setSmsBody(e.target.value)}
                 placeholder="Enter SMS body"
-                className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
+                className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-[#441a05]/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
                 rows={4}
                 aria-label="SMS body"
               />
-              <div className="text-sm text-white/70 mt-1">
+              <div className="text-sm text-[#441a05]/70 mt-1">
                 Character Count: {characterCount}
               </div>
             </div>

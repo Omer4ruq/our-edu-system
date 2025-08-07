@@ -7,7 +7,7 @@ const StudentIdCard = () => {
 
   return (
     <>
-      <div className="my-4 rounded p-4 md:p-6 bg-white">
+      <div className="my-4 rounded p-4 md:p-6 bg-[#441a05]">
         <StudentIdHeader idCardsRef={idCardsRef} />
         {/* Student ID Cards */}
         <div

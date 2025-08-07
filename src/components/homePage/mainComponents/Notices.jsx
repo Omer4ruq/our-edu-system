@@ -25,7 +25,7 @@ export default function Notices() {
   };
 
   return (
-    <div className="h-full glass-card bg-white/5 border border-white/10 rounded-2xl relative shadow-xl animate-fadeIn transition-all duration-500">
+    <div className="h-full glass-card bg-[#441a05]/5 border border-[#441a05]/10 rounded-2xl relative shadow-xl animate-fadeIn transition-all duration-500">
       <style>
         {`
           @keyframes fadeIn {
@@ -122,7 +122,7 @@ export default function Notices() {
             border: none;
             border-radius: 12px;
             padding: 0.75rem 1.5rem;
-            color: white;
+            color: [#441a05];
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;

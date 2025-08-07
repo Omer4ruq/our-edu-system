@@ -423,7 +423,7 @@ const MutalayaReport = () => {
             width: 793px;
             height: 1122px;
             margin: 0 auto;
-            background: white;
+            background: [#441a05];
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             padding: 20px;
             box-sizing: border-box;
@@ -459,7 +459,7 @@ const MutalayaReport = () => {
           }
           .download-btn {
             background-color: #DB9E30;
-            color: white;
+            color: [#441a05];
             padding: 10px 20px;
             border: none;
             border-radius: 8px;
@@ -565,18 +565,18 @@ const MutalayaReport = () => {
       {/* Report Preview */}
       {classConfigsLoading || studentsLoading || subjectsLoading || instituteLoading ? (
         <div className="flex justify-center items-center h-64">
-          <FaSpinner className="animate-spin text-4xl text-white" />
+          <FaSpinner className="animate-spin text-4xl text-[#441a05]" />
         </div>
       ) : !selectedClassConfig?.value ? (
-        <p className="text-center text-white/70">
+        <p className="text-center text-[#441a05]/70">
           রিপোর্ট তৈরি করতে ক্লাস নির্বাচন করুন।
         </p>
       ) : students.length === 0 ? (
-        <p className="text-center text-white/70">
+        <p className="text-center text-[#441a05]/70">
           এই ক্লাসে কোনো সক্রিয় ছাত্র নেই।
         </p>
       ) : activeSubjects.length === 0 ? (
-        <p className="text-center text-white/70">
+        <p className="text-center text-[#441a05]/70">
           এই ক্লাসে কোনো সক্রিয় বিষয় নেই।
         </p>
       ) : (
