@@ -25,7 +25,7 @@ export default function StudentAttendForm({setIsSubmit}) {
          </select>
          <button
             type="submit"
-            className="rounded w-36 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+            className="rounded w-36 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
             onClick={()=> chosenClass && setIsSubmit(true)}
             >
             {t('module.communication.submit')}

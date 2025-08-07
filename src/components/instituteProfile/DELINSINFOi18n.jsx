@@ -6,7 +6,7 @@ export default function InstituteInfo() {
 
 
     return (
-      <div className="md:w-1/2 p-6 bg-white rounded-md text-textGray">
+      <div className="md:w-1/2 p-6 bg-[#441a05]rounded-md text-textGray">
          <h5 className="font-medium mb-2 text-lg">{t("general.institute")} {t("general.information")}</h5>
          <div className="flex items-center gap-2 leading-7">
             <GoDotFill className="text-xs"/>

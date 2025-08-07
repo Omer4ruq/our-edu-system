@@ -323,7 +323,7 @@ const HostelRooms = () => {
                 id="roomName"
                 value={roomName}
                 onChange={(e) => setRoomName(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "রুমের নাম" : "Room Name"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "রুমের নাম" : "Room Name"}
@@ -336,7 +336,7 @@ const HostelRooms = () => {
                 id="seatNo"
                 value={seatNo}
                 onChange={(e) => setSeatNo(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "সিট নম্বর" : "Seat Number"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "সিট নম্বর" : "Seat Number"}
@@ -346,7 +346,7 @@ const HostelRooms = () => {
             <button
               type="submit"
               disabled={isCreating || isUpdating || (editRoomId ? !hasChangePermission : !hasAddPermission)}
-              className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+              className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                 (isCreating || isUpdating || (editRoomId ? !hasChangePermission : !hasAddPermission)) 
                   ? "opacity-50 cursor-not-allowed" 
                   : "hover:shadow-lg hover:scale-105"
@@ -384,7 +384,7 @@ const HostelRooms = () => {
                   setRoomName("");
                   setSeatNo("");
                 }}
-                className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-red-500 hover:bg-red-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
               </button>
@@ -404,7 +404,7 @@ const HostelRooms = () => {
       {/* Rooms Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'রুমের তালিকা' : 'Rooms List'} ({formatNumber(rooms.length)})</span>
           </h3>
@@ -414,7 +414,7 @@ const HostelRooms = () => {
           {rooms.length === 0 ? (
             <div className="p-8 text-center">
               <div className="text-white/40 text-6xl mb-4">🏠</div>
-              <h3 className="text-lg font-medium text-white mb-2">
+              <h3 className="text-lg font-medium text-[#441a05]mb-2">
                 {languageCode === 'bn' ? 'কোনো রুম পাওয়া যায়নি' : 'No rooms found'}
               </h3>
               <p className="text-white/70">
@@ -456,7 +456,7 @@ const HostelRooms = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">#{formatNumber(room.id)}</div>
+                      <div className="text-[#441a05]font-medium">#{formatNumber(room.id)}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
@@ -471,7 +471,7 @@ const HostelRooms = () => {
                           </div>
                         </div>
                         <div className="ml-4">
-                          <div className="text-white font-medium">
+                          <div className="text-[#441a05]font-medium">
                             {(() => {
                               const hostel = hostelNames.find(h => h.id === room.hostel_name_id);
                               return hostel?.name || (languageCode === 'bn' ? 'অজানা হোস্টেল' : 'Unknown Hostel');
@@ -490,7 +490,7 @@ const HostelRooms = () => {
                           </div>
                         </div>
                         <div className="ml-3">
-                          <div className="text-white font-medium">{room.room_name}</div>
+                          <div className="text-[#441a05]font-medium">{room.room_name}</div>
                         </div>
                       </div>
                     </td>
@@ -509,7 +509,7 @@ const HostelRooms = () => {
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(room)}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'রুম সম্পাদনা করুন' : 'Edit room'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -518,7 +518,7 @@ const HostelRooms = () => {
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(room.id)}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'রুম মুছুন' : 'Delete room'}
                           >
                             <FaTrash className="w-4 h-4" />

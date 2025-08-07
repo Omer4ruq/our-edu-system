@@ -136,15 +136,15 @@ import * as XLSX from "xlsx";
 
   return (
     <div className="p-4">
-      <button onClick={generatePDF} className="bg-blue-500 text-white px-4 py-2 rounded">
+      <button onClick={generatePDF} className="bg-blue-500 text-[#441a05]px-4 py-2 rounded">
         Download PDF
       </button>
-      <button onClick={generateExcel} className="bg-green-500 text-white px-4 py-2 rounded ml-2">
+      <button onClick={generateExcel} className="bg-green-500 text-[#441a05]px-4 py-2 rounded ml-2">
         Download Excel
       </button>
       <button
         onClick={generatePrint}
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
+        className="bg-blue-500 text-[#441a05]py-2 px-4 rounded hover:bg-blue-700"
       >
         Print PDF
       </button>

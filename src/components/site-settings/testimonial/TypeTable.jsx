@@ -49,13 +49,13 @@ export default function TypeTable({handleEdit, handleDelete}) {
             <td className="w-4/12">{item.testimonial}</td>
             <td className="w-2/12">
                 <button
-                  className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                  className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                   onClick={() => handleEdit(item)}
                 >
                   Edit
                 </button>
                 <button
-                  className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                  className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                   onClick={()=>handleDelete(item.mainHeading)}
                 >
                   Delete

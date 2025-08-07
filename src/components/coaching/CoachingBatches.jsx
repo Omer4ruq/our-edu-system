@@ -308,7 +308,7 @@ const CoachingBatches = () => {
                 type="text"
                 value={editingBatch ? editName : newBatchName}
                 onChange={(e) => (editingBatch ? setEditName(e.target.value) : setNewBatchName(e.target.value))}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'ব্যাচের নাম লিখুন' : 'Enter batch name'}
                 disabled={isCreating || isUpdating || isPatching}
                 aria-label={languageCode === 'bn' ? 'ব্যাচের নাম' : 'Batch Name'}
@@ -321,7 +321,7 @@ const CoachingBatches = () => {
                   type="button"
                   onClick={() => handleSaveEdit(editingBatch)}
                   disabled={isUpdating || !editName.trim() || !hasChangePermission}
-                  className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                  className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                     (isUpdating || !editName.trim() || !hasChangePermission)
                       ? 'opacity-50 cursor-not-allowed'
                       : 'hover:shadow-lg hover:scale-105'
@@ -343,7 +343,7 @@ const CoachingBatches = () => {
                   type="button"
                   onClick={() => handlePatchEdit(editingBatch)}
                   disabled={isPatching || !editName.trim() || !hasChangePermission}
-                  className={`bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                  className={`bg-yellow-500 hover:bg-yellow-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                     (isPatching || !editName.trim() || !hasChangePermission)
                       ? 'opacity-50 cursor-not-allowed'
                       : 'hover:shadow-lg hover:scale-105'
@@ -367,7 +367,7 @@ const CoachingBatches = () => {
                     setEditingBatch(null);
                     setEditName('');
                   }}
-                  className="bg-red-500 hover:bg-secColor/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                  className="bg-red-500 hover:bg-secColor/30 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
                 >
                   {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
                 </button>
@@ -376,7 +376,7 @@ const CoachingBatches = () => {
               <button
                 type="submit"
                 disabled={isCreating || !newBatchName.trim() || !hasAddPermission}
-                className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                   (isCreating || !newBatchName.trim() || !hasAddPermission)
                     ? 'opacity-50 cursor-not-allowed'
                     : 'hover:shadow-lg hover:scale-105'
@@ -424,7 +424,7 @@ const CoachingBatches = () => {
               value={searchId}
               onChange={(e) => setSearchId(e.target.value)}
               placeholder={languageCode === 'bn' ? 'ব্যাচ আইডি লিখুন' : 'Enter batch ID'}
-              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
               disabled={isLoadingSelected}
             />
             <FaSearch className="absolute left-3 top-4 text-white/60" />
@@ -432,7 +432,7 @@ const CoachingBatches = () => {
           <button
             onClick={handleSearchById}
             disabled={isLoadingSelected || !searchId.trim()}
-            className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+            className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
               (isLoadingSelected || !searchId.trim()) ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:scale-105'
             }`}
           >
@@ -442,7 +442,7 @@ const CoachingBatches = () => {
         </div>
         {selectedBatch && (
           <div className="mt-4 bg-white/5 border border-white/20 rounded-xl p-4 animate-scaleIn">
-            <h3 className="text-white font-semibold">{languageCode === 'bn' ? 'পাওয়া ব্যাচ:' : 'Found Batch:'}</h3>
+            <h3 className="text-[#441a05]font-semibold">{languageCode === 'bn' ? 'পাওয়া ব্যাচ:' : 'Found Batch:'}</h3>
             <p className="text-white/70">ID: {selectedBatch.id}</p>
             <p className="text-white/70">{languageCode === 'bn' ? 'নাম:' : 'Name:'} {selectedBatch.name}</p>
           </div>
@@ -465,7 +465,7 @@ const CoachingBatches = () => {
       {/* Batches Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'ব্যাচের তালিকা' : 'Batches List'} ({batches.length})</span>
           </h3>
@@ -487,7 +487,7 @@ const CoachingBatches = () => {
                 </p>
                 <button
                   onClick={refetch}
-                  className="mt-2 px-4 py-2 bg-pmColor text-white rounded-xl hover:bg-pmColor/80 transition-all"
+                  className="mt-2 px-4 py-2 bg-pmColor text-[#441a05]rounded-xl hover:bg-pmColor/80 transition-all"
                 >
                   {languageCode === 'bn' ? 'পুনরায় চেষ্টা করুন' : 'Retry'}
                 </button>
@@ -539,15 +539,15 @@ const CoachingBatches = () => {
                           type="text"
                           value={editName}
                           onChange={(e) => setEditName(e.target.value)}
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                           disabled={isUpdating || isPatching}
                         />
                       ) : (
-                        <div className="text-white font-medium">{batch.name}</div>
+                        <div className="text-[#441a05]font-medium">{batch.name}</div>
                       )}
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{batch.id}</div>
+                      <div className="text-[#441a05]font-medium">{batch.id}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="text-white/70 text-sm">
@@ -565,7 +565,7 @@ const CoachingBatches = () => {
                           <button
                             onClick={() => handleSaveEdit(batch.id)}
                             disabled={isUpdating || !editName.trim()}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'আপডেট (PUT)' : 'Update (PUT)'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -573,7 +573,7 @@ const CoachingBatches = () => {
                           <button
                             onClick={() => handlePatchEdit(batch.id)}
                             disabled={isPatching || !editName.trim()}
-                            className="bg-yellow-500/20 hover:bg-yellow-500 hover:text-white text-yellow-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-yellow-500/20 hover:bg-yellow-500 hover:text-[#441a05]text-yellow-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'আপডেট (PATCH)' : 'Patch (PATCH)'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -583,7 +583,7 @@ const CoachingBatches = () => {
                               setEditingBatch(null);
                               setEditName('');
                             }}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                           >
                             <FaTrash className="w-4 h-4" />
                           </button>
@@ -593,7 +593,7 @@ const CoachingBatches = () => {
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditStart(batch)}
-                              className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                              className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'ব্যাচ সম্পাদনা করুন' : 'Edit batch'}
                             >
                               <FaEdit className="w-4 h-4" />
@@ -603,7 +603,7 @@ const CoachingBatches = () => {
                             <button
                               onClick={() => handleDelete(batch.id)}
                               disabled={isDeleting}
-                              className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                              className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'ব্যাচ মুছুন' : 'Delete batch'}
                             >
                               <FaTrash className="w-4 h-4" />

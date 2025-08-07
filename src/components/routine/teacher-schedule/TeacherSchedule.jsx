@@ -6,7 +6,7 @@ export default function TeacherSchedule() {
   const { t } = useTranslation(); // Initialize translation function
 
   return (
-    <div className="bg-white rounded-md px-4 py-2 my-2 sm:my-4">
+    <div className="bg-[#441a05]rounded-md px-4 py-2 my-2 sm:my-4">
       <div className="flex items-center my-4 gap-2 md:gap-4">
         <label className="w-24">{t("module.routine.select_teacher")}</label>
         <select
@@ -21,7 +21,7 @@ export default function TeacherSchedule() {
           <option value="Ahmed Hasan">{t("module.routine.ahmed_hasan")}</option>
         </select>
 
-        <button className="bg-#DB9E30 hover:bg-buttonHover w-20 sm:w-28 md:w-32 ml-1 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+        <button className="bg-#DB9E30 hover:bg-buttonHover w-20 sm:w-28 md:w-32 ml-1 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
           {t("module.routine.submit")}
         </button>
       </div>

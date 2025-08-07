@@ -8,7 +8,7 @@ export default function InstituteInfo({data}) {
    const {institute_id, institute_name, institute_eiin_no, education_board_id, education_division_id, education_district_id, education_thana_id, status } = data;
 
     return (
-      <div className="md:w-1/2 p-6 bg-white rounded-md text-textGray">
+      <div className="md:w-1/2 p-6 bg-[#441a05]rounded-md text-textGray">
          <h5 className="font-medium mb-2 text-lg">{t("general.institute")} {t("general.information")}</h5>
          <div className="flex items-center gap-2 leading-7">
             <GoDotFill className="text-xs"/>

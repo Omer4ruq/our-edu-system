@@ -51,11 +51,11 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
     <div className="pl-4 xl:pl-2 my-5">
       {/* Breadcrumb Path */}
       {breadcrumbModule && (
-        <h3 className="text-lg text-white capitalize mb-2">
+        <h3 className="text-lg text-[#441a05]capitalize mb-2">
           <Link
             to={modulePath}
             className={`${
-              breadcrumbRoute ? "text-white hover:text-#DB9E30" : "text-#DB9E30 font-bold"
+              breadcrumbRoute ? "text-[#441a05]hover:text-#DB9E30" : "text-#DB9E30 font-bold"
             }`}
           >
             {breadcrumbModule} {breadcrumbRoute && "/ "}
@@ -63,7 +63,7 @@ export default function Breadcrumb({ module, route, nestedRoute }) {
           
           {breadcrumbRoute && (
             <span className={`${
-              breadcrumbNestedRoute ? "text-white hover:text-#DB9E30" : "text-#DB9E30 font-bold"
+              breadcrumbNestedRoute ? "text-[#441a05]hover:text-#DB9E30" : "text-#DB9E30 font-bold"
             }`}>
               {t(breadcrumbRoute)}
               {breadcrumbNestedRoute && " / "}

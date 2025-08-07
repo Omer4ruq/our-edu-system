@@ -43,13 +43,13 @@ export default function SListTable({studentsData, amountToShow, index, handleDel
           <td className="min-w-40 pb-1 text-center">
              <Link to={`/student-info/edit-student/${item.id}`}>
                 <button
-                   className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                   className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                 >
                    Edit
                 </button>
               </Link>
               <button
-                className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                 onClick={()=>handleDelete(item.name)}
               >
                 Delete

@@ -822,14 +822,14 @@ const AddBehaviorMarks = () => {
         {/* Header */}
         <div className="glass-effect rounded-3xl p-8 mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-8">
-            <div className="p-3 bg-white rounded-2xl">
+            <div className="p-3 bg-[#441a05]rounded-2xl">
               <FaGraduationCap className="text-3xl text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold bg-white bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-[#441a05]bg-clip-text text-transparent">
                 আচরণ নম্বর যোগ করুন
               </h1>
-              <p className="text-white mt-1">ছাত্রদের আচরণ মূল্যায়ন করুন</p>
+              <p className="text-[#441a05]mt-1">ছাত্রদের আচরণ মূল্যায়ন করুন</p>
             </div>
           </div>
 
@@ -837,7 +837,7 @@ const AddBehaviorMarks = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {/* Academic Year */}
             <div className="animate-slideIn" style={{ animationDelay: '0.1s' }}>
-              <label className="block text-sm font-semibold text-white mb-1">একাডেমিক বছর</label>
+              <label className="block text-sm font-semibold text-[#441a05]mb-1">একাডেমিক বছর</label>
               <div className="">
                 <Select
                   options={academicYearOptions}
@@ -856,7 +856,7 @@ const AddBehaviorMarks = () => {
 
             {/* Class */}
             <div className="animate-slideIn" style={{ animationDelay: '0.2s' }}>
-              <label className="block text-sm font-semibold text-white mb-1">শ্রেণী</label>
+              <label className="block text-sm font-semibold text-[#441a05]mb-1">শ্রেণী</label>
               <div className="">
                 <Select
                   options={classOptions}
@@ -875,7 +875,7 @@ const AddBehaviorMarks = () => {
 
             {/* Exam */}
             <div className="animate-slideIn" style={{ animationDelay: '0.3s' }}>
-              <label className="block text-sm font-semibold text-white mb-1">পরীক্ষা</label>
+              <label className="block text-sm font-semibold text-[#441a05]mb-1">পরীক্ষা</label>
               <div className="">
                 <Select
                   options={examOptions}
@@ -901,7 +901,7 @@ const AddBehaviorMarks = () => {
                   {selectedClass && selectedExam && students && students.length > 0 && activeBehaviorTypes.length > 0 && (
                     <button
                       onClick={generateBehaviorReport}
-                      className="flex items-center gap-2 px-3 py-2 bg-white text-white rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-sm font-medium"
+                      className="flex items-center gap-2 px-3 py-2 bg-[#441a05]text-[#441a05]rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-sm font-medium"
                       title="আচরণ প্রতিবেদন ডাউনলোড করুন"
                     >
                       <FaDownload className="text-sm" />
@@ -911,13 +911,13 @@ const AddBehaviorMarks = () => {
                 </div>
                 <div className='flex justify-between gap-5 flex-nowrap'>
                   {students && (
-                    <p className="text-white font-bold text-sm">মোট ছাত্র: {students.length}</p>
+                    <p className="text-[#441a05]font-bold text-sm">মোট ছাত্র: {students.length}</p>
                   )}
                   {activeBehaviorTypes.length > 0 && (
-                    <p className="text-white font-bold text-sm">আচরণ ধরন: {activeBehaviorTypes.length}</p>
+                    <p className="text-[#441a05]font-bold text-sm">আচরণ ধরন: {activeBehaviorTypes.length}</p>
                   )}
                   {selectedAcademicYear && (
-                    <p className="text-white font-bold text-sm">
+                    <p className="text-[#441a05]font-bold text-sm">
                       ফিল্টার: {academicYears?.find(year => year.id === parseInt(selectedAcademicYear))?.name}
                     </p>
                   )}
@@ -931,7 +931,7 @@ const AddBehaviorMarks = () => {
         {selectedClass && selectedExam && selectedAcademicYear && students && activeBehaviorTypes.length > 0 && (
           <div className="glass-effect rounded-3xl shadow-2xl animate-scaleIn overflow-hidden">
             <div className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">আচরণ নম্বর প্রবেশ করুন</h3>
+              <h3 className="text-xl font-bold text-[#441a05]mb-2">আচরণ নম্বর প্রবেশ করুন</h3>
               <p className="text-white">
                 Enter বা Tab দাবলে পরের ফিল্ডে যাবে এবং নম্বর সংরক্ষিত হবে। খালি রেখে গেলে নম্বর মুছে যাবে।
               </p>
@@ -941,13 +941,13 @@ const AddBehaviorMarks = () => {
               <table className="w-full">
                 <thead className="bg-white/10">
                   <tr>
-                    <th className="p-4 text-left font-bold text-white border-b border-gray-200">ছাত্রের নাম</th>
-                    <th className="p-4 text-left font-bold text-white border-b border-gray-200">রোল নং</th>
+                    <th className="p-4 text-left font-bold text-[#441a05]border-b border-gray-200">ছাত্রের নাম</th>
+                    <th className="p-4 text-left font-bold text-[#441a05]border-b border-gray-200">রোল নং</th>
                     {activeBehaviorTypes.map(bt => (
-                      <th key={bt.id} className="p-4 text-center font-bold text-white border-b border-gray-200 min-w-[180px]">
+                      <th key={bt.id} className="p-4 text-center font-bold text-[#441a05]border-b border-gray-200 min-w-[180px]">
                         <div>
                           <div className="text-sm">{bt.name}</div>
-                          <div className="text-xs text-white mt-1 font-normal">
+                          <div className="text-xs text-[#441a05]mt-1 font-normal">
                             পূর্ণমান: {bt.obtain_mark}
                           </div>
                         </div>
@@ -958,7 +958,7 @@ const AddBehaviorMarks = () => {
                 <tbody>
                   {students.map((student, studentIndex) => (
                     <tr key={student.id} className="table-row border-b border-gray-100 transition-all duration-300">
-                      <td className="p-4 font-semibold text-white text-sm">{student.name}</td>
+                      <td className="p-4 font-semibold text-[#441a05]text-sm">{student.name}</td>
                       <td className="p-4 text-gray-600">{student.roll_no}</td>
                       {activeBehaviorTypes.map((bt, behaviorIndex) => {
                         const inputId = `mark-${student.id}-${bt.id}`;
@@ -983,7 +983,7 @@ const AddBehaviorMarks = () => {
                                     currentMarkStatus === 'success' ? 'border-green-400 bg-green-50 text-green-700 shadow-green-200' :
                                       currentMarkStatus === 'error' ? 'border-red-400 bg-red-50 text-red-700 shadow-red-200' :
                                         currentMarkStatus === 'loading' ? 'border-blue-400 bg-blue-50 text-blue-700 shadow-blue-200' :
-                                          'border-gray-300 bg-white hover:border-blue-400 focus:border-blue-500 focus:bg-blue-50'
+                                          'border-gray-300 bg-[#441a05]hover:border-blue-400 focus:border-blue-500 focus:bg-blue-50'
                                     } disabled:bg-gray-100 disabled:cursor-not-allowed shadow-lg`}
                                   placeholder="0"
                                   autoComplete="off"
@@ -993,17 +993,17 @@ const AddBehaviorMarks = () => {
                                 <div className="status-indicator">
                                   {currentMarkStatus === 'loading' && (
                                     <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                                      <FaSpinner className="text-white text-xs animate-spin" />
+                                      <FaSpinner className="text-[#441a05]text-xs animate-spin" />
                                     </div>
                                   )}
                                   {currentMarkStatus === 'success' && (
                                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg animate-scaleIn">
-                                      <FaCheck className="text-white text-xs" />
+                                      <FaCheck className="text-[#441a05]text-xs" />
                                     </div>
                                   )}
                                   {currentMarkStatus === 'error' && (
                                     <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center shadow-lg animate-scaleIn">
-                                      <FaExclamationTriangle className="text-white text-xs" />
+                                      <FaExclamationTriangle className="text-[#441a05]text-xs" />
                                     </div>
                                   )}
                                 </div>
@@ -1012,7 +1012,7 @@ const AddBehaviorMarks = () => {
                                 {currentValue && currentValue !== '' && (hasChangePermission || hasDeletePermission) && (
                                   <button
                                     onClick={() => handleClearMark(student.id, bt.id)}
-                                    className="clear-button w-6 h-6 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white rounded-full flex items-center justify-center shadow-lg transform transition-all duration-200"
+                                    className="clear-button w-6 h-6 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-[#441a05]rounded-full flex items-center justify-center shadow-lg transform transition-all duration-200"
                                     title="নম্বর মুছে ফেলুন"
                                     type="button"
                                   >

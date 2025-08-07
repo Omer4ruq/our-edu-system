@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function TeacherAttendance() {
-  const [pmColor, setPmColor] = useState("#fff");
+  const [pmColor, setPmColor] = useState("#441a05");
   const [key, setKey] = useState(0); // used to force re-render
 
   const getPmColor = () =>
     getComputedStyle(document.documentElement)
       .getPropertyValue("--pm-color")
-      .trim() || "#fff";
+      .trim() || "#441a05";
 
   const updateColor = () => {
     setPmColor(getPmColor());
@@ -51,7 +51,7 @@ export default function TeacherAttendance() {
       {
         label: "Number of Teachers",
         data: [30, 2],
-        backgroundColor: [pmColor, "#ffffff"],
+        backgroundColor: [pmColor, "#441a05fff"],
       },
     ],
   };

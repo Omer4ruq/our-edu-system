@@ -12,7 +12,7 @@ const ClassManagement = () => {
             end
             className={({ isActive }) =>
               isActive
-                ? "bg-blue-600 text-white px-4 py-2 rounded"
+                ? "bg-blue-600 text-[#441a05]px-4 py-2 rounded"
                 : "bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"
             }
           >
@@ -22,7 +22,7 @@ const ClassManagement = () => {
             to="/class-management/add-section"
             className={({ isActive }) =>
               isActive
-                ? "bg-blue-600 text-white px-4 py-2 rounded"
+                ? "bg-blue-600 text-[#441a05]px-4 py-2 rounded"
                 : "bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"
             }
           >

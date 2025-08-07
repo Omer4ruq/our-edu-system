@@ -162,7 +162,7 @@ const ClassSubject = () => {
   if (classesLoading || subjectsLoading || gSubjectsLoading || permissionsLoading) {
     return (
       <div className="text-center animate-fadeIn">
-        <FaSpinner className="inline-block animate-spin text-2xl text-white mb-2" />
+        <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
         <p className="text-white/70">লোড হচ্ছে...</p>
       </div>
     );
@@ -230,7 +230,7 @@ const ClassSubject = () => {
           <div className="border-b border-white/20 bg-black/10 backdrop-blur-sm rounded-2xl p-2">
             <div className="flex items-center space-x-4 m-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-white" />
-              <h1 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+              <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 ক্লাস বিষয় ব্যবস্থাপনা
               </h1>
             </div>
@@ -250,8 +250,8 @@ const ClassSubject = () => {
                     onClick={() => handleClassSelect(cls?.student_class.id)}
                     className={`whitespace-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
                       selectedClassId === cls.student_class.id
-                        ? "bg-pmColor text-white shadow-md"
-                        : "text-white hover:bg-white/10 hover:text-white"
+                        ? "bg-pmColor text-[#441a05]shadow-md"
+                        : "text-[#441a05]hover:bg-white/10 hover:text-white"
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                     aria-label={`ক্লাস নির্বাচন ${cls?.student_class?.name}`}
@@ -272,12 +272,12 @@ const ClassSubject = () => {
         {/* Subject List with Checkboxes for Activation/Deactivation */}
         {selectedClassId && (hasAddPermission || hasChangePermission) && (
           <div className="bg-black/10 backdrop-blur-sm p-6 rounded-2xl shadow-xl mb-10 mx-auto animate-fadeIn">
-            <h2 className="text-lg font-semibold text-white mb-4">
+            <h2 className="text-lg font-semibold text-[#441a05]mb-4">
               নির্বাচিত ক্লাসের জন্য বিষয় (সক্রিয়/নিষ্ক্রিয় করুন)
             </h2>
             {gSubjectsLoading ? (
               <div className="text-center animate-fadeIn">
-                <FaSpinner className="inline-block animate-spin text-2xl text-white mb-2" />
+                <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
                 <p className="text-white/70">বিষয় লোড হচ্ছে...</p>
               </div>
             ) : gSubjectsError ? (
@@ -322,7 +322,7 @@ const ClassSubject = () => {
                         >
                           {existingSubject?.is_active && (
                             <svg
-                              className="w-4 h-4 text-white animate-scaleIn"
+                              className="w-4 h-4 text-[#441a05]animate-scaleIn"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -356,7 +356,7 @@ const ClassSubject = () => {
         {/* Display Only Active Class Subjects */}
         {subjectsLoading || classesLoading ? (
           <div className="text-center animate-fadeIn">
-            <FaSpinner className="inline-block animate-spin text-2xl text-white mb-2" />
+            <FaSpinner className="inline-block animate-spin text-2xl text-[#441a05]mb-2" />
             <p className="text-white/70">লোড হচ্ছে...</p>
           </div>
         ) : subjectsError || classesError ? (
@@ -376,7 +376,7 @@ const ClassSubject = () => {
                 <select
                   value={filterClassId}
                   onChange={(e) => setFilterClassId(e.target.value)}
-                  className="px-3 py-1 bg-white/10 border border-white/20 rounded-md text-white text-sm focus:outline-none focus:ring-2 focus:ring-pmColor focus:border-transparent"
+                  className="px-3 py-1 bg-white/10 border border-white/20 rounded-md text-[#441a05]text-sm focus:outline-none focus:ring-2 focus:ring-pmColor focus:border-transparent"
                 >
                   <option value="all">সকল ক্লাস</option>
                   {classes.map((cls) => (
@@ -467,7 +467,7 @@ const ClassSubject = () => {
                               <button
                                 onClick={() => handleDelete(subject.id)}
                                 disabled={deleteLoading}
-                                className={`text-white hover:text-red-500 transition-colors duration-300 ${
+                                className={`text-[#441a05]hover:text-red-500 transition-colors duration-300 ${
                                   deleteLoading
                                     ? "opacity-50 cursor-not-allowed"
                                     : ""
@@ -508,24 +508,24 @@ const ClassSubject = () => {
         {/* Confirmation Modal */}
         {isModalOpen && hasDeletePermission && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 বিষয় মুছে ফেলা নিশ্চিত করুন
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 আপনি কি নিশ্চিত যে এই বিষয় মুছে ফেলতে চান?
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

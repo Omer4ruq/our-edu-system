@@ -29,7 +29,7 @@ export default function AcademicSetupForm({acSetupFields}) {
 
 
   return (
-    <div className="bg-white rounded-md px-4 py-2 my-2 sm:my-4">
+    <div className="bg-[#441a05]rounded-md px-4 py-2 my-2 sm:my-4">
       <form className="md:flex gap-7 items-center justify-between" onSubmit={handleSubmit}>
         {/* select what type of data to entry */}
         {/* select field */}
@@ -65,7 +65,7 @@ export default function AcademicSetupForm({acSetupFields}) {
         <div className="flex items-center gap-2 md:w-2/12 justify-end my-4">
           <button
             type="submit"
-            className="rounded w-full p-3 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md hover:-translate-y-[2px] duration-200"
+            className="rounded w-full p-3 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
           >
             {t('module.settings.create')}
           </button>

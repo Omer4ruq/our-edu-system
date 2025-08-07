@@ -179,14 +179,14 @@ const BehaviorMarks = () => {
       <div className="">
         <div className="flex items-center space-x-4 mb-10 animate-fadeIn">
           <IoAddCircle className="text-4xl text-white" />
-          <h2 className="text-3xl font-bold text-white tracking-tight">Add Behavior Marks</h2>
+          <h2 className="text-3xl font-bold text-[#441a05]tracking-tight">Add Behavior Marks</h2>
         </div>
 
         {/* Form to Add Behavior Marks */}
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">Add New Behavior Marks</h3>
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">Add New Behavior Marks</h3>
           </div>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl">
             <select
@@ -195,7 +195,7 @@ const BehaviorMarks = () => {
                 setSelectedClass(e.target.value);
                 setSelectedStudent("");
               }}
-              className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
               disabled={isCreating || isConfigLoading}
             >
               <option value="">Select Class</option>
@@ -208,7 +208,7 @@ const BehaviorMarks = () => {
             <select
               value={selectedStudent}
               onChange={(e) => setSelectedStudent(e.target.value)}
-              className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
               disabled={!selectedClass || isCreating || isStudentLoading}
             >
               <option value="">Select Student</option>
@@ -225,7 +225,7 @@ const BehaviorMarks = () => {
             <select
               value={selectedBehavior}
               onChange={(e) => setSelectedBehavior(e.target.value)}
-              className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
               disabled={!selectedStudent || isCreating || behaviorIsLoading}
             >
               <option value="">Select Behavior Type</option>
@@ -240,7 +240,7 @@ const BehaviorMarks = () => {
                 type="number"
                 value={marks}
                 onChange={(e) => setMarks(e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                 placeholder="Enter marks"
                 disabled={!selectedBehavior || isCreating}
                 max={maxMarks}
@@ -252,8 +252,8 @@ const BehaviorMarks = () => {
               type="submit"
               disabled={isCreating}
               title="Add behavior marks"
-              className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                isCreating ? "cursor-not-allowed" : "hover:text-white hover:shadow-md"
+              className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                isCreating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
               }`}
             >
               {isCreating ? (
@@ -292,7 +292,7 @@ const BehaviorMarks = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <FaEdit className="text-3xl text-white" />
-              <h3 className="text-2xl font-bold text-white tracking-tight">Edit Behavior Marks</h3>
+              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">Edit Behavior Marks</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
               <select
@@ -301,7 +301,7 @@ const BehaviorMarks = () => {
                   setSelectedClass(e.target.value);
                   setSelectedStudent("");
                 }}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isUpdating || isConfigLoading}
               >
                 <option value="">Select Class</option>
@@ -314,7 +314,7 @@ const BehaviorMarks = () => {
               <select
                 value={selectedStudent}
                 onChange={(e) => setSelectedStudent(e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={!selectedClass || isUpdating || isStudentLoading}
               >
                 <option value="">Select Student</option>
@@ -331,7 +331,7 @@ const BehaviorMarks = () => {
               <select
                 value={selectedBehavior}
                 onChange={(e) => setSelectedBehavior(e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={!selectedStudent || isUpdating || behaviorIsLoading}
               >
                 <option value="">Select Behavior Type</option>
@@ -346,7 +346,7 @@ const BehaviorMarks = () => {
                   type="number"
                   value={editMarks}
                   onChange={(e) => setEditMarks(e.target.value)}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                   placeholder="Edit marks"
                   disabled={!selectedBehavior || isUpdating}
                   max={maxMarks}
@@ -358,8 +358,8 @@ const BehaviorMarks = () => {
                 type="submit"
                 disabled={isUpdating}
                 title="Update behavior marks"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? "cursor-not-allowed" : "hover:text-white hover:shadow-md"
+                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isUpdating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
                 }`}
               >
                 {isUpdating ? (
@@ -381,7 +381,7 @@ const BehaviorMarks = () => {
                   setSelectedClass("");
                 }}
                 title="Cancel editing"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
               >
                 Cancel
               </button>
@@ -399,7 +399,7 @@ const BehaviorMarks = () => {
 
         {/* Behavior Marks Cards */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">Behavior Marks List</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">Behavior Marks List</h3>
           {marksLoading ? (
             <p className="p-4 text-white/70">Loading behavior marks...</p>
           ) : marksError ? (
@@ -439,14 +439,14 @@ const BehaviorMarks = () => {
                       <button
                         onClick={() => handleEditClick(mark)}
                         title="Edit behavior marks"
-                        className="text-white hover:text-blue-500 transition-colors duration-300"
+                        className="text-[#441a05]hover:text-blue-500 transition-colors duration-300"
                       >
                         <FaEdit className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(mark.id)}
                         title="Delete behavior marks"
-                        className="text-white hover:text-red-500 transition-colors duration-300"
+                        className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                       >
                         <FaTrash className="w-5 h-5" />
                       </button>

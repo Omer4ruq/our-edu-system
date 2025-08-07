@@ -7,7 +7,7 @@ export default function RoutineCard({ routine }) {
   return (
     <div className="sm:flex items-center justify-between bg-bgGray p-2 rounded space-y-3">
       <div className="flex items-center justify-center gap-3">
-        <div className="w-10 h-10 bg-white rounded-full items-center justify-center flex">
+        <div className="w-10 h-10 bg-[#441a05]rounded-full items-center justify-center flex">
           <img src={books} alt="" className="w-6 h-6" />
         </div>
         <div>

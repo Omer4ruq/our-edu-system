@@ -17,12 +17,12 @@ export default function InfoAction({ amountToShow, handleAmountToShow }) {
          {/* left side buttons */}
          <div className="rounded flex items-center mb-4 md:mb-0">
             <Link to="/parent-info/add-parent">
-               <button className="text-white bg-#DB9E30 px-4 md:px-5 py-2 rounded-l">
+               <button className="text-[#441a05]bg-#DB9E30 px-4 md:px-5 py-2 rounded-l">
                   {t('module.communication.add_new_record')}
                </button>
             </Link>
             <div
-               className="flex items-center gap-1 bg-#DB9E30 px-4 md:px-5 py-2 rounded-r text-white relative"
+               className="flex items-center gap-1 bg-#DB9E30 px-4 md:px-5 py-2 rounded-r text-[#441a05]relative"
                onClick={() => setIsExport(state => !state)}
             >
                <button className="">{t('module.communication.export')}</button>

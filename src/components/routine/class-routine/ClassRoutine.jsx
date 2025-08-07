@@ -269,7 +269,7 @@ console.log("selectedClass", selectedClass)
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               শ্রেণি নির্বাচন করুন
             </h3>
           </div>
@@ -283,7 +283,7 @@ console.log("selectedClass", selectedClass)
                 <button
                   key={cls.id}
                   onClick={() => handleClassSelect(cls)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium text-white transition-all duration-300 animate-scaleIn ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium text-[#441a05]transition-all duration-300 animate-scaleIn ${
                     selectedClass?.id === cls?.id
                       ? "bg-pmColor hover:text-white"
                       : "bg-white/10 hover:bg-white/10"
@@ -311,7 +311,7 @@ console.log("selectedClass", selectedClass)
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             {/* Days Section */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
                 দিন নির্বাচন করুন
               </h3>
 
@@ -338,7 +338,7 @@ console.log("selectedClass", selectedClass)
                     >
                       {selectedDay === engDay && (
                         <svg
-                          className="w-4 h-4 text-white animate-scaleIn"
+                          className="w-4 h-4 text-[#441a05]animate-scaleIn"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -361,7 +361,7 @@ console.log("selectedClass", selectedClass)
 
             {/* Periods Section */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
                 পিরিয়ড নির্বাচন করুন
               </h3>
               {periodsLoading ? (
@@ -391,7 +391,7 @@ console.log("selectedClass", selectedClass)
                       >
                         {selectedPeriod?.id === period.id && (
                           <svg
-                            className="w-4 h-4 text-white animate-scaleIn"
+                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -417,7 +417,7 @@ console.log("selectedClass", selectedClass)
 
             {/* Subjects Section - FIXED */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
                 বিষয় নির্বাচন করুন
               </h3>
               {subjectsLoading ? (
@@ -463,7 +463,7 @@ console.log("selectedClass", selectedClass)
                       >
                         {selectedSubjects.some((s) => s.id === subject.id) && (
                           <svg
-                            className="w-4 h-4 text-white animate-scaleIn"
+                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -487,7 +487,7 @@ console.log("selectedClass", selectedClass)
 
             {/* Teachers Section */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
                 শিক্ষক নির্বাচন করুন
               </h3>
               {teachersLoading || allteachersLoading ? (
@@ -531,7 +531,7 @@ console.log("selectedClass", selectedClass)
                       >
                         {selectedTeacher?.id === teacher.id && (
                           <svg
-                            className="w-4 h-4 text-white animate-scaleIn"
+                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -561,7 +561,7 @@ console.log("selectedClass", selectedClass)
             <button
               onClick={handleCreateRoutine}
               disabled={createLoading}
-              className={`relative inline-flex items-center px-10 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-pmColor to-[#F4B840] text-white transition-all duration-300 shadow-lg hover:shadow-xl btn-glow transform hover:scale-105 ${
+              className={`relative inline-flex items-center px-10 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-pmColor to-[#F4B840] text-[#441a05]transition-all duration-300 shadow-lg hover:shadow-xl btn-glow transform hover:scale-105 ${
                 createLoading ? "cursor-not-allowed opacity-70" : ""
               }`}
               title="রুটিন তৈরি করুন"
@@ -603,24 +603,24 @@ console.log("selectedClass", selectedClass)
         {/* Confirmation Modal */}
         {isModalOpen && hasAddPermission && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 রুটিন তৈরি নিশ্চিত করুন
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 আপনি কি নিশ্চিত যে নতুন রুটিন তৈরি করতে চান?
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmCreateRoutine}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন"
                 >
                   নিশ্চিত করুন

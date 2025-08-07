@@ -178,7 +178,7 @@ const MutalayaReport = () => {
             font-size: 8px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -205,7 +205,7 @@ const MutalayaReport = () => {
             vertical-align: middle;
           }
           th { 
-            background-color: #ffffff; 
+            background-color: #441a05fff; 
             font-weight: bold; 
             color: #000;
             text-transform: uppercase;
@@ -444,7 +444,7 @@ const MutalayaReport = () => {
             width: 100%;
             padding: 8px;
             background: transparent;
-            color: #fff;
+            color: #441a05;
             border: 1px solid #9D9087;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -512,7 +512,7 @@ const MutalayaReport = () => {
 
       {/* Selection Form */}
       <div className="form-container">
-        <h3 className="text-2xl font-bold text-white tracking-tight mb-6">
+        <h3 className="text-2xl font-bold text-[#441a05]tracking-tight mb-6">
           মুতালায়া রিপোর্ট
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

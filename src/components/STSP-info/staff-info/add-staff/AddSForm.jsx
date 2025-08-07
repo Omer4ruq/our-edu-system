@@ -164,7 +164,7 @@ export default function AddSForm() {
 
   return (
     <div className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-100 min-h-screen">
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg">
+      <div className="max-w-4xl mx-auto bg-[#441a05]rounded-xl shadow-lg">
         <h2 className="text-3xl font-bold text-center text-purple-800 mb-8 pt-8">{t('module.communication.staff_registration')}</h2>
         
         <form onSubmit={handleSubmit} className="space-y-8 px-6 pb-8">
@@ -632,7 +632,7 @@ export default function AddSForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`inline-flex items-center px-6 py-3 rounded-full text-white font-semibold transition ${
+              className={`inline-flex items-center px-6 py-3 rounded-full text-[#441a05]font-semibold transition ${
                 isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-600 hover:bg-purple-700'
               }`}
             >

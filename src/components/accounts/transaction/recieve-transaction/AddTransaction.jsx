@@ -53,7 +53,7 @@ export default function AddTransaction({setTotalTransaction}) {
                         handleChangleLedgerType(index, e.target.value)
                       }
                       defaultValue={item.ledger_type}
-                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                      className="block appearance-none w-full bg-[#441a05]border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Amount"
                       name="write_note"
                       id="write_note"
@@ -88,7 +88,7 @@ export default function AddTransaction({setTotalTransaction}) {
                         handleChangleLedgerAmount(index, e.target.value)
                       }
                       defaultValue={item.amount}
-                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                      className="block appearance-none w-full bg-[#441a05]border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Amount"
                       name="write_note"
                       id="write_note"
@@ -97,7 +97,7 @@ export default function AddTransaction({setTotalTransaction}) {
                   </td>
                   <td className="">
                     <button
-                      className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                      className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                       onClick={() => handleDeleteItem(index)}
                     >
                       {t("module.accounts.delete")}
@@ -112,7 +112,7 @@ export default function AddTransaction({setTotalTransaction}) {
                         handleChangleLedgerType(index, e.target.value)
                       }
                       defaultValue={item.ledger_type}
-                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                      className="block appearance-none w-full bg-[#441a05]border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Amount"
                       name="write_note"
                       id="write_note"
@@ -147,7 +147,7 @@ export default function AddTransaction({setTotalTransaction}) {
                         handleChangleLedgerAmount(index, e.target.value)
                       }
                       defaultValue={item.amount}
-                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                      className="block appearance-none w-full bg-[#441a05]border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Amount"
                       name="write_note"
                       id="write_note"
@@ -156,7 +156,7 @@ export default function AddTransaction({setTotalTransaction}) {
                   </td>
                   <td className="">
                     <button
-                      className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                      className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                       onClick={() => handleAddItem()}
                     >
                       {t("module.accounts.add")}

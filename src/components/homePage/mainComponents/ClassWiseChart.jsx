@@ -74,7 +74,7 @@ const ClassWiseChart = () => {
       <text
         x={x}
         y={y}
-        fill="#fff"
+        fill="#441a05"
         textAnchor={x > cx ? "start" : "end"}
         dominantBaseline="central"
         className="pie-label"
@@ -153,7 +153,7 @@ const ClassWiseChart = () => {
                     }
                     
                     .chart-title {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.875rem;
                         font-weight: 600;
                         text-align: center;
@@ -174,14 +174,14 @@ const ClassWiseChart = () => {
                     }
                     
                     .tooltip-label {
-                        color: #fff;
+                        color: #441a05;
                         font-weight: 600;
                         margin-bottom: 0.25rem;
                         font-size: 0.875rem;
                     }
                     
                     .tooltip-value, .tooltip-percentage {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.75rem;
                         margin: 0.125rem 0;
                         opacity: 0.8;
@@ -223,13 +223,13 @@ const ClassWiseChart = () => {
                     }
                     
                     .legend-text {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.7rem;
                         font-weight: 500;
                     }
                     
                     .legend-count {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.65rem;
                         opacity: 0.8;
                         margin-left: auto;
@@ -237,7 +237,7 @@ const ClassWiseChart = () => {
                     
                     /* Recharts custom styling */
                     .recharts-cartesian-axis-tick-value {
-                        fill: #fff !important;
+                        fill: #441a05 !important;
                         font-weight: 500;
                         font-size: 10px;
                         opacity: 0.7;
@@ -308,7 +308,7 @@ const ClassWiseChart = () => {
         <div className="text-center mt-4">
           <div className="inline-flex items-center gap-2">
             <FaUsers style={{ color: primaryColor }} />
-            <span className="text-white font-semibold text-sm">
+            <span className="text-[#441a05]font-semibold text-sm">
               মোট: {toBengali(totalStudents)} জন শিক্ষার্থী
             </span>
           </div>

@@ -395,7 +395,7 @@ const ExamRoutineTable = ({
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <h3 className="text-xl font-semibold text-white animate-fadeIn">
+        <h3 className="text-xl font-semibold text-[#441a05]animate-fadeIn">
           পরীক্ষার রুটিন:{" "}
           {selectedClassForPDF === null 
             ? "সকল ক্লাস"
@@ -405,7 +405,7 @@ const ExamRoutineTable = ({
         
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-white whitespace-nowrap">
+            <label className="text-sm font-medium text-[#441a05]whitespace-nowrap">
               PDF এর জন্য ক্লাস:
             </label>
             <Select
@@ -444,7 +444,7 @@ const ExamRoutineTable = ({
             className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
               !selectedExam || !selectedYear || isAllSchedulesLoading || isSubjectsLoading
                 ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                : "bg-red-600 text-white hover:bg-red-700 btn-glow"
+                : "bg-red-600 text-[#441a05]hover:bg-red-700 btn-glow"
             }`}
             aria-label="পরীক্ষার রুটিন PDF ডাউনলোড"
             title={
@@ -483,7 +483,7 @@ const ExamRoutineTable = ({
         <div className="overflow-x-auto rounded-xl border border-pmColor animate-fadeIn">
           <table className="w-full border-collapse min-w-[600px]">
             <thead>
-              <tr className="bg-pmColor text-white text-left text-sm uppercase font-semibold">
+              <tr className="bg-pmColor text-[#441a05]text-left text-sm uppercase font-semibold">
                 {selectedClassForPDF === null && (
                   <th className="p-4">ক্লাস</th>
                 )}
@@ -509,7 +509,7 @@ const ExamRoutineTable = ({
                 return (
                   <tr
                     key={`${schedule.id || index}-${schedule.className}-${schedule.subject_id}`}
-                    className={`${index % 2 === 1 ? "bg-white/5" : "bg-white/10"} text-white animate-scaleIn hover:bg-white/20 transition-colors duration-200`}
+                    className={`${index % 2 === 1 ? "bg-white/5" : "bg-white/10"} text-[#441a05]animate-scaleIn hover:bg-white/20 transition-colors duration-200`}
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     {selectedClassForPDF === null && (
@@ -544,7 +544,7 @@ const ExamRoutineTable = ({
                             schedule.classId
                           )
                         }
-                        className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition btn-glow"
+                        className="px-3 py-1 bg-red-600 text-[#441a05]rounded hover:bg-red-700 transition btn-glow"
                         title={`মুছুন / Delete ${subjectName}`}
                       >
                         <FaTrash className="inline-block" />

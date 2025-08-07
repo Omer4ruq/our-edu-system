@@ -20,7 +20,7 @@ export default function FeeInfo() {
 
       <SectionHeader
         title="ফি সংক্রান্ত তথ্য"
-        className="bg-pmColor text-white text-xl p-4 rounded-t-2xl shadow-md font-bold"
+        className="bg-pmColor text-[#441a05]text-xl p-4 rounded-t-2xl shadow-md font-bold"
       />
       <div className="p-4 sm:p-6 rounded-b-2xl space-y-4">
         <FeeInfoForm />

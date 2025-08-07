@@ -74,7 +74,7 @@ const customStyles = `
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #fff;
+    background: #441a05;
   }
   .table-container {
     // border: 1px solid #000;
@@ -104,7 +104,7 @@ const customStyles = `
     color: #9B1C1C;
   }
   .absent-cell {
-    background-color: #FFF7E6;
+    background-color: #441a057E6;
     color: #000;
   }
   .head {
@@ -443,7 +443,7 @@ const PersonalMarkSheet = () => {
           font-size: 12px;
           margin: 0;
           padding: 0;
-          background-color: #ffffff;
+          background-color: #441a05fff;
         }
         .head {
           text-align: center;
@@ -503,7 +503,7 @@ const PersonalMarkSheet = () => {
           color: #9B1C1C;
         }
         .absent-cell {
-          background-color: #FFF7E6;
+          background-color: #441a057E6;
           color: #000;
         }
         .footer-label {
@@ -677,7 +677,7 @@ const PersonalMarkSheet = () => {
       <div className="mx-auto">
         {/* Selection Form */}
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-          <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight mb-6">
+          <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight mb-6">
             ব্যক্তিগত ফলাফল শীট
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -792,7 +792,7 @@ const PersonalMarkSheet = () => {
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 btn-ripple ${
                 isLoading || !marksData
                   ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                  : "bg-pmColor text-white hover:text-white btn-glow"
+                  : "bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow"
               }`}
               aria-label="PDF রিপোর্ট ডাউনলোড"
               title="PDF রিপোর্ট ডাউনলোড করুন / Download PDF report"
@@ -823,7 +823,7 @@ const PersonalMarkSheet = () => {
               কোনো ফলাফল পাওয়া যায়নি।
             </p>
           ) : (
-            <div className="bg-white a4-portrait">
+            <div className="bg-[#441a05]a4-portrait">
               <div className="head">
                 <div className="institute-info">
                   <h1>{instituteData?.institute_name || "অজানা ইনস্টিটিউট"}</h1>

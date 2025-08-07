@@ -72,7 +72,7 @@ export default function FeeInfoTable() {
         `}
       </style>
 
-      <h5 className="text-white text-end text-xs mb-2">
+      <h5 className="text-[#441a05]text-end text-xs mb-2">
         মোট শিক্ষার্থী পাওয়া গেছে: <span className="text-pmColor font-bold">৪০</span>
       </h5>
       <div className="max-h-52 overflow-y-auto scrollbar-thin scrollbar-thumb-[#9d9087] scrollbar-track-transparent">
@@ -81,7 +81,7 @@ export default function FeeInfoTable() {
           aria-label="ফি সংক্রান্ত তথ্য সারণী / Fee Information Table"
         >
           <thead>
-            <tr className="bg-pmColor text-white font-bold">
+            <tr className="bg-pmColor text-[#441a05]font-bold">
               <th className="w-[40%] py-2">নাম</th>
               <th className="w-[20%] py-2">শ্রেণি</th>
               <th className="w-[20%] py-2">পরিমাণ</th>
@@ -100,7 +100,7 @@ export default function FeeInfoTable() {
                 <td className="w-[20%] py-1 text-white">{student.amount} টাকা</td>
                 <td className="w-[20%] py-1">
                   <span
-                    className={`text-white px-3 py-[2px] rounded-full text-xs ${
+                    className={`text-[#441a05]px-3 py-[2px] rounded-full text-xs ${
                       student.status === 'পরিশোধিত' ? 'text-pmColor' : 'text-white'
                     }`}
                   >

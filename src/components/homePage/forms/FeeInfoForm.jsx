@@ -23,19 +23,19 @@ export default function FeeInfoForm() {
           style="flex-1"
           label="বছর"
           labelClassName="text-pmColor font-medium mb-1"
-          inputClassName="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+          inputClassName="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
         />
         <Month
           style="flex-1"
           label="মাস"
           labelClassName="text-pmColor font-medium mb-1"
-          inputClassName="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+          inputClassName="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
         />
         <Class
           style="flex-1"
           label="শ্রেণি"
           labelClassName="text-pmColor font-medium mb-1"
-          inputClassName="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+          inputClassName="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
         />
       </div>
     </div>

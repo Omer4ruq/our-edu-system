@@ -63,7 +63,7 @@ const ServiceFeesTable = ({
 
   return (
     <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-      <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+      <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
         {serviceTypes.find(s => s.key === selectedServiceType)?.label} ফি কনফিগারেশন
       </h3>
       {filteredFeesName?.length === 0 ? (

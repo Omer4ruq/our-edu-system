@@ -54,14 +54,14 @@ export default function SidebarMenu() {
   const filteredMenu = filterMenuByRole(mainMenu);
 
   return (
-    <ul className="nk-menu text-white py-6 text-sm">
+    <ul className="nk-menu text-[#441a05]py-6 text-sm">
       {filteredMenu.map((item) => (
         <li
           key={item.id}
           className={
             item.icon
               ? "py-0.5"
-              : "relative pt-5 px-6 text-[#ffffff70] uppercase font-bold text-sm leading-10 tracking-wide"
+              : "relative pt-5 px-6 text-[#441a05fff70] uppercase font-bold text-sm leading-10 tracking-wide"
           }
         >
           {item.icon ? (

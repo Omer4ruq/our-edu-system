@@ -8,9 +8,9 @@ export default function AddLeaveType({setIsAdd}) {
    <button
       type="submit"
       onClick={()=> setIsAdd(true)}
-      className="rounded w-48 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200 flex items-center justify-center gap-2"
+      className="rounded w-48 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200 flex items-center justify-center gap-2"
    >
-      {/* <LuPlusCircle className="text-white w-4 h-4"/> */}
+      {/* <LuPlusCircle className="text-[#441a05]w-4 h-4"/> */}
       {t('module.communication.add_leave_request')}
    </button>
     );

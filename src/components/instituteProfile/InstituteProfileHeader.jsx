@@ -32,7 +32,7 @@ export default function InstituteProfileHeader({data}) {
                   </div> 
                </div>
                
-               <button className="bg-#DB9E30 hover:bg-buttonHover w-24 md:w-28 h-10 md:h-11 rounded shadow text-white hover:-translate-y-[2px] duration-200 mt-4">
+               <button className="bg-#DB9E30 hover:bg-buttonHover w-24 md:w-28 h-10 md:h-11 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 mt-4">
                   <AiOutlineRise className="inline mr-1 md:mr-2"/>
                   {t("module.instituteInfo.active")}
                </button>

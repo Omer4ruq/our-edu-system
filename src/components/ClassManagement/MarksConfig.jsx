@@ -118,7 +118,7 @@ const MarksConfig = () => {
         `}
       </style>
 
-      <h3 className="text-lg font-semibold text-white mb-6 border-b border-white/20 pb-2 animate-fadeIn">
+      <h3 className="text-lg font-semibold text-[#441a05]mb-6 border-b border-white/20 pb-2 animate-fadeIn">
         Marks Configuration for {classId ? classId.replace('class-', 'Class ') : 'Unknown'}
       </h3>
 
@@ -137,7 +137,7 @@ const MarksConfig = () => {
             value={formData.subject}
             onChange={handleInputChange}
             placeholder="Subject (e.g., Mathematics)"
-            className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <input
@@ -146,7 +146,7 @@ const MarksConfig = () => {
             value={formData.examType}
             onChange={handleInputChange}
             placeholder="Exam Type (e.g., Final Exam)"
-            className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <input
@@ -155,7 +155,7 @@ const MarksConfig = () => {
             value={formData.maxMarks}
             onChange={handleInputChange}
             placeholder="Max Marks (e.g., 100)"
-            className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <input
@@ -164,14 +164,14 @@ const MarksConfig = () => {
             value={formData.weightage}
             onChange={handleInputChange}
             placeholder="Weightage (e.g., 40%)"
-            className="w-full bg-transparent text-white placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+            className="w-full bg-transparent text-[#441a05]placeholder-white/70 pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
             disabled={isSubmitting}
           />
           <div className="flex gap-2">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`relative inline-flex items-center px-4 py-2 w-full rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
+              className={`relative inline-flex items-center px-4 py-2 w-full rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
                 isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'
               }`}
               title={editId ? 'Update configuration' : 'Add configuration'}
@@ -195,7 +195,7 @@ const MarksConfig = () => {
                   setEditId(null);
                   setFormData({ subject: '', examType: '', maxMarks: '', weightage: '' });
                 }}
-                className="relative inline-flex items-center px-4 py-2 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-4 py-2 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
                 title="Cancel editing"
               >
                 Cancel
@@ -207,7 +207,7 @@ const MarksConfig = () => {
 
       {/* Configurations Table */}
       <div className="backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] border border-white/20">
-        <h4 className="text-base font-semibold text-white p-4 border-b border-white/20">
+        <h4 className="text-base font-semibold text-[#441a05]p-4 border-b border-white/20">
           Marks Configurations
         </h4>
         <div className="overflow-x-auto">
@@ -254,14 +254,14 @@ const MarksConfig = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <button
                         onClick={() => handleEdit(config)}
-                        className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                        className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                         title="Edit configuration"
                       >
                         <FaEdit className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(config.id)}
-                        className="text-white hover:text-red-500 transition-colors duration-300"
+                        className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                         title="Delete configuration"
                       >
                         <FaTrash className="w-5 h-5" />

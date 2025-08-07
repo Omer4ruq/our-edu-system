@@ -62,7 +62,7 @@ const StudentGenderChart = () => {
       <text
         x={x}
         y={y}
-        fill="#fff"
+        fill="#441a05"
         textAnchor={x > cx ? "start" : "end"}
         dominantBaseline="central"
         className="pie-label"
@@ -190,7 +190,7 @@ const StudentGenderChart = () => {
                     .stat-number {
                         font-size: 1.25rem;
                         font-weight: bold;
-                        color: #fff;
+                        color: #441a05;
                         margin-bottom: 0.25rem;
                     }
                     
@@ -221,7 +221,7 @@ const StudentGenderChart = () => {
                     }
                     
                     .chart-title {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.875rem;
                         font-weight: 600;
                         text-align: center;
@@ -242,7 +242,7 @@ const StudentGenderChart = () => {
                     }
                     
                     .tooltip-label {
-                        color: #fff;
+                        color: #441a05;
                         font-weight: 600;
                         margin-bottom: 0.25rem;
                         font-size: 0.875rem;
@@ -318,7 +318,7 @@ const StudentGenderChart = () => {
                 className="inline-block w-4 h-4 rounded-full"
                 style={{ backgroundColor: item.color }}
               ></span>
-              <span className="text-white text-sm font-medium">
+              <span className="text-[#441a05]text-sm font-medium">
                 {item.name}
               </span>
             </div>

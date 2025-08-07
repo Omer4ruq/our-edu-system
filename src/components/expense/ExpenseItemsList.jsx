@@ -151,7 +151,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
             font-size: 12px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -338,7 +338,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                     name="expensetype_id"
                     value={dateFilter.expensetype_id}
                     onChange={handleDateFilterChange}
-                    className="bg-transparent min-w-[150px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                    className="bg-transparent min-w-[150px] text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                   >
                     <option value="">ব্যয়ের ধরন</option>
                     {expenseTypes.map((type) => (
@@ -351,7 +351,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                     name="fund_id"
                     value={dateFilter.fund_id}
                     onChange={handleDateFilterChange}
-                    className="bg-transparent min-w-[150px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                    className="bg-transparent min-w-[150px] text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                   >
                     <option value="">তহবিল নির্বাচন</option>
                     {fundTypes.map((fund) => (
@@ -366,7 +366,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                       name="start_date"
                       value={dateFilter.start_date}
                       onChange={handleDateFilterChange}
-                      className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                      className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                       placeholder="শুরু তারিখ"
                     />
                     <input
@@ -374,7 +374,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                       name="end_date"
                       value={dateFilter.end_date}
                       onChange={handleDateFilterChange}
-                      className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                      className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                       placeholder="শেষ তারিখ"
                     />
                   </>
@@ -391,7 +391,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
           </div>
           {isAllItemsLoading || isTypesLoading || isFundLoading || isYearsLoading ? (
             <div className="p-4 flex items-center justify-center">
-              <FaSpinner className="animate-spin text-white text-2xl mr-2" />
+              <FaSpinner className="animate-spin text-[#441a05]text-2xl mr-2" />
               <p className="text-white/70">লোড হচ্ছে...</p>
             </div>
           ) : allItemsError || fundError ? (
@@ -537,7 +537,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
             background-size: 1.5em;
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -554,12 +554,12 @@ const ExpenseItemsList = ({ onEditClick }) => {
           }
           .tab-active {
             background-color: #DB9E30;
-            color: #fff;
+            color: #441a05;
             font-weight: bold;
           }
           .tab-inactive {
             background-color: transparent;
-            color: #fff;
+            color: #441a05;
           }
           .tab-inactive:hover {
             background-color: rgba(219, 158, 48, 0.1);
@@ -570,17 +570,17 @@ const ExpenseItemsList = ({ onEditClick }) => {
       {/* Modal */}
       {hasDeletePermission && isModalOpen && (
         <div className="fixed inset-0flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ব্যয় আইটেম মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই ব্যয় আইটেমটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 aria-label="বাতিল"
               >
                 বাতিল
@@ -588,7 +588,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"}`}
                 aria-label="নিশ্চিত করুন"
               >
                 {isDeleting ? (
@@ -644,7 +644,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                   name="expensetype_id"
                   value={dateFilter.expensetype_id}
                   onChange={handleDateFilterChange}
-                  className="bg-transparent min-w-[150px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                  className="bg-transparent min-w-[150px] text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                 >
                   <option value="">ব্যয়ের ধরন</option>
                   {expenseTypes.map((type) => (
@@ -657,7 +657,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                   name="fund_id"
                   value={dateFilter.fund_id}
                   onChange={handleDateFilterChange}
-                  className="bg-transparent min-w-[150px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                  className="bg-transparent min-w-[150px] text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                 >
                   <option value="">তহবিল নির্বাচন</option>
                   {fundTypes.map((fund) => (
@@ -672,7 +672,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                     name="start_date"
                     value={dateFilter.start_date}
                     onChange={handleDateFilterChange}
-                    className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                    className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                     placeholder="শুরু তারিখ"
                   />
                   <input
@@ -680,7 +680,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                     name="end_date"
                     value={dateFilter.end_date}
                     onChange={handleDateFilterChange}
-                    className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                    className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
                     placeholder="শেষ তারিখ"
                   />
                 </>
@@ -698,7 +698,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
         </div>
         {isAllItemsLoading || isTypesLoading || isFundLoading || isYearsLoading ? (
           <div className="p-4 flex items-center justify-center">
-            <FaSpinner className="animate-spin text-white text-2xl mr-2" />
+            <FaSpinner className="animate-spin text-[#441a05]text-2xl mr-2" />
             <p className="text-white/70">লোড হচ্ছে...</p>
           </div>
         ) : allItemsError || fundError ? (
@@ -779,7 +779,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                         {hasChangePermission && (
                           <button
                             onClick={() => onEditClick(item)}
-                            className="text-white hover:text-blue-500 mr-4 transition-all duration-300"
+                            className="text-[#441a05]hover:text-blue-500 mr-4 transition-all duration-300"
                             aria-label={`সম্পাদনা ${item.name}`}
                           >
                             <FaEdit className="w-5 h-5" />
@@ -788,7 +788,7 @@ const ExpenseItemsList = ({ onEditClick }) => {
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(item.id)}
-                            className="text-white hover:text-red-500 transition-all duration-300"
+                            className="text-[#441a05]hover:text-red-500 transition-all duration-300"
                             aria-label={`মুছুন ${item.name}`}
                           >
                             <FaTrash className="w-5 h-5" />

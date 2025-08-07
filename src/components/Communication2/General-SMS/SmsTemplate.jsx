@@ -35,7 +35,7 @@ const customStyles = `
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #fff;
+    background: #441a05;
   }
 `;
 
@@ -191,7 +191,7 @@ const SmsTemplate = () => {
       <div className="">
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-2xl font-bold text-white animate-fadeIn">SMS Templates</h3>
+            <h3 className="text-2xl font-bold text-[#441a05]animate-fadeIn">SMS Templates</h3>
             <button
               onClick={() => {
                 setShowForm(!showForm);
@@ -199,7 +199,7 @@ const SmsTemplate = () => {
                 setTitle('');
                 setSmsBody('');
               }}
-              className="py-2 px-4 rounded-lg font-medium bg-pmColor text-white hover:text-white transition-all duration-300 animate-scaleIn btn-glow"
+              className="py-2 px-4 rounded-lg font-medium bg-pmColor text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn btn-glow"
               aria-label={showForm ? 'Cancel' : 'Add Template'}
             >
               {showForm ? 'Cancel' : 'Add Template'}
@@ -222,7 +222,7 @@ const SmsTemplate = () => {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Leave a Title here"
-                  className="mt-1 block w-full bg-transparent text-white placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                   aria-label="SMS Title"
                 />
               </div>
@@ -235,7 +235,7 @@ const SmsTemplate = () => {
                   value={smsBody}
                   onChange={handleSmsBodyChange}
                   placeholder="Leave a SMS Body here"
-                  className="mt-1 block w-full bg-transparent text-white placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
+                  className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
                   rows={4}
                   aria-label="SMS Body"
                 />
@@ -245,7 +245,7 @@ const SmsTemplate = () => {
               </div>
               <button
                 type="submit"
-                className="w-full py-3 px-6 rounded-lg font-medium bg-pmColor text-white hover:text-white transition-all duration-300 animate-scaleIn btn-glow"
+                className="w-full py-3 px-6 rounded-lg font-medium bg-pmColor text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn btn-glow"
                 aria-label={editId ? 'Update Template' : 'Create Template'}
               >
                 {editId ? 'Update Template' : 'Create Template'}
@@ -285,13 +285,13 @@ const SmsTemplate = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                         {template.title}
                       </td>
-                      <td className="px-6 py-4 text-sm text-white max-w-xs truncate">
+                      <td className="px-6 py-4 text-sm text-[#441a05]max-w-xs truncate">
                         {template.body}
                       </td>
                       <td className="px-6 py-4 text-center">
                         <button
                           onClick={() => handleToggleStatus(template.id, template.isActive)}
-                          className={`px-3 py-1 rounded-full text-xs font-medium text-white ${
+                          className={`px-3 py-1 rounded-full text-xs font-medium text-[#441a05]${
                             template.isActive ? 'bg-green-500' : 'bg-red-500'
                           }`}
                           aria-label={template.isActive ? 'Deactivate Template' : 'Activate Template'}
@@ -302,7 +302,7 @@ const SmsTemplate = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                         <button
                           onClick={() => handleEdit(template)}
-                          className="text-pmColor hover:text-white mr-4 transition-colors duration-200"
+                          className="text-pmColor hover:text-[#441a05]mr-4 transition-colors duration-200"
                           aria-label="Edit Template"
                         >
                           Edit

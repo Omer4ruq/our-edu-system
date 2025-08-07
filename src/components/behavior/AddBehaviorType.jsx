@@ -294,7 +294,7 @@ const AddBehaviorType = () => {
                 id="behaviorName"
                 value={behavior}
                 onChange={(e) => setBehavior(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "আচরণের ধরন" : "Behavior Type"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "আচরণের ধরন" : "Behavior Type"}
@@ -307,7 +307,7 @@ const AddBehaviorType = () => {
                 id="marks"
                 value={marks}
                 onChange={(e) => setMarks(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "নম্বর লিখুন" : "Enter marks"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "নম্বর" : "Marks"}
@@ -317,7 +317,7 @@ const AddBehaviorType = () => {
             <button
               type="submit"
               disabled={isCreating || isUpdating || (editBehaviorId ? !hasChangePermission : !hasAddPermission)}
-              className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+              className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                 (isCreating || isUpdating || (editBehaviorId ? !hasChangePermission : !hasAddPermission)) 
                   ? "opacity-50 cursor-not-allowed" 
                   : "hover:shadow-lg hover:scale-105"
@@ -354,7 +354,7 @@ const AddBehaviorType = () => {
                   setBehavior("");
                   setMarks("");
                 }}
-                className="bg-red-500 hover:bg-secColor/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-red-500 hover:bg-secColor/30 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
               </button>
@@ -374,7 +374,7 @@ const AddBehaviorType = () => {
       {/* Behavior Types Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'আচরণের ধরনের তালিকা' : 'Behavior Types List'}</span>
           </h3>
@@ -440,10 +440,10 @@ const AddBehaviorType = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{behavior.name}</div>
+                      <div className="text-[#441a05]font-medium">{behavior.name}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-semibold">{behavior.obtain_mark}</div>
+                      <div className="text-[#441a05]font-semibold">{behavior.obtain_mark}</div>
                     </td>
                     <td className="px-6 py-4">
                       <label className="inline-flex items-center cursor-pointer">
@@ -495,7 +495,7 @@ const AddBehaviorType = () => {
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(behavior)}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'আচরণের ধরন সম্পাদনা করুন' : 'Edit behavior type'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -504,7 +504,7 @@ const AddBehaviorType = () => {
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(behavior.id)}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'আচরণের ধরন মুছুন' : 'Delete behavior type'}
                           >
                             <FaTrash className="w-4 h-4" />

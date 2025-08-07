@@ -166,7 +166,7 @@ export default function Notices() {
       </style>
 
       {/* Header */}
-      <div className=" text-white px-4 flex items-center gap-3 mt-4">
+      <div className=" text-[#441a05]px-4 flex items-center gap-3 mt-4">
         <div className="animate-pulse-custom">
           <FaCalendarAlt className="text-pmColor" />
         </div>
@@ -210,7 +210,7 @@ export default function Notices() {
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
-                      <h4 className="text-white font-semibold text-xs leading-relaxed">
+                      <h4 className="text-[#441a05]font-semibold text-xs leading-relaxed">
                         {event.title}
                       </h4>
                     </div>
@@ -235,7 +235,7 @@ export default function Notices() {
         {/* View All Button */}
         {!isLoading && !isError && sortedEvents.length > 0 && (
           <div className="flex justify-end mt-3">
-            <button className="flex gap-1 justify-end items-center bg-pmColor transition-all duration-500 text-white rounded-md p-2 text-xs animate-scaleIn">
+            <button className="flex gap-1 justify-end items-center bg-pmColor transition-all duration-500 text-[#441a05]rounded-md p-2 text-xs animate-scaleIn">
               <FaEye />
               সব দেখুন
             </button>

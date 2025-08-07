@@ -20,7 +20,7 @@ export default function SupportForm() {
 
       <div className="flex justify-between items-center">
         <div>{/* input type file will be placed here. */}</div>
-        <button className="text-white font-medium bg-blue rounded px-4 sm:px-6 leading-9 sm:leading-10">
+        <button className="text-[#441a05]font-medium bg-blue rounded px-4 sm:px-6 leading-9 sm:leading-10">
           {t("module.dashboard.submit_token")}
         </button>
       </div>

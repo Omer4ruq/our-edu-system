@@ -24,21 +24,21 @@ const customStyles = `
   .react-select__control {
     background-color: transparent;
     border-color: #9d9087;
-    color: #fff;
+    color: #441a05;
   }
   .react-select__menu {
     background-color: rgba(255, 255, 255, 0.95);
-    color: #fff;
+    color: #441a05;
     z-index: 1000;
     position: absolute;
   }
   .react-select__option--is-focused {
     background-color: #DB9E30 !important;
-    color: #fff;
+    color: #441a05;
   }
   .react-select__option--is-selected {
     background-color: #DB9E30 !important;
-    color: #fff;
+    color: #441a05;
   }
 `;
 
@@ -90,7 +90,7 @@ const SendSms = () => {
   const employeeOptions = [
     { value: 'employee_1', label: 'Mr. Brown (ID: E001)' },
     { value: 'employee_2', label: 'Ms. Green (ID: E002)' },
-    { value: 'employee_3', label: 'Mr. White (ID: E003)' },
+    { value: 'employee_3', label: 'Mr. [#441a05](ID: E003)' },
   ];
 
   const templateOptions = [
@@ -221,7 +221,7 @@ const SendSms = () => {
       <style>{customStyles}</style>
       <div className="">
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
-          <h3 className="text-2xl font-bold text-white mb-6 animate-fadeIn">Send SMS</h3>
+          <h3 className="text-2xl font-bold text-[#441a05]mb-6 animate-fadeIn">Send SMS</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Select Wise */}
@@ -339,7 +339,7 @@ const SendSms = () => {
                 value={smsBody}
                 onChange={(e) => setSmsBody(e.target.value)}
                 placeholder="Enter SMS body"
-                className="mt-1 block w-full bg-transparent text-white placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
+                className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 p-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 resize-y"
                 rows={4}
                 aria-label="SMS body"
               />
@@ -351,7 +351,7 @@ const SendSms = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 px-6 rounded-lg font-medium bg-pmColor text-white hover:text-white transition-all duration-300 animate-scaleIn btn-glow"
+              className="w-full py-3 px-6 rounded-lg font-medium bg-pmColor text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn btn-glow"
               aria-label="Send SMS"
             >
               Send SMS

@@ -312,7 +312,7 @@ const StaffRegistrationForm = () => {
             z-index: 1000;
           }
           .modal-content {
-            background: #fff;
+            background: #441a05;
             padding: 20px;
             border-radius: 8px;
             max-width: 500px;
@@ -337,7 +337,7 @@ const StaffRegistrationForm = () => {
             border-radius: 10px;
           }
           ::-webkit-scrollbar-thumb:hover {
-            background: #fff;
+            background: #441a05;
           }
         `}
       </style>
@@ -349,7 +349,7 @@ const StaffRegistrationForm = () => {
               <div className="flex justify-end mt-4">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn btn-glow"
+                  className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn btn-glow"
                   title="বাল্ক স্টাফ নিবন্ধন"
                 >
                   <FaUpload className="text-lg" />
@@ -365,7 +365,7 @@ const StaffRegistrationForm = () => {
           <div className="modal-overlay">
             <div className="modal-content animate-scaleIn">
               <span className="modal-close" onClick={() => setIsModalOpen(false)}>&times;</span>
-              <h3 className="text-2xl font-semibold text-white text-center mb-4">বাল্ক স্টাফ নিবন্ধন</h3>
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center mb-4">বাল্ক স্টাফ নিবন্ধন</h3>
               <form onSubmit={handleBulkSubmit} className="space-y-4">
                 <div className="relative input-icon">
                   <label htmlFor="file" className="block font-medium text-white">
@@ -377,7 +377,7 @@ const StaffRegistrationForm = () => {
                     id="file"
                     accept=".xlsx,.xls"
                     onChange={handleFileChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     required
                     aria-label="Excel ফাইল আপলোড করুন"
                     disabled={isBulkLoading || !hasAddPermission} // Disable if no add permission
@@ -387,7 +387,7 @@ const StaffRegistrationForm = () => {
                   <button
                     type="button"
                     onClick={downloadSampleExcel}
-                    className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium bg-gray-200 text-white transition-all duration-200 animate-scaleIn btn-glow"
+                    className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium bg-gray-200 text-[#441a05]transition-all duration-200 animate-scaleIn btn-glow"
                     title="নমুনা Excel ডাউনলোড করুন"
                   >
                     <FaFileExcel className="text-lg" />
@@ -396,7 +396,7 @@ const StaffRegistrationForm = () => {
                   <button
                     type="submit"
                     disabled={isBulkLoading || !file || !hasAddPermission} // Disable if no add permission
-                    className={`btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn ${isBulkLoading || !file || !hasAddPermission ? 'opacity-50 cursor-not-allowed' : 'btn-glow'}`}
+                    className={`btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn ${isBulkLoading || !file || !hasAddPermission ? 'opacity-50 cursor-not-allowed' : 'btn-glow'}`}
                     title="ফাইল আপলোড করুন"
                   >
                     {isBulkLoading ? (
@@ -430,7 +430,7 @@ const StaffRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaUser className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">ব্যক্তিগত তথ্য</h3>
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">ব্যক্তিগত তথ্য</h3>
               <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="relative input-icon">
                   <label htmlFor="name" className="block text-lg font-medium text-white">
@@ -443,7 +443,7 @@ const StaffRegistrationForm = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পূর্ণ নাম লিখুন"
                     required
                     aria-label="পূর্ণ নাম"
@@ -461,7 +461,7 @@ const StaffRegistrationForm = () => {
                     name="name_in_bangla"
                     value={formData.name_in_bangla}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="বাংলায় নাম লিখুন"
                     aria-label="বাংলায় নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -478,7 +478,7 @@ const StaffRegistrationForm = () => {
                     name="user_id"
                     value={formData.user_id}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ইউজার আইডি লিখুন"
                     required
                     aria-label="ইউজার আইডি"
@@ -495,7 +495,7 @@ const StaffRegistrationForm = () => {
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="লিঙ্গ"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -516,7 +516,7 @@ const StaffRegistrationForm = () => {
                     name="dob"
                     value={formData.dob}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="জন্ম তারিখ"
                     disabled={!hasAddPermission} // Disable if no add permission
                   />
@@ -531,7 +531,7 @@ const StaffRegistrationForm = () => {
                     name="blood_group"
                     value={formData.blood_group}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="রক্তের গ্রুপ"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -557,7 +557,7 @@ const StaffRegistrationForm = () => {
                     name="nid"
                     value={formData.nid}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="জাতীয় পরিচয়পত্র নম্বর লিখুন"
                     aria-label="জাতীয় পরিচয়পত্র"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -574,7 +574,7 @@ const StaffRegistrationForm = () => {
                     name="fathers_name"
                     value={formData.fathers_name}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার নাম লিখুন"
                     aria-label="পিতার নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -591,7 +591,7 @@ const StaffRegistrationForm = () => {
                     name="mothers_name"
                     value={formData.mothers_name}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার নাম লিখুন"
                     aria-label="মাতার নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -607,7 +607,7 @@ const StaffRegistrationForm = () => {
                     name="marital_status"
                     value={formData.marital_status}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="বৈবাহিক অবস্থা"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -626,7 +626,7 @@ const StaffRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaPhone className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">যোগাযোগের তথ্য</h3>
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">যোগাযোগের তথ্য</h3>
               <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="relative input-icon">
                   <label htmlFor="phone_number" className="block text-lg font-medium text-white">
@@ -639,7 +639,7 @@ const StaffRegistrationForm = () => {
                     name="phone_number"
                     value={formData.phone_number}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ফোন নম্বর লিখুন"
                     required
                     aria-label="ফোন নম্বর"
@@ -657,7 +657,7 @@ const StaffRegistrationForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ইমেইল ঠিকানা লিখুন"
                     aria-label="ইমেইল"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -674,7 +674,7 @@ const StaffRegistrationForm = () => {
                     name="rfid"
                     value={formData.rfid}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="আরএফআইডি লিখুন"
                     aria-label="আরএফআইডি"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -691,7 +691,7 @@ const StaffRegistrationForm = () => {
                     name="present_address"
                     value={formData.present_address}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="বর্তমান ঠিকানা লিখুন"
                     aria-label="বর্তমান ঠিকানা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -708,7 +708,7 @@ const StaffRegistrationForm = () => {
                     name="permanent_address"
                     value={formData.permanent_address}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="স্থায়ী ঠিকানা লিখুন"
                     aria-label="স্থায়ী ঠিকানা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -724,7 +724,7 @@ const StaffRegistrationForm = () => {
                     name="disability_info"
                     value={formData.disability_info}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="প্রতিবন্ধকতার তথ্য লিখুন"
                     rows="3"
                     aria-label="প্রতিবন্ধকতার তথ্য"
@@ -739,7 +739,7 @@ const StaffRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaHome className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">পারিবারিক তথ্য</h3>
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">পারিবারিক তথ্য</h3>
               <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {/* Spouse Name */}
     <div className="relative">
@@ -753,7 +753,7 @@ const StaffRegistrationForm = () => {
         name="spouse_name"
         value={formData.spouse_name}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="স্ত্রী/স্বামীর নাম লিখুন"
         aria-label="স্ত্রী/স্বামীর নাম"
         disabled={!hasAddPermission} // Disable if no add permission
@@ -772,7 +772,7 @@ const StaffRegistrationForm = () => {
         name="spouse_phone_number"
         value={formData.spouse_phone_number}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="স্ত্রী/স্বামীর ফোন নম্বর লিখুন"
         aria-label="স্ত্রী/স্বামীর ফোন নম্বর"
         disabled={!hasAddPermission} // Disable if no add permission
@@ -791,7 +791,7 @@ const StaffRegistrationForm = () => {
         name="children_no"
         value={formData.children_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="সন্তানের সংখ্যা লিখুন"
         aria-label="সন্তানের সংখ্যা"
         disabled={!hasAddPermission} // Disable if no add permission
@@ -806,7 +806,7 @@ const StaffRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaBriefcase className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">কর্মসংস্থানের তথ্য</h3>
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">কর্মসংস্থানের তথ্য</h3>
               <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="relative input-icon">
                   <label htmlFor="short_name" className="block text-lg font-medium text-white">
@@ -819,7 +819,7 @@ const StaffRegistrationForm = () => {
                     name="short_name"
                     value={formData.short_name}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="সংক্ষিপ্ত নাম লিখুন"
                     aria-label="সংক্ষিপ্ত নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -836,7 +836,7 @@ const StaffRegistrationForm = () => {
                     name="name_tag"
                     value={formData.name_tag}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="নাম ট্যাগ লিখুন (যেমন: সিনিয়র শিক্ষক)"
                     aria-label="নাম ট্যাগ"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -853,7 +853,7 @@ const StaffRegistrationForm = () => {
                     name="tin"
                     value={formData.tin}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="টিআইএন লিখুন"
                     aria-label="টিআইএন"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -870,7 +870,7 @@ const StaffRegistrationForm = () => {
                     name="qualification"
                     value={formData.qualification}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="যোগ্যতা লিখুন"
                     aria-label="যোগ্যতা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -887,7 +887,7 @@ const StaffRegistrationForm = () => {
                     name="staff_id_no"
                     value={formData.staff_id_no}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="স্টাফ আইডি নম্বর লিখুন"
                     aria-label="স্টাফ আইডি নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -903,7 +903,7 @@ const StaffRegistrationForm = () => {
                     name="employee_type"
                     value={formData.employee_type}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="কর্মচারীর ধরন"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -923,7 +923,7 @@ const StaffRegistrationForm = () => {
                     name="job_nature"
                     value={formData.job_nature}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="চাকরির প্রকৃতি"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -943,7 +943,7 @@ const StaffRegistrationForm = () => {
                     name="designation"
                     value={formData.designation}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পদবী লিখুন"
                     aria-label="পদবী"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -960,7 +960,7 @@ const StaffRegistrationForm = () => {
                     name="joining_date"
                     value={formData.joining_date}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="যোগদানের তারিখ"
                     disabled={!hasAddPermission} // Disable if no add permission
                   />
@@ -975,7 +975,7 @@ const StaffRegistrationForm = () => {
   name="role_id"
   value={formData.role_id}
   onChange={handleChange}
-  className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+  className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
   required
   aria-label="ভূমিকা"
   disabled={!hasAddPermission} // Disable if no add permission
@@ -998,7 +998,7 @@ const StaffRegistrationForm = () => {
                     name="department_id"
                     value={formData.department_id}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="বিভাগ আইডি"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -1016,7 +1016,7 @@ const StaffRegistrationForm = () => {
               <button
                 type="submit"
                 disabled={isLoading || !hasAddPermission} // Disable if no add permission
-                className={`btn btn-ripple inline-flex items-center gap-2 px-10 py-3.5 rounded-lg font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn ${isLoading || !hasAddPermission ? 'opacity-50 cursor-not-allowed' : 'btn-glow'}`}
+                className={`btn btn-ripple inline-flex items-center gap-2 px-10 py-3.5 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn ${isLoading || !hasAddPermission ? 'opacity-50 cursor-not-allowed' : 'btn-glow'}`}
                 title="স্টাফ নিবন্ধন করুন"
               >
                 {isLoading ? (

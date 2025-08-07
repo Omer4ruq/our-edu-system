@@ -27,7 +27,7 @@ export default function Holiday() {
      setToDelete(title);
    }
     return (
-      <div className="bg-white rounded-md p-4 md:p-6  my-4">
+      <div className="bg-[#441a05]rounded-md p-4 md:p-6  my-4">
          <AddHoliday setIsAdd={setIsAdd} />
 
          <HolidayTable handleEdit={handleEdit} handleDelete={handleDelete} />

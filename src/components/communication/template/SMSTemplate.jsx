@@ -26,7 +26,7 @@ export default function SMSTemplate() {
   
   const {t} = useTranslation();
     return (
-      <div className="bg-white p-4 md:p-6 rounded-md my-4">
+      <div className="bg-[#441a05]p-4 md:p-6 rounded-md my-4">
         <h3 className="text-lg md:text-xl font-medium">
         {t('module.communication.submit')}</h3>
 
@@ -34,7 +34,7 @@ export default function SMSTemplate() {
           <Link to="/communication/add-sms-template">
             <button
             type="submit"
-            className="rounded w-52 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+            className="rounded w-52 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
             >
             
             {t('module.communication.add_new_template')}
@@ -63,7 +63,7 @@ export default function SMSTemplate() {
                 <td className="w-5/12">{row.body.length > 35 ? row.body.slice(0, 35) + "..." : row.body}</td>
                 <td className="w-2/12">
                   <button
-                    className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                    className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                     onClick={handleDelete}
                   >
                     

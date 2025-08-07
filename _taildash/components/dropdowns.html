@@ -29,7 +29,7 @@
 <body class="font-sans text-base font-normal text-gray-600 dark:text-gray-400 dark:bg-gray-800">
   <!-- wrapper -->
   <div x-data="{ open: false }" class="wrapper overflow-x-hidden bg-gray-100 dark:bg-gray-900 dark:bg-opacity-40">
-    <nav id="sidebar-menu" x-description="Mobile menu" x-bind:aria-expanded="open" :class="{ 'w-64 md:w-0': open, 'w-0 md:w-64': !(open) }" class="fixed w-64 transition-all duration-500 ease-in-out h-screen bg-white dark:bg-gray-800 shadow-sm">
+    <nav id="sidebar-menu" x-description="Mobile menu" x-bind:aria-expanded="open" :class="{ 'w-64 md:w-0': open, 'w-0 md:w-64': !(open) }" class="fixed w-64 transition-all duration-500 ease-in-out h-screen bg-[#441a05]dark:bg-gray-800 shadow-sm">
       <div class="h-full overflow-y-auto scrollbars">
         <!--logo-->
         <div class="mh-18 text-center py-5">
@@ -701,7 +701,7 @@
             </div>
 
             <div class="grid">
-              <a href="dropdowns.html#" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-pink-500 border border-pink-500 hover:text-white hover:bg-pink-600 hover:ring-0 hover:border-pink-600 focus:bg-pink-600 focus:border-pink-600 focus:outline-none focus:ring-0" target="_blank">Download</a>
+              <a href="dropdowns.html#" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-pink-500 border border-pink-500 hover:text-[#441a05]hover:bg-pink-600 hover:ring-0 hover:border-pink-600 focus:bg-pink-600 focus:border-pink-600 focus:outline-none focus:ring-0" target="_blank">Download</a>
             </div>
           </div>
         </div><!-- end banner -->
@@ -710,7 +710,7 @@
 
     <div x-bind:aria-expanded="open" :class="{ 'ltr:ml-64 ltr:-mr-64 md:ltr:ml-0 md:ltr:mr-0 rtl:mr-64 rtl:-ml-64 md:rtl:mr-0 md:rtl:ml-0': open, 'ltr:ml-0 ltr:mr-0 md:ltr:ml-64 rtl:mr-0 rtl:ml-0 md:rtl:mr-64': !(open) }" class="flex flex-col ltr:ml-64 rtl:mr-64 min-h-screen transition-all duration-500 ease-in-out">
       <!-- Navbar -->
-      <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }" class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-white dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out" id="desktop-menu">
+      <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }" class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-[#441a05]dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out" id="desktop-menu">
         <!-- sidenav button-->
         <button id="navbartoggle" type="button" class="inline-flex items-center justify-center text-gray-800 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-200 focus:outline-none focus:ring-0" aria-controls="sidebar-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
           <span class="sr-only">Mobile menu</span>
@@ -731,7 +731,7 @@
           <div class="flex flex-wrap items-stretch w-full relative">
             <input type="text" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 relative text-sm py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-gray-100 overflow-x-auto focus:outline-none border border-gray-100 focus:border-gray-200 focus:ring-0 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Search…" aria-label="Search">
             <div class="flex -mr-px">
-              <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
+              <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <!-- <i class="fas fa-search"></i> -->
               </button>
@@ -757,7 +757,7 @@
               <!-- bg open -->
               <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
 
-              <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-white dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
+              <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-[#441a05]dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
                 <div class="p-6 bg-indigo-500 text-gray-100 border-b border-gray-200 dark:border-gray-700">
                   <div class="flex flex-row justify-between">
                     <h3 class="text-md font-bold">Customizer</h3>
@@ -771,7 +771,7 @@
                   <p class="text-base text-semibold">Color Scheme</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="lightdark" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -781,7 +781,7 @@
                   <p class="text-base text-semibold">Sidebar Color</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="sidecolor" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -791,7 +791,7 @@
                   <p class="text-base text-semibold">Direction</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="rtlmode" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">LTR and RTL</p>
@@ -844,11 +844,11 @@
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"></path>
                 </svg>
                 <!-- <i class="text-2xl fas fa-envelope"></i> -->
-                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">3</span></span>
+                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-[#441a05]rounded-full text-xs"><span class="align-self-center">3</span></span>
               </div>
             </a>
 
-            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:-right-36 md:ltr:right-0 rtl:-left-36 md:rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
+            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:-right-36 md:ltr:right-0 rtl:-left-36 md:rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
               <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
                 <div class="relative">
                   <div class="font-bold">Messages</div>
@@ -859,12 +859,12 @@
                       </svg>
                       <!-- <i class="fas fa-search"></i> -->
                     </a>
-                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 bg-white dark:bg-gray-700 z-10 rounded" style="min-width:16rem">
+                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 bg-[#441a05]dark:bg-gray-700 z-10 rounded" style="min-width:16rem">
                        <form class="inline-block w-full">
                         <div class="flex flex-wrap items-stretch w-full relative">
                           <input type="text" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 relative text-sm py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-gray-100 overflow-x-auto focus:outline-none border border-gray-100 focus:border-gray-200 focus:ring-0 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Search messages…" aria-label="Search">
                           <div class="flex -mr-px">
-                            <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
+                            <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                               <!-- <i class="fas fa-search"></i> -->
                             </button>
@@ -894,7 +894,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar2.png" class="h-10 w-10 rounded-full mx-auto" alt="Daniel Esteban">
-                        <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-green-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-green-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -909,7 +909,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar3.png" class="h-10 w-10 rounded-full mx-auto" alt="Carlos Garcia">
-                        <span title="busy" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-pink-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="busy" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-pink-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -924,7 +924,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar4.png" class="h-10 w-10 rounded-full mx-auto" alt="Steven Rey">
-                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -939,7 +939,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar.png" class="h-10 w-10 rounded-full mx-auto" alt="Roman Davis">
-                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -964,11 +964,11 @@
                   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
                 </svg>
                 <!-- <i class="text-2xl fas fa-bell"></i> -->
-                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">1</span></span>
+                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-[#441a05]rounded-full text-xs"><span class="align-self-center">1</span></span>
               </div>
             </a>
 
-            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
+            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
               <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
                 <div class="relative">
                   <div class="font-bold">Notifications</div>
@@ -1065,11 +1065,11 @@
             <a href="javascript:;" class="px-3 flex text-sm rounded-full focus:outline-none" id="user-menu-button" @click="open = ! open">
               <div class="relative">
                 <img class="h-10 w-10 rounded-full border border-gray-700 bg-gray-700" src="../src/img/avatar/avatar.png" alt="avatar">
-                <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-1 rtl:left-1 text-center bg-green-500 border border-white w-3 h-3 rounded-full"></span>
+                <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-1 rtl:left-1 text-center bg-green-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
               </div>
               <span class="hidden md:block ltr:ml-1 rtl:mr-1 self-center">Ari Budin</span>
             </a>
-            <ul x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width:12rem;display: none;">
+            <ul x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width:12rem;display: none;">
               <li class="relative">
                 <div class="flex flex-wrap flex-row -mx-4 px-3 py-4 items-center">
                   <div class="flex-shrink max-w-full px-4 w-1/3">
@@ -1137,7 +1137,7 @@
 					    <p class="text-xl font-bold mt-3 mb-5">Dropdowns</p>
 					  </div>                                                 
           	<div class="flex-shrink max-w-full px-4 w-full mb-6">
-          		<div class="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full">
+          		<div class="p-8 bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg h-full">
 	              <div class="relative">
 	              	<div class="mb-6">
 			              <p class="leading-relaxed font-light text-lg mx-auto pb-2">Toggle contextual overlays for displaying lists of links and more with the Alpine js</p>
@@ -1147,14 +1147,14 @@
                     <h2 class="text-2xl mb-2 font-semibold text-gray-800">Example</h2>
                     <p class="mb-4">Wrap the dropdown’s toggle (your button or link) and the dropdown menu.</p>
                     <!-- example -->
-                    <div class="flex inline-flex bg-white p-8 border border-gray-200 dark:bg-gray-800">
+                    <div class="flex inline-flex bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-800">
                       <!-- default dropdown -->
                       <div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4">
-                          <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
+                          <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
                             <span class="ltr:pr-2 rtl:pl-2">Dropdown</span> 
                             <svg class="fill-current text-gray-100" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
                           </button>
-                          <div x-show="show" @click.away="show = false" class="absolute bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
+                          <div x-show="show" @click.away="show = false" class="absolute bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
                               <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Action</a>
                               <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Another action</a>
                               <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Something else here</a>
@@ -1165,11 +1165,11 @@
 
                       <!-- up dropdown -->
                       <div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4">
-                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
+                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
                           <span class="ltr:pr-2 rtl:pl-2">Dropdown</span> 
                           <svg class="fill-current text-gray-100 transform rotate-180" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
                         </button>
-                        <div x-show="show" @click.away="show = false" class="absolute left-0 bottom-full top-auto bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
+                        <div x-show="show" @click.away="show = false" class="absolute left-0 bottom-full top-auto bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Another action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Something else here</a>
@@ -1180,11 +1180,11 @@
 
                       <!-- right dropdown -->
                       <div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4">
-                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
+                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
                           <span class="ltr:pr-2 rtl:pl-2">Dropdown</span> 
                           <svg class="fill-current text-gray-100 transform -rotate-90" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
                         </button>
-                        <div x-show="show" @click.away="show = false" class="absolute top-0 left-full right-auto bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
+                        <div x-show="show" @click.away="show = false" class="absolute top-0 left-full right-auto bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Another action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Something else here</a>
@@ -1195,10 +1195,10 @@
 
                       <!-- right dropdown -->
                       <div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4">
-                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
+                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0">
                           <svg class="fill-current text-gray-100 transform rotate-90" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="ltr:pl-2 rtl:pr-2">Dropdown</span>
                         </button>
-                        <div x-show="show" @click.away="show = false" class="absolute top-0 ltr:right-full ltr:left-auto rtl:left-full rtl:right-full bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
+                        <div x-show="show" @click.away="show = false" class="absolute top-0 ltr:right-full ltr:left-auto rtl:left-full rtl:right-full bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Another action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Something else here</a>
@@ -1209,13 +1209,13 @@
                       
                       <!-- Split dropdown -->
                       <div x-data="{ show: false }" class="relative flex inline-flex mr-2" role="group">
-                        <button type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-l rtl:rounded-r leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -mr-0.5">
+                        <button type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-l rtl:rounded-r leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -mr-0.5">
                           <span class="ltr:pr-2 rtl:pl-2">Dropdown</span>
                         </button>
-                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-r rtl:rounded-l leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -ml-0.5">
+                        <button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-r rtl:rounded-l leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -ml-0.5">
                           <svg class="fill-current text-gray-100" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
                         </button>
-                        <div x-show="show" @click.away="show = false" class="absolute top-full bottom-auto left-0 bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
+                        <div x-show="show" @click.away="show = false" class="absolute top-full bottom-auto left-0 bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem">
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Another action</a>
                             <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="dropdowns.html#">Something else here</a>
@@ -1229,11 +1229,11 @@
                       <code class="language-html" data-lang="html">
                         &lt;!-- default dropdown --&gt;
                         &lt;div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4"&gt;
-                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
+                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
                             &lt;span class="ltr:pr-2 rtl:pl-2"&gt;Dropdown&lt;/span&gt; 
                             &lt;svg class="fill-current text-gray-100" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"&gt;&lt;path d="M7 10l5 5 5-5z"/&gt;&lt;path d="M0 0h24v24H0z" fill="none"/&gt;&lt;/svg&gt;
                           &lt;/button&gt;
-                          &lt;div x-show="show" @click.away="show = false" class="absolute bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
+                          &lt;div x-show="show" @click.away="show = false" class="absolute bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
                               &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Action&lt;/a&gt;
                               &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Another action&lt;/a&gt;
                               &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Something else here&lt;/a&gt;
@@ -1244,11 +1244,11 @@
 
                         &lt;!-- up dropdown --&gt;
                         &lt;div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4"&gt;
-                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
+                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
                             &lt;span class="ltr:pr-2 rtl:pl-2"&gt;Dropdown&lt;/span&gt; 
                             &lt;svg class="fill-current text-gray-100 transform rotate-180" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"&gt;&lt;path d="M7 10l5 5 5-5z"/&gt;&lt;path d="M0 0h24v24H0z" fill="none"/&gt;&lt;/svg&gt;
                           &lt;/button&gt;
-                          &lt;div x-show="show" @click.away="show = false" class="absolute left-0 bottom-full top-auto bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
+                          &lt;div x-show="show" @click.away="show = false" class="absolute left-0 bottom-full top-auto bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Another action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Something else here&lt;/a&gt;
@@ -1259,11 +1259,11 @@
 
                         &lt;!-- right dropdown --&gt;
                         &lt;div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4"&gt;
-                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
+                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
                             &lt;span class="ltr:pr-2 rtl:pl-2"&gt;Dropdown&lt;/span&gt; 
                             &lt;svg class="fill-current text-gray-100 transform -rotate-90" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"&gt;&lt;path d="M7 10l5 5 5-5z"/&gt;&lt;path d="M0 0h24v24H0z" fill="none"/&gt;&lt;/svg&gt;
                           &lt;/button&gt;
-                          &lt;div x-show="show" @click.away="show = false" class="absolute top-0 left-full right-auto bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
+                          &lt;div x-show="show" @click.away="show = false" class="absolute top-0 left-full right-auto bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Another action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Something else here&lt;/a&gt;
@@ -1274,10 +1274,10 @@
 
                         &lt;!-- right dropdown --&gt;
                         &lt;div x-data="{ show: false }" class="relative ltr:mr-4 rtl:ml-4"&gt;
-                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
+                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center rounded-md leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0"&gt;
                             &lt;svg class="fill-current text-gray-100 transform rotate-90" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"&gt;&lt;path d="M7 10l5 5 5-5z"/&gt;&lt;path d="M0 0h24v24H0z" fill="none"/&gt;&lt;/svg&gt; &lt;span class="ltr:pl-2 rtl:pr-2"&gt;Dropdown&lt;/span&gt;
                           &lt;/button&gt;
-                          &lt;div x-show="show" @click.away="show = false" class="absolute top-0 ltr:right-full ltr:left-auto rtl:left-full rtl:right-full bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
+                          &lt;div x-show="show" @click.away="show = false" class="absolute top-0 ltr:right-full ltr:left-auto rtl:left-full rtl:right-full bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Another action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Something else here&lt;/a&gt;
@@ -1288,13 +1288,13 @@
                         
                         &lt;!-- Split dropdown --&gt;
                         &lt;div x-data="{ show: false }" class="relative flex inline-flex mr-2" role="group"&gt;
-                          &lt;button type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-l rtl:rounded-r leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -mr-0.5"&gt;
+                          &lt;button type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-l rtl:rounded-r leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -mr-0.5"&gt;
                             &lt;span class="ltr:pr-2 rtl:pl-2"&gt;Dropdown&lt;/span&gt;
                           &lt;/button&gt;
-                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-r rtl:rounded-l leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -ml-0.5"&gt;
+                          &lt;button @click="show = ! show" type="button" class="flex py-2 px-4 inline-block text-center ltr:rounded-r rtl:rounded-l leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-700 hover:ring-0 hover:border-indigo-700 focus:bg-indigo-700 focus:border-indigo-700 focus:outline-none focus:ring-0 -ml-0.5"&gt;
                             &lt;svg class="fill-current text-gray-100" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"&gt;&lt;path d="M7 10l5 5 5-5z"/&gt;&lt;path d="M0 0h24v24H0z" fill="none"/&gt;&lt;/svg&gt;
                           &lt;/button&gt;
-                          &lt;div x-show="show" @click.away="show = false" class="absolute top-full bottom-auto left-0 bg-white z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
+                          &lt;div x-show="show" @click.away="show = false" class="absolute top-full bottom-auto left-0 bg-[#441a05]z-10 rounded border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="min-width:12rem"&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Another action&lt;/a&gt;
                             &lt;a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:focus:bg-gray-900" href="#"&gt;Something else here&lt;/a&gt;
@@ -1310,7 +1310,7 @@
                     <h2 class="text-2xl mb-2 font-semibold text-gray-800">Navbar dropdown menu</h2>
                     <p class="my-6">Navbar dropdown menu, submenu and mega menu can insert in desktop dropdown.</p>
                     <!-- example -->
-                    <div class="relative bg-white p-8 border border-gray-200 dark:bg-gray-800">
+                    <div class="relative bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-800">
                       <!-- menu -->
                       <ul class="flex flex-col lg:mx-auto mt-2 lg:flex-row lg:mt-0">
                         <li class="relative">
@@ -1336,7 +1336,7 @@
                             </span>
                           </a>
                           <!-- dropdown menu -->
-                          <ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+                          <ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
                             <li class="relative">
                               <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown item</a>
                             </li>
@@ -1369,7 +1369,7 @@
                             &lt;/span&gt;
                           &lt;/a&gt;
                           &lt;!-- dropdown menu --&gt;
-                          &lt;ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
+                          &lt;ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
                             &lt;li class="relative"&gt;
                               &lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown item&lt;/a&gt;
                             &lt;/li&gt;
@@ -1395,7 +1395,7 @@
                   <div class="mb-12">
                     <h2 class="text-2xl mb-2 font-semibold text-gray-800">Navbar dropdown submenu</h2>
                     <!-- example -->
-                    <div class="relative bg-white p-8 border border-gray-200 dark:bg-gray-800">
+                    <div class="relative bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-800">
                       <!-- menu -->
                       <ul class="flex flex-col lg:mx-auto mt-2 lg:flex-row lg:mt-0">
                         <li class="relative">
@@ -1421,7 +1421,7 @@
                             </span>
                           </a>
                           <!-- dropdown menu -->
-                          <ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+                          <ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
                             <!--submenu-->
                             <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @mouseleave="open = false">
                               <a id="submenu-01" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="javascript:;" @mouseenter="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-indigo-500 dark:text-gray-100': open }">
@@ -1433,7 +1433,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+                              <ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
@@ -1453,7 +1453,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+                              <ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
@@ -1489,7 +1489,7 @@
                             &lt;/span&gt;
                           &lt;/a&gt;
                           &lt;!-- dropdown menu --&gt;
-                          &lt;ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
+                          &lt;ul class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
                             &lt;!--submenu--&gt;
                             &lt;li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @mouseleave="open = false"&gt;
                               &lt;a id="submenu-01" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="javascript:;" @mouseenter="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-indigo-500 dark:text-gray-100': open }"&gt;
@@ -1501,7 +1501,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
+                              &lt;ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-01" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
@@ -1521,7 +1521,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-white dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
+                              &lt;ul class="block absolute ltr:left-full rtl:right-full ltr:right-auto rtl:left-auto transform border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right -mt-11 ml-0 mr-0 bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="submenu-02" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
@@ -1543,7 +1543,7 @@
                   <div class="mb-0">
                     <h2 class="text-2xl mb-2 font-semibold text-gray-800">Navbar dropdown mega menu</h2>
                     <!-- example -->
-                    <div class="relative bg-white p-8 border border-gray-200 dark:bg-gray-800">
+                    <div class="relative bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-800">
                       <!-- menu -->
                       <ul class="flex flex-col lg:mx-auto mt-2 lg:flex-row lg:mt-0">
                         <!-- dropdown -->
@@ -1558,12 +1558,12 @@
                           </a>
 
                           <!-- dropdown menu -->
-                          <div class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md" style="min-width: 38rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-mega" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
+                          <div class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 38rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-mega" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4">
                             <div class="flex flex-wrap flex-row text-center">
                               <div class="flex-shrink w-full max-w-full md:w-1/2 px-4">
                                 <div class="py-5">
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
                                         <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975l1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"></path>
                                       </svg>
@@ -1573,7 +1573,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"></path>
                                       </svg>
@@ -1583,7 +1583,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
                                         <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"></path>
                                       </svg>
@@ -1593,7 +1593,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M13.5 3h-11a.5.5 0 0 0-.5.5V11h12V3.5a.5.5 0 0 0-.5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11z"></path>
                                         <path d="M0 12h16v.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5V12z"></path>
@@ -1604,7 +1604,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette" viewBox="0 0 16 16">
                                         <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
                                         <path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z"></path>
@@ -1619,7 +1619,7 @@
                               <div class="flex-shrink w-full max-w-full md:w-1/2 px-4 bg-gray-50 dark:bg-gray-900 dark:bg-opacity-20">
                                 <div class="py-5">
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
                                         <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"></path>
                                       </svg>
@@ -1629,7 +1629,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app-indicator" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"></path>
                                         <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
@@ -1640,7 +1640,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                                       </svg>
@@ -1650,7 +1650,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
                                         <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path>
                                       </svg>
@@ -1660,7 +1660,7 @@
                                     </div>
                                   </a>
                                   <a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="dropdowns.html#">
-                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded">
+                                    <div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded">
                                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2" viewBox="0 0 16 16">
                                         <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"></path>
                                       </svg>
@@ -1705,12 +1705,12 @@
                           &lt;/a&gt;
 
                           &lt;!-- dropdown menu --&gt;
-                          &lt;div class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md" style="min-width: 38rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-mega" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
+                          &lt;div class="block absolute ltr:left-1/2 rtl:right-1/2 ltr:right-auto rtl:left-auto transform ltr:-translate-x-1/2 rtl:translate-x-1/2 border-t-2 border-indigo-500 rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md" style="min-width: 38rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-mega" x-transition:enter="transition duration-200" x-transition:enter-start="transform opacity-0 translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 translate-y-4"&gt;
                             &lt;div class="flex flex-wrap flex-row text-center"&gt;
                               &lt;div class="flex-shrink w-full max-w-full md:w-1/2 px-4"&gt;
                                 &lt;div class="py-5"&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975l1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1720,7 +1720,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1730,7 +1730,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1740,7 +1740,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16"&gt;
                                         &lt;path fill-rule="evenodd" d="M13.5 3h-11a.5.5 0 0 0-.5.5V11h12V3.5a.5.5 0 0 0-.5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11z"&gt;&lt;/path&gt;
                                         &lt;path d="M0 12h16v.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5V12z"&gt;&lt;/path&gt;
@@ -1751,7 +1751,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"&gt;&lt;/path&gt;
                                         &lt;path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z"&gt;&lt;/path&gt;
@@ -1766,7 +1766,7 @@
                               &lt;div class="flex-shrink w-full max-w-full md:w-1/2 px-4 bg-gray-50 dark:bg-gray-900 dark:bg-opacity-20"&gt;
                                 &lt;div class="py-5"&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1776,7 +1776,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app-indicator" viewBox="0 0 16 16"&gt;
                                         &lt;path fill-rule="evenodd" d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"&gt;&lt;/path&gt;
                                         &lt;path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"&gt;&lt;/path&gt;
@@ -1787,7 +1787,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1797,7 +1797,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1807,7 +1807,7 @@
                                     &lt;/div&gt;
                                   &lt;/a&gt;
                                   &lt;a class="flex w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100" href="#"&gt;
-                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-white rounded"&gt;
+                                    &lt;div class="self-center ltr:mr-3 rtl:ml-3 py-2 px-3 bg-indigo-500 text-[#441a05]rounded"&gt;
                                       &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2" viewBox="0 0 16 16"&gt;
                                         &lt;path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"&gt;&lt;/path&gt;
                                       &lt;/svg&gt;
@@ -1833,7 +1833,7 @@
                   <div id="dropdown-offcanvas" class="mt-12">
                     <h2 class="text-2xl mb-6 font-semibold text-gray-800">Dropdown in Offcanvas Mobile</h2>
                     <!-- example -->
-                    <div class="relative bg-white p-8 border border-gray-200 dark:bg-gray-800">
+                    <div class="relative bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-800">
                       <ul>
                         <li class="relative">
                           <a href="dropdowns.html#" class="block py-3 px-4 hover:text-indigo-500 focus:text-indigo-500 dark:hover:text-gray-100 dark:focus:text-gray-100">Home</a>
@@ -1850,7 +1850,7 @@
                           </a>
 
                           <!-- dropdown menu -->
-                          <ul class="block rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 mb-4" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-04">
+                          <ul class="block rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 mb-4" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-04">
                             <!--submenu-->
                             <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.away="open = false">
                               <a id="sidemenu-01" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="javascript:;" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-indigo-500 dark:text-gray-100': open }">
@@ -1862,7 +1862,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-01">
+                              <ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-01">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
@@ -1881,7 +1881,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-02">
+                              <ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-02">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
@@ -1899,7 +1899,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-03">
+                              <ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-03">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="dropdowns.html#">Dropdown sub item</a></li>
                               </ul>
@@ -1924,7 +1924,7 @@
                           &lt;/a&gt;
 
                           &lt;!-- dropdown menu --&gt;
-                          &lt;ul class="block rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 mb-4" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-04"&gt;
+                          &lt;ul class="block rounded rounded-t-none top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 mb-4" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-04"&gt;
                             &lt;!--submenu--&gt;
                             &lt;li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @click.away="open = false"&gt;
                               &lt;a id="sidemenu-01" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="javascript:;" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-indigo-500 dark:text-gray-100': open }"&gt;
@@ -1936,7 +1936,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-01"&gt;
+                              &lt;ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-01"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
@@ -1955,7 +1955,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-02"&gt;
+                              &lt;ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-02"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
@@ -1973,7 +1973,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-03"&gt;
+                              &lt;ul class="block rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="sidemenu-03"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500 dark:hover:text-gray-100" href="#"&gt;Dropdown sub item&lt;/a&gt;&lt;/li&gt;
                               &lt;/ul&gt;
@@ -1988,7 +1988,7 @@
                   <div id="dropdown-mobiles" class="mt-12">
                     <h2 class="text-2xl mb-6 font-semibold text-gray-800">Dropdown in Mobile menu</h2>
                     <!-- example -->
-                    <div class="relative bg-white p-8 border border-gray-200 dark:bg-gray-800">
+                    <div class="relative bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-800">
                       <ul>
                         <li class="relative">
                           <!-- active -->
@@ -2010,7 +2010,7 @@
                           </a>
 
                           <!-- dropdown menu -->
-                          <ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 pl-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md mb-4" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-02">
+                          <ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 pl-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md mb-4" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-02">
                             <li class="relative">
                               <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="dropdowns.html#">Dropdown item</a>
                             </li>
@@ -2029,7 +2029,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-01">
+                              <ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-01">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="dropdowns.html#">Sub dropdown item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="dropdowns.html#">Sub dropdown item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="dropdowns.html#">Sub dropdown item</a></li>
@@ -2047,7 +2047,7 @@
                               </a>
 
                               <!--dropdown submenu-->
-                              <ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-02">
+                              <ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-02">
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="dropdowns.html#">Sub dropdown item</a></li>
                                 <li><a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="dropdowns.html#">Sub dropdown item</a></li>
                               </ul>
@@ -2081,7 +2081,7 @@
                           &lt;/a&gt;
 
                           &lt;!-- dropdown menu --&gt;
-                          &lt;ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 pl-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 shadow-md mb-4" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-02"&gt;
+                          &lt;ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 pl-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 shadow-md mb-4" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobiledrop-02"&gt;
                             &lt;li class="relative"&gt;
                               &lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="#"&gt;Dropdown item&lt;/a&gt;
                             &lt;/li&gt;
@@ -2100,7 +2100,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-01"&gt;
+                              &lt;ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-01"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="#"&gt;Sub dropdown item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="#"&gt;Sub dropdown item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="#"&gt;Sub dropdown item&lt;/a&gt;&lt;/li&gt;
@@ -2118,7 +2118,7 @@
                               &lt;/a&gt;
 
                               &lt;!--dropdown submenu--&gt;
-                              &lt;ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-02"&gt;
+                              &lt;ul class="block border-l-2 border-indigo-600 rounded rounded-t-none top-full z-50 ml-3 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800" style="min-width: 12rem;display:none" x-description="Dropdown menu" x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="mobilesub-02"&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="#"&gt;Sub dropdown item&lt;/a&gt;&lt;/li&gt;
                                 &lt;li&gt;&lt;a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-600 dark:hover:text-gray-100 dark:focus:text-gray-100" href="#"&gt;Sub dropdown item&lt;/a&gt;&lt;/li&gt;
                               &lt;/ul&gt;
@@ -2140,7 +2140,7 @@
 				</div>
 			</main>
 
-			<footer class="bg-white dark:bg-gray-800 p-6 shadow-sm">
+			<footer class="bg-[#441a05]dark:bg-gray-800 p-6 shadow-sm">
         <div class="mx-auto">
           <div class="flex flex-wrap flex-row -mx-4">
             <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:ltr:text-left md:rtl:text-right">

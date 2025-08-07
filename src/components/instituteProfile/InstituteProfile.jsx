@@ -94,7 +94,7 @@ export default function InstituteProfile() {
             {hasAddPermission ? ( // Only show add button if has add permission
               <button
                 onClick={handleAddInstitute}
-                className="group relative px-4 py-2 bg-white text-slate-900 rounded-md overflow-hidden focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-transform duration-150 ease-in-out active:translate-y-0.5 active:shadow-sm hover:text-white"
+                className="group relative px-4 py-2 bg-[#441a05]text-slate-900 rounded-md overflow-hidden focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-transform duration-150 ease-in-out active:translate-y-0.5 active:shadow-sm hover:text-white"
               >
                 <span className="relative z-10">প্রতিষ্ঠান যোগ করুন</span>
                 <span className="absolute inset-0 bg-indigo-700 transform scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100"></span>

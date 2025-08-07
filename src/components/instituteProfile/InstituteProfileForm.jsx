@@ -106,7 +106,7 @@ const customStyles = `
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: #ffffff;
+    color: #441a05fff;
     transition: color 0.3s ease;
   }
   .required-label {
@@ -115,7 +115,7 @@ const customStyles = `
   .input-field {
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    color: #441a05fff;
     padding: 14px 16px 14px 44px;
     border: 2px solid rgba(157, 144, 135, 0.3);
     border-radius: 12px;
@@ -170,7 +170,7 @@ const customStyles = `
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #fff;
+    background: #441a05;
   }
 `;
 
@@ -190,7 +190,7 @@ const selectStyles = {
   }),
   input: (provided) => ({
   ...provided,
-  color: '#ffffff', 
+  color: '#441a05fff', 
   fontSize: '16px',
 }),
   valueContainer: (provided) => ({
@@ -199,7 +199,7 @@ const selectStyles = {
   }),
   singleValue: (provided) => ({
     ...provided,
-    color: '#ffffff',
+    color: '#441a05fff',
     fontSize: '16px',
   }),
   placeholder: (provided) => ({
@@ -226,13 +226,13 @@ const selectStyles = {
       : state.isFocused 
       ? 'rgba(255, 255, 255, 0.1)' 
       : 'transparent',
-    color: '#ffffff',
+    color: '#441a05fff',
     padding: '12px 16px',
     cursor: 'pointer',
     fontSize: '16px',
     '&:hover': {
        background: secondaryColor,
-    color: '#ffffff',
+    color: '#441a05fff',
     },
   }),
   indicatorSeparator: () => ({ display: 'none' }),
@@ -240,7 +240,7 @@ const selectStyles = {
     ...provided,
     color: primaryColor,
     '&:hover': { 
-      color: '#ffffff',
+      color: '#441a05fff',
     },
   }),
 };
@@ -468,7 +468,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
         <div className="sticky top-0 z-10 mb-12 animate-fadeIn backdrop-blur-sm">
           <div className="flex items-center justify-center space-x-4">
             <IoAddCircleOutline className="text-5xl text-pmColor mb-3" />
-            <h2 className="text-4xl font-bold text-white title-underline text-center">
+            <h2 className="text-4xl font-bold text-[#441a05]title-underline text-center">
               {institute 
                 ? (languageCode === 'bn' ? 'প্রতিষ্ঠান প্রোফাইল সম্পাদনা' : 'Edit Institute Profile')
                 : (languageCode === 'bn' ? 'প্রতিষ্ঠান প্রোফাইল তৈরি' : 'Create Institute Profile')
@@ -852,7 +852,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
             <button
               type="button"
               onClick={onCancel}
-              className="btn btn-ripple inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold bg-gray-600 hover:bg-gray-700 text-white transition-all duration-300 animate-scaleIn btn-glow"
+              className="btn btn-ripple inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold bg-gray-600 hover:bg-gray-700 text-[#441a05]transition-all duration-300 animate-scaleIn btn-glow"
               title={languageCode === 'bn' ? 'বাতিল করুন' : 'Cancel'}
             >
               {languageCode === 'bn' ? 'বাতিল করুন' : 'Cancel'}
@@ -861,7 +861,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
             <button
               type="submit"
               disabled={isFormDisabled || isCreating || isUpdating}
-              className={`btn btn-ripple inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold bg-pmColor hover:bg-yellow-600 text-white transition-all duration-300 animate-scaleIn ${
+              className={`btn btn-ripple inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold bg-pmColor hover:bg-yellow-600 text-[#441a05]transition-all duration-300 animate-scaleIn ${
                 isFormDisabled || isCreating || isUpdating 
                   ? 'opacity-50 cursor-not-allowed' 
                   : 'btn-glow'

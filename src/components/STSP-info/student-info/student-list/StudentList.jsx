@@ -26,7 +26,7 @@ export default function StudentList() {
    }
    
     return (
-      <div className="my-4 bg-white rounded-md p-4 md:p-6">
+      <div className="my-4 bg-[#441a05]rounded-md p-4 md:p-6">
 
         <InfoAction amountToShow={amountToShow} handleAmountToShow={handleAmountToShow} />
 

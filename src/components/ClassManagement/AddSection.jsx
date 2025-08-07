@@ -231,7 +231,7 @@ const AddSection = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-white" />
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">নতুন সেকশন যোগ করুন</h3>
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন সেকশন যোগ করুন</h3>
             </div>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
               <input
@@ -239,7 +239,7 @@ const AddSection = () => {
                 id="sectionName"
                 value={sectionName}
                 onChange={(e) => setSectionName(e.target.value)}
-                className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="সেকশনের নাম"
                 disabled={isCreating}
                 aria-describedby={createError ? 'section-error' : undefined}
@@ -248,8 +248,8 @@ const AddSection = () => {
                 type="submit"
                 disabled={isCreating}
                 title="নতুন সেকশন তৈরি করুন"
-                className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating ? 'cursor-not-allowed' : 'hover:text-white hover:shadow-md'
+                className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating ? 'cursor-not-allowed' : 'hover:text-[#441a05]hover:shadow-md'
                 }`}
               >
                 {isCreating ? (
@@ -282,7 +282,7 @@ const AddSection = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <FaEdit className="text-3xl text-white" />
-              <h3 className="text-2xl font-bold text-white tracking-tight">সেকশন সম্পাদনা করুন</h3>
+              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">সেকশন সম্পাদনা করুন</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
               <input
@@ -290,7 +290,7 @@ const AddSection = () => {
                 id="editSectionName"
                 value={editSectionName}
                 onChange={(e) => setEditSectionName(e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="সেকশনের নাম সম্পাদনা করুন (যেমন, সেকশন এ)"
                 disabled={isUpdating}
                 aria-label="সেকশনের নাম সম্পাদনা"
@@ -300,8 +300,8 @@ const AddSection = () => {
                 type="submit"
                 disabled={isUpdating}
                 title="সেকশন আপডেট করুন"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? 'cursor-not-allowed' : 'hover:text-white hover:shadow-md'
+                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isUpdating ? 'cursor-not-allowed' : 'hover:text-[#441a05]hover:shadow-md'
                 }`}
               >
                 {isUpdating ? (
@@ -320,7 +320,7 @@ const AddSection = () => {
                   setEditSectionName('');
                 }}
                 title="সম্পাদনা বাতিল করুন"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
               >
                 বাতিল
               </button>
@@ -330,7 +330,7 @@ const AddSection = () => {
 
         {/* Sections Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">সেকশনের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">সেকশনের তালিকা</h3>
           {isSectionLoading ? (
             <p className="p-4 text-white/70">সেকশন লোড হচ্ছে...</p>
           ) : sectionDataError ? (
@@ -381,7 +381,7 @@ const AddSection = () => {
                             >
                               {section.is_active && (
                                 <svg
-                                  className="w-4 h-4 text-white animate-scaleIn"
+                                  className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -411,7 +411,7 @@ const AddSection = () => {
                             <button
                               onClick={() => handleEditClick(section)}
                               title="সেকশন সম্পাদনা করুন"
-                              className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                             >
                               <FaEdit className="w-5 h-5" />
                             </button>
@@ -420,7 +420,7 @@ const AddSection = () => {
                             <button
                               onClick={() => handleDelete(section.id)}
                               title="সেকশন মুছুন"
-                              className="text-white hover:text-red-500 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                             >
                               <FaTrash className="w-5 h-5" />
                             </button>
@@ -439,15 +439,15 @@ const AddSection = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন সেকশন নিশ্চিত করুন'}
                 {modalAction === 'update' && 'সেকশন আপডেট নিশ্চিত করুন'}
                 {modalAction === 'delete' && 'সেকশন মুছে ফেলা নিশ্চিত করুন'}
                 {modalAction === 'toggle' && 'সেকশনের স্থিতি পরিবর্তন নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'create' && 'আপনি কি নিশ্চিত যে নতুন সেকশন তৈরি করতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে সেকশন আপডেট করতে চান?'}
                 {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই সেকশনটি মুছে ফেলতে চান?'}
@@ -456,13 +456,13 @@ const AddSection = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                 >
                   নিশ্চিত করুন
                 </button>

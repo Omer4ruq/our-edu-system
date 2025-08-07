@@ -303,7 +303,7 @@ const SubjectMarks = () => {
       case 'saving':
         return (
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-pmColor rounded-full animate-pulse">
-            <div className="w-2 h-2 bg-white rounded-full m-1"></div>
+            <div className="w-2 h-2 bg-[#441a05]rounded-full m-1"></div>
           </div>
         );
       case 'saved':
@@ -336,7 +336,7 @@ const SubjectMarks = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
           <FaSpinner className="animate-spin text-2xl text-white" />
-          <span className="text-white font-medium">লোড হচ্ছে...</span>
+          <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
     );
@@ -401,15 +401,15 @@ const SubjectMarks = () => {
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-5">
           <IoAddCircle className="text-4xl text-white" />
-          <h1 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+          <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             বিষয় মার্ক এন্ট্রি
           </h1>
         </div>
 
         {/* Filters Section */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8 animate-fadeIn">
-          <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
-            <span className="bg-pmColor/20 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">১</span>
+          <h2 className="text-xl font-semibold text-[#441a05]mb-4 flex items-center">
+            <span className="bg-pmColor/20 text-[#441a05]rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">১</span>
             ফিল্টার নির্বাচন করুন
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -418,7 +418,7 @@ const SubjectMarks = () => {
               <select
                 value={examId}
                 onChange={(e) => setExamId(e.target.value)}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                 aria-label="পরীক্ষা নির্বাচন করুন"
                 title="পরীক্ষা নির্বাচন করুন / Select exam"
               >
@@ -435,7 +435,7 @@ const SubjectMarks = () => {
               <select
                 value={academicYearId}
                 onChange={(e) => setAcademicYearId(e.target.value)}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                 aria-label="শিক্ষাবর্ষ নির্বাচন করুন"
                 title="শিক্ষাবর্ষ নির্বাচন করুন / Select academic year"
               >
@@ -452,7 +452,7 @@ const SubjectMarks = () => {
               <select
                 value={selectedClassConfigId}
                 onChange={handleClassChange}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                 aria-label="ক্লাস নির্বাচন করুন"
                 title="ক্লাস নির্বাচন করুন / Select class"
               >
@@ -469,7 +469,7 @@ const SubjectMarks = () => {
               <select
                 value={subjectId}
                 onChange={(e) => setSubjectId(e.target.value)}
-                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!classId}
                 aria-label="বিষয় নির্বাচন করুন"
                 title="বিষয় নির্বাচন করুন / Select subject"
@@ -525,11 +525,11 @@ const SubjectMarks = () => {
               <table className="w-full">
                 <thead>
                   <tr className="bg-white/10 border-b border-white/20">
-                    <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                    <th className="px-6 py-4 text-left text-sm font-bold text-[#441a05]uppercase tracking-wider">
                       ছাত্রের তথ্য
                     </th>
                     {markConfigs.map((config) => (
-                      <th key={config.id} className="px-6 py-4 text-center text-sm font-bold text-white uppercase tracking-wider min-w-[140px]">
+                      <th key={config.id} className="px-6 py-4 text-center text-sm font-bold text-[#441a05]uppercase tracking-wider min-w-[140px]">
                         <div className="space-y-1">
                           <div className="font-semibold">{config.mark_type_name}</div>
                           <div className="text-xs text-white/70 normal-case">
@@ -539,12 +539,12 @@ const SubjectMarks = () => {
                       </th>
                     ))}
                     {hasChangePermission && (
-                      <th className="px-6 py-4 text-center text-sm font-bold text-white uppercase tracking-wider">
+                      <th className="px-6 py-4 text-center text-sm font-bold text-[#441a05]uppercase tracking-wider">
                         উপস্থিতি
                       </th>
                     )}
                     {hasDeletePermission && (
-                      <th className="px-6 py-4 text-center text-sm font-bold text-white uppercase tracking-wider">
+                      <th className="px-6 py-4 text-center text-sm font-bold text-[#441a05]uppercase tracking-wider">
                         অ্যাকশন
                       </th>
                     )}
@@ -555,7 +555,7 @@ const SubjectMarks = () => {
                     <tr key={student.id} className="hover:bg-white/10 transition-colors duration-200 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
                       <td className="px-6 py-4">
                         <div className="flex items-center space-x-4">
-                          <div className="w-10 h-10 bg-pmColor/20 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                          <div className="w-10 h-10 bg-pmColor/20 rounded-full flex items-center justify-center text-[#441a05]font-bold text-sm">
                             {student.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
@@ -576,7 +576,7 @@ const SubjectMarks = () => {
                               className={`w-20 h-12 text-center border-2 rounded-lg font-semibold transition-all duration-200 tick-glow ${
                                 absentStudents.has(student.id)
                                   ? 'bg-gray-100 border-[#9d9087] text-white/50 cursor-not-allowed'
-                                  : 'bg-white/10 border-[#9d9087] text-white hover:border-pmColor focus:ring-2 focus:ring-pmColor focus:border-pmColor'
+                                  : 'bg-white/10 border-[#9d9087] text-[#441a05]hover:border-pmColor focus:ring-2 focus:ring-pmColor focus:border-pmColor'
                               }`}
                               disabled={absentStudents.has(student.id) || !hasChangePermission}
                               min="0"
@@ -595,8 +595,8 @@ const SubjectMarks = () => {
                             onClick={() => toggleAbsent(student.id)}
                             className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 transform hover:scale-105 btn-glow ${
                               absentStudents.has(student.id)
-                                ? 'bg-red-500 text-white hover:bg-red-600'
-                                : 'bg-pmColor text-white hover:bg-pmColor/80'
+                                ? 'bg-red-500 text-[#441a05]hover:bg-red-600'
+                                : 'bg-pmColor text-[#441a05]hover:bg-pmColor/80'
                             }`}
                             aria-label={`উপস্থিতি টগল করুন ${student.name}`}
                             title={`উপস্থিতি টগল করুন / Toggle attendance for ${student.name}`}
@@ -609,7 +609,7 @@ const SubjectMarks = () => {
                         <td className="px-6 py-4 text-center">
                           <button
                             onClick={() => deleteStudentMarks(student.id)}
-                            className="w-10 h-10 bg-red-500/20 hover:bg-red-500 text-red-500 hover:text-white rounded-lg transition-all duration-200 transform hover:scale-110 flex items-center justify-center btn-glow"
+                            className="w-10 h-10 bg-red-500/20 hover:bg-red-500 text-red-500 hover:text-[#441a05]rounded-lg transition-all duration-200 transform hover:scale-110 flex items-center justify-center btn-glow"
                             aria-label={`মার্ক মুছুন ${student.name}`}
                             title={`মার্ক মুছুন / Delete marks for ${student.name}`}
                           >
@@ -651,24 +651,24 @@ const SubjectMarks = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 মার্ক মুছে ফেলা নিশ্চিত করুন
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 আপনি কি নিশ্চিত যে এই ছাত্রের সব মার্ক মুছে ফেলতে চান?
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmDelete}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

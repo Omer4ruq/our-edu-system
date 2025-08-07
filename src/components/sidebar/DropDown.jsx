@@ -58,7 +58,7 @@ export default function DropDown({ data, ddId, setDDId, setItemId }) {
 
   return (
     <ul
-      className={`text-white group/dd duration-300 relative ${
+      className={`text-[#441a05]group/dd duration-300 relative ${
         isActive ? "bg-pmColor" : ""
       }`}
     >
@@ -94,16 +94,16 @@ export default function DropDown({ data, ddId, setDDId, setItemId }) {
           setItemId(data.parent.id);
         }}
       >
-        <div className="flex items-center gap-2 pl-12 pr-6 hover:bg-pmColor hover:text-white duration-300">
+        <div className="flex items-center gap-2 pl-12 pr-6 hover:bg-pmColor hover:text-[#441a05]duration-300">
           <span
             className={`w-[5px] h-[5px] rounded-full absolute top-4 left-7 duration-150 ${
               isActive
-                ? "w-[7px] h-[7px] bg-[#ffffff90]"
-                : "bg-white group-hover/dd:bg-[#ffffff90]"
+                ? "w-[7px] h-[7px] bg-[#441a05fff90]"
+                : "bg-[#441a05]group-hover/dd:bg-[#441a05fff90]"
             }`}
           ></span>
           <h5
-            className={`flex-1 ${isActive ? "text-white font-semibold" : ""}`}
+            className={`flex-1 ${isActive ? "text-[#441a05]font-semibold" : ""}`}
           >
             {data.title}
           </h5>

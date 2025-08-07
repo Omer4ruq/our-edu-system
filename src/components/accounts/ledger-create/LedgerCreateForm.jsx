@@ -58,7 +58,7 @@ const LedgerCreateForm = () => {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="rounded mt-4 w-44 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md hover:-translate-y-[2px] duration-200 flex items-center justify-center gap-2"
+          className="rounded mt-4 w-44 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200 flex items-center justify-center gap-2"
         >
           {t("module.accounts.save")}
         </button>

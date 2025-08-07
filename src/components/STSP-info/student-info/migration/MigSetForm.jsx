@@ -34,7 +34,7 @@ export default function MigSetForm() {
       <div className="flex items-center gap-2 min-w-44 md:w-2/12 justify-end mt-4 md:mt-0">
          <button
             type="submit"
-            className="rounded w-full p-[10px] bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+            className="rounded w-full p-[10px] bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
          >
             Complete Migration
          </button>

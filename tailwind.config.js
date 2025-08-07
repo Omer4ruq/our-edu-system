@@ -32,7 +32,7 @@ export default {
         // Existing utilities
         // ".scrollbar-thin": {
         //   scrollbarWidth: "thin",
-        //   scrollbarColor: "#ffffffcc transparent",
+        //   scrollbarColor: "#441a05fffcc transparent",
         // },
         ".scrollbar-webkit": {
           "&::-webkit-scrollbar": {
@@ -42,7 +42,7 @@ export default {
             background: "transparent",
           },
           "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#ffffff40",
+            backgroundColor: "#441a05fff40",
             borderRadius: "20px",
           },
         },

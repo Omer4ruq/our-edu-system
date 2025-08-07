@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   schoolName: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#441a05',
   },
   headerText: {
     fontSize: 10,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 6,
     marginBottom: 10,
-    color: '#fff',
+    color: '#441a05',
     textDecoration: 'underline',
   },
   metaContainer: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: '#441a05',
     marginVertical: 6,
   },
   table: {
@@ -77,23 +77,23 @@ const styles = StyleSheet.create({
     width: 'auto',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#441a05',
   },
   tableRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: '#441a05',
   },
   tableHeader: {
-    backgroundColor: '#fff',
-    color: '#fff',
+    backgroundColor: '#441a05',
+    color: '#441a05',
     fontWeight: 'bold',
     fontSize: 10,
     paddingVertical: 6,
     paddingHorizontal: 4,
     textAlign: 'center',
     borderRightWidth: 1,
-    borderRightColor: '#fff',
+    borderRightColor: '#441a05',
   },
   tableCell: {
     paddingVertical: 5,
@@ -539,7 +539,7 @@ const ExpenseItems = () => {
           toastOptions={{
             style: {
               background: "rgba(0, 0, 0, 0.1)",
-              color: "#fff",
+              color: "#441a05",
               border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: "0.5rem",
               backdropFilter: "blur(4px)",
@@ -549,7 +549,7 @@ const ExpenseItems = () => {
           }}
         />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ব্যয় আইটেম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ব্যয় আইটেম তালিকা</h3>
           {isItemsLoading ? (
             <p className="p-4 text-white/70">লোড হচ্ছে...</p>
           ) : itemsError ? (
@@ -639,7 +639,7 @@ const ExpenseItems = () => {
             background-size: 1.5em;
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -654,17 +654,17 @@ const ExpenseItems = () => {
       {/* মডাল */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ব্যয় আইটেম মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই ব্যয় আইটেমটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 aria-label="বাতিল"
               >
                 বাতিল
@@ -672,7 +672,7 @@ const ExpenseItems = () => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
                   isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
                 }`}
                 aria-label="নিশ্চিত করুন"
@@ -696,7 +696,7 @@ const ExpenseItems = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
               নতুন ব্যয় আইটেম যোগ করুন
             </h3>
           </div>
@@ -706,7 +706,7 @@ const ExpenseItems = () => {
                 name="expensetype_id"
                 value={formData.expensetype_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isTypesLoading}
                 required
                 aria-describedby={errors.expensetype_id ? "expensetype_id-error" : undefined}
@@ -728,7 +728,7 @@ const ExpenseItems = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="নাম লিখুন"
                 disabled={isCreating || isUpdating}
                 required
@@ -741,7 +741,7 @@ const ExpenseItems = () => {
                 name="fund_id"
                 value={formData.fund_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isFundLoading}
                 required
                 aria-describedby={errors.fund_id ? "fund_id-error" : undefined}
@@ -760,7 +760,7 @@ const ExpenseItems = () => {
                 name="transaction_book_id"
                 value={formData.transaction_book_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isBooksLoading}
                 aria-describedby={errors.transaction_book_id ? "transaction_book_id-error" : undefined}
               >
@@ -781,7 +781,7 @@ const ExpenseItems = () => {
                 name="transaction_number"
                 value={formData.transaction_number}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="লেনদেন নম্বর লিখুন"
                 disabled={isCreating || isUpdating}
                 aria-describedby={errors.transaction_number ? "transaction_number-error" : undefined}
@@ -796,7 +796,7 @@ const ExpenseItems = () => {
                 name="employee_id"
                 value={formData.employee_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="কর্মচারী আইডি লিখুন (ঐচ্ছিক)"
                 disabled={isCreating || isUpdating}
                 aria-describedby={errors.employee_id ? "employee_id-error" : undefined}
@@ -809,7 +809,7 @@ const ExpenseItems = () => {
                 name="expense_date"
                 value={formData.expense_date}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating}
                 required
                 aria-describedby={errors.expense_date ? "expense_date-error" : undefined}
@@ -822,7 +822,7 @@ const ExpenseItems = () => {
                 name="amount"
                 value={formData.amount}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="পরিমাণ লিখুন"
                 disabled={isCreating || isUpdating}
                 required
@@ -836,7 +836,7 @@ const ExpenseItems = () => {
                 name="academic_year"
                 value={formData.academic_year}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isYearsLoading}
                 required
                 aria-describedby={errors.academic_year ? "academic_year-error" : undefined}
@@ -857,7 +857,7 @@ const ExpenseItems = () => {
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="বর্ণনা লিখুন (ঐচ্ছিক)"
                 disabled={isCreating || isUpdating}
                 rows="3"
@@ -869,8 +869,8 @@ const ExpenseItems = () => {
               <button
                 type="submit"
                 disabled={isCreating || isUpdating}
-                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
                 aria-label="ব্যয় আইটেম তৈরি করুন"
               >
@@ -907,7 +907,7 @@ const ExpenseItems = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
             <FaEdit className="text-3xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
               ব্যয় আইটেম সম্পাদনা করুন
             </h3>
           </div>
@@ -917,7 +917,7 @@ const ExpenseItems = () => {
                 name="expensetype_id"
                 value={formData.expensetype_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isTypesLoading}
                 required
                 aria-describedby={errors.expensetype_id ? "expensetype_id-error" : undefined}
@@ -939,7 +939,7 @@ const ExpenseItems = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="নাম লিখুন"
                 disabled={isCreating || isUpdating}
                 required
@@ -952,7 +952,7 @@ const ExpenseItems = () => {
                 name="fund_id"
                 value={formData.fund_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isFundLoading}
                 required
                 aria-describedby={errors.fund_id ? "fund_id-error" : undefined}
@@ -971,7 +971,7 @@ const ExpenseItems = () => {
                 name="transaction_book_id"
                 value={formData.transaction_book_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isBooksLoading}
                 aria-describedby={errors.transaction_book_id ? "transaction_book_id-error" : undefined}
               >
@@ -992,7 +992,7 @@ const ExpenseItems = () => {
                 name="transaction_number"
                 value={formData.transaction_number}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="লেনদেন নম্বর লিখুন"
                 disabled={isCreating || isUpdating}
                 aria-describedby={errors.transaction_number ? "transaction_number-error" : undefined}
@@ -1007,7 +1007,7 @@ const ExpenseItems = () => {
                 name="employee_id"
                 value={formData.employee_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="কর্মচারী আইডি লিখুন (ঐচ্ছিক)"
                 disabled={isCreating || isUpdating}
                 aria-describedby={errors.employee_id ? "employee_id-error" : undefined}
@@ -1020,7 +1020,7 @@ const ExpenseItems = () => {
                 name="expense_date"
                 value={formData.expense_date}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating}
                 required
                 aria-describedby={errors.expense_date ? "expense_date-error" : undefined}
@@ -1033,7 +1033,7 @@ const ExpenseItems = () => {
                 name="amount"
                 value={formData.amount}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="পরিমাণ লিখুন"
                 disabled={isCreating || isUpdating}
                 required
@@ -1047,7 +1047,7 @@ const ExpenseItems = () => {
                 name="academic_year"
                 value={formData.academic_year}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isCreating || isUpdating || isYearsLoading}
                 required
                 aria-describedby={errors.academic_year ? "academic_year-error" : undefined}
@@ -1068,7 +1068,7 @@ const ExpenseItems = () => {
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="বর্ণনা লিখুন (ঐচ্ছিক)"
                 disabled={isCreating || isUpdating}
                 rows="3"
@@ -1080,8 +1080,8 @@ const ExpenseItems = () => {
               <button
                 type="submit"
                 disabled={isCreating || isUpdating}
-                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
                 aria-label="ব্যয় আইটেম আপডেট করুন"
               >
@@ -1116,7 +1116,7 @@ const ExpenseItems = () => {
                   });
                   setErrors({});
                 }}
-                className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-white hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
+                className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
                 aria-label="বাতিল"
               >
                 বাতিল

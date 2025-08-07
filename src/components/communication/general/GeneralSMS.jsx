@@ -16,7 +16,7 @@ export default function GeneralSMS() {
    const {t} = useTranslation();
    
     return (
-        <div className="bg-white rounded-md px-4 py-4 md:px-6 sm:py-6 my-4 space-y-4">
+        <div className="bg-[#441a05]rounded-md px-4 py-4 md:px-6 sm:py-6 my-4 space-y-4">
          <SelectWise selectedValue={selectedValue} handleChange={handleChange}/>
          <SMSReceipents selectedValue={selectedValue} />
          <TemplateAndBody setCharacterCount={setCharacterCount}/>
@@ -24,7 +24,7 @@ export default function GeneralSMS() {
 
           <button
             type="submit"
-            className="rounded w-36 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+            className="rounded w-36 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
           >
             {t('module.communication.submit')}
           </button>

@@ -207,9 +207,9 @@ const AddFeeHead = () => {
   if (hasViewPermission && !hasAddPermission && !hasChangePermission && !hasDeletePermission) {
     return (
       <div className="py-8 w-full relative">
-        <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+        <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ফি হেড তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি হেড তালিকা</h3>
           {isFeeHeadLoading ? (
             <p className="p-4 text-white/70">লোড হচ্ছে...</p>
           ) : feeHeadError ? (
@@ -276,7 +276,7 @@ const AddFeeHead = () => {
 
   return (
     <div className="py-8 w-full">
-      <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+      <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
       <style>
         {`
           @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -307,19 +307,19 @@ const AddFeeHead = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">নতুন ফি হেড যোগ করুন</h3>
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">নতুন ফি হেড যোগ করুন</h3>
           </div>
           <form onSubmit={handleSubmitFeeHead} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Fee Head Name */}
             <div className="col-span-1">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 ফি হেডের নাম <span className="text-red-400">*</span>
               </label>
               <input
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleFormChange('name', e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="ফি হেড লিখুন (যেমন: টিউশন ফি)"
                 disabled={isCreating}
               />
@@ -327,13 +327,13 @@ const AddFeeHead = () => {
 
             {/* Late Fee Type */}
             <div className="col-span-1">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 বিলম্ব ফি ধরন <span className="text-red-400">*</span>
               </label>
               <select
                 value={formData.is_late_fee_percenage ? 'percentage' : 'amount'}
                 onChange={(e) => handleFormChange('is_late_fee_percenage', e.target.value === 'percentage')}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating}
               >
                 <option value="percentage" className="bg-gray-800 text-white">শতাংশ (%)</option>
@@ -343,7 +343,7 @@ const AddFeeHead = () => {
 
             {/* Late Fee Amount */}
             <div className="col-span-1">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 বিলম্ব ফি <span className="text-red-400">*</span>
               </label>
               <div className="relative">
@@ -351,7 +351,7 @@ const AddFeeHead = () => {
                   type="number"
                   value={formData.late_fee}
                   onChange={(e) => handleFormChange('late_fee', e.target.value)}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 pr-12 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 pr-12 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                   placeholder="পরিমাণ লিখুন"
                   min="0"
                   step="0.01"
@@ -365,13 +365,13 @@ const AddFeeHead = () => {
 
             {/* Description */}
             <div className="col-span-1 md:col-span-2 lg:col-span-3">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 বর্ণনা (ঐচ্ছিক)
               </label>
               <textarea
                 value={formData.description}
                 onChange={(e) => handleFormChange('description', e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="ফি হেড সম্পর্কে অতিরিক্ত তথ্য (ঐচ্ছিক)"
                 rows="3"
                 disabled={isCreating}
@@ -384,8 +384,8 @@ const AddFeeHead = () => {
                 type="submit"
                 disabled={isCreating}
                 title="নতুন ফি হেড তৈরি করুন"
-                className={`flex items-center justify-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`flex items-center justify-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
               >
                 {isCreating ? (
@@ -415,19 +415,19 @@ const AddFeeHead = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
             <FaEdit className="text-3xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">ফি হেড সম্পাদনা করুন</h3>
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">ফি হেড সম্পাদনা করুন</h3>
           </div>
           <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Fee Head Name */}
             <div className="col-span-1">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 ফি হেডের নাম <span className="text-red-400">*</span>
               </label>
               <input
                 type="text"
                 value={editFormData.name}
                 onChange={(e) => handleEditFormChange('name', e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="ফি হেড সম্পাদনা করুন (যেমন: টিউশন ফি)"
                 disabled={isUpdating}
               />
@@ -435,13 +435,13 @@ const AddFeeHead = () => {
 
             {/* Late Fee Type */}
             <div className="col-span-1">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 বিলম্ব ফি ধরন <span className="text-red-400">*</span>
               </label>
               <select
                 value={editFormData.is_late_fee_percenage ? 'percentage' : 'amount'}
                 onChange={(e) => handleEditFormChange('is_late_fee_percenage', e.target.value === 'percentage')}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isUpdating}
               >
                 <option value="percentage" className="bg-gray-800 text-white">শতাংশ (%)</option>
@@ -451,7 +451,7 @@ const AddFeeHead = () => {
 
             {/* Late Fee Amount */}
             <div className="col-span-1">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 বিলম্ব ফি <span className="text-red-400">*</span>
               </label>
               <div className="relative">
@@ -459,7 +459,7 @@ const AddFeeHead = () => {
                   type="number"
                   value={editFormData.late_fee}
                   onChange={(e) => handleEditFormChange('late_fee', e.target.value)}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 pr-12 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 pr-12 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                   placeholder="পরিমাণ লিখুন"
                   min="0"
                   step="0.01"
@@ -473,13 +473,13 @@ const AddFeeHead = () => {
 
             {/* Description */}
             <div className="col-span-1 md:col-span-2 lg:col-span-3">
-              <label className="block text-sm font-medium text-white mb-2">
+              <label className="block text-sm font-medium text-[#441a05]mb-2">
                 বর্ণনা (ঐচ্ছিক)
               </label>
               <textarea
                 value={editFormData.description}
                 onChange={(e) => handleEditFormChange('description', e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="ফি হেড সম্পর্কে অতিরিক্ত তথ্য (ঐচ্ছিক)"
                 rows="3"
                 disabled={isUpdating}
@@ -492,8 +492,8 @@ const AddFeeHead = () => {
                 type="submit"
                 disabled={isUpdating}
                 title="ফি হেড আপডেট করুন"
-                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
               >
                 {isUpdating ? (
@@ -509,7 +509,7 @@ const AddFeeHead = () => {
                 type="button"
                 onClick={resetForms}
                 title="সম্পাদনা বাতিল করুন"
-                className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
               >
                 বাতিল
               </button>
@@ -526,13 +526,13 @@ const AddFeeHead = () => {
       {/* Confirmation Modal */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               {modalAction === "create" && "নতুন ফি হেড নিশ্চিত করুন"}
               {modalAction === "update" && "ফি হেড আপডেট নিশ্চিত করুন"}
               {modalAction === "delete" && "ফি হেড মুছে ফেলা নিশ্চিত করুন"}
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               {modalAction === "create" && "আপনি কি নিশ্চিত যে নতুন ফি হেড তৈরি করতে চান?"}
               {modalAction === "update" && "আপনি কি নিশ্চিত যে ফি হেড আপডেট করতে চান?"}
               {modalAction === "delete" && "আপনি কি নিশ্চিত যে এই ফি হেডটি মুছে ফেলতে চান?"}
@@ -540,14 +540,14 @@ const AddFeeHead = () => {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={confirmAction}
                 disabled={isCreating || isUpdating || isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
                   (isCreating || isUpdating || isDeleting) ? "cursor-not-allowed opacity-60" : "hover:text-white"
                 }`}
               >
@@ -571,7 +571,7 @@ const AddFeeHead = () => {
 
       {/* Fee Heads Table */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-        <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ফি হেড তালিকা</h3>
+        <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি হেড তালিকা</h3>
         {isFeeHeadLoading ? (
           <p className="p-4 text-white/70">লোড হচ্ছে...</p>
         ) : feeHeadError ? (
@@ -620,7 +620,7 @@ const AddFeeHead = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                       {feeHead.late_fee}{feeHead.is_late_fee_percenage ? '%' : ' টাকা'}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white max-w-xs truncate" title={feeHead.description || '-'}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]max-w-xs truncate" title={feeHead.description || '-'}>
                       {feeHead.description || '-'}
                     </td>
                     {(hasChangePermission || hasDeletePermission) && (
@@ -630,7 +630,7 @@ const AddFeeHead = () => {
                             <button
                               onClick={() => handleEditClick(feeHead)}
                               title="ফি হেড সম্পাদনা"
-                              className="text-white hover:text-blue-500 p-2 rounded-lg transition-colors duration-300"
+                              className="text-[#441a05]hover:text-blue-500 p-2 rounded-lg transition-colors duration-300"
                               aria-label={`সম্পাদনা ${feeHead.name}`}
                             >
                               <FaEdit className="w-5 h-5" />
@@ -640,7 +640,7 @@ const AddFeeHead = () => {
                             <button
                               onClick={() => handleDelete(feeHead.id)}
                               title="ফি হেড মুছুন"
-                              className="text-white hover:text-red-500 p-2 rounded-lg transition-colors duration-300"
+                              className="text-[#441a05]hover:text-red-500 p-2 rounded-lg transition-colors duration-300"
                               aria-label={`মুছুন ${feeHead.name}`}
                             >
                               <FaTrash className="w-5 h-5" />

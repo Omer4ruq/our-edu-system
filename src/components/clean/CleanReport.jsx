@@ -438,7 +438,7 @@ const CleanReport = () => {
                       >
                         {cleanReportData[type.id] && (
                           <svg
-                            className="w-4 h-4 text-white animate-scaleIn"
+                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -503,7 +503,7 @@ const CleanReport = () => {
             box-shadow: 0 0 15px rgba(219, 158, 48, 0.3);
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -541,18 +541,18 @@ const CleanReport = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-2 mb-6">
             <IoAddCircle className="text-3xl text-white" />
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">পরিচ্ছন্নতার রিপোর্ট</h3>
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">পরিচ্ছন্নতার রিপোর্ট</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <label className="flex items-center space-x-4 animate-fadeIn">
-              <span className="text-white sm:text-base text-xs font-medium text-nowrap">তারিখ নির্বাচন করুন:</span>
+              <span className="text-[#441a05]sm:text-base text-xs font-medium text-nowrap">তারিখ নির্বাচন করুন:</span>
               <div className="w-full">
                 <input
                   type="date"
                   value={selectedDate}
                   onChange={handleDateChange}
                   onClick={(e) => e.target.showPicker()}
-                  className="w-full bg-transparent text-white pl-3 py-1.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-1.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating}
                   aria-label="তারিখ"
                   title="তারিখ নির্বাচন করুন / Select date"
@@ -560,7 +560,7 @@ const CleanReport = () => {
               </div>
             </label>
             <label className="flex items-center space-x-4 animate-fadeIn">
-              <span className="text-white sm:text-base text-xs font-medium text-nowrap">ক্লাস নির্বাচন করুন:</span>
+              <span className="text-[#441a05]sm:text-base text-xs font-medium text-nowrap">ক্লাস নির্বাচন করুন:</span>
               <div className="w-full">
                 <Select
                   options={classOptions}
@@ -622,25 +622,25 @@ const CleanReport = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
           <div
-            className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
+            className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
           >
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               পরিচ্ছন্নতা রিপোর্ট মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই পরিচ্ছন্নতা রিপোর্টটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 title="বাতিল করুন"
               >
                 বাতিল
               </button>
               <button
                 onClick={confirmAction}
-                className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                 title="নিশ্চিত করুন"
               >
                 নিশ্চিত করুন

@@ -55,7 +55,7 @@ export default function CMCSingleForm({subject,handleDeleteField, handleChange})
             <button
                type="submit"
                onClick={() => handleDeleteField(subject.id)}
-               className="rounded w-28 md:w-20 lg:w-28 xl:ml-6 p-2 bg-red text-white shadow-md  hover:-translate-y-[2px] duration-200"
+               className="rounded w-28 md:w-20 lg:w-28 xl:ml-6 p-2 bg-red text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
             >
                Delete
             </button>

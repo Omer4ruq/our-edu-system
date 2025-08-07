@@ -14,7 +14,7 @@ export default function SecConfigHeader({ section }) {
         <Link to="../class-config">
           <button
             type="submit"
-            className="rounded w-full px-4 py-2 bg-yellow text-white shadow-md hover:-translate-y-[2px] duration-200"
+            className="rounded w-full px-4 py-2 bg-yellow text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
           >
             {t('module.settings.list_class_config')}
           </button>

@@ -16,7 +16,7 @@ export default function TesSettings() {
     }
 
     return (
-    <div className="my-4 bg-white rounded-md p-4 md:p-6 space-y-3">
+    <div className="my-4 bg-[#441a05]rounded-md p-4 md:p-6 space-y-3">
         <img src="/images/testmonialsample.jpg" alt="Testimonial Structure" className="w-full sm:w-2/3 m-auto mb-5" />
         
         <DynamicFields />
@@ -92,12 +92,12 @@ export default function TesSettings() {
         {/* action buttons */}
         <div className="flex justify-end items-center space-x-2 xl:space-x-3 pt-4">
             <button
-            className="bg-blue px-4 py-2 lg:px-6 lg:text-lg rounded shadow text-white hover:-translate-y-[2px] duration-200"
+            className="bg-blue px-4 py-2 lg:px-6 lg:text-lg rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200"
             >
                 Submit
             </button>
             <button
-            className="bg-red px-4 py-2 lg:px-6 lg:text-lg rounded shadow text-white hover:-translate-y-[2px] duration-200"
+            className="bg-red px-4 py-2 lg:px-6 lg:text-lg rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200"
             >
                 Cancel
             </button>

@@ -36,13 +36,13 @@ const ServiceTypeSelector = ({
     <div>
       <div className="flex items-center space-x-4 mb-6">
         <IoAddCircle className="text-4xl text-white" />
-        <h2 className="text-2xl font-bold text-white tracking-tight">সার্ভিস ফি কনফিগারেশন যোগ করুন</h2>
+        <h2 className="text-2xl font-bold text-[#441a05]tracking-tight">সার্ভিস ফি কনফিগারেশন যোগ করুন</h2>
       </div>
 
       {/* Service Type Tabs */}
       {hasAddPermission && (
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-white mb-3">সার্ভিস ধরন নির্বাচন করুন</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]mb-3">সার্ভিস ধরন নির্বাচন করুন</h3>
           <div className="flex space-x-2">
             {serviceTypes.map((service) => {
               const IconComponent = getIcon(service.key);
@@ -52,8 +52,8 @@ const ServiceTypeSelector = ({
                   onClick={() => handleServiceTypeChange(service.key)}
                   className={`flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                     selectedServiceType === service.key
-                      ? `${service.color} text-white shadow-lg transform scale-105`
-                      : 'bg-gray-500/20 text-white hover:bg-gray-500/30'
+                      ? `${service.color} text-[#441a05]shadow-lg transform scale-105`
+                      : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'
                   }`}
                 >
                   <IconComponent className="w-5 h-5 mr-2" />

@@ -4,7 +4,7 @@ import MigTable from "./MigTable";
 
 export default function StMigration() {
   return (
-    <div className="bg-white px-4 py-6 rounded mt-4">
+    <div className="bg-[#441a05]px-4 py-6 rounded mt-4">
       <MigGetForm/>
 
       <MigTable />

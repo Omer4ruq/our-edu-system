@@ -9,7 +9,7 @@ const data = {
     {
       label: "Number of Students",
       data: [200, 150],
-      backgroundColor: ["#fff", "#DB9E30"],
+      backgroundColor: ["#441a05", "#DB9E30"],
     },
   ],
 };

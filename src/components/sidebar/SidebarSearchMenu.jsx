@@ -45,7 +45,7 @@ export default function SidebarSearchMenu({ searchTerm }) {
   const filteredMenu = filterMenuByRole(mainMenu);
 
   return (
-    <ul className="text-white py-6">
+    <ul className="text-[#441a05]py-6">
       {filteredMenu.map((item) => (
         <>
           {item.icon && (

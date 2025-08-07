@@ -182,7 +182,7 @@ const AllocatedStudentsTable = () => {
             .status-inactive { color: #e74c3c; font-weight: bold; }
             .status-pending { color: #f1c40f; font-weight: bold; }
             .summary { margin-top: 30px; }
-            .summary-item { display: inline-block; margin-right: 30px; color: #ffffff; }
+            .summary-item { display: inline-block; margin-right: 30px; color: #441a05fff; }
             .summary-item strong { color: #4a90e2; }
           </style>
         </head>
@@ -341,7 +341,7 @@ const AllocatedStudentsTable = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -354,11 +354,11 @@ const AllocatedStudentsTable = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -367,7 +367,7 @@ const AllocatedStudentsTable = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -401,7 +401,7 @@ const AllocatedStudentsTable = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={languageCode === 'bn' ? 'ব্যবহারকারীর নাম, আইডি, প্যাকেজ বা রুম দ্বারা অনুসন্ধান করুন...' : 'Search by username, ID, package, or room...'}
-              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
             />
             {searchTerm && (
               <button
@@ -415,7 +415,7 @@ const AllocatedStudentsTable = () => {
           </div>
           <button
             onClick={generatePDFReport}
-            className="bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 hover:shadow-lg hover:scale-105"
+            className="bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 hover:shadow-lg hover:scale-105"
           >
             <span>{languageCode === 'bn' ? 'পিডিএফ ডাউনলোড করুন' : 'Download PDF'}</span>
           </button>
@@ -430,7 +430,7 @@ const AllocatedStudentsTable = () => {
       {/* Allocations Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'বরাদ্দকৃত ছাত্রদের তালিকা' : 'Allocated Students List'}</span>
           </h3>
@@ -502,7 +502,7 @@ const AllocatedStudentsTable = () => {
                           </div>
                         </div>
                         <div className="ml-4">
-                          <div className="text-white font-medium">{allocation.student?.name || 'Unknown Student'}</div>
+                          <div className="text-[#441a05]font-medium">{allocation.student?.name || 'Unknown Student'}</div>
                           <div className="text-white/70 text-sm">
                             @{allocation.student?.username || 'N/A'} | ID: {allocation.student_id || 'N/A'}
                           </div>
@@ -523,13 +523,13 @@ const AllocatedStudentsTable = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{getAcademicYearName(allocation.academic_year)}</div>
+                      <div className="text-[#441a05]font-medium">{getAcademicYearName(allocation.academic_year)}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{getPackageName(allocation.hostel_package)}</div>
+                      <div className="text-[#441a05]font-medium">{getPackageName(allocation.hostel_package)}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{getRoomName(allocation.room)}</div>
+                      <div className="text-[#441a05]font-medium">{getRoomName(allocation.room)}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="text-white/70 text-sm">{formatDate(allocation.created_at)}</div>
@@ -539,7 +539,7 @@ const AllocatedStudentsTable = () => {
                         {/* {hasChangePermission && ( */}
                           <button
                             onClick={() => handleEditClick(allocation)}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'বরাদ্দ সম্পাদনা করুন' : 'Edit allocation'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -548,7 +548,7 @@ const AllocatedStudentsTable = () => {
                         {/* {hasDeletePermission && ( */}
                           <button
                             onClick={() => handleDelete(allocation.id)}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'বরাদ্দ মুছুন' : 'Delete allocation'}
                           >
                             <FaTrash className="w-4 h-4" />
@@ -611,7 +611,7 @@ const AllocatedStudentsTable = () => {
         >
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'স্থিতি' : 'Status'}
               </label>
               <Select
@@ -627,7 +627,7 @@ const AllocatedStudentsTable = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
               </label>
               <Select
@@ -643,7 +643,7 @@ const AllocatedStudentsTable = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'হোস্টেল প্যাকেজ' : 'Hostel Package'}
               </label>
               <Select
@@ -659,7 +659,7 @@ const AllocatedStudentsTable = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'রুম' : 'Room'}
               </label>
               <Select

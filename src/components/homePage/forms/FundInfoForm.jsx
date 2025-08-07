@@ -10,7 +10,7 @@ export default function FundInfoForm() {
       <Year style="w-3/12" />
       <Month style="w-3/12" />
       <Fund style="w-3/12" />
-      <button className="w-3/12 bg-red text-white p-2 tracking-wide rounded mt-6">
+      <button className="w-3/12 bg-red text-[#441a05]p-2 tracking-wide rounded mt-6">
       {t("module.dashboard.search")}
       </button>
     </div>

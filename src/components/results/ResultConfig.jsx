@@ -223,7 +223,7 @@ const ResultConfig = () => {
             ) : (
               <IoAddCircle className="text-4xl text-white" />
             )}
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               {editGradeId ? "গ্রেড সম্পাদনা করুন" : "নতুন গ্রেড যোগ করুন"}
             </h3>
           </div>
@@ -237,7 +237,7 @@ const ResultConfig = () => {
               onChange={(e) =>
                 setNewGrade({ ...newGrade, grade_name: e.target.value })
               }
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="গ্রেড নাম (বাংলা)"
               aria-label="গ্রেড নাম"
               title="গ্রেড নাম লিখুন (উদাহরণ: পাস)"
@@ -249,7 +249,7 @@ const ResultConfig = () => {
               onChange={(e) =>
                 setNewGrade({ ...newGrade, grade_name_op: e.target.value })
               }
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="গ্রেড কোড (A+)"
               aria-label="গ্রেড কোড"
               title="গ্রেড কোড লিখুন (উদাহরণ: A+)"
@@ -261,7 +261,7 @@ const ResultConfig = () => {
               onChange={(e) =>
                 setNewGrade({ ...newGrade, gpa: e.target.value })
               }
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="GPA (0-5)"
               aria-label="GPA"
               title="GPA লিখুন (উদাহরণ: ৫)"
@@ -273,7 +273,7 @@ const ResultConfig = () => {
               onChange={(e) =>
                 setNewGrade({ ...newGrade, min_mark: e.target.value })
               }
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="সর্বনিম্ন মার্ক"
               aria-label="সর্বনিম্ন মার্ক"
               title="সর্বনিম্ন মার্ক লিখুন (উদাহরণ: ৮০)"
@@ -285,7 +285,7 @@ const ResultConfig = () => {
               onChange={(e) =>
                 setNewGrade({ ...newGrade, max_mark: e.target.value })
               }
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="সর্বোচ্চ মার্ক"
               aria-label="সর্বোচ্চ মার্ক"
               title="সর্বোচ্চ মার্ক লিখুন (উদাহরণ: ১০০)"
@@ -297,7 +297,7 @@ const ResultConfig = () => {
               onChange={(e) =>
                 setNewGrade({ ...newGrade, remarks: e.target.value })
               }
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="মন্তব্য"
               aria-label="মন্তব্য"
               title="মন্তব্য লিখুন (উদাহরণ: চমৎকার)"
@@ -306,10 +306,10 @@ const ResultConfig = () => {
             <button
               type="submit"
               disabled={isCreating || isUpdating}
-              className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
+              className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
                 isCreating || isUpdating
                   ? "cursor-not-allowed"
-                  : "hover:text-white btn-glow"
+                  : "hover:text-[#441a05]btn-glow"
               }`}
               title={editGradeId ? "গ্রেড আপডেট করুন" : "গ্রেড তৈরি করুন"}
             >
@@ -347,7 +347,7 @@ const ResultConfig = () => {
                     remarks: "",
                   });
                 }}
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]transition-all duration-300 animate-scaleIn"
                 title="সম্পাদনা বাতিল করুন"
               >
                 বাতিল
@@ -367,7 +367,7 @@ const ResultConfig = () => {
 
         {/* Grades Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
             বর্তমান গ্রেড তালিকা
           </h3>
           {gradesLoading ? (
@@ -436,14 +436,14 @@ const ResultConfig = () => {
                         <button
                           onClick={() => handleEditClick(grade)}
                           title="গ্রেড সম্পাদনা করুন"
-                          className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                          className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                         >
                           <FaEdit className="w-5 h-5" />
                         </button>
                         <button
                           onClick={() => handleDelete(grade.id)}
                           title="গ্রেড মুছুন"
-                          className="text-white hover:text-red-500 transition-colors duration-300"
+                          className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                         >
                           <FaTrash className="w-5 h-5" />
                         </button>
@@ -471,13 +471,13 @@ const ResultConfig = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন গ্রেড নিশ্চিত করুন"}
                 {modalAction === "update" && "গ্রেড আপডেট নিশ্চিত করুন"}
                 {modalAction === "delete" && "গ্রেড মুছে ফেলা নিশ্চিত করুন"}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === "create" &&
                   "আপনি কি নিশ্চিত যে নতুন গ্রেড তৈরি করতে চান?"}
                 {modalAction === "update" &&
@@ -488,14 +488,14 @@ const ResultConfig = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন"
                 >
                   নিশ্চিত করুন

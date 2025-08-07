@@ -278,7 +278,7 @@ const TransportPackages = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -291,11 +291,11 @@ const TransportPackages = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -304,7 +304,7 @@ const TransportPackages = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -343,27 +343,27 @@ const TransportPackages = () => {
 
         <form onSubmit={handleCreatePackage} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <label className="block text-sm font-medium text-white mb-1">
+            <label className="block text-sm font-medium text-[#441a05]mb-1">
               {languageCode === 'bn' ? 'প্যাকেজের নাম *' : 'Package Name *'}
             </label>
             <input
               type="text"
               value={formData.package_name}
               onChange={(e) => handleInputChange('package_name', e.target.value)}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
               placeholder={languageCode === 'bn' ? 'প্যাকেজের নাম লিখুন' : 'Enter package name'}
               disabled={isCreating}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">
+            <label className="block text-sm font-medium text-[#441a05]mb-1">
               {languageCode === 'bn' ? 'মূল্য *' : 'Amount *'}
             </label>
             <input
               type="number"
               value={formData.amount}
               onChange={(e) => handleInputChange('amount', e.target.value)}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
               placeholder={languageCode === 'bn' ? 'মূল্য লিখুন' : 'Enter amount'}
               disabled={isCreating}
               min="0"
@@ -371,7 +371,7 @@ const TransportPackages = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">
+            <label className="block text-sm font-medium text-[#441a05]mb-1">
               {languageCode === 'bn' ? 'শিক্ষাবর্ষ *' : 'Academic Year *'}
             </label>
             <Select
@@ -395,7 +395,7 @@ const TransportPackages = () => {
             <button
               type="submit"
               disabled={isCreating || !formData.package_name || !formData.amount || !formData.academic_year}
-              className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${isCreating || !formData.package_name || !formData.amount || !formData.academic_year
+              className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${isCreating || !formData.package_name || !formData.amount || !formData.academic_year
                   ? 'opacity-50 cursor-not-allowed'
                   : 'hover:shadow-lg hover:scale-105'
                 }`}
@@ -415,7 +415,7 @@ const TransportPackages = () => {
             <button
               type="button"
               onClick={() => setFormData({ package_name: '', amount: '', academic_year: null })}
-              className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+              className="bg-gray-500 hover:bg-gray-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
             >
               {languageCode === 'bn' ? 'রিসেট' : 'Reset'}
             </button>
@@ -447,13 +447,13 @@ const TransportPackages = () => {
             type="text"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
-            className="flex-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+            className="flex-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
             placeholder={languageCode === 'bn' ? 'প্যাকেজ আইডি লিখুন' : 'Enter package ID'}
           />
           <button
             onClick={handleSearchById}
             disabled={!searchId.trim()}
-            className="bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <FaSearch />
             {languageCode === 'bn' ? 'অনুসন্ধান' : 'Search'}
@@ -535,7 +535,7 @@ const TransportPackages = () => {
       {/* Packages Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h2 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h2 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'সমস্ত পরিবহন প্যাকেজ' : 'All Transport Packages'} ({packages.length})</span>
           </h2>
@@ -556,7 +556,7 @@ const TransportPackages = () => {
               </p>
               <button
                 onClick={refetch}
-                className="mt-2 px-4 py-2 bg-pmColor text-white rounded-xl hover:bg-pmColor/80 transition-all"
+                className="mt-2 px-4 py-2 bg-pmColor text-[#441a05]rounded-xl hover:bg-pmColor/80 transition-all"
               >
                 {languageCode === 'bn' ? 'পুনরায় চেষ্টা করুন' : 'Retry'}
               </button>
@@ -612,7 +612,7 @@ const TransportPackages = () => {
                             type="text"
                             value={editData.package_name}
                             onChange={(e) => handleEditInputChange('package_name', e.target.value)}
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                             placeholder={languageCode === 'bn' ? 'প্যাকেজের নাম' : 'Package name'}
                             disabled={isUpdating || isPatching}
                           />
@@ -622,7 +622,7 @@ const TransportPackages = () => {
                             type="number"
                             value={editData.amount}
                             onChange={(e) => handleEditInputChange('amount', e.target.value)}
-                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                            className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                             placeholder={languageCode === 'bn' ? 'মূল্য' : 'Amount'}
                             disabled={isUpdating || isPatching}
                             min="0"
@@ -650,7 +650,7 @@ const TransportPackages = () => {
                             <button
                               onClick={(e) => handleSaveEdit(pkg.id, e)}
                               disabled={isUpdating || !editData.package_name || !editData.amount || !editData.academic_year}
-                              className="bg-green-500/20 hover:bg-green-500 hover:text-white text-green-400 p-2 rounded-lg transition-all duration-300"
+                              className="bg-green-500/20 hover:bg-green-500 hover:text-[#441a05]text-green-400 p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'সংরক্ষণ করুন (PUT)' : 'Save (PUT)'}
                             >
                               <FaEdit className="w-4 h-4" />
@@ -658,14 +658,14 @@ const TransportPackages = () => {
                             <button
                               onClick={(e) => handlePatchEdit(pkg.id, e)}
                               disabled={isPatching || !editData.package_name || !editData.amount || !editData.academic_year}
-                              className="bg-yellow-500/20 hover:bg-yellow-500 hover:text-white text-yellow-400 p-2 rounded-lg transition-all duration-300"
+                              className="bg-yellow-500/20 hover:bg-yellow-500 hover:text-[#441a05]text-yellow-400 p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'প্যাচ করুন (PATCH)' : 'Patch (PATCH)'}
                             >
                               <FaEdit className="w-4 h-4" />
                             </button>
                             <button
                               onClick={handleCancelEdit}
-                              className="bg-gray-500/20 hover:bg-gray-500 text-white p-2 rounded-lg transition-all duration-300"
+                              className="bg-gray-500/20 hover:bg-gray-500 text-[#441a05]p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
                             >
                               <FaTrash className="w-4 h-4" />
@@ -696,7 +696,7 @@ const TransportPackages = () => {
                             {/* {hasChangePermission && ( */}
                               <button
                                 onClick={() => handleEditStart(pkg)}
-                                className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                                className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                                 title={languageCode === 'bn' ? 'প্যাকেজ সম্পাদনা করুন' : 'Edit package'}
                               >
                                 <FaEdit className="w-4 h-4" />
@@ -706,7 +706,7 @@ const TransportPackages = () => {
                               <button
                                 onClick={() => handleDelete(pkg.id)}
                                 disabled={isDeleting}
-                                className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                                className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                                 title={languageCode === 'bn' ? 'প্যাকেজ মুছুন' : 'Delete package'}
                               >
                                 <FaTrash className="w-4 h-4" />

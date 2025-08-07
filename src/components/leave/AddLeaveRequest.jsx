@@ -170,11 +170,11 @@ const AddLeaveRequest = () => {
       <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6">
           <IoAddCircle className="text-3xl text-white" />
-          <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">নতুন ছুটির আবেদন যোগ</h3>
+          <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন ছুটির আবেদন যোগ</h3>
         </div>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <label htmlFor="user_id" className="block text-sm font-medium text-white mb-1">
+            <label htmlFor="user_id" className="block text-sm font-medium text-[#441a05]mb-1">
               ইউজার
             </label>
             <div className="relative">
@@ -191,16 +191,16 @@ const AddLeaveRequest = () => {
                   }
                 }}
                 placeholder="ইউজার খুঁজুন (অন্তত ৩টি অক্ষর)"
-                className="w-full outline-none bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-white focus:ring-white"
+                className="w-full outline-none bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
                 disabled={isCreatingLeave || isCreatingMeal}
                 aria-describedby={errors.user_id ? "user_id-error" : undefined}
                 aria-label="ইউজার খুঁজুন"
                 title="ইউজার খুঁজুন / Search for a user"
               />
               {showDropdown && searchTerm.length >= 3 && (
-                <div className="absolute z-10 mt-1 w-full bg-white border border-[#9d9087] rounded-md shadow-lg max-h-60 overflow-auto">
+                <div className="absolute z-10 mt-1 w-full bg-[#441a05]border border-[#9d9087] rounded-md shadow-lg max-h-60 overflow-auto">
                   {usersLoading ? (
-                    <div className="p-2 text-white flex items-center space-x-2">
+                    <div className="p-2 text-[#441a05]flex items-center space-x-2">
                       <FaSpinner className="animate-spin text-lg" />
                       <span>ইউজার লোড হচ্ছে...</span>
                     </div>
@@ -209,7 +209,7 @@ const AddLeaveRequest = () => {
                       <div
                         key={user.id}
                         onClick={() => handleUserSelect(user)}
-                        className="p-2 text-white bg-white hover:bg-pmColor cursor-pointer"
+                        className="p-2 text-[#441a05]bg-[#441a05]hover:bg-pmColor cursor-pointer"
                         role="option"
                         aria-selected={selectedUser?.id == user.id}
                       >
@@ -227,7 +227,7 @@ const AddLeaveRequest = () => {
             )}
           </div>
           <div>
-            <label htmlFor="leave_type" className="block text-sm font-medium text-white mb-1">
+            <label htmlFor="leave_type" className="block text-sm font-medium text-[#441a05]mb-1">
               ছুটির ধরন
             </label>
             <Select
@@ -253,7 +253,7 @@ const AddLeaveRequest = () => {
             )}
           </div>
           <div>
-            <label htmlFor="start_date" className="block text-sm font-medium text-white mb-1">
+            <label htmlFor="start_date" className="block text-sm font-medium text-[#441a05]mb-1">
               শুরুর তারিখ
             </label>
             <input
@@ -263,7 +263,7 @@ const AddLeaveRequest = () => {
               value={formData.start_date}
               onChange={handleChange}
               onClick={handleDateClick}
-              className="w-full bg-transparent outline-none text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-white focus:ring-white"
+              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
               disabled={isCreatingLeave || isCreatingMeal}
               required
               aria-describedby={errors.start_date ? "start_date-error" : undefined}
@@ -275,7 +275,7 @@ const AddLeaveRequest = () => {
             )}
           </div>
           <div>
-            <label htmlFor="end_date" className="block text-sm font-medium text-white mb-1">
+            <label htmlFor="end_date" className="block text-sm font-medium text-[#441a05]mb-1">
               শেষের তারিখ
             </label>
             <input
@@ -285,7 +285,7 @@ const AddLeaveRequest = () => {
               value={formData.end_date}
               onChange={handleChange}
               onClick={handleDateClick}
-              className="w-full bg-transparent outline-none text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-white focus:ring-white"
+              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
               disabled={isCreatingLeave || isCreatingMeal}
               required
               aria-describedby={errors.end_date ? "end_date-error" : undefined}
@@ -297,7 +297,7 @@ const AddLeaveRequest = () => {
             )}
           </div>
           <div>
-            <label htmlFor="academic_year" className="block text-sm font-medium text-white mb-1">
+            <label htmlFor="academic_year" className="block text-sm font-medium text-[#441a05]mb-1">
               শিক্ষাবর্ষ
             </label>
             <Select
@@ -323,7 +323,7 @@ const AddLeaveRequest = () => {
             )}
           </div>
           <div className="md:col-span-3">
-            <label htmlFor="leave_description" className="block text-sm font-medium text-white mb-1">
+            <label htmlFor="leave_description" className="block text-sm font-medium text-[#441a05]mb-1">
               বিবরণ
             </label>
             <textarea
@@ -331,7 +331,7 @@ const AddLeaveRequest = () => {
               name="leave_description"
               value={formData.leave_description}
               onChange={handleChange}
-              className="w-full bg-transparent outline-none text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-white focus:ring-white"
+              className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
               rows="4"
               placeholder="বিবরণ প্রবেশ করুন"
               disabled={isCreatingLeave || isCreatingMeal}
@@ -343,8 +343,8 @@ const AddLeaveRequest = () => {
             <button
               type="submit"
               disabled={isCreatingLeave || isCreatingMeal}
-              className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                isCreatingLeave || isCreatingMeal ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+              className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                isCreatingLeave || isCreatingMeal ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
               }`}
               aria-label="ছুটির আবেদন জমা"
               title="ছুটির আবেদন জমা / Submit leave request"

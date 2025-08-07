@@ -22,13 +22,13 @@ export default function PackageTable({ data, handleEdit, handleDelete }) {
                             <td className="w-2/12">{item.amount}</td>
                             <td className="w-4/12 pb-1">
                                 <button
-                                    className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                                    className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                                     onClick={() => handleEdit(item)}
                                 >
                                     {t("module.service.edit")} {/* Translate Edit */}
                                 </button>
                                 <button
-                                    className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                                    className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                                     onClick={() => handleDelete(item.name)}
                                 >
                                     {t("module.service.delete")} {/* Translate Delete */}

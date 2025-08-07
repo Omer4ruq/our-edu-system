@@ -125,7 +125,7 @@ const AdmitCard = () => {
             font-size: 10pt;
             margin: 0;
             padding: 5mm;
-            color: #fff;
+            color: #441a05;
           }
           .page-container {
             width: 200mm;
@@ -222,7 +222,7 @@ const AdmitCard = () => {
             text-align: center;
           }
           .signature-line {
-            border-top: 1px solid #fff;
+            border-top: 1px solid #441a05;
             width: 20mm;
             margin: 0 auto;
           }
@@ -365,7 +365,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             className="w-8 h-8 object-contain"
           />
           <div>
-            <h1 className="text-xs font-bold text-white uppercase">
+            <h1 className="text-xs font-bold text-[#441a05]uppercase">
               {instituteInfo.institute_name || 'Institute Name'}
             </h1>
             <p className="text-[9px] text-white">{instituteInfo.institute_address || 'Address'}</p>
@@ -387,7 +387,7 @@ const classConfigOptions = classConfigs?.map(config => ({
         </h2>
 
         {/* Student Info */}
-        <div className="text-[10px] mt-2 text-white p-3 flex justify-around items-center">
+        <div className="text-[10px] mt-2 text-[#441a05]p-3 flex justify-around items-center">
           <div className="w-fit space-y-1">
             <p className="text-[11px]">
               <strong>নাম:</strong> {student.student_name}
@@ -428,8 +428,8 @@ const classConfigOptions = classConfigs?.map(config => ({
         {/* Signature */}
         <div className="flex justify-end mt-[-55px] mb-2 mr-4">
           <div className="text-center">
-            <div className="border-t border-white w-20 mx-auto"></div>
-            <p className="text-[9px] text-white mt-1 font-semibold">
+            <div className="border-t border-[#441a05]w-20 mx-auto"></div>
+            <p className="text-[9px] text-[#441a05]mt-1 font-semibold">
               পরীক্ষা নিয়ন্ত্রকের স্বাক্ষর
             </p>
           </div>
@@ -489,12 +489,12 @@ const classConfigOptions = classConfigs?.map(config => ({
       <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
           <IoPrint className="text-4xl text-white" />
-          <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">প্রবেশপত্র</h3>
+          <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">প্রবেশপত্র</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 no-print">
           <div>
-            <label className="block text-sm font-medium text-white mb-1">ক্লাস কনফিগারেশন</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">ক্লাস কনফিগারেশন</label>
             <Select
               options={classConfigOptions}
               value={selectedClassConfig}
@@ -510,7 +510,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">শিক্ষাবর্ষ</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">শিক্ষাবর্ষ</label>
             <Select
               options={academicYearOptions}
               value={selectedAcademicYear}
@@ -526,7 +526,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">পরীক্ষা</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">পরীক্ষা</label>
             <Select
               options={examOptions}
               value={selectedExam}
@@ -548,7 +548,7 @@ const classConfigOptions = classConfigs?.map(config => ({
           <div className="mt-6 flex space-x-4 no-print">
             <button
             onClick={handleDownloadPDF}
-              className="px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn hover:text-white btn-glow"
+              className="px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn hover:text-[#441a05]btn-glow"
               aria-label="প্রবেশপত্র প্রিন্ট করুন"
               title="প্রবেশপত্র প্রিন্ট করুন / Print admit cards"
             >
@@ -576,12 +576,12 @@ const classConfigOptions = classConfigs?.map(config => ({
               ))}
             </div>
           ) : (
-            <div className="text-center text-white p-8">
+            <div className="text-center text-[#441a05]p-8">
               কোনো শিক্ষার্থী পাওয়া যায়নি। ফিল্টার পরীক্ষা করুন।
             </div>
           )
         ) : (
-          <div className="text-center text-white p-8">
+          <div className="text-center text-[#441a05]p-8">
             দয়া করে সকল ফিল্টার নির্বাচন করুন।
           </div>
         )}

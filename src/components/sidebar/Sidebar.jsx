@@ -51,7 +51,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
             box-shadow: 0 0 15px rgba(219, 158, 48, 0.3);
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -87,7 +87,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       <nav
         ref={sidebarRef}
         id="sidebar-menu"
-        className={`fixed transition-all p-5 rounded-lg duration-300 ease-in-out h-[92vh] bottom-0 shadow-sm w-0 xl:w-72 ${showSidebar && "w-72"
+        className={`fixed transition-all p-5 rounded-lg bg-pmColor duration-300 ease-in-out h-[92vh] bottom-0 shadow-sm w-0 xl:w-72 ${showSidebar && "w-72"
           } z-20 animate-fadeIn`}
       >
 
@@ -104,7 +104,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
         {/* <div className="absolute inset-0 bg-black opacity-20 z-0"></div> */}
 
         {/* Sidebar Content */}
-        <div className="relative h-full overflow-y-auto scrollbar-webkit z-10 text-white bg-white/10 backdrop-blur-3xl rounded-xl">
+        <div className="relative h-full overflow-y-auto scrollbar-webkit z-10 text-[#441a05]bg-white/10 backdrop-blur-3xl rounded-xl">
           <SidebarHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           {!searchTerm ? (
             <SidebarMenu />
@@ -112,7 +112,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
             <SidebarSearchMenu searchTerm={searchTerm} />
           )}
           <MdHighlightOff
-            className="text-white w-6 h-6 absolute top-[14px] right-3 xl:hidden cursor-pointer"
+            className="text-[#441a05]w-6 h-6 absolute top-[14px] right-3 xl:hidden cursor-pointer"
             onClick={() => setShowSidebar(false)}
           />
         </div>

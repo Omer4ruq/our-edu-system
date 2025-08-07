@@ -55,13 +55,13 @@ export default function ExSyTable({ handleEdit, handleDelete }) {
                             <td className="w-2/12 text-red">{t('module.exam.download')}</td>
                             <td className="w-3/12 pb-1">
                                 <button
-                                    className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                                    className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                                     onClick={() => handleEdit(item)}
                                 >
                                     {t('module.exam.edit')}
                                 </button>
                                 <button
-                                    className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                                    className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                                     onClick={() => handleDelete(`class ${item.class} ${item.subject} syllabus`)}
                                 >
                                     {t('module.exam.delete')}

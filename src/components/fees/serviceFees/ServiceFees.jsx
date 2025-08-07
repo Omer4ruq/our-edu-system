@@ -111,7 +111,7 @@ const ServiceFees = () => {
 
   return (
     <div className="py-8 w-full relative">
-      <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+      <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
       
       <style jsx>{`
         @keyframes fadeIn {
@@ -211,7 +211,7 @@ const ServiceFees = () => {
               <div className="mb-6">
                 <button
                   onClick={handleOpenModal}
-                  className={`flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isSubmitting ? 'cursor-not-allowed opacity-70' : 'hover:text-white btn-glow'}`}
+                  className={`flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${isSubmitting ? 'cursor-not-allowed opacity-70' : 'hover:text-[#441a05]btn-glow'}`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (

@@ -5,7 +5,7 @@ export default function TeacherSubjectAssign() {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-white px-4 py-6 rounded mt-4">
+    <div className="bg-[#441a05]px-4 py-6 rounded mt-4">
       {/* select a particular class */}
       <div className="flex items-center">
         <label className="w-24 sm:w-28 md:w-32">{t("module.settings.teacher_name")}: </label>
@@ -61,7 +61,7 @@ export default function TeacherSubjectAssign() {
       </div>
 
       {/* save button */}
-      <button className="bg-#DB9E30 hover:bg-buttonHover px-6 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+      <button className="bg-#DB9E30 hover:bg-buttonHover px-6 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
         {t("module.settings.save")}
       </button>
     </div>

@@ -29,7 +29,7 @@
 <body class="font-sans text-base font-normal text-gray-600 dark:text-gray-400 dark:bg-gray-800">
   <!-- wrapper -->
   <div x-data="{ open: false }" class="wrapper overflow-x-hidden bg-gray-100 dark:bg-gray-900 dark:bg-opacity-40">
-    <nav id="sidebar-menu" x-description="Mobile menu" x-bind:aria-expanded="open" :class="{ 'w-64 md:w-0': open, 'w-0 md:w-64': !(open) }" class="fixed w-64 transition-all duration-500 ease-in-out h-screen bg-white dark:bg-gray-800 shadow-sm">
+    <nav id="sidebar-menu" x-description="Mobile menu" x-bind:aria-expanded="open" :class="{ 'w-64 md:w-0': open, 'w-0 md:w-64': !(open) }" class="fixed w-64 transition-all duration-500 ease-in-out h-screen bg-[#441a05]dark:bg-gray-800 shadow-sm">
       <div class="h-full overflow-y-auto scrollbars">
         <!--logo-->
         <div class="mh-18 text-center py-5">
@@ -701,7 +701,7 @@
             </div>
 
             <div class="grid">
-              <a href="layout.html#" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-pink-500 border border-pink-500 hover:text-white hover:bg-pink-600 hover:ring-0 hover:border-pink-600 focus:bg-pink-600 focus:border-pink-600 focus:outline-none focus:ring-0" target="_blank">Download</a>
+              <a href="layout.html#" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-pink-500 border border-pink-500 hover:text-[#441a05]hover:bg-pink-600 hover:ring-0 hover:border-pink-600 focus:bg-pink-600 focus:border-pink-600 focus:outline-none focus:ring-0" target="_blank">Download</a>
             </div>
           </div>
         </div><!-- end banner -->
@@ -710,7 +710,7 @@
 
     <div x-bind:aria-expanded="open" :class="{ 'ltr:ml-64 ltr:-mr-64 md:ltr:ml-0 md:ltr:mr-0 rtl:mr-64 rtl:-ml-64 md:rtl:mr-0 md:rtl:ml-0': open, 'ltr:ml-0 ltr:mr-0 md:ltr:ml-64 rtl:mr-0 rtl:ml-0 md:rtl:mr-64': !(open) }" class="flex flex-col ltr:ml-64 rtl:mr-64 min-h-screen transition-all duration-500 ease-in-out">
       <!-- Navbar -->
-      <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }" class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-white dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out" id="desktop-menu">
+      <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }" class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-[#441a05]dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out" id="desktop-menu">
         <!-- sidenav button-->
         <button id="navbartoggle" type="button" class="inline-flex items-center justify-center text-gray-800 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-200 focus:outline-none focus:ring-0" aria-controls="sidebar-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
           <span class="sr-only">Mobile menu</span>
@@ -731,7 +731,7 @@
           <div class="flex flex-wrap items-stretch w-full relative">
             <input type="text" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 relative text-sm py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-gray-100 overflow-x-auto focus:outline-none border border-gray-100 focus:border-gray-200 focus:ring-0 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Search…" aria-label="Search">
             <div class="flex -mr-px">
-              <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
+              <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <!-- <i class="fas fa-search"></i> -->
               </button>
@@ -757,7 +757,7 @@
               <!-- bg open -->
               <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
 
-              <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-white dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
+              <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-[#441a05]dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
                 <div class="p-6 bg-indigo-500 text-gray-100 border-b border-gray-200 dark:border-gray-700">
                   <div class="flex flex-row justify-between">
                     <h3 class="text-md font-bold">Customizer</h3>
@@ -771,7 +771,7 @@
                   <p class="text-base text-semibold">Color Scheme</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="lightdark" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -781,7 +781,7 @@
                   <p class="text-base text-semibold">Sidebar Color</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="sidecolor" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -791,7 +791,7 @@
                   <p class="text-base text-semibold">Direction</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="rtlmode" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">LTR and RTL</p>
@@ -844,11 +844,11 @@
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"></path>
                 </svg>
                 <!-- <i class="text-2xl fas fa-envelope"></i> -->
-                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">3</span></span>
+                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-[#441a05]rounded-full text-xs"><span class="align-self-center">3</span></span>
               </div>
             </a>
 
-            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:-right-36 md:ltr:right-0 rtl:-left-36 md:rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
+            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:-right-36 md:ltr:right-0 rtl:-left-36 md:rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
               <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
                 <div class="relative">
                   <div class="font-bold">Messages</div>
@@ -859,12 +859,12 @@
                       </svg>
                       <!-- <i class="fas fa-search"></i> -->
                     </a>
-                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 bg-white dark:bg-gray-700 z-10 rounded" style="min-width:16rem">
+                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 bg-[#441a05]dark:bg-gray-700 z-10 rounded" style="min-width:16rem">
                        <form class="inline-block w-full">
                         <div class="flex flex-wrap items-stretch w-full relative">
                           <input type="text" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 relative text-sm py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-gray-100 overflow-x-auto focus:outline-none border border-gray-100 focus:border-gray-200 focus:ring-0 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Search messages…" aria-label="Search">
                           <div class="flex -mr-px">
-                            <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
+                            <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                               <!-- <i class="fas fa-search"></i> -->
                             </button>
@@ -894,7 +894,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar2.png" class="h-10 w-10 rounded-full mx-auto" alt="Daniel Esteban">
-                        <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-green-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-green-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -909,7 +909,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar3.png" class="h-10 w-10 rounded-full mx-auto" alt="Carlos Garcia">
-                        <span title="busy" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-pink-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="busy" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-pink-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -924,7 +924,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar4.png" class="h-10 w-10 rounded-full mx-auto" alt="Steven Rey">
-                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -939,7 +939,7 @@
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="../src/img/avatar/avatar.png" class="h-10 w-10 rounded-full mx-auto" alt="Roman Davis">
-                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -964,11 +964,11 @@
                   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
                 </svg>
                 <!-- <i class="text-2xl fas fa-bell"></i> -->
-                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">1</span></span>
+                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-[#441a05]rounded-full text-xs"><span class="align-self-center">1</span></span>
               </div>
             </a>
 
-            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
+            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
               <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
                 <div class="relative">
                   <div class="font-bold">Notifications</div>
@@ -1065,11 +1065,11 @@
             <a href="javascript:;" class="px-3 flex text-sm rounded-full focus:outline-none" id="user-menu-button" @click="open = ! open">
               <div class="relative">
                 <img class="h-10 w-10 rounded-full border border-gray-700 bg-gray-700" src="../src/img/avatar/avatar.png" alt="avatar">
-                <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-1 rtl:left-1 text-center bg-green-500 border border-white w-3 h-3 rounded-full"></span>
+                <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-1 rtl:left-1 text-center bg-green-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
               </div>
               <span class="hidden md:block ltr:ml-1 rtl:mr-1 self-center">Ari Budin</span>
             </a>
-            <ul x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width:12rem;display: none;">
+            <ul x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width:12rem;display: none;">
               <li class="relative">
                 <div class="flex flex-wrap flex-row -mx-4 px-3 py-4 items-center">
                   <div class="flex-shrink max-w-full px-4 w-1/3">
@@ -1137,7 +1137,7 @@
               <p class="text-xl font-bold mt-3 mb-5">Form Layout</p>
             </div>                                                 
             <div class="flex-shrink max-w-full px-4 w-full mb-6">
-              <div class="p-8 mb-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+              <div class="p-8 mb-6 bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg">
                 <div class="relative">
                    <div class="mb-6">
                       <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">Give your forms some structure layout options.</p>
@@ -1145,25 +1145,25 @@
                     
                     <div class="mb-8">
                       <h2 class="text-lg mb-6 font-semibold text-gray-800 dark:text-gray-300">Full width</h2>
-                      <div class="bg-white p-8 border border-gray-200 dark:bg-gray-900 dark:bg-opacity-20 dark:border-gray-800">
+                      <div class="bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-900 dark:bg-opacity-20 dark:border-gray-800">
                         <div class="mb-6">
                           <label for="formGroupExampleInput" class="inline-block mb-2">Example label</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput" placeholder="Example input placeholder">
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput" placeholder="Example input placeholder">
                         </div>
                         <div class="mb-6">
                           <label for="formGroupExampleInput2" class="inline-block mb-2">Another label</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput2" placeholder="Another input placeholder">
                         </div>
                       </div>
                       <pre>
                         <code class="language-html" data-lang="html">
                           &lt;div class="mb-6"&gt;
                             &lt;label for="formGroupExampleInput" class="inline-block mb-2"&gt;Example label&lt;/label&gt;
-                            &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput" placeholder="Example input placeholder"&gt;
+                            &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput" placeholder="Example input placeholder"&gt;
                           &lt;/div&gt;
                           &lt;div class="mb-6"&gt;
                             &lt;label for="formGroupExampleInput2" class="inline-block mb-2"&gt;Another label&lt;/label&gt;
-                            &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput2" placeholder="Another input placeholder"&gt;
+                            &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="formGroupExampleInput2" placeholder="Another input placeholder"&gt;
                           &lt;/div&gt;
                         </code>
                       </pre>
@@ -1171,13 +1171,13 @@
 
                     <div class="mb-8">
                       <h2 class="text-lg mb-6 font-semibold text-gray-800 dark:text-gray-300">Responsive Grid</h2>
-                      <div class="bg-white p-8 border border-gray-200 dark:bg-gray-900 dark:bg-opacity-20 dark:border-gray-800">
+                      <div class="bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-900 dark:bg-opacity-20 dark:border-gray-800">
                         <div class="flex flex-wrap flex-row -mx-4">
                           <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6 lg:mb-0">
-                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="First name" aria-label="First name">
+                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="First name" aria-label="First name">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6 lg:mb-0">
-                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Last name" aria-label="Last name">
+                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Last name" aria-label="Last name">
                           </div>
                         </div>
                       </div>
@@ -1185,10 +1185,10 @@
                         <code class="language-html" data-lang="html">
                           &lt;div class="flex flex-wrap flex-row -mx-4"&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6 lg:mb-0"&gt;
-                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="First name" aria-label="First name"&gt;
+                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="First name" aria-label="First name"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6 lg:mb-0"&gt;
-                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Last name" aria-label="Last name"&gt;
+                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Last name" aria-label="Last name"&gt;
                             &lt;/div&gt;
                           &lt;/div&gt;
                         </code>
@@ -1197,38 +1197,38 @@
 
                     <div class="mb-8">
                       <h2 class="text-lg mb-6 font-semibold text-gray-800 dark:text-gray-300">Multiple Responsive Grid</h2>
-                      <div class="bg-white p-8 border border-gray-200 dark:bg-gray-900 dark:bg-opacity-20 dark:border-gray-800">
+                      <div class="bg-[#441a05]p-8 border border-gray-200 dark:bg-gray-900 dark:bg-opacity-20 dark:border-gray-800">
                         <form class="flex flex-wrap flex-row -mx-4">
                           <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                             <label for="inputEmail4" class="inline-block mb-2">Email</label>
-                            <input type="email" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputEmail4">
+                            <input type="email" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputEmail4">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                             <label for="inputPassword4" class="inline-block mb-2">Password</label>
-                            <input type="password" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputPassword4">
+                            <input type="password" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputPassword4">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full mb-6">
                             <label for="inputAddress" class="inline-block mb-2">Address</label>
-                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress" placeholder="1234 Main St">
+                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress" placeholder="1234 Main St">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full mb-6">
                             <label for="inputAddress2" class="inline-block mb-2">Address 2</label>
-                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress2" placeholder="Apartment, studio, or floor">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                             <label for="inputCity" class="inline-block mb-2">City</label>
-                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputCity">
+                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputCity">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
                             <label for="inputState" class="inline-block mb-2">State</label>
-                            <select id="inputState" class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
+                            <select id="inputState" class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
                               <option selected>Choose...</option>
                               <option>...</option>
                             </select>
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full md:w-1/6 mb-6">
                             <label for="inputZip" class="inline-block mb-2">Zip</label>
-                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputZip">
+                            <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputZip">
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full mb-6">
                             <label class="flex items-center mb-6">
@@ -1237,7 +1237,7 @@
                             </label>
                           </div>
                           <div class="flex-shrink max-w-full px-4 w-full">
-                            <button type="submit" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Register now</button>
+                            <button type="submit" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Register now</button>
                           </div>
                         </form>
                       </div>
@@ -1246,34 +1246,34 @@
                           &lt;form class="flex flex-wrap flex-row -mx-4"&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6"&gt;
                               &lt;label for="inputEmail4" class="inline-block mb-2"&gt;Email&lt;/label&gt;
-                              &lt;input type="email" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputEmail4"&gt;
+                              &lt;input type="email" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputEmail4"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6"&gt;
                               &lt;label for="inputPassword4" class="inline-block mb-2"&gt;Password&lt;/label&gt;
-                              &lt;input type="password" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputPassword4"&gt;
+                              &lt;input type="password" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputPassword4"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full mb-6"&gt;
                               &lt;label for="inputAddress" class="inline-block mb-2"&gt;Address&lt;/label&gt;
-                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress" placeholder="1234 Main St"&gt;
+                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress" placeholder="1234 Main St"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full mb-6"&gt;
                               &lt;label for="inputAddress2" class="inline-block mb-2"&gt;Address 2&lt;/label&gt;
-                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress2" placeholder="Apartment, studio, or floor"&gt;
+                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputAddress2" placeholder="Apartment, studio, or floor"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6"&gt;
                               &lt;label for="inputCity" class="inline-block mb-2"&gt;City&lt;/label&gt;
-                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputCity"&gt;
+                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputCity"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6"&gt;
                               &lt;label for="inputState" class="inline-block mb-2"&gt;State&lt;/label&gt;
-                              &lt;select id="inputState" class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none"&gt;
+                              &lt;select id="inputState" class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none"&gt;
                                 &lt;option selected&gt;Choose...&lt;/option&gt;
                                 &lt;option&gt;...&lt;/option&gt;
                               &lt;/select&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full md:w-1/6 mb-6"&gt;
                               &lt;label for="inputZip" class="inline-block mb-2"&gt;Zip&lt;/label&gt;
-                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputZip"&gt;
+                              &lt;input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputZip"&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full mb-6"&gt;
                               &lt;label class="flex items-center"&gt;
@@ -1282,7 +1282,7 @@
                               &lt;/label&gt;
                             &lt;/div&gt;
                             &lt;div class="flex-shrink max-w-full px-4 w-full"&gt;
-                              &lt;button type="submit" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"&gt;Register now&lt;/button&gt;
+                              &lt;button type="submit" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"&gt;Register now&lt;/button&gt;
                             &lt;/div&gt;
                           &lt;/form&gt;
                         </code>
@@ -1295,7 +1295,7 @@
         </div>
       </main>
 
-      <footer class="bg-white dark:bg-gray-800 p-6 shadow-sm">
+      <footer class="bg-[#441a05]dark:bg-gray-800 p-6 shadow-sm">
         <div class="mx-auto">
           <div class="flex flex-wrap flex-row -mx-4">
             <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:ltr:text-left md:rtl:text-right">

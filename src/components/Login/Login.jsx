@@ -119,7 +119,7 @@ const Login = () => {
       {/* Form Container */}
       <div className='w-full  max-w-md'>
         <div className="relative z-10 bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl shadow-xl w-full max-w-md animate-fadeIn">
-          <h2 className="text-3xl font-bold text-center text-white mb-6 tracking-tight">
+          <h2 className="text-3xl font-bold text-center text-[#441a05]mb-6 tracking-tight">
             কওমী তালীম
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -132,7 +132,7 @@ const Login = () => {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="mt-1 w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="mt-1 w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="ব্যবহারকারীর নাম লিখুন"
                 required
                 aria-label="ব্যবহারকারীর নাম"
@@ -149,7 +149,7 @@ const Login = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="mt-1 w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="পাসওয়ার্ড লিখুন"
                 required
                 aria-label="পাসওয়ার্ড"
@@ -169,7 +169,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`relative inline-flex items-center justify-center w-full px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${loading ? "cursor-not-allowed" : "hover:text-white hover:shadow-md btn-glow"
+              className={`relative inline-flex items-center justify-center w-full px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${loading ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md btn-glow"
                 }`}
             >
               {loading ? (

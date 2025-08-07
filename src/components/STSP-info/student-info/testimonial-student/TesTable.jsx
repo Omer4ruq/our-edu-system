@@ -28,13 +28,13 @@ export default function TesTable({handleViewClick}) {
                <td className="w-3/12">
                   <button
                   onClick={() => handleViewClick(item)}
-                  className="bg-green px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 leading-6 m-1"
+                  className="bg-green px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 leading-6 m-1"
                   >
                      View
                   </button>
                   <Link to={`../testimonial-data/${item.id}`}>
                      <button
-                        className="bg-yellow px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 leading-6 m-1"
+                        className="bg-yellow px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 leading-6 m-1"
                      >
                         Data
                      </button>

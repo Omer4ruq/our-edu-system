@@ -7,7 +7,7 @@ const RecieveTransaction = () => {
   const { t } = useTranslation();
   const [totalTransaction, setTotalTransaction] = useState(0);
   return (
-    <div className="bg-white rounded-md p-4 md:p-6  my-4">
+    <div className="bg-[#441a05]rounded-md p-4 md:p-6  my-4">
       <h3 className="text-2xl font-medium text-center">
         {t("module.accounts.receive_transaction")}
       </h3>

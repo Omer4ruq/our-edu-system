@@ -135,9 +135,9 @@ const IncomeHead = () => {
   if (hasViewPermission && !hasAddPermission && !hasChangePermission && !hasDeletePermission) {
     return (
       <div className="py-8 w-full relative">
-        <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+        <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">আয়ের শিরোনাম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">আয়ের শিরোনাম তালিকা</h3>
           {isIncomeHeadLoading ? (
             <p className="p-4 text-white/70">আয়ের শিরোনাম লোড হচ্ছে...</p>
           ) : incomeHeadError ? (
@@ -194,7 +194,7 @@ const IncomeHead = () => {
 
   return (
     <div className="py-8 w-full relative">
-      <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+      <Toaster position="top-right" reverseOrder={false} toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
       <style jsx>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -217,7 +217,7 @@ const IncomeHead = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-white" />
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">নতুন আয়ের শিরোনাম যোগ করুন</h3>
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন আয়ের শিরোনাম যোগ করুন</h3>
             </div>
             <form onSubmit={handleSubmitIncomeHead} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
               <input
@@ -225,7 +225,7 @@ const IncomeHead = () => {
                 id="incomeHeadName"
                 value={incomeHeadName}
                 onChange={(e) => setIncomeHeadName(e.target.value)}
-                className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="আয়ের শিরোনাম"
                 disabled={isCreating}
                 aria-describedby={createError ? "income-head-error" : undefined}
@@ -234,8 +234,8 @@ const IncomeHead = () => {
                 type="submit"
                 disabled={isCreating}
                 title="নতুন আয়ের শিরোনাম তৈরি করুন"
-                className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
               >
                 {isCreating ? (
@@ -268,7 +268,7 @@ const IncomeHead = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <FaEdit className="text-3xl text-white" />
-              <h3 className="text-2xl font-bold text-white tracking-tight">আয়ের শিরোনাম সম্পাদনা করুন</h3>
+              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">আয়ের শিরোনাম সম্পাদনা করুন</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
               <input
@@ -276,7 +276,7 @@ const IncomeHead = () => {
                 id="editIncomeHeadName"
                 value={editIncomeHeadName}
                 onChange={(e) => setEditIncomeHeadName(e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="আয়ের শিরোনাম সম্পাদনা করুন (যেমন: বিক্রয় আয়)"
                 disabled={isUpdating}
                 aria-label="আয়ের শিরোনাম সম্পাদনা"
@@ -286,8 +286,8 @@ const IncomeHead = () => {
                 type="submit"
                 disabled={isUpdating}
                 title="আয়ের শিরোনাম আপডেট করুন"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
               >
                 {isUpdating ? (
@@ -306,7 +306,7 @@ const IncomeHead = () => {
                   setEditIncomeHeadName("");
                 }}
                 title="সম্পাদনা বাতিল করুন"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
               >
                 বাতিল
               </button>
@@ -327,14 +327,14 @@ const IncomeHead = () => {
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন আয়ের শিরোনাম নিশ্চিত করুন"}
                 {modalAction === "update" && "আয়ের শিরোনাম আপডেট নিশ্চিত করুন"}
                 {modalAction === "delete" && "আয়ের শিরোনাম মুছে ফেলা নিশ্চিত করুন"}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === "create" && "আপনি কি নিশ্চিত যে নতুন আয়ের শিরোনাম তৈরি করতে চান?"}
                 {modalAction === "update" && "আপনি কি নিশ্চিত যে আয়ের শিরোনাম আপডেট করতে চান?"}
                 {modalAction === "delete" && "আপনি কি নিশ্চিত যে এই আয়ের শিরোনামটি মুছে ফেলতে চান?"}
@@ -342,14 +342,14 @@ const IncomeHead = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
                   disabled={isCreating || isUpdating || isDeleting}
-                  className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
+                  className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
                     (isCreating || isUpdating || isDeleting) ? "cursor-not-allowed opacity-60" : "hover:text-white"
                   }`}
                 >
@@ -373,7 +373,7 @@ const IncomeHead = () => {
 
         {/* Income Heads Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">আয়ের শিরোনাম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">আয়ের শিরোনাম তালিকা</h3>
           {isIncomeHeadLoading ? (
             <p className="p-4 text-white/70">আয়ের শিরোনাম লোড হচ্ছে...</p>
           ) : incomeHeadError ? (
@@ -421,7 +421,7 @@ const IncomeHead = () => {
                               <button
                                 onClick={() => handleEditClick(incomeHead)}
                                 title="আয়ের শিরোনাম সম্পাদনা"
-                                className="text-white hover:text-blue-500 p-2 rounded-lg transition-colors duration-300"
+                                className="text-[#441a05]hover:text-blue-500 p-2 rounded-lg transition-colors duration-300"
                                 aria-label={`সম্পাদনা ${incomeHead.incometype}`}
                               >
                                 <FaEdit className="w-5 h-5" />
@@ -431,7 +431,7 @@ const IncomeHead = () => {
                               <button
                                 onClick={() => handleDelete(incomeHead.id)}
                                 title="আয়ের শিরোনাম মুছুন"
-                                className="text-white hover:text-red-500 p-2 rounded-lg transition-colors duration-300"
+                                className="text-[#441a05]hover:text-red-500 p-2 rounded-lg transition-colors duration-300"
                                 aria-label={`মুছুন ${incomeHead.incometype}`}
                               >
                                 <FaTrash className="w-5 h-5" />

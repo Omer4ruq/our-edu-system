@@ -236,7 +236,7 @@ const BoardingFees = () => {
             font-size: 12px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -714,13 +714,13 @@ const BoardingFees = () => {
           }
           .filter-button-active {
             background-color: #DB9E30;
-            color: #fff;
+            color: #441a05;
             font-weight: bold;
             border-color: #DB9E30;
           }
           .filter-button-inactive {
             background-color: transparent;
-            color: #fff;
+            color: #441a05;
             border-color: #9d9087;
           }
           .filter-button-inactive:hover {
@@ -735,19 +735,19 @@ const BoardingFees = () => {
             font-size: 0.875rem;
           }
           .date-filter-active {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
           }
           .date-filter-inactive {
             background-color: transparent;
-            color: #fff;
+            color: #441a05;
             border: 1px solid #9d9087;
           }
           .date-filter-inactive:hover {
             background-color: rgba(68, 26, 5, 0.1);
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -770,27 +770,27 @@ const BoardingFees = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               বোর্ডিং ফি
             </h3>
           </div>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">ইউজার আইডি লিখুন</label>
+              <label className="block text-sm font-medium text-[#441a05]mb-1">ইউজার আইডি লিখুন</label>
               <input
                 type="text"
                 value={userId}
                 onChange={(e) => setUserId(e.target.value)}
                 onFocus={() => setIsUserDropdownOpen(true)}
                 placeholder="ইউজার আইডি লিখুন"
-                className="w-full bg-transparent p-2 text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent p-2 text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating || isUpdating || !hasAddPermission} // Disable if no add permission
                 aria-label="ইউজার আইডি"
                 title="ইউজার আইডি / User ID"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">একাডেমিক বছর</label>
+              <label className="block text-sm font-medium text-[#441a05]mb-1">একাডেমিক বছর</label>
               <Select
                 options={academicYearOptions}
                 value={academicYearOptions.find((opt) => opt.value === selectedAcademicYear) || null}
@@ -808,7 +808,7 @@ const BoardingFees = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">ফান্ড</label>
+              <label className="block text-sm font-medium text-[#441a05]mb-1">ফান্ড</label>
               <Select
                 options={fundOptions}
                 value={fundOptions.find((opt) => opt.value === selectedFund) || null}
@@ -831,7 +831,7 @@ const BoardingFees = () => {
         {/* Student Information */}
         {selectedStudent && (
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-            <h2 className="text-xl font-semibold text-white mb-4">ছাত্রের তথ্য</h2>
+            <h2 className="text-xl font-semibold text-[#441a05]mb-4">ছাত্রের তথ্য</h2>
             <p><strong>নাম:</strong> {selectedStudent.name}</p>
             <p><strong>পিতার নাম:</strong> {selectedStudent.father_name || 'অজানা'}</p>
             <p><strong>মাতার নাম:</strong> {selectedStudent.mother_name || 'অজানা'}</p>
@@ -845,7 +845,7 @@ const BoardingFees = () => {
         {/* Boarding Fees Table */}
         {filteredFees.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-            <h2 className="text-lg font-semibold text-white p-4 border-b border-white/20">বোর্ডিং ফি</h2>
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">বোর্ডিং ফি</h2>
             <form onSubmit={handleSubmit}>
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-white/20">
@@ -895,7 +895,7 @@ const BoardingFees = () => {
                             >
                               {selectAll && (
                                 <svg
-                                  className="w-4 h-4 text-white animate-scaleIn"
+                                  className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -961,7 +961,7 @@ const BoardingFees = () => {
                               type="number"
                               value={discountInputs[fee.id] || ''}
                               onChange={(e) => handleDiscountInput(fee.id, e.target.value, payableAfterWaiver)}
-                              className="w-full bg-transparent p-2 text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                              className="w-full bg-transparent p-2 text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                               min="0"
                               disabled={status === 'PAID' || isCreating || isUpdating || !hasChangePermission} // Disable if no change permission
                               placeholder={existingRecord ? `বর্তমান: ${storedDiscountAmount}` : '0'}
@@ -980,7 +980,7 @@ const BoardingFees = () => {
                               type="number"
                               value={paymentInputs[fee.id] || ''}
                               onChange={(e) => handlePaymentInput(fee.id, e.target.value)}
-                              className="w-full bg-transparent p-2 text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                              className="w-full bg-transparent p-2 text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                               min="0"
                               disabled={status === 'PAID' || isCreating || isUpdating || !hasAddPermission} // Disable if no add permission
                               placeholder={status === 'PARTIAL' ? `বাকি: ${dueAmount}` : '0'}
@@ -994,7 +994,7 @@ const BoardingFees = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                             <span
                               className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID'
-                                ? 'text-white bg-pmColor'
+                                ? 'text-[#441a05]bg-pmColor'
                                 : status === 'PARTIAL'
                                   ? 'text-yellow-800'
                                   : 'text-red-800'
@@ -1023,7 +1023,7 @@ const BoardingFees = () => {
                                 >
                                   {selectedFees.includes(fee.id) && (
                                     <svg
-                                      className="w-4 h-4 text-white animate-scaleIn"
+                                      className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                       fill="none"
                                       stroke="currentColor"
                                       viewBox="0 0 24 24"
@@ -1051,7 +1051,7 @@ const BoardingFees = () => {
                 <button
                   type="submit"
                   disabled={selectedFees.length === 0 || isCreating || isUpdating || (!hasAddPermission && !hasChangePermission)} // Disable if no add/change permission
-                  className={`mt-4 relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${selectedFees.length === 0 || isCreating || isUpdating || (!hasAddPermission && !hasChangePermission) ? 'cursor-not-allowed' : 'hover:text-white hover:shadow-md'
+                  className={`mt-4 relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${selectedFees.length === 0 || isCreating || isUpdating || (!hasAddPermission && !hasChangePermission) ? 'cursor-not-allowed' : 'hover:text-[#441a05]hover:shadow-md'
                     }`}
                   aria-label="নির্বাচিত বোর্ডিং ফি জমা দিন"
                   title={selectedFees.some(feeId => feesData?.fees_records?.find((record) => record.feetype_id === feeId))
@@ -1122,7 +1122,7 @@ const BoardingFees = () => {
                     <select
                       value={historyFeeTypeFilter}
                       onChange={(e) => setHistoryFeeTypeFilter(e.target.value)}
-                      className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     >
                       <option value="">সমস্ত ফি প্রকার</option>
                       {getUniqueFeeTypes().map((feeType) => (
@@ -1157,7 +1157,7 @@ const BoardingFees = () => {
                         name="startDate"
                         value={historyDateFilter.startDate}
                         onChange={handleHistoryDateFilterChange}
-                        className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                        className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                         placeholder="শুরু"
                       />
                       <span className="text-white">থেকে</span>
@@ -1166,7 +1166,7 @@ const BoardingFees = () => {
                         name="endDate"
                         value={historyDateFilter.endDate}
                         onChange={handleHistoryDateFilterChange}
-                        className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                        className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                         placeholder="শেষ"
                       />
                       <button
@@ -1264,7 +1264,7 @@ const BoardingFees = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                             <span
                               className={`px-2 py-1 text-xs font-semibold rounded-full ${fee.status === 'PAID'
-                                ? 'text-white bg-pmColor'
+                                ? 'text-[#441a05]bg-pmColor'
                                 : fee.status === 'PARTIAL'
                                   ? 'text-yellow-800 bg-yellow-100/50'
                                   : 'text-red-800 bg-red-100/50'
@@ -1289,7 +1289,7 @@ const BoardingFees = () => {
                                     })
                                   }
                                   title="বোর্ডিং ফি আপডেট করুন / Update boarding fee"
-                                  className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                                  className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                                 >
                                   <FaEdit className="w-5 h-5" />
                                 </button>
@@ -1298,7 +1298,7 @@ const BoardingFees = () => {
                                 <button
                                   onClick={() => handleDeleteFee(fee.id)}
                                   title="বোর্ডিং ফি মুছুন / Delete boarding fee"
-                                  className="text-white hover:text-red-500 transition-colors duration-300"
+                                  className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                                 >
                                   <FaTrash className="w-5 h-5" />
                                 </button>
@@ -1334,14 +1334,14 @@ const BoardingFees = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && ( // Only show if user has relevant permissions
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'submit' && 'নির্বাচিত বোর্ডিং ফি নিশ্চিত করুন'}
                 {modalAction === 'update' && 'বোর্ডিং ফি আপডেট নিশ্চিত করুন'}
                 {modalAction === 'delete' && 'বোর্ডিং ফি মুছে ফেলা নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'submit' && 'আপনি কি নিশ্চিত যে নির্বাচিত বোর্ডিং ফি প্রক্রিয়া করতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে বোর্ডিং ফি আপডেট করতে চান?'}
                 {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই বোর্ডিং ফি মুছে ফেলতে চান?'}
@@ -1349,14 +1349,14 @@ const BoardingFees = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

@@ -59,7 +59,7 @@ const ClassTabs = () => {
       <section className="mx-auto">
         {/* <div className="flex items-center mb-6 animate-fadeIn">
           <button
-            className="flex items-center gap-2 px-4 py-2 bg-pmColor text-white rounded-lg font-medium hover:text-white transition-all duration-300 animate-scaleIn"
+            className="flex items-center gap-2 px-4 py-2 bg-pmColor text-[#441a05]rounded-lg font-medium hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
             onClick={() => navigate('/class-management')}
             title="Back to class management"
           >
@@ -73,7 +73,7 @@ const ClassTabs = () => {
             {/* <div className="flex items-center justify-between mb-10 animate-fadeIn">
               <div className="flex items-center gap-4">
                 <div>
-                  <h6 className="text-2xl font-bold text-white tracking-tight">
+                  <h6 className="text-2xl font-bold text-[#441a05]tracking-tight">
                     <span className="text-base font-normal text-white/70">Class,</span>
                     <br />
                     {classId ? classId.replace('class-', 'Class ') : 'Unknown'}
@@ -93,7 +93,7 @@ const ClassTabs = () => {
                       className={`flex items-center gap-2 px-4 py-2 text-base font-medium ${
                         activeTab === tab.id
                           ? 'border-b-2 border-pmColor text-pmColor'
-                          : 'text-white hover:text-pmColor hover:border-b-2 hover:border-pmColor'
+                          : 'text-[#441a05]hover:text-pmColor hover:border-b-2 hover:border-pmColor'
                       } transition-all duration-300`}
                       onClick={() => handleTabClick(tab.id)}
                       title={tab.label}

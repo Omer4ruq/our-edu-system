@@ -37,13 +37,13 @@ const routineStyles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
     borderBottomWidth: 2,
-    borderBottomColor: '#fff',
+    borderBottomColor: '#441a05',
     paddingBottom: 15,
   },
   schoolName: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#441a05',
     marginBottom: 5,
   },
   headerText: {
@@ -55,7 +55,7 @@ const routineStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginTop: 10,
-    color: '#fff',
+    color: '#441a05',
     textDecoration: 'underline',
   },
   infoSection: {
@@ -74,12 +74,12 @@ const routineStyles = StyleSheet.create({
   table: {
     marginVertical: 15,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#441a05',
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
-    color: '#fff',
+    backgroundColor: '#441a05',
+    color: '#441a05',
     fontWeight: 'bold',
     fontSize: 9,
     padding: 5,
@@ -104,15 +104,15 @@ const routineStyles = StyleSheet.create({
   },
   dayCellHeader: {
     width: 60,
-    backgroundColor: '#fff',
-    color: '#fff',
+    backgroundColor: '#441a05',
+    color: '#441a05',
     fontWeight: 'bold',
   },
   dayCell: {
     width: 60,
     backgroundColor: '#f0f0f0',
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#441a05',
   },
   periodCell: {
     flex: 1,
@@ -491,21 +491,21 @@ console.log("selectedClassId",selectedClassId)
       ...provided,
       backgroundColor: 'transparent',
       borderColor: '#9d9087',
-      color: '#fff',
-      '&:hover': { borderColor: '#fff' }
+      color: '#441a05',
+      '&:hover': { borderColor: '#441a05' }
     }),
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isSelected ? '#DB9E30' : state.isFocused ? '#f3e8d7' : 'white',
-      color: '#fff'
+      color: '#441a05'
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: '#fff'
+      color: '#441a05'
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: '#fff'
+      color: '#441a05'
     })
   };
 
@@ -520,16 +520,16 @@ console.log("selectedClassId",selectedClassId)
           .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
           .animate-scaleIn { animation: scaleIn 0.4s ease-out forwards; }
           .animate-slideUp { animation: slideUp 0.4s ease-out forwards; }
-          .card { background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
+          .card { background: #441a05fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
           .card:hover { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
-          .table-header { background: #DB9E30; color: #fff; font-weight: bold; }
+          .table-header { background: #DB9E30; color: #441a05; font-weight: bold; }
           .table-cell { transition: background-color 0.3s ease; }
           .table-cell:hover { background: #f3e8d7; }
           .search-tab { padding: 8px 16px; border-radius: 8px; cursor: pointer; transition: all 0.3s; border: 1px solid #9d9087; }
-          .search-tab-active { background-color: #DB9E30; color: #fff; font-weight: bold; border-color: #DB9E30; }
-          .search-tab-inactive { background-color: transparent; color: #fff; border-color: #9d9087; }
+          .search-tab-active { background-color: #DB9E30; color: #441a05; font-weight: bold; border-color: #DB9E30; }
+          .search-tab-inactive { background-color: transparent; color: #441a05; border-color: #9d9087; }
           .search-tab-inactive:hover { background-color: rgba(219, 158, 48, 0.1); border-color: #DB9E30; }
-          .report-button { background-color: #fff; color: white; padding: 8px 16px; border-radius: 8px; transition: background-color 0.3s; border: none; cursor: pointer; }
+          .report-button { background-color: #441a05; color: white; padding: 8px 16px; border-radius: 8px; transition: background-color 0.3s; border: none; cursor: pointer; }
           .report-button:hover { background-color: #5a2e0a; }
           .report-button:disabled { opacity: 0.6; cursor: not-allowed; }
           ::-webkit-scrollbar { width: 8px; }
@@ -567,7 +567,7 @@ console.log("selectedClassId",selectedClassId)
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
             {searchType === 'class' ? (
               <div className="relative z-50">
-                <label className="block text-sm font-medium text-white mb-2">শ্রেণী নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-2">শ্রেণী নির্বাচন করুন</label>
                 <Select
                   options={classOptions}
                   value={selectedClass}
@@ -586,7 +586,7 @@ console.log("selectedClassId",selectedClassId)
               </div>
             ) : (
               <div className="relative z-50">
-                <label className="block text-sm font-medium text-white mb-2">শিক্ষক নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-2">শিক্ষক নির্বাচন করুন</label>
                 <Select
                   options={teacherOptions}
                   value={selectedTeacher}
@@ -624,8 +624,8 @@ console.log("selectedClassId",selectedClassId)
       </div>
 
       {/* Routine Display - Lower z-index */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 animate-fadeIn relative z-10">
-        <h2 className="text-2xl font-bold text-white mb-4">
+      <div className="bg-[#441a05]rounded-2xl shadow-xl p-6 animate-fadeIn relative z-10">
+        <h2 className="text-2xl font-bold text-[#441a05]mb-4">
           {searchType === 'class' && selectedClass && `${selectedClass.label} - রুটিন সূচি`}
           {searchType === 'teacher' && selectedTeacher && `${selectedTeacher.label} - রুটিন সূচি`}
           {!((searchType === 'class' && selectedClass) || (searchType === 'teacher' && selectedTeacher)) && 'রুটিন সূচি'}
@@ -703,24 +703,24 @@ console.log("selectedClassId",selectedClassId)
       {/* Confirmation Modal for delete */}
       {isModalOpen && hasDeletePermission && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               রুটিন মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই রুটিনটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 title="বাতিল করুন"
               >
                 বাতিল
               </button>
               <button
                 onClick={confirmDeleteRoutine}
-                className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                 title="নিশ্চিত করুন"
                 disabled={isDeleting}
               >
