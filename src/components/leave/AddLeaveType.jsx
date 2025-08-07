@@ -246,7 +246,7 @@ const AddLeaveType = () => {
                 id="leaveName"
                 value={leaveName}
                 onChange={(e) => setLeaveName(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "ছুটির ধরন" : "Leave Type"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "ছুটির ধরন" : "Leave Type"}
@@ -256,7 +256,7 @@ const AddLeaveType = () => {
             <button
               type="submit"
               disabled={isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission)}
-              className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+              className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                 (isCreating || isUpdating || (editLeaveId ? !hasChangePermission : !hasAddPermission)) 
                   ? "opacity-50 cursor-not-allowed" 
                   : "hover:shadow-lg hover:scale-105"
@@ -292,7 +292,7 @@ const AddLeaveType = () => {
                   setEditLeaveId(null);
                   setLeaveName("");
                 }}
-                className="bg-red-500 hover:bg-secColor/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-red-500 hover:bg-secColor/30 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
               </button>
@@ -312,7 +312,7 @@ const AddLeaveType = () => {
       {/* Leave Types Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'ছুটির ধরনের তালিকা' : 'Leave Types List'}</span>
           </h3>
@@ -372,7 +372,7 @@ const AddLeaveType = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{leave.name}</div>
+                      <div className="text-[#441a05]font-medium">{leave.name}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="text-white/70 text-sm">
@@ -389,7 +389,7 @@ const AddLeaveType = () => {
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(leave)}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'ছুটির ধরন সম্পাদনা করুন' : 'Edit leave type'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -398,7 +398,7 @@ const AddLeaveType = () => {
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(leave.id)}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'ছুটির ধরন মুছুন' : 'Delete leave type'}
                           >
                             <FaTrash className="w-4 h-4" />

@@ -49,7 +49,7 @@ export default function StudentAttendance() {
       {
         label: "Number of Students",
         data: [300, 50],
-        backgroundColor: [chartColor, "#ffffff"],
+        backgroundColor: [chartColor, "#441a05fff"],
       },
     ],
   };

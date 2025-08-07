@@ -293,7 +293,7 @@ const CoachingAllocation = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -306,11 +306,11 @@ const CoachingAllocation = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -319,7 +319,7 @@ const CoachingAllocation = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -361,7 +361,7 @@ const CoachingAllocation = () => {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Student Search */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'শিক্ষার্থী *' : 'Student *'}
               </label>
               <div className="relative">
@@ -370,7 +370,7 @@ const CoachingAllocation = () => {
                   value={studentSearchTerm}
                   onChange={(e) => handleStudentSearch(e.target.value)}
                   onFocus={() => setShowStudentSearch(true)}
-                  className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                  className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                   placeholder={languageCode === 'bn' ? 'ইউজার আইডি বা ইউজারনেম দিয়ে অনুসন্ধান করুন...' : 'Search by User ID or Username...'}
                 />
                 <FaSearch className="absolute left-3 top-4 text-white/60" />
@@ -466,7 +466,7 @@ const CoachingAllocation = () => {
 
             {/* Status */}
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'অবস্থা *' : 'Status *'}
               </label>
               <Select
@@ -483,7 +483,7 @@ const CoachingAllocation = () => {
 
             {/* Academic Year */}
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'শিক্ষাবর্ষ *' : 'Academic Year *'}
               </label>
               <Select
@@ -506,7 +506,7 @@ const CoachingAllocation = () => {
 
             {/* Coaching Package */}
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'কোচিং প্যাকেজ *' : 'Coaching Package *'}
               </label>
               <Select
@@ -529,7 +529,7 @@ const CoachingAllocation = () => {
 
             {/* Batch Selection */}
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'কোচিং ব্যাচ *' : 'Coaching Batch *'}
               </label>
               <Select
@@ -555,7 +555,7 @@ const CoachingAllocation = () => {
               <button
                 type="submit"
                 disabled={isCreating || !hasAddPermission}
-                className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                   (isCreating || !hasAddPermission) ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:scale-105'
                 }`}
               >
@@ -574,7 +574,7 @@ const CoachingAllocation = () => {
               <button
                 type="button"
                 onClick={handleReset}
-                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-gray-500 hover:bg-gray-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'রিসেট' : 'Reset'}
               </button>
@@ -640,7 +640,7 @@ const CoachingAllocation = () => {
       {/* Recent Allocations */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'সাম্প্রতিক বরাদ্দ' : 'Recent Allocations'} ({allocations.length})</span>
           </h3>
@@ -662,7 +662,7 @@ const CoachingAllocation = () => {
                 </p>
                 <button
                   onClick={refetch}
-                  className="mt-2 px-4 py-2 bg-pmColor text-white rounded-xl hover:bg-pmColor/80 transition-all"
+                  className="mt-2 px-4 py-2 bg-pmColor text-[#441a05]rounded-xl hover:bg-pmColor/80 transition-all"
                 >
                   {languageCode === 'bn' ? 'পুনরায় চেষ্টা করুন' : 'Retry'}
                 </button>

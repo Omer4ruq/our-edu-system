@@ -355,25 +355,25 @@ const PreviousFees = () => {
              <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
                 <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
                     <IoAddCircle className="text-3xl text-white" />
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                     পূর্ববর্তী ফি
                     </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                    <label className="block text-sm font-medium text-white mb-1">ইউজার আইডি লিখুন</label>
+                    <label className="block text-sm font-medium text-[#441a05]mb-1">ইউজার আইডি লিখুন</label>
                     <input
                         type="text"
                         value={userId}
                         onChange={(e) => setUserId(e.target.value)}
                         placeholder="ইউজার আইডি লিখুন"
-                        className="w-full bg-transparent p-2 text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                        className="w-full bg-transparent p-2 text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                         aria-label="ইউজার আইডি"
                         title="ইউজার আইডি / User ID"
                     />
                     </div>
                     <div>
-                    <label className="block text-sm font-medium text-white mb-1">একাডেমিক বছর</label>
+                    <label className="block text-sm font-medium text-[#441a05]mb-1">একাডেমিক বছর</label>
                     <Select
                         options={academicYearOptions}
                         value={academicYearOptions.find((opt) => opt.value === selectedAcademicYear) || null}
@@ -390,7 +390,7 @@ const PreviousFees = () => {
             {/* Student Information */}
             {selectedStudent && (
               <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-                <h2 className="text-xl font-semibold text-white mb-4">ছাত্রের তথ্য</h2>
+                <h2 className="text-xl font-semibold text-[#441a05]mb-4">ছাত্রের তথ্য</h2>
                 <p><strong>নাম:</strong> {selectedStudent.name}</p>
                 <p><strong>পিতার নাম:</strong> {selectedStudent.father_name || 'অজানা'}</p>
                 <p><strong>মাতার নাম:</strong> {selectedStudent.mother_name || 'অজানা'}</p>
@@ -401,7 +401,7 @@ const PreviousFees = () => {
             {/* Read-only Fees Table */}
             {filteredFees.length > 0 && (
                 <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-                    <h2 className="text-lg font-semibold text-white p-4 border-b border-white/20">পূর্ববর্তী ফি</h2>
+                    <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">পূর্ববর্তী ফি</h2>
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-white/20">
                             <thead className="bg-white/5">
@@ -429,7 +429,7 @@ const PreviousFees = () => {
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{paidAmount}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400">{Math.max(0, dueAmount).toFixed(2)}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
-                                                <span className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID' ? 'text-white bg-pmColor' : status === 'PARTIAL' ? 'text-yellow-800 bg-yellow-100/50' : 'text-red-800 bg-red-100/50'}`}>
+                                                <span className={`px-2 py-1 text-xs font-semibold rounded-full ${status === 'PAID' ? 'text-[#441a05]bg-pmColor' : status === 'PARTIAL' ? 'text-yellow-800 bg-yellow-100/50' : 'text-red-800 bg-red-100/50'}`}>
                                                     {status === 'PAID' ? 'প্রদান' : status === 'PARTIAL' ? 'আংশিক' : 'অপ্রদান'}
                                                 </span>
                                             </td>
@@ -460,27 +460,27 @@ const PreviousFees = () => {
             <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl" ref={dropdownRef}>
                 <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
                     <IoAddCircle className="text-3xl text-white" />
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                     পূর্ববর্তী ফি
                     </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                    <label className="block text-sm font-medium text-white mb-1">ইউজার আইডি লিখুন</label>
+                    <label className="block text-sm font-medium text-[#441a05]mb-1">ইউজার আইডি লিখুন</label>
                     <input
                         type="text"
                         value={userId}
                         onChange={(e) => setUserId(e.target.value)}
                         onFocus={() => setIsUserDropdownOpen(true)}
                         placeholder="ইউজার আইডি লিখুন"
-                        className="w-full bg-transparent p-2 text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                        className="w-full bg-transparent p-2 text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                         disabled={isCreating || isUpdating}
                         aria-label="ইউজার আইডি"
                         title="ইউজার আইডি / User ID"
                     />
                     </div>
                     <div>
-                    <label className="block text-sm font-medium text-white mb-1">একাডেমিক বছর</label>
+                    <label className="block text-sm font-medium text-[#441a05]mb-1">একাডেমিক বছর</label>
                     <Select
                         options={academicYearOptions}
                         value={academicYearOptions.find((opt) => opt.value === selectedAcademicYear) || null}
@@ -496,7 +496,7 @@ const PreviousFees = () => {
                     />
                     </div>
                     <div>
-                    <label className="block text-sm font-medium text-white mb-1">ফান্ড</label>
+                    <label className="block text-sm font-medium text-[#441a05]mb-1">ফান্ড</label>
                     <Select
                         options={fundOptions}
                         value={fundOptions.find((opt) => opt.value === selectedFund) || null}
@@ -518,7 +518,7 @@ const PreviousFees = () => {
         {/* Student Information */}
         {selectedStudent && (
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-            <h2 className="text-xl font-semibold text-white mb-4">ছাত্রের তথ্য</h2>
+            <h2 className="text-xl font-semibold text-[#441a05]mb-4">ছাত্রের তথ্য</h2>
             <p><strong>নাম:</strong> {selectedStudent.name}</p>
             <p><strong>পিতার নাম:</strong> {selectedStudent.father_name || 'অজানা'}</p>
             <p><strong>মাতার নাম:</strong> {selectedStudent.mother_name || 'অজানা'}</p>
@@ -532,7 +532,7 @@ const PreviousFees = () => {
         {/* Previous Fees Table */}
         {(hasAddPermission || hasChangePermission) && filteredFees.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 mb-8">
-            <h2 className="text-lg font-semibold text-white p-4 border-b border-white/20">পূর্ববর্তী ফি</h2>
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">পূর্ববর্তী ফি</h2>
             <form onSubmit={handleSubmit}>
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-white/20">
@@ -635,7 +635,7 @@ const PreviousFees = () => {
         {/* Fee History Table */}
         {feesData?.fees_records?.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-            <h2 className="text-lg font-semibold text-white p-4 border-b border-white/20">ফি ইতিহাস</h2>
+            <h2 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি ইতিহাস</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-white/20">
                 <thead className="bg-white/5">
@@ -678,7 +678,7 @@ const PreviousFees = () => {
         {/* Confirmation Modal */}
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
           <div className="fixed inset-0 bg-black/50 ...">
-            <div className="bg-white ...">
+            <div className="bg-[#441a05]...">
               <h3>
                 {modalAction === 'submit' && 'নির্বাচিত ফি নিশ্চিত করুন'}
                 {modalAction === 'update' && 'ফি আপডেট নিশ্চিত করুন'}

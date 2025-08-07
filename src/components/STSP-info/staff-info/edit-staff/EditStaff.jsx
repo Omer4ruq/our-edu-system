@@ -20,12 +20,12 @@ export default function EditStaff() {
 
          {/* form submit buttons */}
          <div className="flex justify-end items-center gap-4 mt-4 mb-2 md:mb-0">
-            <button className="bg-blue w-24 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+            <button className="bg-blue w-24 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
                {t("module.communication.save")}
             </button>
 
             <Link to="/staff-info/staff-list">
-               <button className="bg-red w-24 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+               <button className="bg-red w-24 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
                   {t("module.communication.cancel")}
                </button>
             </Link>

@@ -32,7 +32,7 @@ export default function Events() {
   ];
   
   return (
-    <div className="rounded-md text-sm bg-white relative">
+    <div className="rounded-md text-sm bg-[#441a05]relative">
       <SectionHeader title={t("module.dashboard.events")} />
 
       {/* notices */}
@@ -44,7 +44,7 @@ export default function Events() {
 
       {/* view more button */}
       <div className="flex justify-end p-2 mt-4">
-        <button className="bg-tertiary text-white text-sm font-medium shadow py-1 px-4 rounded absolute bottom-4 right-4">
+        <button className="bg-tertiary text-[#441a05]text-sm font-medium shadow py-1 px-4 rounded absolute bottom-4 right-4">
           {t("module.dashboard.view_all")}
         </button>
       </div>

@@ -98,6 +98,11 @@ import EmployeesAdditions from "./components/payroll/addition/EmployeesAdditions
 import EmployeesDeductions from "./components/payroll/deduction/EmployeesDeductions";
 import SalaryIncrements from "./components/payroll/salary-assign/SalaryIncrements";
 import BasicSalary from "./components/payroll/salary-assign/BasicSalary";
+import LedgerCreate from "./components/accounts/ledger-create/LedgerCreate";
+import Payment from "./components/accounts/transaction/payment/Payment";
+import Receive from "./components/accounts/transaction/recieve-transaction/Receive";
+import Contra from "./components/accounts/transaction/contra/Contra";
+import Journal from "./components/accounts/transaction/journal/Journals";
 
 
 function Root() {
@@ -617,7 +622,33 @@ function Root() {
                   ]
                 }
               ]
-            }
+            },
+              {
+              path: "accounting",
+              children: [
+                {
+                  path: "ledger-create",
+                  element: <LedgerCreate />,
+                },
+                 {
+                  path: "payment",
+                  element: <Payment/>,
+                },
+                 {
+                  path: "receive",
+                  element: <Receive />,
+                },
+                  {
+                  path: "contra",
+                  element: <Contra />,
+                },
+                   {
+                  path: "journals",
+                  element: <Journal />,
+                },
+              
+              ],
+            },
 
           ],
         },

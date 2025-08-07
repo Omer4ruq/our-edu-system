@@ -1165,6 +1165,42 @@ const mainMenu = [
       ]
     }
   ]
+},
+ {
+  id: "14",
+  title: `${languageCode == 'bn' ? "পে-রোল" : "Pay-roll"}`,
+  icon: "HiOutlineCalculator",
+  link: "/accounting",
+  children: [
+
+       {
+          id: "14/01",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Led Create"}`,
+          link: "/accounting/ledger-create",
+        },
+        
+       {
+          id: "14/02",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Payment"}`,
+          link: "/accounting/payment",
+        },
+        
+       {
+          id: "14/03",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Receive"}`,
+          link: "/accounting/receive",
+        },
+          {
+          id: "14/04",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "contra"}`,
+          link: "/accounting/contra",
+        },
+           {
+          id: "14/05",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "journals"}`,
+          link: "/accounting/journals",
+        },
+  ]
 }
 
 

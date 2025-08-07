@@ -66,7 +66,7 @@ export default function PayStatTable() {
           aria-label="পেমেন্ট পরিসংখ্যান সারণী / Payment Statistics Table"
         >
           <thead>
-            <tr className="bg-pmColor text-white font-bold text-xs">
+            <tr className="bg-pmColor text-[#441a05]font-bold text-xs">
               <th className="w-[20%] py-2">শ্রেণি</th>
               <th className="w-[20%] py-2">শাখা</th>
               <th className="w-[20%] py-2">মোট শিক্ষার্থী</th>

@@ -23,7 +23,7 @@ const TeacherIdCard = () => {
             </div>
             <div className="idcard_details z-20 absolute left-0 top-0 w-full h-full overflow-hidden">
               <div className="school_name text-center">
-                <h2 className="bg-white text-sm font-semibold text-#DB9E30 pt-1 pb-[2px] px-2 rounded-md mt-5 inline-block">
+                <h2 className="bg-[#441a05]text-sm font-semibold text-#DB9E30 pt-1 pb-[2px] px-2 rounded-md mt-5 inline-block">
                   Classic Residential School
                 </h2>
               </div>

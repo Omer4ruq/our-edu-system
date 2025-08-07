@@ -71,7 +71,7 @@ export default function AExRForm() {
                 <button
                     type="button"
                     onClick={handleAddField}
-                    className="rounded w-52 p-2 bg-green text-white shadow-md hover:-translate-y-[2px] duration-200 text-lg"
+                    className="rounded w-52 p-2 bg-green text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200 text-lg"
                 >
                     <FiPlusCircle className="inline mb-1 mr-1 text-xl" /> {t('module.exam.add_field')}
                 </button>
@@ -79,7 +79,7 @@ export default function AExRForm() {
                     exams.length > 0 &&
                     <button
                         type="submit"
-                        className="rounded w-32 p-[10px] bg-#DB9E30 hover:bg-buttonHover text-white shadow-md hover:-translate-y-[2px] duration-200"
+                        className="rounded w-32 p-[10px] bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
                     >
                         {t('module.exam.submit')}
                     </button>

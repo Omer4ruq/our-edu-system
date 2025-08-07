@@ -136,7 +136,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
         </div>
         <div className="flex-1">
           <div className="text-white/80 font-medium text-sm mb-2">{label}</div>
-          <div className="text-white font-semibold">
+          <div className="text-[#441a05]font-semibold">
             {isLink && href ? (
               <a
                 href={href}
@@ -163,7 +163,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
       {/* Page Header */}
       <div className="mx-auto mb-8">
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center animate-fadeIn">
-          <h1 className="text-3xl font-bold text-white mb-4">
+          <h1 className="text-3xl font-bold text-[#441a05]mb-4">
             {languageCode === 'bn' ? 'প্রতিষ্ঠান ড্যাশবোর্ড' : 'Institute Dashboard'}
           </h1>
           <p className="text-white/80">
@@ -190,10 +190,10 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                 <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0">
                   <div className="flex items-center space-x-6">
                     <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl">
-                      <MdCorporateFare className="text-white text-4xl" />
+                      <MdCorporateFare className="text-[#441a05]text-4xl" />
                     </div>
                     <div>
-                      <h2 className="text-white text-3xl lg:text-4xl font-bold mb-2">
+                      <h2 className="text-[#441a05]text-3xl lg:text-4xl font-bold mb-2">
                         {institute.institute_name}
                       </h2>
                       <div className="flex flex-wrap items-center gap-4 text-white/90">
@@ -209,7 +209,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                           institute.status === 'Active' ? 'bg-pmColor text-white' : 'bg-secColor text-white'
                         }`}>
                           <div className="flex items-center space-x-2">
-                            <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                            <div className="w-2 h-2 rounded-full bg-[#441a05]animate-pulse"></div>
                             <span>{getStatusText(institute.status)}</span>
                           </div>
                         </div>
@@ -220,7 +220,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                   {hasChangePermission && (
                     <button
                       onClick={() => handleEditInstitute(institute)}
-                      className="edit-button bg-pmColor text-white px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 transition-all duration-300"
+                      className="edit-button bg-pmColor text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 transition-all duration-300"
                     >
                       <FaEdit />
                       <span>{languageCode === 'bn' ? 'সম্পাদনা করুন' : 'Edit Profile'}</span>
@@ -260,7 +260,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
                         key={tab.id}
                         className={`flex items-center space-x-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
                           activeTab === tab.id 
-                            ? 'bg-pmColor text-white shadow-lg' 
+                            ? 'bg-pmColor text-[#441a05]shadow-lg' 
                             : 'bg-white/10 text-white/80 border border-white/20 hover:bg-white/20 hover:border-pmColor/50'
                         }`}
                         onClick={() => setActiveTab(institute.id, tab.id)}
@@ -335,7 +335,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
 
                 {activeTab === 'online' && (
                   <div>
-                    <h3 className="section-title text-2xl font-bold text-white mb-8">
+                    <h3 className="section-title text-2xl font-bold text-[#441a05]mb-8">
                       {languageCode === 'bn' ? 'অনলাইন তথ্য' : 'Online Information'}
                     </h3>
                     
@@ -377,7 +377,7 @@ export default function InstituteDetails({ institutes, handleEditInstitute }) {
 
                 {activeTab === 'manager' && (
                   <div>
-                    <h3 className="section-title text-2xl font-bold text-white mb-8">
+                    <h3 className="section-title text-2xl font-bold text-[#441a05]mb-8">
                       {languageCode === 'bn' ? 'ইনচার্জ ম্যানেজার' : 'Manager Information'}
                     </h3>
                     

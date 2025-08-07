@@ -315,7 +315,7 @@ console.log("selectedMainClassId", selectedMainClassId)
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
           <FaSpinner className="animate-spin text-2xl text-white" />
-          <span className="text-white font-medium">লোড হচ্ছে...</span>
+          <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
     );
@@ -330,7 +330,7 @@ console.log("selectedMainClassId", selectedMainClassId)
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 text-center animate-fadeIn">
           <div className="text-red-500 text-5xl mb-4">⚠️</div>
-          <h2 className="text-xl font-semibold text-white mb-2">বিষয় লোডে ত্রুটি</h2>
+          <h2 className="text-xl font-semibold text-[#441a05]mb-2">বিষয় লোডে ত্রুটি</h2>
           <p className="text-white/70">দয়া করে পৃষ্ঠাটি রিফ্রেশ করুন বা সহায়তার জন্য যোগাযোগ করুন।</p>
         </div>
       </div>
@@ -392,15 +392,15 @@ console.log("selectedMainClassId", selectedMainClassId)
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-5">
           <IoAddCircle className="text-4xl text-white" />
-          <h1 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+          <h1 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             বিষয় মার্ক কনফিগারেশন
           </h1>
         </div>
 
         {/* Class Selection */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
-            <span className="bg-pmColor/20 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">১</span>
+          <h2 className="text-xl font-semibold text-[#441a05]mb-4 flex items-center">
+            <span className="bg-pmColor/20 text-[#441a05]rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">১</span>
             ক্লাস নির্বাচন করুন
           </h2>
           <div className="flex flex-wrap gap-3">
@@ -410,8 +410,8 @@ console.log("selectedMainClassId", selectedMainClassId)
                 onClick={() => handleClassChange(cls)}
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 animate-scaleIn ${
                   selectedClassId === cls?.student_class?.id
-                    ? 'bg-pmColor text-white shadow-lg ring-2 ring-[#9d9087]'
-                    : 'bg-white/10 text-white hover:bg-white/20 hover:shadow-md'
+                    ? 'bg-pmColor text-[#441a05]shadow-lg ring-2 ring-[#9d9087]'
+                    : 'bg-white/10 text-[#441a05]hover:bg-white/20 hover:shadow-md'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 aria-label={`ক্লাস নির্বাচন ${cls?.student_class?.name}`}
@@ -423,7 +423,7 @@ console.log("selectedMainClassId", selectedMainClassId)
           </div>
           {selectedClassId && (
             <div className="mt-4 p-4 bg-white/10 rounded-lg animate-fadeIn">
-              <p className="text-white font-medium">
+              <p className="text-[#441a05]font-medium">
                 ✓ নির্বাচিত: <span className="font-bold">{getSelectedClass()?.student_class?.name}</span>
               </p>
             </div>
@@ -433,8 +433,8 @@ console.log("selectedMainClassId", selectedMainClassId)
         {/* Subject Configurations */}
         {selectedClassId && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6">
-            <h2 className="text-xl font-semibold text-white mb-6 flex items-center">
-              <span className="bg-pmColor/20 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">২</span>
+            <h2 className="text-xl font-semibold text-[#441a05]mb-6 flex items-center">
+              <span className="bg-pmColor/20 text-[#441a05]rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">২</span>
               বিষয় কনফিগার করুন ({subjects.length}টি বিষয়)
             </h2>
 
@@ -448,13 +448,13 @@ console.log("selectedMainClassId", selectedMainClassId)
                 return (
                   <div key={subject.id} className="bg-white/10 border border-white/20 rounded-2xl p-6 hover:shadow-lg transition-all duration-200 animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-lg font-bold text-white truncate flex-1">{subject?.name}</h3>
+                      <h3 className="text-lg font-bold text-[#441a05]truncate flex-1">{subject?.name}</h3>
                       <div className="flex space-x-2">
                         {subjectConfigs[subject.id]?.id && hasChangePermission && (
                           <>
                             <button
                               onClick={() => handleUpdate(subject.id)}
-                              className="px-3 py-1 bg-pmColor text-white rounded-md hover:bg-pmColor/80 text-sm btn-glow"
+                              className="px-3 py-1 bg-pmColor text-[#441a05]rounded-md hover:bg-pmColor/80 text-sm btn-glow"
                               title="আপডেট করুন / Update"
                             >
                               আপডেট
@@ -464,13 +464,13 @@ console.log("selectedMainClassId", selectedMainClassId)
                         {subjectConfigs[subject.id]?.id && hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(subject.id)}
-                            className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 text-sm btn-glow"
+                            className="px-3 py-1 bg-red-500 text-[#441a05]rounded-md hover:bg-red-600 text-sm btn-glow"
                             title="মুছুন / Delete"
                           >
                             <FaTrash className="w-4 h-4" />
                           </button>
                         )}
-                        <span className="bg-pmColor/20 text-white text-xs font-medium px-2 py-1 rounded-full">
+                        <span className="bg-pmColor/20 text-[#441a05]text-xs font-medium px-2 py-1 rounded-full">
                           #{index + 1}
                         </span>
                       </div>
@@ -478,11 +478,11 @@ console.log("selectedMainClassId", selectedMainClassId)
 
                     <div className="space-y-4 mb-6">
                       <div>
-                        <label className="block text-sm font-medium text-white mb-2">বিষয়ের ধরন</label>
+                        <label className="block text-sm font-medium text-[#441a05]mb-2">বিষয়ের ধরন</label>
                         <select
                           value={subjectConfigs[subject.id]?.subject_type || 'COMPULSARY'}
                           onChange={(e) => handleInputChange(subject.id, 'subject_type', e.target.value)}
-                          className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                          className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                           aria-label={`বিষয়ের ধরন ${subject.name}`}
                           title={`বিষয়ের ধরন নির্বাচন করুন / Select subject type for ${subject.name}`}
                           disabled={!hasChangePermission}
@@ -495,12 +495,12 @@ console.log("selectedMainClassId", selectedMainClassId)
 
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-sm font-medium text-white mb-2">সর্বোচ্চ মার্ক</label>
+                          <label className="block text-sm font-medium text-[#441a05]mb-2">সর্বোচ্চ মার্ক</label>
                           <input
                             type="number"
                             value={subjectConfigs[subject.id]?.max_mark || ''}
                             onChange={(e) => handleInputChange(subject.id, 'max_mark', e.target.value)}
-                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                             placeholder="100"
                             min="0"
                             aria-label={`সর্বোচ্চ মার্ক ${subject.name}`}
@@ -509,12 +509,12 @@ console.log("selectedMainClassId", selectedMainClassId)
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-white mb-2">ক্রমিক নং</label>
+                          <label className="block text-sm font-medium text-[#441a05]mb-2">ক্রমিক নং</label>
                           <input
                             type="number"
                             value={subjectConfigs[subject.id]?.subject_serial || ''}
                             onChange={(e) => handleInputChange(subject.id, 'subject_serial', e.target.value)}
-                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                             placeholder={index + 1}
                             min="1"
                             aria-label={`ক্রমিক নং ${subject.name}`}
@@ -551,7 +551,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                                   type="number"
                                   value={getMarkConfigValue(subject.id, markType.name, 'max_mark')}
                                   onChange={(e) => handleInputChange(subject.id, 'max_mark', e.target.value, markType.name)}
-                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-white/10 text-white animate-scaleIn tick-glow`}
+                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-white/10 text-[#441a05]animate-scaleIn tick-glow`}
                                   placeholder="সর্বোচ্চ মার্ক"
                                   min="0"
                                   aria-label={`সর্বোচ্চ মার্ক ${markType.name} ${subject.name}`}
@@ -564,7 +564,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                                   type="number"
                                   value={getMarkConfigValue(subject.id, markType.name, 'pass_mark')}
                                   onChange={(e) => handleInputChange(subject.id, 'pass_mark', e.target.value, markType.name)}
-                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-white/10 text-white animate-scaleIn tick-glow`}
+                                  className={`w-full p-2 border outline-none ${markType.name === 'MCQ' ? 'border-[#9d9087]' : 'border-[#9d9087]'} rounded-md focus:ring-2 focus:ring-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 focus:border-${markType.name === 'MCQ' ? 'blue' : 'green'}-500 text-sm bg-white/10 text-[#441a05]animate-scaleIn tick-glow`}
                                   placeholder="পাস মার্ক"
                                   min="0"
                                   aria-label={`পাস মার্ক ${markType.name} ${subject.name}`}
@@ -578,7 +578,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                       </div>
 
                       <div className="mt-4">
-                        <div className="flex justify-between text-xs text-white mb-1">
+                        <div className="flex justify-between text-xs text-[#441a05]mb-1">
                           <span>বণ্টন অগ্রগতি</span>
                           <span>{((totalDistributed / subjectMaxMark) * 100).toFixed(0)}%</span>
                         </div>
@@ -606,7 +606,7 @@ console.log("selectedMainClassId", selectedMainClassId)
               <div className="mt-8 text-center">
                 <button
                   onClick={handleSubmit}
-                  className="bg-pmColor text-white px-8 py-4 rounded-xl font-semibold hover:bg-pmColor/80 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto btn-glow"
+                  className="bg-pmColor text-[#441a05]px-8 py-4 rounded-xl font-semibold hover:bg-pmColor/80 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center mx-auto btn-glow"
                   title="সব কনফিগারেশন সংরক্ষণ করুন / Save all configurations"
                 >
                   <span className="mr-2">💾</span>
@@ -620,7 +620,7 @@ console.log("selectedMainClassId", selectedMainClassId)
         {!selectedClassId && (
           <div className="text-center py-12 animate-fadeIn">
             <div className="text-6xl mb-4">🎯</div>
-            <h3 className="text-xl font-semibold text-white mb-2">কনফিগারেশন শুরু করতে প্রস্তুত?</h3>
+            <h3 className="text-xl font-semibold text-[#441a05]mb-2">কনফিগারেশন শুরু করতে প্রস্তুত?</h3>
             <p className="text-white/70">বিষয় মার্ক কনফিগার করতে উপরে একটি ক্লাস নির্বাচন করুন</p>
           </div>
         )}
@@ -629,27 +629,27 @@ console.log("selectedMainClassId", selectedMainClassId)
         {isModalOpen && (hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'delete' && 'কনফিগারেশন মুছে ফেলা নিশ্চিত করুন'}
                 {modalAction === 'update' && 'কনফিগারেশন আপডেট নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই কনফিগারেশন মুছে ফেলতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে এই কনফিগারেশন আপডেট করতে চান?'}
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={modalAction === 'delete' ? confirmDelete : confirmUpdate}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

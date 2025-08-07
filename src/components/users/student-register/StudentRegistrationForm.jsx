@@ -400,7 +400,7 @@ const StudentRegistrationForm = () => {
             border-radius: 10px;
           }
           ::-webkit-scrollbar-thumb:hover {
-            background: #fff;
+            background: #441a05;
           }
           .modal-overlay {
             position: fixed;
@@ -439,7 +439,7 @@ const StudentRegistrationForm = () => {
               {hasAddPermission && ( // Only show bulk upload if has add permission
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg hover:text-white font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn btn-glow"
+                  className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg hover:text-[#441a05]font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn btn-glow"
                   title="বাল্ক আপলোড"
                 >
                   <FaUpload />
@@ -464,7 +464,7 @@ const StudentRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaFileExcel className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">
                 বাল্ক নিবন্ধন
               </h3>
               <form onSubmit={handleBulkSubmit} className="mt-4">
@@ -481,7 +481,7 @@ const StudentRegistrationForm = () => {
                     id="bulk_upload"
                     accept=".xlsx"
                     onChange={handleFileChange}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="এক্সেল ফাইল আপলোড"
                     disabled={isBulkLoading || !hasAddPermission} // Disable if no add permission
                   />
@@ -490,7 +490,7 @@ const StudentRegistrationForm = () => {
                   <button
                     type="button"
                     onClick={downloadSampleExcel}
-                    className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg hover:text-white font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn btn-glow"
+                    className="btn btn-ripple inline-flex items-center gap-2 px-6 py-2.5 rounded-lg hover:text-[#441a05]font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn btn-glow"
                     title="স্যাম্পল এক্সেল ডাউনলোড করুন"
                   >
                     <FaDownload />
@@ -499,7 +499,7 @@ const StudentRegistrationForm = () => {
                   <button
                     type="submit"
                     disabled={isBulkLoading || !file || !hasAddPermission} // Disable if no add permission
-                    className={`btn btn-ripple inline-flex items-center gap-2 px-10 py-2.5 rounded-lg hover:text-white font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn ${
+                    className={`btn btn-ripple inline-flex items-center gap-2 px-10 py-2.5 rounded-lg hover:text-[#441a05]font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn ${
                       isBulkLoading || !file || !hasAddPermission
                         ? "opacity-50 cursor-not-allowed"
                         : "btn-glow"
@@ -542,7 +542,7 @@ const StudentRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaUser className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">
                 ব্যক্তিগত তথ্য
               </h3>
             <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -558,7 +558,7 @@ const StudentRegistrationForm = () => {
         name="name"
         value={formData.name}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="পূর্ণ নাম লিখুন"
         required
         disabled={!hasAddPermission} // Disable if no add permission
@@ -577,7 +577,7 @@ const StudentRegistrationForm = () => {
         name="password"
         value={formData.password}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="পাসওয়ার্ড লিখুন (ঐচ্ছিক)"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -595,7 +595,7 @@ const StudentRegistrationForm = () => {
         name="user_id"
         value={formData.user_id}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="ইউজার আইডি লিখুন"
         required
         disabled={!hasAddPermission} // Disable if no add permission
@@ -613,7 +613,7 @@ const StudentRegistrationForm = () => {
         name="gender"
         value={formData.gender}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       >
         <option value="">লিঙ্গ নির্বাচন করুন</option>
@@ -635,7 +635,7 @@ const StudentRegistrationForm = () => {
         name="dob"
         value={formData.dob}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       />
     </div>
@@ -651,7 +651,7 @@ const StudentRegistrationForm = () => {
         name="blood_group"
         value={formData.blood_group}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       >
         <option value="">রক্তের গ্রুপ নির্বাচন করুন</option>
@@ -678,7 +678,7 @@ const StudentRegistrationForm = () => {
         name="nationality"
         value={formData.nationality}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="জাতীয়তা লিখুন"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -696,7 +696,7 @@ const StudentRegistrationForm = () => {
         name="birth_certificate_no"
         value={formData.birth_certificate_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="জন্ম সনদ নম্বর লিখুন"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -713,7 +713,7 @@ const StudentRegistrationForm = () => {
         name="status"
         value={formData.status}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       >
         <option value="">স্থিতি নির্বাচন করুন</option>
@@ -733,7 +733,7 @@ const StudentRegistrationForm = () => {
         name="disability_info"
         value={formData.disability_info}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="প্রতিবন্ধকতার তথ্য লিখুন (ঐচ্ছিক)"
         rows="3"
         disabled={!hasAddPermission} // Disable if no add permission
@@ -748,7 +748,7 @@ const StudentRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaPhone className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">
                 যোগাযোগের তথ্য
               </h3>
               <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -766,7 +766,7 @@ const StudentRegistrationForm = () => {
                     name="phone_number"
                     value={formData.phone_number}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ফোন নম্বর লিখুন"
                     aria-label="ফোন নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -786,7 +786,7 @@ const StudentRegistrationForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="ইমেইল ঠিকানা লিখুন"
                     aria-label="ইমেইল"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -806,7 +806,7 @@ const StudentRegistrationForm = () => {
                     name="rfid"
                     value={formData.rfid}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="আরএফআইডি লিখুন (ঐচ্ছিক)"
                     aria-label="আরএফআইডি"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -826,7 +826,7 @@ const StudentRegistrationForm = () => {
                     name="present_address"
                     value={formData.present_address}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="বর্তমান ঠিকানা লিখুন"
                     aria-label="বর্তমান ঠিকানা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -846,7 +846,7 @@ const StudentRegistrationForm = () => {
                     name="permanent_address"
                     value={formData.permanent_address}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="স্থায়ী ঠিকানা লিখুন"
                     aria-label="স্থায়ী ঠিকানা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -866,7 +866,7 @@ const StudentRegistrationForm = () => {
                     name="village"
                     value={formData.village}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="গ্রামের নাম লিখুন"
                     aria-label="গ্রাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -886,7 +886,7 @@ const StudentRegistrationForm = () => {
                     name="post_office"
                     value={formData.post_office}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পোস্ট অফিসের নাম লিখুন"
                     aria-label="পোস্ট অফিস"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -906,7 +906,7 @@ const StudentRegistrationForm = () => {
                     name="ps_or_upazilla"
                     value={formData.ps_or_upazilla}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="থানা বা উপজেলার নাম লিখুন"
                     aria-label="থানা/উপজেলা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -926,7 +926,7 @@ const StudentRegistrationForm = () => {
                     name="district"
                     value={formData.district}
                     onChange={handleChange}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="জেলার নাম লিখুন"
                     aria-label="জেলা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -940,7 +940,7 @@ const StudentRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaBook className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">
                 শিক্ষাগত তথ্য
               </h3>
             <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -955,7 +955,7 @@ const StudentRegistrationForm = () => {
         name="admission_year_id"
         value={formData.admission_year_id}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         required
         disabled={!hasAddPermission} // Disable if no add permission
       >
@@ -977,7 +977,7 @@ const StudentRegistrationForm = () => {
         name="class_id"
         value={formData.class_id}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         required
         disabled={!hasAddPermission} // Disable if no add permission
       >
@@ -1002,7 +1002,7 @@ const StudentRegistrationForm = () => {
         name="roll_no"
         value={formData.roll_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="রোল নম্বর লিখুন"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -1020,7 +1020,7 @@ const StudentRegistrationForm = () => {
         name="admission_date"
         value={formData.admission_date}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         disabled={!hasAddPermission} // Disable if no add permission
       />
     </div>
@@ -1037,7 +1037,7 @@ const StudentRegistrationForm = () => {
         name="name_tag"
         value={formData.name_tag}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="নাম ট্যাগ লিখুন (যেমন: মেধা)"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -1055,7 +1055,7 @@ const StudentRegistrationForm = () => {
         name="tc_no"
         value={formData.tc_no}
         onChange={handleChange}
-        className="mt-1 w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
+        className="mt-1 w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 border border-[#9d9087] rounded-lg focus:outline-none focus:ring-2 focus:ring-pmColor transition-all duration-300"
         placeholder="স্থানান্তর সনদ নম্বর লিখুন (ঐচ্ছিক)"
         disabled={!hasAddPermission} // Disable if no add permission
       />
@@ -1063,7 +1063,7 @@ const StudentRegistrationForm = () => {
 
     {/* আবাসিক অবস্থা (Full width) */}
     <div className="col-span-1 sm:col-span-2 md:col-span-3">
-      <label className="block text-lg font-medium text-white mb-2">
+      <label className="block text-lg font-medium text-[#441a05]mb-2">
         আবাসিক অবস্থা
       </label>
       <div className="flex flex-wrap gap-6">
@@ -1085,7 +1085,7 @@ const StudentRegistrationForm = () => {
                 <span className="w-3 h-3 rounded-full bg-pmColor scale-100 transition-transform duration-200"></span>
               )}
             </span>
-            <span className="ml-3 text-white font-medium group-hover:text-pmColor transition-colors duration-300">
+            <span className="ml-3 text-[#441a05]font-medium group-hover:text-pmColor transition-colors duration-300">
               আবাসিক
             </span>
           </span>
@@ -1108,7 +1108,7 @@ const StudentRegistrationForm = () => {
                 <span className="w-3 h-3 rounded-full bg-pmColor scale-100 transition-transform duration-200"></span>
               )}
             </span>
-            <span className="ml-3 text-white font-medium group-hover:text-pmColor transition-colors duration-300">
+            <span className="ml-3 text-[#441a05]font-medium group-hover:text-pmColor transition-colors duration-300">
               অ-আবাসিক
             </span>
           </span>
@@ -1124,7 +1124,7 @@ const StudentRegistrationForm = () => {
               <div className="flex items-center justify-center mb-4">
                 <FaHome className="text-3xl text-pmColor" />
               </div>
-              <h3 className="text-2xl font-semibold text-white text-center">
+              <h3 className="text-2xl font-semibold text-[#441a05]text-center">
                 অভিভাবকের তথ্য
               </h3>
               <div className="border-t border-[#9d9087]/50 mt-4 pt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -1142,7 +1142,7 @@ const StudentRegistrationForm = () => {
                     name="name"
                     value={formData.parent.name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের নাম লিখুন"
                     required
                     aria-label="অভিভাবকের নাম"
@@ -1163,7 +1163,7 @@ const StudentRegistrationForm = () => {
                     name="password"
                     value={formData.parent.password}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পাসওয়ার্ড লিখুন (ঐচ্ছিক)"
                     aria-label="অভিভাবকের পাসওয়ার্ড"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1183,7 +1183,7 @@ const StudentRegistrationForm = () => {
                     name="father_name"
                     value={formData.parent.father_name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার নাম লিখুন"
                     aria-label="পিতার নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1203,7 +1203,7 @@ const StudentRegistrationForm = () => {
                     name="father_mobile_no"
                     value={formData.parent.father_mobile_no}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মোবাইল নম্বর লিখুন"
                     aria-label="পিতার মোবাইল নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1223,7 +1223,7 @@ const StudentRegistrationForm = () => {
                     name="mother_name"
                     value={formData.parent.mother_name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার নাম লিখুন"
                     aria-label="মাতার নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1243,7 +1243,7 @@ const StudentRegistrationForm = () => {
                     name="mother_mobile_no"
                     value={formData.parent.mother_mobile_no}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মোবাইল নম্বর লিখুন"
                     aria-label="মাতার মোবাইল নম্বর"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1262,7 +1262,7 @@ const StudentRegistrationForm = () => {
                     name="relation"
                     value={formData.parent.relation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     aria-label="ছাত্রের সাথে সম্পর্ক"
                     disabled={!hasAddPermission} // Disable if no add permission
                   >
@@ -1286,7 +1286,7 @@ const StudentRegistrationForm = () => {
                     name="f_occupation"
                     value={formData.parent.f_occupation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার পেশা লিখুন"
                     aria-label="পিতার পেশা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1306,7 +1306,7 @@ const StudentRegistrationForm = () => {
                     name="m_occupation"
                     value={formData.parent.m_occupation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার পেশা লিখুন"
                     aria-label="মাতার পেশা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1326,7 +1326,7 @@ const StudentRegistrationForm = () => {
                     name="g_occupation"
                     value={formData.parent.g_occupation}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের পেশা লিখুন"
                     aria-label="অভিভাবকের পেশা"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1346,7 +1346,7 @@ const StudentRegistrationForm = () => {
                     name="f_nid"
                     value={formData.parent.f_nid}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="পিতার জাতীয় পরিচয়পত্র নম্বর লিখুন"
                     aria-label="পিতার জাতীয় পরিচয়পত্র"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1366,7 +1366,7 @@ const StudentRegistrationForm = () => {
                     name="m_nid"
                     value={formData.parent.m_nid}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="মাতার জাতীয় পরিচয়পত্র নম্বর লিখুন"
                     aria-label="মাতার জাতীয় পরিচয়পত্র"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1386,7 +1386,7 @@ const StudentRegistrationForm = () => {
                     name="g_name"
                     value={formData.parent.g_name}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের নাম লিখুন"
                     aria-label="অভিভাবকের নাম"
                     disabled={!hasAddPermission} // Disable if no add permission
@@ -1407,7 +1407,7 @@ const StudentRegistrationForm = () => {
                     name="g_mobile_no"
                     value={formData.parent.g_mobile_no}
                     onChange={(e) => handleChange(e, true)}
-                    className="mt-1 block w-full bg-white/10 text-white placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                    className="mt-1 block w-full bg-white/10 text-[#441a05]placeholder-white/70 pl-10 py-3.5 focus:outline-none focus:ring-2 focus:ring-pmColor border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                     placeholder="অভিভাবকের মোবাইল নম্বর লিখুন"
                     required
                     aria-label="অভিভাবকের মোবাইল নম্বর"
@@ -1422,7 +1422,7 @@ const StudentRegistrationForm = () => {
               <button
                 type="submit"
                 disabled={isLoading || isListLoading || isConfigLoading || !hasAddPermission} // Disable if no add permission
-                className={`btn btn-ripple inline-flex items-center gap-2 px-10 py-3.5 rounded-lg hover:text-white font-medium bg-pmColor text-white transition-all duration-200 animate-scaleIn ${
+                className={`btn btn-ripple inline-flex items-center gap-2 px-10 py-3.5 rounded-lg hover:text-[#441a05]font-medium bg-pmColor text-[#441a05]transition-all duration-200 animate-scaleIn ${
                   isLoading || isListLoading || isConfigLoading || !hasAddPermission
                     ? "opacity-50 cursor-not-allowed"
                     : "btn-glow"

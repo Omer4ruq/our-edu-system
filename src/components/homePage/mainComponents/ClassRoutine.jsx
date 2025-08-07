@@ -62,15 +62,15 @@ export default function ClassRoutine() {
 
       <SectionHeader
         title="ক্লাস রুটিন"
-        className="bg-pmColor text-white text-xl p-4 rounded-t-2xl shadow-md font-bold"
+        className="bg-pmColor text-[#441a05]text-xl p-4 rounded-t-2xl shadow-md font-bold"
       />
       <div className="p-4 sm:p-6 space-y-4">
         <ClassRoutineForm />
-        <h4 className="text-white text-end text-xs mt-4 mb-1">
+        <h4 className="text-[#441a05]text-end text-xs mt-4 mb-1">
           মোট ক্লাস পাওয়া গেছে: <span className="text-pmColor font-bold">০৬</span>
         </h4>
         <div className="rounded-2xl bg-white/5 border border-[#9d9087]">
-          <h3 className="rounded-t-2xl p-2 font-medium bg-pmColor text-white animate-scaleIn">
+          <h3 className="rounded-t-2xl p-2 font-medium bg-pmColor text-[#441a05]animate-scaleIn">
             ১২ জুলাই ২০২৪ | শ্রেণি: নবম | শাখা: ক
           </h3>
           <div className="p-4 space-y-2 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-[#9d9087] scrollbar-track-transparent">

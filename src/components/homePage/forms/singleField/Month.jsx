@@ -24,7 +24,7 @@ export default function Month({ style, label = 'মাস', labelClassName, inpu
 
       <label
         htmlFor="month"
-        className={`font-medium text-white ${labelClassName || ''}`}
+        className={`font-medium text-[#441a05]${labelClassName || ''}`}
       >
         {label}
       </label>
@@ -32,7 +32,7 @@ export default function Month({ style, label = 'মাস', labelClassName, inpu
         id="month"
         name="month"
         defaultValue="default"
-        className={`w-full bg-transparent text-white placeholder-white px-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg focus:border-pmColor transition-all duration-300 animate-scaleIn ${inputClassName || ''}`}
+        className={`w-full bg-transparent text-[#441a05]placeholder-[#441a05]px-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg focus:border-pmColor transition-all duration-300 animate-scaleIn ${inputClassName || ''}`}
         aria-label="মাস নির্বাচন করুন"
         title="মাস নির্বাচন করুন / Select Month"
       >

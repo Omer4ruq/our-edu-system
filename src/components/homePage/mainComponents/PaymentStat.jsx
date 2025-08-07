@@ -28,19 +28,19 @@ export default function PaymentStat() {
 
       <SectionHeader
         title="পেমেন্ট পরিসংখ্যান"
-        className="bg-pmColor text-white text-xl p-4 rounded-t-2xl shadow-md font-bold"
+        className="bg-pmColor text-[#441a05]text-xl p-4 rounded-t-2xl shadow-md font-bold"
       />
       <div className="p-4 sm:p-6 rounded-b-2xl space-y-4">
         <FeeInfoForm />
 
-        <h5 className="text-white text-end text-xs mt-4 mb-2">
+        <h5 className="text-[#441a05]text-end text-xs mt-4 mb-2">
           মোট সারি পাওয়া গেছে: <span className="text-pmColor font-bold">৪০</span>
         </h5>
 
         {/* Table starts from here */}
         <div className="rounded-2xl border border-[#9d9087]/50 bg-white/5 animate-fadeIn">
           {/* Table heading */}
-          <h4 className="bg-pmColor text-white font-bold p-2 text-center rounded-t-2xl animate-scaleIn">
+          <h4 className="bg-pmColor text-[#441a05]font-bold p-2 text-center rounded-t-2xl animate-scaleIn">
             পেমেন্ট বকেয়া সারাংশ
           </h4>
 
@@ -48,7 +48,7 @@ export default function PaymentStat() {
             {/* Chart */}
             <div className="sm:w-1/3">
               <PaymentStatGraph />
-              <h3 className="text-center text-lg text-white font-medium">
+              <h3 className="text-center text-lg text-[#441a05]font-medium">
                 মোট শিক্ষার্থী
               </h3>
             </div>

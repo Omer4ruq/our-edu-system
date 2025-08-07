@@ -32,13 +32,13 @@ export default function TesForm() {
                <option value="Two Golap">Two Golap</option>
             </select>
 
-            <button className="bg-blue min-w-28 xl:min-w-32s py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+            <button className="bg-blue min-w-28 xl:min-w-32s py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
             Submit
             </button>
          </div>
 
          <Link to="../testimonial-settings/" className="mt-3 md:mt-0 flex justify-end">
-            <button className="bg-#DB9E30 hover:bg-buttonHover w-44 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+            <button className="bg-#DB9E30 hover:bg-buttonHover w-44 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
                Settings
             </button>
          </Link>

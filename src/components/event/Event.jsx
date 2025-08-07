@@ -197,8 +197,8 @@ const Event = () => {
       start: event.start,
       end: event.end,
       backgroundColor: "#DB9E30",
-      borderColor: "#fff",
-      textColor: "#fff",
+      borderColor: "#441a05",
+      textColor: "#441a05",
     })) || [];
 
   if (eventsLoading || yearsLoading)
@@ -270,13 +270,13 @@ const Event = () => {
           .fc-button {
             background: #DB9E30 !important;
             border: none !important;
-            color: #fff !important;
+            color: #441a05 !important;
             border-radius: 8px !important;
             transition: all 0.3s ease !important;
           }
           .fc-button:hover {
-            background: #fff !important;
-            color: white !important;
+            background: #441a05 !important;
+            color: [#441a05]!important;
           }
           .fc-daygrid-day:hover {
             background: rgba(219, 158, 48, 0.1) !important;
@@ -285,12 +285,12 @@ const Event = () => {
           .fc-event {
             border-radius: 6px !important;
             border: none;
-            // color: #fff;
+            // color: #441a05;
             padding: 2px 5px !important;
             cursor: pointer !important;
           }
           .fc-daygrid-day-number {
-            color: #fff !important;
+            color: #441a05 !important;
             font-size: 1.1rem !important;
           }
           .fc-col-header-cell-cushion {
@@ -331,8 +331,8 @@ const Event = () => {
       {/* Modal for Creating/Editing/Deleting Events */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               {modalAction === "create"
                 ? "নতুন ইভেন্ট তৈরি করুন"
                 : modalAction === "update"
@@ -352,7 +352,7 @@ const Event = () => {
                   onChange={(e) =>
                     setNewEvent({ ...newEvent, title: e.target.value })
                   }
-                  className="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                   placeholder="ইভেন্ট শিরোনাম (যেমন, ঈদুল ফিতর)"
                   disabled={isCreating || isUpdating}
                   aria-label="ইভেন্ট শিরোনাম"
@@ -364,7 +364,7 @@ const Event = () => {
                   onChange={(e) =>
                     setNewEvent({ ...newEvent, start: e.target.value })
                   }
-                  className="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                   disabled={isCreating || isUpdating}
                   aria-label="শুরুর সময়"
                   title="ইভেন্টের শুরুর সময় নির্বাচন করুন"
@@ -375,7 +375,7 @@ const Event = () => {
                   onChange={(e) =>
                     setNewEvent({ ...newEvent, end: e.target.value })
                   }
-                  className="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                   disabled={isCreating || isUpdating}
                   aria-label="শেষের সময়"
                   title="ইভেন্টের শেষের সময় নির্বাচন করুন"
@@ -385,7 +385,7 @@ const Event = () => {
                   onChange={(e) =>
                     setNewEvent({ ...newEvent, academic_year: e.target.value })
                   }
-                  className="w-full bg-transparent text-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                   disabled={isCreating || isUpdating}
                   aria-label="একাডেমিক বছর"
                   title="একাডেমিক বছর নির্বাচন করুন"
@@ -408,7 +408,7 @@ const Event = () => {
                       setModalData(null);
                       setSelectedEventId(null);
                     }}
-                    className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                    className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                     title="বাতিল করুন"
                   >
                     বাতিল
@@ -417,7 +417,7 @@ const Event = () => {
                     <button
                       type="button"
                       onClick={handleDelete}
-                      className="px-4 py-2 bg-red-500/20 text-white rounded-lg hover:bg-red-500/30 transition-colors duration-300"
+                      className="px-4 py-2 bg-red-500/20 text-[#441a05]rounded-lg hover:bg-red-500/30 transition-colors duration-300"
                       title="ইভেন্ট মুছুন"
                     >
                       মুছুন
@@ -426,7 +426,7 @@ const Event = () => {
                   <button
                     type="submit"
                     disabled={isCreating || isUpdating}
-                    className={`px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow ${
+                    className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow ${
                       isCreating || isUpdating ? "cursor-not-allowed" : ""
                     }`}
                     title={
@@ -454,7 +454,7 @@ const Event = () => {
               </form>
             ) : (
               <>
-                <p className="text-white mb-6">
+                <p className="text-[#441a05]mb-6">
                   আপনি কি নিশ্চিত যে এই ইভেন্টটি মুছে ফেলতে চান?
                 </p>
                 <div className="flex justify-end space-x-4">
@@ -464,14 +464,14 @@ const Event = () => {
                       setModalAction(null);
                       setModalData(null);
                     }}
-                    className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                    className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                     title="বাতিল করুন"
                   >
                     বাতিল
                   </button>
                   <button
                     onClick={confirmAction}
-                    className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                    className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                     title="নিশ্চিত করুন"
                   >
                     নিশ্চিত করুন

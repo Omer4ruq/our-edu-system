@@ -37,13 +37,13 @@ export default function StudentIdHeader({idCardsRef}) {
         
       </div>
       <div className="btns flex gap-2">
-          <button className="rounded p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200">
+          <button className="rounded p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200">
             View Id Card
           </button>
-          <button className="rounded p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200">
+          <button className="rounded p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200">
             <MdOutlineQrCodeScanner size={22} />
           </button>
-          <button onClick={handlePrint} className="rounded p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200">
+          <button onClick={handlePrint} className="rounded p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200">
             <IoPrintOutline size={22} />
           </button>
         </div>

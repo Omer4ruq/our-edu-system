@@ -105,7 +105,7 @@ const ServiceFeesForm = ({
               setSelectedAcademicYear(e.target.value);
               setErrors((prev) => ({ ...prev, academicYear: null }));
             }}
-            className="w-full max-w-xs bg-transparent text-white pl-3 py-2 border outline-none border-[#9d9087] rounded-lg transition-all duration-300"
+            className="w-full max-w-xs bg-transparent text-[#441a05]pl-3 py-2 border outline-none border-[#9d9087] rounded-lg transition-all duration-300"
             aria-describedby={errors.academicYear ? 'academicYear-error' : undefined}
           >
             <option value="" disabled>শিক্ষাবর্ষ নির্বাচন করুন</option>
@@ -123,7 +123,7 @@ const ServiceFeesForm = ({
       {hasAddPermission && (
         <div className="mb-6">
           <div className="bg-white/5 rounded-lg overflow-x-auto">
-            <h4 className="text-lg font-semibold text-white p-4 border-b border-white/20">ফি সাবহেড নির্বাচন করুন</h4>
+            <h4 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি সাবহেড নির্বাচন করুন</h4>
             <div className="p-4 grid grid-cols-3 gap-4">
               {feeSubheads?.length === 0 ? (
                 <p className="text-white/70 col-span-3">কোনো ফি সাবহেড পাওয়া যায়নি।</p>
@@ -147,7 +147,7 @@ const ServiceFeesForm = ({
                       >
                         {selectedFeeSubheads.includes(sub.id) && (
                           <svg
-                            className="w-4 h-4 text-white animate-scaleIn"
+                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -179,10 +179,10 @@ const ServiceFeesForm = ({
         <div className="mb-6">
           <button
             onClick={addConfiguration}
-            className={`flex items-center w-full max-w-xs px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
+            className={`flex items-center w-full max-w-xs px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
               !selectedAcademicYear || selectedFeeSubheads.length === 0
                 ? 'cursor-not-allowed opacity-70'
-                : 'hover:text-white btn-glow'
+                : 'hover:text-[#441a05]btn-glow'
             }`}
             disabled={!selectedAcademicYear || selectedFeeSubheads.length === 0}
           >
@@ -195,7 +195,7 @@ const ServiceFeesForm = ({
       {/* Configurations Table */}
       {(hasAddPermission || hasChangePermission) && configurations.length > 0 && (
         <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">নির্বাচিত কনফিগারেশন</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">নির্বাচিত কনফিগারেশন</h3>
           <table className="w-full border-collapse">
             <thead className="bg-white/10">
               <tr>
@@ -229,7 +229,7 @@ const ServiceFeesForm = ({
                       type="date"
                       value={config.startDate}
                       onChange={(e) => updateConfigDate(index, 'startDate', e.target.value)}
-                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     />
                   </td>
                   <td className="border border-white/20 p-3 text-sm text-white">
@@ -237,7 +237,7 @@ const ServiceFeesForm = ({
                       type="date"
                       value={config.endDate}
                       onChange={(e) => updateConfigDate(index, 'endDate', e.target.value)}
-                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     />
                   </td>
                 </tr>

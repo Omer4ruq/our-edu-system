@@ -421,7 +421,7 @@ const TeacherPerformance = () => {
                     >
                       {performanceData[metric.name] && (
                         <svg
-                          className="w-4 h-4 text-white animate-scaleIn"
+                          className="w-4 h-4 text-[#441a05]animate-scaleIn"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -507,7 +507,7 @@ const TeacherPerformance = () => {
             border-radius: 10px;
           }
           ::-webkit-scrollbar-thumb:hover {
-            background: #fff;
+            background: #441a05;
           }
           .table-container {
             overflow-x: auto;
@@ -537,11 +537,11 @@ const TeacherPerformance = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-2 mb-6">
             <IoAddCircle className="text-3xl text-white" />
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">শিক্ষক কর্মক্ষমতা মূল্যায়ন</h3>
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">শিক্ষক কর্মক্ষমতা মূল্যায়ন</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <label className="flex items-center space-x-4 animate-fadeIn">
-              <span className="text-white sm:text-base text-xs font-medium text-nowrap">মাস নির্বাচন:</span>
+              <span className="text-[#441a05]sm:text-base text-xs font-medium text-nowrap">মাস নির্বাচন:</span>
               <div className="w-full">
                 <Select
                   options={monthOptions}
@@ -560,7 +560,7 @@ const TeacherPerformance = () => {
               </div>
             </label>
             <label className="flex items-center space-x-4 animate-fadeIn">
-              <span className="text-white sm:text-base text-xs font-medium text-nowrap">শিক্ষাবর্ষ নির্বাচন:</span>
+              <span className="text-[#441a05]sm:text-base text-xs font-medium text-nowrap">শিক্ষাবর্ষ নির্বাচন:</span>
               <div className="w-full">
                 <Select
                   options={academicYearOptions}
@@ -579,7 +579,7 @@ const TeacherPerformance = () => {
               </div>
             </label>
             <label className="flex items-center space-x-4 animate-fadeIn">
-              <span className="text-white sm:text-base text-xs font-medium text-nowrap">শিক্ষক খুঁজুন:</span>
+              <span className="text-[#441a05]sm:text-base text-xs font-medium text-nowrap">শিক্ষক খুঁজুন:</span>
               <div className="w-full">
                 <Select
                   options={teacherOptions}
@@ -607,7 +607,7 @@ const TeacherPerformance = () => {
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 btn-ripple ${
                   isMetricsLoading || isPerformanceLoading || !performanceMetrics.length
                     ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
-                    : 'bg-pmColor text-white hover:text-white btn-glow'
+                    : 'bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow'
                 }`}
                 aria-label="PDF রিপোর্ট ডাউনলোড"
                 title="PDF রিপোর্ট ডাউনলোড করুন"

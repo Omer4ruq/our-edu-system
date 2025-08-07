@@ -260,24 +260,24 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
       {/* Confirmation Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ছুটির আবেদন মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই ছুটির আবেদনটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={closeModal}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
                   isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
                 }`}
                 aria-label="ছুটির আবেদন মুছুন নিশ্চিত করুন"
@@ -299,7 +299,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
       {/* Leave Requests Table */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-white border-b border-white/20 pb-2">
+          <h3 className="text-lg font-semibold text-[#441a05]border-b border-white/20 pb-2">
             জমাকৃত ছুটির আবেদনসমূহ
           </h3>
           <button
@@ -308,7 +308,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
             className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
               !leaveRequests || leaveRequests.length === 0
                 ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                : "bg-pmColor text-white hover:text-white btn-glow"
+                : "bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow"
             }`}
             aria-label="PDF রিপোর্ট ডাউনলোড"
             title="PDF রিপোর্ট ডাউনলোড করুন"
@@ -385,7 +385,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                         {request.end_date}
                       </td>
-                      <td className="px-6 py-4 text-sm text-white max-w-xs">
+                      <td className="px-6 py-4 text-sm text-[#441a05]max-w-xs">
                         <div className="truncate" title={request.leave_description}>
                           {request.leave_description || 'কোনো বিবরণ নেই'}
                         </div>
@@ -416,7 +416,7 @@ const LeaveRequestTable = ({ leaveRequests, leaveRequestsLoading, leaveRequestsE
                           className={`transition-all duration-300 p-2 rounded-lg ${
                             isDeleting 
                               ? "text-gray-400 cursor-not-allowed" 
-                              : "text-white hover:text-red-500 hover:bg-red-50"
+                              : "text-[#441a05]hover:text-red-500 hover:bg-red-50"
                           }`}
                           aria-label={`ছুটির আবেদন মুছুন ${request.id}`}
                           title="ছুটির আবেদন মুছুন / Delete leave request"

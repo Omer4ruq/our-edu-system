@@ -239,23 +239,23 @@ const MealSetup = () => {
       borderRadius: '8px',
       paddingLeft: '0.75rem',
       padding:'3px',
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
       transition: 'all 0.3s ease',
-      '&:hover': { borderColor: '#fff' },
+      '&:hover': { borderColor: '#441a05' },
       '&:focus': { outline: 'none', boxShadow: 'none' },
     }),
     placeholder: (base) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       opacity: 0.7,
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
     }),
     singleValue: (base) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
     }),
@@ -274,7 +274,7 @@ const MealSetup = () => {
     }),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
       backgroundColor: isSelected ? '#DB9E30' : isFocused ? 'rgba(255, 255, 255, 0.3)' : 'transparent',
@@ -367,7 +367,7 @@ const MealSetup = () => {
               ) : (
                 <IoAddCircle className="text-4xl text-white" />
               )}
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 {editingId ? 'খাবার সেটআপ সম্পাদনা করুন' : 'নতুন খাবার সেটআপ যোগ করুন'}
               </h3>
             </div>
@@ -432,7 +432,7 @@ const MealSetup = () => {
                 type="submit"
                 disabled={isFormDisabled}
                 title={editingId ? 'খাবার সেটআপ আপডেট করুন / Update meal setup' : 'নতুন খাবার সেটআপ তৈরি করুন / Create a new meal setup'}
-                className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isFormDisabled ? 'cursor-not-allowed' : 'hover:text-white hover:shadow-md'
+                className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${isFormDisabled ? 'cursor-not-allowed' : 'hover:text-[#441a05]hover:shadow-md'
                   }`}
               >
                 {(isCreating || isUpdating) ? (
@@ -456,7 +456,7 @@ const MealSetup = () => {
                     // setIsDropdownOpen(false); // No longer needed
                   }}
                   title="সম্পাদনা বাতিল করুন / Cancel editing"
-                  className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                  className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
                 >
                   বাতিল
                 </button>
@@ -476,7 +476,7 @@ const MealSetup = () => {
 
         {/* Meal Setups Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">খাবার সেটআপের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">খাবার সেটআপের তালিকা</h3>
           {setupsLoading || namesLoading || itemsLoading ? (
             <p className="p-4 text-white/70">খাবার সেটআপ লোড হচ্ছে...</p>
           ) : setupsError || namesError || itemsError ? (
@@ -560,7 +560,7 @@ const MealSetup = () => {
                             >
                               {setup.is_active && (
                                 <svg
-                                  className="w-4 h-4 text-white animate-scaleIn"
+                                  className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -590,7 +590,7 @@ const MealSetup = () => {
                             <button
                               onClick={() => handleEdit(setup)}
                               title="খাবার সেটআপ সম্পাদনা করুন / Edit meal setup"
-                              className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                             >
                               <FaEdit className="w-5 h-5" />
                             </button>
@@ -599,7 +599,7 @@ const MealSetup = () => {
                             <button
                               onClick={() => handleDelete(setup.id)}
                               title="খাবার সেটআপ মুছুন / Delete meal setup"
-                              className="text-white hover:text-red-500 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                             >
                               <FaTrash className="w-5 h-5" />
                             </button>
@@ -630,15 +630,15 @@ const MealSetup = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && ( // Only show if user has relevant permissions
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন খাবার সেটআপ নিশ্চিত করুন'}
                 {modalAction === 'update' && 'খাবার সেটআপ আপডেট নিশ্চিত করুন'}
                 {modalAction === 'delete' && 'খাবার সেটআপ মুছে ফেলা নিশ্চিত করুন'}
                 {modalAction === 'toggle' && 'খাবার সেটআপের স্থিতি পরিবর্তন নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'create' && 'আপনি কি নিশ্চিত যে নতুন খাবার সেটআপ তৈরি করতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে খাবার সেটআপ আপডেট করতে চান?'}
                 {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই খাবার সেটআপটি মুছে ফেলতে চান?'}
@@ -647,14 +647,14 @@ const MealSetup = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

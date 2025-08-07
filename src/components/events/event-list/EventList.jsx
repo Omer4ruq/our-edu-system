@@ -28,7 +28,7 @@ export default function EventList() {
 
 
     return (
-      <div className="bg-white rounded-md p-4 md:p-6  my-4">
+      <div className="bg-[#441a05]rounded-md p-4 md:p-6  my-4">
          <AddEvent setIsAdd={setIsAdd} />
          <EventTable handleEdit={handleEdit} handleDelete={handleDelete} />
 

@@ -18,7 +18,7 @@ export default function SingleNotice({ notice }) {
   return (
     <div className="p-2 space-y-1">
       <p
-        className={`inline py-1 text-white rounded-xl text-sm font-semibold bg-${color}`}
+        className={`inline py-1 text-[#441a05]rounded-xl text-sm font-semibold bg-${color}`}
       >
         {notice.date}
       </p>

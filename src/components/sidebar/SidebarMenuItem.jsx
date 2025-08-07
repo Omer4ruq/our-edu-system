@@ -75,11 +75,11 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
 
       {item.children ? (
         <NavLink to={item?.children?.[0]?.link || "/"}
-          className={`flex gap-2 items-center px-6 cursor-pointer hover:bg-pmColor ${isOpen || isActive ? "text-white font-bold bg-pmColor" : ""}`}
+          className={`flex gap-2 items-center px-6 cursor-pointer hover:bg-pmColor ${isOpen || isActive ? "text-[#441a05]font-bold bg-pmColor" : ""}`}
           onClick={handleMenuClick}
         >
           <Icons name={item.icon} />
-          <h4 className={`flex-1 ${isOpen || isActive ? "text-white font-bold" : ""}`}>
+          <h4 className={`flex-1 ${isOpen || isActive ? "text-[#441a05]font-bold" : ""}`}>
             {t(item.title)}
           </h4>
           <FaAngleDown
@@ -93,7 +93,7 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
           to={item.link || "/"}
           className={({ isActive }) =>
             `flex gap-2 items-center px-6 cursor-pointer duration-300 hover:bg-pmColor ${
-              isActive ? "text-white bg-pmColor font-bold" : ""
+              isActive ? "text-[#441a05]bg-pmColor font-bold" : ""
             }`
           }
           onClick={() => {
@@ -108,7 +108,7 @@ export default function SidebarMenuItem({ item, itemId, setItemId }) {
 
       {isOpen && item?.children && (
         <ul
-          className={`py-2 before:content-[''] before:block before:absolute before:z-1 before:left-[30px] before:top-10 before:bottom-0 before:border-l before:border-solid before:border-[#ffffff35] ${
+          className={`py-2 before:content-[''] before:block before:absolute before:z-1 before:left-[30px] before:top-10 before:bottom-0 before:border-l before:border-solid before:border-[#441a05fff35] ${
             isOpen ? "menu-open" : "menu-closed"
           }`}
         >

@@ -28,9 +28,9 @@ const ViewClasses = () => {
             <div key={option?.id}>
               <div
                 onClick={() => handleOptionClick(option?.id)}
-                className="border bg-white border-gray-200 rounded-lg p-6 text-center hover:border-blue-600 hover:shadow-md transition-all duration-200 cursor-pointer min-h-[200px] flex flex-col justify-center"
+                className="border bg-[#441a05]border-gray-200 rounded-lg p-6 text-center hover:border-blue-600 hover:shadow-md transition-all duration-200 cursor-pointer min-h-[200px] flex flex-col justify-center"
               >
-                <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 rounded-full bg-blue-600 text-[#441a05]flex items-center justify-center mb-4 mx-auto">
                   <IoSchool className="text-black text-2xl" />
                 </div>
                 <h6 className="text-base font-semibold text-gray-900">{option?.name}</h6>

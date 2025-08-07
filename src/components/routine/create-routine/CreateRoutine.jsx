@@ -61,7 +61,7 @@ const CreateRoutine = () => {
   };
 
   return (
-    <div className="bg-white rounded-md p-4 my-2 sm:my-4">
+    <div className="bg-[#441a05]rounded-md p-4 my-2 sm:my-4">
       <div id="form-container">
         <form onSubmit={createSchedule} id="period-form">
           <label htmlFor="num-periods">{t("module.routine.number_of_periods")}</label>

@@ -41,7 +41,7 @@ export default function VoucherSearch() {
         <div className="space-y-2">
           <button
             type="submit"
-            className="rounded w-full p-3 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+            className="rounded w-full p-3 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
           >
             {t("module.accounts.search")}
           </button>

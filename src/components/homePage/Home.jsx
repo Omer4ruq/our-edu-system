@@ -57,7 +57,7 @@ export default function Home() {
                 মোট আয়
               </div>
               <div className="total-amount">৳{formatCurrency(totalIncome)}</div>
-              <div style={{ color: "#fff", fontSize: "0.75rem", opacity: 0.7 }}>
+              <div style={{ color: "#441a05", fontSize: "0.75rem", opacity: 0.7 }}>
                 মোট আয়
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function Home() {
                 মোট খরচ
               </div>
               <div className="total-amount">৳{formatCurrency(totalExpense)}</div>
-              <div style={{ color: "#fff", fontSize: "0.75rem", opacity: 0.7 }}>
+              <div style={{ color: "#441a05", fontSize: "0.75rem", opacity: 0.7 }}>
                 মোট খরচ
               </div>
             </div>

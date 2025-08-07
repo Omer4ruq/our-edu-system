@@ -46,7 +46,7 @@ export default function TesModal({ children, isOpen, onClose, width}) {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/50 transition duration-300 ease-in-out">
-          <div ref={modalRef} className={`bg-white rounded-lg shadow-lg p-4 ${width}`}>
+          <div ref={modalRef} className={`bg-[#441a05]rounded-lg shadow-lg p-4 ${width}`}>
 
             {/* modal content */}
             {children}
@@ -54,13 +54,13 @@ export default function TesModal({ children, isOpen, onClose, width}) {
             {/* action buttons */}
             <div className="flex justify-end items-center space-x-2 xl:space-x-3 mt-4">
               <button
-                className="bg-blue px-4 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200"
+                className="bg-blue px-4 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200"
                 onClick={handlePrint}
               >
                 Print
               </button>
               <button
-                className="bg-red px-4 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200"
+                className="bg-red px-4 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200"
                 onClick={onClose}
               >
                 Cancel

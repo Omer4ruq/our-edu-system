@@ -36,7 +36,7 @@ License: You must have a valid license purchased only from official store (the a
 <body class="font-sans text-base font-normal text-gray-600 dark:text-gray-400 dark:bg-gray-800">
   <!-- wrapper -->
   <div x-data="{ open: false }" class="wrapper overflow-x-hidden bg-gray-100 dark:bg-gray-900 dark:bg-opacity-40">
-    <nav id="sidebar-menu" x-description="Mobile menu" x-bind:aria-expanded="open" :class="{ 'w-64 md:w-0': open, 'w-0 md:w-64': !(open) }" class="fixed w-64 transition-all duration-500 ease-in-out h-screen bg-white dark:bg-gray-800 shadow-sm">
+    <nav id="sidebar-menu" x-description="Mobile menu" x-bind:aria-expanded="open" :class="{ 'w-64 md:w-0': open, 'w-0 md:w-64': !(open) }" class="fixed w-64 transition-all duration-500 ease-in-out h-screen bg-[#441a05]dark:bg-gray-800 shadow-sm">
       <div class="h-full overflow-y-auto scrollbars">
         <!--logo-->
         <div class="mh-18 text-center py-5">
@@ -708,7 +708,7 @@ License: You must have a valid license purchased only from official store (the a
             </div>
 
             <div class="grid">
-              <a href="pages-profile.html#" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-pink-500 border border-pink-500 hover:text-white hover:bg-pink-600 hover:ring-0 hover:border-pink-600 focus:bg-pink-600 focus:border-pink-600 focus:outline-none focus:ring-0" target="_blank">Download</a>
+              <a href="pages-profile.html#" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-pink-500 border border-pink-500 hover:text-[#441a05]hover:bg-pink-600 hover:ring-0 hover:border-pink-600 focus:bg-pink-600 focus:border-pink-600 focus:outline-none focus:ring-0" target="_blank">Download</a>
             </div>
           </div>
         </div><!-- end banner -->
@@ -717,7 +717,7 @@ License: You must have a valid license purchased only from official store (the a
 
     <div x-bind:aria-expanded="open" :class="{ 'ltr:ml-64 ltr:-mr-64 md:ltr:ml-0 md:ltr:mr-0 rtl:mr-64 rtl:-ml-64 md:rtl:mr-0 md:rtl:ml-0': open, 'ltr:ml-0 ltr:mr-0 md:ltr:ml-64 rtl:mr-0 rtl:ml-0 md:rtl:mr-64': !(open) }" class="flex flex-col ltr:ml-64 rtl:mr-64 min-h-screen transition-all duration-500 ease-in-out">
       <!-- Navbar -->
-      <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }" class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-white dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out" id="desktop-menu">
+      <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }" class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-[#441a05]dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out" id="desktop-menu">
         <!-- sidenav button-->
         <button id="navbartoggle" type="button" class="inline-flex items-center justify-center text-gray-800 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-200 focus:outline-none focus:ring-0" aria-controls="sidebar-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
           <span class="sr-only">Mobile menu</span>
@@ -738,7 +738,7 @@ License: You must have a valid license purchased only from official store (the a
           <div class="flex flex-wrap items-stretch w-full relative">
             <input type="text" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 relative text-sm py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-gray-100 overflow-x-auto focus:outline-none border border-gray-100 focus:border-gray-200 focus:ring-0 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Search…" aria-label="Search">
             <div class="flex -mr-px">
-              <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
+              <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <!-- <i class="fas fa-search"></i> -->
               </button>
@@ -764,7 +764,7 @@ License: You must have a valid license purchased only from official store (the a
               <!-- bg open -->
               <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
 
-              <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-white dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
+              <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-[#441a05]dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
                 <div class="p-6 bg-indigo-500 text-gray-100 border-b border-gray-200 dark:border-gray-700">
                   <div class="flex flex-row justify-between">
                     <h3 class="text-md font-bold">Customizer</h3>
@@ -778,7 +778,7 @@ License: You must have a valid license purchased only from official store (the a
                   <p class="text-base text-semibold">Color Scheme</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="lightdark" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -788,7 +788,7 @@ License: You must have a valid license purchased only from official store (the a
                   <p class="text-base text-semibold">Sidebar Color</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="sidecolor" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -798,7 +798,7 @@ License: You must have a valid license purchased only from official store (the a
                   <p class="text-base text-semibold">Direction</p>
                   <div class="flex flex-row">
                     <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-                      <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+                      <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
                       <label for="rtlmode" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                     <p class="text-sm text-gray-500 self-center">LTR and RTL</p>
@@ -851,11 +851,11 @@ License: You must have a valid license purchased only from official store (the a
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"></path>
                 </svg>
                 <!-- <i class="text-2xl fas fa-envelope"></i> -->
-                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">3</span></span>
+                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-[#441a05]rounded-full text-xs"><span class="align-self-center">3</span></span>
               </div>
             </a>
 
-            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:-right-36 md:ltr:right-0 rtl:-left-36 md:rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
+            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:-right-36 md:ltr:right-0 rtl:-left-36 md:rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
               <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
                 <div class="relative">
                   <div class="font-bold">Messages</div>
@@ -866,12 +866,12 @@ License: You must have a valid license purchased only from official store (the a
                       </svg>
                       <!-- <i class="fas fa-search"></i> -->
                     </a>
-                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 bg-white dark:bg-gray-700 z-10 rounded" style="min-width:16rem">
+                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 bg-[#441a05]dark:bg-gray-700 z-10 rounded" style="min-width:16rem">
                        <form class="inline-block w-full">
                         <div class="flex flex-wrap items-stretch w-full relative">
                           <input type="text" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 relative text-sm py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-gray-100 overflow-x-auto focus:outline-none border border-gray-100 focus:border-gray-200 focus:ring-0 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" placeholder="Search messages…" aria-label="Search">
                           <div class="flex -mr-px">
-                            <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
+                            <button class="flex items-center py-2 px-4 ltr:-ml-1 rtl:-mr-1 ltr:rounded-r rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="button">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                               <!-- <i class="fas fa-search"></i> -->
                             </button>
@@ -901,7 +901,7 @@ License: You must have a valid license purchased only from official store (the a
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="src/img/avatar/avatar2.png" class="h-10 w-10 rounded-full mx-auto" alt="Daniel Esteban">
-                        <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-green-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-green-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -916,7 +916,7 @@ License: You must have a valid license purchased only from official store (the a
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="src/img/avatar/avatar3.png" class="h-10 w-10 rounded-full mx-auto" alt="Carlos Garcia">
-                        <span title="busy" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-pink-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="busy" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-pink-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -931,7 +931,7 @@ License: You must have a valid license purchased only from official store (the a
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="src/img/avatar/avatar4.png" class="h-10 w-10 rounded-full mx-auto" alt="Steven Rey">
-                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -946,7 +946,7 @@ License: You must have a valid license purchased only from official store (the a
                     <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                       <div class="relative">
                         <img src="src/img/avatar/avatar.png" class="h-10 w-10 rounded-full mx-auto" alt="Roman Davis">
-                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-white w-3 h-3 rounded-full"></span>
+                        <span title="offline" class="flex justify-center absolute -bottom-0.5 ltr:right-2 rtl:left-2 text-center bg-gray-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
                       </div>
                     </div>
                     <div class="flex-shrink max-w-full px-2 w-3/4">
@@ -971,11 +971,11 @@ License: You must have a valid license purchased only from official store (the a
                   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
                 </svg>
                 <!-- <i class="text-2xl fas fa-bell"></i> -->
-                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">1</span></span>
+                <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-[#441a05]rounded-full text-xs"><span class="align-self-center">1</span></span>
               </div>
             </a>
 
-            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
+            <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="display: none;">
               <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
                 <div class="relative">
                   <div class="font-bold">Notifications</div>
@@ -1072,11 +1072,11 @@ License: You must have a valid license purchased only from official store (the a
             <a href="javascript:;" class="px-3 flex text-sm rounded-full focus:outline-none" id="user-menu-button" @click="open = ! open">
               <div class="relative">
                 <img class="h-10 w-10 rounded-full border border-gray-700 bg-gray-700" src="src/img/avatar/avatar.png" alt="avatar">
-                <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-1 rtl:left-1 text-center bg-green-500 border border-white w-3 h-3 rounded-full"></span>
+                <span title="online" class="flex justify-center absolute -bottom-0.5 ltr:right-1 rtl:left-1 text-center bg-green-500 border border-[#441a05]w-3 h-3 rounded-full"></span>
               </div>
               <span class="hidden md:block ltr:ml-1 rtl:mr-1 self-center">Ari Budin</span>
             </a>
-            <ul x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width:12rem;display: none;">
+            <ul x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width:12rem;display: none;">
               <li class="relative">
                 <div class="flex flex-wrap flex-row -mx-4 px-3 py-4 items-center">
                   <div class="flex-shrink max-w-full px-4 w-1/3">
@@ -1144,7 +1144,7 @@ License: You must have a valid license purchased only from official store (the a
               <p class="text-xl font-bold mt-3 mb-5">Profile</p>
             </div>                                                 
             <div x-data="{ open: false }" class="flex-shrink max-w-full px-4 w-full mb-6">
-              <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
+              <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg mb-8">
                 <div class="group h-40 overflow-hidden relative">
                   <img src="src/img/blog/bg.jpg" class="w-full">
                   <div class="absolute top-4 ltr:right-4 rtl:left-4">
@@ -1156,8 +1156,8 @@ License: You must have a valid license purchased only from official store (the a
                 </div>
                 <div class="flex justify-center -mt-10 relative">
                   <a @click="open = true" class="z-30 group" href="javascript:;">
-                    <img src="src/img/avatar/avatar.png" class="rounded-full w-24 h-24 bg-gray-200 border-solid border-white border-2 -mt-3">
-                    <div title="Change avatar" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 text-white dark:text-gray-900">
+                    <img src="src/img/avatar/avatar.png" class="rounded-full w-24 h-24 bg-gray-200 border-solid border-[#441a05]border-2 -mt-3">
+                    <div title="Change avatar" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 text-[#441a05]dark:text-gray-900">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-6 h-6 bi bi-camera" viewBox="0 0 16 16">
                         <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
                         <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
@@ -1186,7 +1186,7 @@ License: You must have a valid license purchased only from official store (the a
               </div>
               <div class="flex flex-wrap flex-row -mx-4">
                 <div class="flex-shrink max-w-full px-4 w-full lg:w-1/3 mb-8">
-                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full p-6">
+                  <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg h-full p-6">
                     <div class="flex flex-row justify-between pb-3">
                       <div class="flex flex-col">
                         <h3 class="text-base font-bold">Information</h3>
@@ -1216,7 +1216,7 @@ License: You must have a valid license purchased only from official store (the a
                   </div>
                 </div>
                 <div class="flex-shrink max-w-full px-4 w-full lg:w-2/3 mb-8">
-                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full p-6">
+                  <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg h-full p-6">
                     <div class="flex flex-row justify-between pb-3">
                       <div class="flex flex-col">
                         <h3 class="text-base font-bold">Your Productivity</h3>
@@ -1227,7 +1227,7 @@ License: You must have a valid license purchased only from official store (the a
                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                           </svg>
                         </button>
-                        <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded rounded-t-non bg-white dark:bg-gray-800 z-10 rounded border border-gray-200 dark:border-gray-700" style="min-width:12rem">
+                        <div x-show="open" @click.away="open = false" class="origin-top-right absolute ltr:right-0 rtl:left-0 rounded rounded-t-non bg-[#441a05]dark:bg-gray-800 z-10 rounded border border-gray-200 dark:border-gray-700" style="min-width:12rem">
                           <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:hover:bg-opacity-20 dark:focus:bg-gray-900" href="pages-profile.html#">Daily</a>
                           <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:hover:bg-opacity-20 dark:focus:bg-gray-900" href="pages-profile.html#">Weekly</a>
                           <a class="block px-3 py-2 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-900 dark:hover:bg-opacity-20 dark:focus:bg-gray-900" href="pages-profile.html#">Yearly</a>
@@ -1242,7 +1242,7 @@ License: You must have a valid license purchased only from official store (the a
                   </div>
                 </div>
                 <div class="flex-shrink max-w-full px-4 w-full lg:w-1/3 mb-8">
-                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                  <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg p-6">
                     <div class="flex flex-row justify-between pb-3">
                       <div class="flex flex-col">
                         <h3 class="text-base font-bold">Messages</h3>
@@ -1255,7 +1255,7 @@ License: You must have a valid license purchased only from official store (the a
                             <img alt="profil" src="src/img/avatar/avatar6.png" class="mx-auto object-cover rounded-full h-10 w-10 ">
                           </div>
                           <div class="flex flex-col">
-                            <span class="text-sm text-gray-900 font-semibold dark:text-white ltr:ml-2 rtl:mr-2 mb-1">Carlos Garcia</span>
+                            <span class="text-sm text-gray-900 font-semibold dark:text-[#441a05]ltr:ml-2 rtl:mr-2 mb-1">Carlos Garcia</span>
                             <span class="text-sm text-gray-400 dark:text-gray-300 ltr:ml-2 rtl:mr-2">What do you think about this project?</span>
                           </div>
                         </a>
@@ -1266,7 +1266,7 @@ License: You must have a valid license purchased only from official store (the a
                             <img alt="profil" src="src/img/avatar/avatar3.png" class="mx-auto object-cover rounded-full h-10 w-10 ">
                           </div>
                           <div class="flex flex-col">
-                            <span class="text-sm text-gray-900 font-semibold dark:text-white ltr:ml-2 rtl:mr-2 mb-1">Roman davis</span>
+                            <span class="text-sm text-gray-900 font-semibold dark:text-[#441a05]ltr:ml-2 rtl:mr-2 mb-1">Roman davis</span>
                             <span class="text-sm text-gray-400 dark:text-gray-300 ltr:ml-2 rtl:mr-2">What do you think about this project?</span>
                           </div>
                         </a>
@@ -1277,7 +1277,7 @@ License: You must have a valid license purchased only from official store (the a
                             <img alt="profil" src="src/img/avatar/avatar7.png" class="mx-auto object-cover rounded-full h-10 w-10 ">
                           </div>
                           <div class="flex flex-col">
-                            <span class="text-sm text-gray-900 font-semibold dark:text-white ltr:ml-2 rtl:mr-2 mb-1">Jessica jane</span>
+                            <span class="text-sm text-gray-900 font-semibold dark:text-[#441a05]ltr:ml-2 rtl:mr-2 mb-1">Jessica jane</span>
                             <span class="text-sm text-gray-400 dark:text-gray-300 ltr:ml-2 rtl:mr-2">What do you think about this project?</span>
                           </div>
                         </a>
@@ -1286,7 +1286,7 @@ License: You must have a valid license purchased only from official store (the a
                   </div>
                 </div>
                 <div class="flex-shrink max-w-full px-4 w-full lg:w-2/3 mb-8">
-                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
+                  <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
                     <div class="flex flex-row justify-between pb-3">
                       <div class="flex flex-col">
                         <h3 class="text-base font-bold">Tailnet Inc</h3>
@@ -1308,12 +1308,12 @@ License: You must have a valid license purchased only from official store (the a
                       </a>
                     </div>
                     <div class="w-full h-2 bg-gray-200 rounded-full mt-2">
-                      <div class="h-full text-center text-xs text-white bg-indigo-500 rounded-full" style="width:86%">
+                      <div class="h-full text-center text-xs text-[#441a05]bg-indigo-500 rounded-full" style="width:86%">
                       </div>
                     </div>
                     <div class="flex justify-between mt-3">
                       <div>
-                        <span class="text-sm inline-block text-gray-500 dark:text-gray-100">Task done : <span class="text-gray-700 dark:text-white font-bold">43</span>/50</span>
+                        <span class="text-sm inline-block text-gray-500 dark:text-gray-100">Task done : <span class="text-gray-700 dark:text-[#441a05]font-bold">43</span>/50</span>
                       </div>
                       <div>
                         <span class="px-2 py-1 text-xs rounded font-semibold text-green-500 bg-green-50">Front End</span>
@@ -1321,7 +1321,7 @@ License: You must have a valid license purchased only from official store (the a
                       </div>
                     </div>
                   </div>
-                  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
+                  <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
                     <div class="flex flex-row justify-between pb-3">
                       <div class="flex flex-col">
                         <h3 class="text-base font-bold">Google Inc</h3>
@@ -1343,12 +1343,12 @@ License: You must have a valid license purchased only from official store (the a
                       </a>
                     </div>
                     <div class="w-full h-2 bg-gray-200 rounded-full mt-2">
-                      <div class="h-full text-center text-xs text-white bg-green-500 rounded-full" style="width:100%">
+                      <div class="h-full text-center text-xs text-[#441a05]bg-green-500 rounded-full" style="width:100%">
                       </div>
                     </div>
                     <div class="flex justify-between mt-3">
                       <div>
-                        <span class="text-sm inline-block text-gray-500 dark:text-gray-100">Task done : <span class="text-gray-700 dark:text-white font-bold">50</span>/50</span>
+                        <span class="text-sm inline-block text-gray-500 dark:text-gray-100">Task done : <span class="text-gray-700 dark:text-[#441a05]font-bold">50</span>/50</span>
                       </div>
                       <div>
                         <span class="px-2 py-1 text-xs rounded font-semibold text-green-500 bg-green-50">Front End</span>
@@ -1362,7 +1362,7 @@ License: You must have a valid license purchased only from official store (the a
               <!-- Modal -->
               <div x-show="open" tabindex="0" class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
                 <div class="z-50 relative p-3 mx-auto my-0 max-w-full" style="max-width:600px;display:none;" x-show="open" x-transition:enter="transition duration-500" x-transition:enter-start="transform opacity-0 -translate-y-4" x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition -translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 -translate-y-4">
-                  <form class="valid-form bg-white dark:bg-gray-800 rounded-lg shadow-lg border dark:border-gray-800 flex flex-col overflow-hidden">
+                  <form class="valid-form bg-[#441a05]dark:bg-gray-800 rounded-lg shadow-lg border dark:border-gray-800 flex flex-col overflow-hidden">
                     <button @click="open = false" class="fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
                     <!-- modal title -->
                     <div class="px-6 py-3 text-xl border-b dark:border-gray-800 font-bold">Edit profile</div>
@@ -1370,12 +1370,12 @@ License: You must have a valid license purchased only from official store (the a
                     <div class="p-6 flex-grow">
                       <div class="flex flex-wrap flex-row -mx-4">
                         <div class="flex-shrink max-w-full px-4 w-full">
-                          <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden pb-8">
+                          <div class="bg-[#441a05]dark:bg-gray-800 rounded-lg overflow-hidden pb-8">
                             <div class="h-40 overflow-hidden relative">
                               <img src="src/img/blog/bg.jpg" class="w-full">
                             </div>
                             <div class="flex justify-center -mt-10 relative">
-                              <img src="src/img/avatar/avatar.png" class="rounded-full w-24 h-24 bg-gray-200 border-solid border-white border-2 -mt-3">
+                              <img src="src/img/avatar/avatar.png" class="rounded-full w-24 h-24 bg-gray-200 border-solid border-[#441a05]border-2 -mt-3">
                             </div>
                           </div>
                         </div>
@@ -1415,41 +1415,41 @@ License: You must have a valid license purchased only from official store (the a
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                           <label for="inputname" class="inline-block mb-2">Firs name</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputname" required>
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputname" required>
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                           <label for="inputlast" class="inline-block mb-2">Last name</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputlast">
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputlast">
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                           <label for="inputEmail4" class="inline-block mb-2">Email</label>
-                          <input type="email" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputEmail4" required>
+                          <input type="email" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputEmail4" required>
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                           <label for="inputPassword4" class="inline-block mb-2">Password</label>
-                          <input type="password" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputPassword4" required>
+                          <input type="password" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputPassword4" required>
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                           <label for="inputnumber" class="inline-block mb-2">Phone number</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputnumber">
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputnumber">
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                           <label for="inputlocation" class="inline-block mb-2">Location</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputlocation">
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputlocation">
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full mb-6">
                           <label for="inputshort" class="inline-block mb-2">Short description</label>
-                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputshort">
+                          <input type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputshort">
                         </div>
                         <div class="form-group flex-shrink max-w-full px-4 w-full mb-6">
                           <label for="inputlong" class="inline-block mb-2">About description</label>
-                          <textarea type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputlong"></textarea>
+                          <textarea type="text" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" id="inputlong"></textarea>
                         </div>
                       </div>
                     </div>
                     <div class="px-6 py-3 border-t dark:border-gray-800 flex justify-end">
                       <button @click="open = false" type="button" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 border border-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</button>
-                      <button type="submit" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Saves</button>
+                      <button type="submit" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Saves</button>
                     </div>
                   </form>
                 </div>
@@ -1460,7 +1460,7 @@ License: You must have a valid license purchased only from official store (the a
         </div>
       </main>
 
-      <footer class="bg-white dark:bg-gray-800 p-6 shadow-sm">
+      <footer class="bg-[#441a05]dark:bg-gray-800 p-6 shadow-sm">
         <div class="mx-auto">
           <div class="flex flex-wrap flex-row -mx-4">
             <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:ltr:text-left md:rtl:text-right">

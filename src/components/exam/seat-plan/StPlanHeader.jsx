@@ -39,7 +39,7 @@ export default function SeatPlanHeader() {
             <div className="flex items-center gap-2 justify-end my-4">
                 <button
                     type="submit"
-                    className="rounded w-44 p-[10px] bg-#DB9E30 hover:bg-buttonHover text-white shadow-md hover:-translate-y-[2px] duration-200"
+                    className="rounded w-44 p-[10px] bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
                 >
                     {t('module.exam.viewSeatPlan')}
                 </button>

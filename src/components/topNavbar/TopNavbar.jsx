@@ -104,7 +104,7 @@ export default function TopNavbar({ setShowSidebar }) {
         {/* Left Section */}
         <div className="flex gap-3 sm:gap-4 items-center">
           <button
-            className="w-8 h-8 p-1.5 rounded border border-white/30 bg-pmColor text-white hover:bg-blue-600/20 btn-glow xl:hidden transition-all duration-300 ease-in-out"
+            className="w-8 h-8 p-1.5 rounded border border-white/30 bg-pmColor text-[#441a05]hover:bg-blue-600/20 btn-glow xl:hidden transition-all duration-300 ease-in-out"
             onClick={() => setShowSidebar((state) => !state)}
             aria-label="Toggle sidebar"
             title="Toggle sidebar"

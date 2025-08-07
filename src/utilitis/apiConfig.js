@@ -84,7 +84,7 @@
 //       justify-content:center;
 //       align-items:center;
 //       height:100vh;
-//       background:#fff;
+//       background:#441a05;
 //       color:red;
 //       font-size:24px;
 //       font-weight:bold;
@@ -204,7 +204,7 @@ export default BASE_URL
 //       justify-content:center;
 //       align-items:center;
 //       height:100vh;
-//       background:#fff;
+//       background:#441a05;
 //       color:red;
 //       font-size:24px;
 //       font-weight:bold;

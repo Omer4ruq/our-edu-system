@@ -4,7 +4,7 @@ export default function InputFields() {
    {/* button template */}
       <button
          type="submit"
-         className="rounded w-36 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+         className="rounded w-36 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
          >
          Submit
       </button>
@@ -67,11 +67,11 @@ export default function InputFields() {
       
       {/* form submit buttons */}
       <div className="flex justify-end items-center gap-4 my-4">
-         <button className="bg-blue w-24 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+         <button className="bg-blue w-24 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
             Save
          </button>
 
-         <button className="bg-red w-24 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+         <button className="bg-red w-24 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
             Close
          </button>
       </div>

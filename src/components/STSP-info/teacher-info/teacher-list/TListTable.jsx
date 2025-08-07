@@ -71,12 +71,12 @@ export default function TListTable({ handleDelete }) {
               <td className="min-w-20">{item.mobile}</td>
               <td className="min-w-40 pb-1 text-center">
                 <Link to={`/teacher-info/edit-teacher/${item.id}`}>
-                  <button className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1">
+                  <button className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1">
                     {t("module.teacher.edit")} {/* Translated EDIT */}
                   </button>
                 </Link>
                 <button
-                  className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                  className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                   onClick={() => handleDelete(item.name)}
                 >
                   {t("module.teacher.delete")} {/* Translated DELETE */}

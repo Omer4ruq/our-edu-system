@@ -113,7 +113,7 @@ export default function Overview() {
             <PiStudentFill className="w-12 h-12 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
-            <h4 className="text-xl font-bold text-white drop-shadow-lg mt-4 ml-1">
+            <h4 className="text-xl font-bold text-[#441a05]drop-shadow-lg mt-4 ml-1">
               {activeStudentLoading ? "লোড হচ্ছে..." : studentCount}
             </h4>
           </div>
@@ -128,7 +128,7 @@ export default function Overview() {
             <FaUserTie className="w-10 h-10 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
-            <h4 className="text-xl font-bold text-white drop-shadow-lg mt-6 ml-1">
+            <h4 className="text-xl font-bold text-[#441a05]drop-shadow-lg mt-6 ml-1">
                {staffLoading || teacherLoading ? "লোড হচ্ছে..." : toBn(teacherCount)}
             </h4>
           </div>
@@ -143,7 +143,7 @@ export default function Overview() {
             <FaPeopleCarry className="w-12 h-12 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
-            <h4 className="text-xl font-bold text-white drop-shadow-lg mt-4 ml-1">
+            <h4 className="text-xl font-bold text-[#441a05]drop-shadow-lg mt-4 ml-1">
               {staffLoading || teacherLoading ? "লোড হচ্ছে..." : toBn(staffCount)}
             </h4>
           </div>
@@ -158,7 +158,7 @@ export default function Overview() {
             <FaPeoplePulling className="w-12 h-12 drop-shadow-2xl text-pmColor animate-pulse-custom" />
           <div>
 
-            <h4 className="text-xl font-bold text-white drop-shadow-lg mt-4 ml-1">
+            <h4 className="text-xl font-bold text-[#441a05]drop-shadow-lg mt-4 ml-1">
               500
             </h4>
           </div>

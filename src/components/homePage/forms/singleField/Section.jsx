@@ -32,7 +32,7 @@ export default function Section({ style, label = 'শাখা', labelClassName,
         id="section"
         name="section"
         defaultValue="default"
-        className={`w-full bg-transparent text-white placeholder-white px-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg focus:border-pmColor transition-all duration-300 animate-scaleIn ${inputClassName || ''}`}
+        className={`w-full bg-transparent text-[#441a05]placeholder-[#441a05]px-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg focus:border-pmColor transition-all duration-300 animate-scaleIn ${inputClassName || ''}`}
         aria-label="শাখা নির্বাচন করুন"
         title="শাখা নির্বাচন করুন / Select Section"
       >

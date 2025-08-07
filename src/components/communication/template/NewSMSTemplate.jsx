@@ -8,7 +8,7 @@ export default function NewSMSTemplate() {
 
   const {t} = useTranslation();
     return (
-      <div className="bg-white rounded-md p-4 md:p-6 my-4 space-y-2 text-textGray">
+      <div className="bg-[#441a05]rounded-md p-4 md:p-6 my-4 space-y-2 text-textGray">
         <h3 className="font-medium text-lg md:text-xl">
         {t('module.communication.add_sms_template')}</h3>
 
@@ -40,13 +40,13 @@ export default function NewSMSTemplate() {
 
         <div className="flex justify-start items-center gap-4">
             <Link to="/communication/sms-template">
-               <button className="bg-blue w-28 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+               <button className="bg-blue w-28 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
                {t('module.communication.save')}
                 </button>
             </Link>
 
             <Link to="/communication/sms-template">
-               <button className="bg-red w-28 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+               <button className="bg-red w-28 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
                {t('module.communication.close')}
                </button>
             </Link>

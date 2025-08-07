@@ -15,7 +15,7 @@ export default function AExRHeader() {
                 <Link to="../exam-schedule">
                     <button
                         type="submit"
-                        className="rounded w-full px-4 py-2 bg-yellow text-white shadow-md hover:-translate-y-[2px] duration-200"
+                        className="rounded w-full px-4 py-2 bg-yellow text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
                     >
                         {t('module.exam.exam_schedule')}
                     </button>

@@ -418,9 +418,9 @@ const AddFeesName = () => {
   if (hasViewPermission && !hasAddPermission && !hasChangePermission && !hasDeletePermission) {
     return (
       <div className="py-8 w-full relative">
-        <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+        <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
-          <h2 className="text-2xl font-bold text-white tracking-tight mb-6">ফি কনফিগারেশন</h2>
+          <h2 className="text-2xl font-bold text-[#441a05]tracking-tight mb-6">ফি কনফিগারেশন</h2>
           
           {/* Filter Panel */}
           <div className="mb-6">
@@ -428,7 +428,7 @@ const AddFeesName = () => {
               <h3 className="text-lg font-semibold text-white">ফিল্টার</h3>
               <button
                 onClick={() => handleFilterChange('showFilters', !filters.showFilters)}
-                className="flex items-center px-3 py-2 bg-pmColor text-white rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
+                className="flex items-center px-3 py-2 bg-pmColor text-[#441a05]rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
               >
                 <FaFilter className="mr-2" />
                 {filters.showFilters ? 'লুকান' : 'দেখান'}
@@ -440,11 +440,11 @@ const AddFeesName = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {/* Class Filter */}
                   <div>
-                    <label className="block text-white font-medium mb-2">শ্রেণি</label>
+                    <label className="block text-[#441a05]font-medium mb-2">শ্রেণি</label>
                     <select
                       value={filters.classId}
                       onChange={(e) => handleFilterChange('classId', e.target.value)}
-                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     >
                       <option value="all">সকল শ্রেণি</option>
                       {classes?.map((cls) => (
@@ -457,11 +457,11 @@ const AddFeesName = () => {
 
                   {/* Subhead Filter */}
                   <div>
-                    <label className="block text-white font-medium mb-2">ফি সাবহেড</label>
+                    <label className="block text-[#441a05]font-medium mb-2">ফি সাবহেড</label>
                     <select
                       value={filters.subheadId}
                       onChange={(e) => handleFilterChange('subheadId', e.target.value)}
-                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     >
                       <option value="all">সকল সাবহেড</option>
                       {feeSubheads?.map((subhead) => (
@@ -474,23 +474,23 @@ const AddFeesName = () => {
 
                   {/* Start Date Filter */}
                   <div>
-                    <label className="block text-white font-medium mb-2">শুরুর তারিখ থেকে</label>
+                    <label className="block text-[#441a05]font-medium mb-2">শুরুর তারিখ থেকে</label>
                     <input
                       type="date"
                       value={filters.startDate}
                       onChange={(e) => handleFilterChange('startDate', e.target.value)}
-                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     />
                   </div>
 
                   {/* End Date Filter */}
                   <div>
-                    <label className="block text-white font-medium mb-2">শেষের তারিখ পর্যন্ত</label>
+                    <label className="block text-[#441a05]font-medium mb-2">শেষের তারিখ পর্যন্ত</label>
                     <input
                       type="date"
                       value={filters.endDate}
                       onChange={(e) => handleFilterChange('endDate', e.target.value)}
-                      className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                      className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                     />
                   </div>
                 </div>
@@ -498,7 +498,7 @@ const AddFeesName = () => {
                 <div className="mt-4 flex justify-end">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                    className="flex items-center px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   >
                     <FaTimes className="mr-2" />
                     ফিল্টার পরিষ্কার করুন
@@ -512,7 +512,7 @@ const AddFeesName = () => {
             <p className="p-4 text-white/70">কোনো ফি কনফিগারেশন পাওয়া যায়নি।</p>
           ) : (
             <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-              <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+              <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
                 সকল ফি কনফিগারেশন ({filteredFeesName?.length} টি)
               </h3>
               <table className="w-full border-collapse">
@@ -571,7 +571,7 @@ const AddFeesName = () => {
 
   return (
     <div className="py-8 w-full relative">
-      <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#fff' } }} />
+      <Toaster position="top-right" toastOptions={{ style: { background: '#DB9E30', color: '#441a05' } }} />
       <style jsx>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }
@@ -621,20 +621,20 @@ const AddFeesName = () => {
       {/* Create Confirmation Modal */}
       {hasAddPermission && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">ফি কনফিগারেশন জমা নিশ্চিত করুন</h3>
-            <p className="text-white mb-6">আপনি কি নিশ্চিত যে নির্বাচিত ফি কনফিগারেশনগুলি জমা দিতে চান?</p>
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">ফি কনফিগারেশন জমা নিশ্চিত করুন</h3>
+            <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে নির্বাচিত ফি কনফিগারেশনগুলি জমা দিতে চান?</p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -653,36 +653,36 @@ const AddFeesName = () => {
       {/* Update Modal */}
       {hasChangePermission && isUpdateModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">ফি কনফিগারেশন আপডেট করুন</h3>
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">ফি কনফিগারেশন আপডেট করুন</h3>
             <div className="space-y-4">
               <div>
-                <label className="text-white font-medium">ফি টাইটেল</label>
+                <label className="text-[#441a05]font-medium">ফি টাইটেল</label>
                 <input
                   type="text"
                   value={updateForm.fees_title}
                   onChange={(e) => handleUpdateFormChange('fees_title', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 />
                 {errors.fees_title && <p className="text-red-400 text-sm mt-1">{errors.fees_title}</p>}
               </div>
               <div>
-                <label className="text-white font-medium">শুরুর তারিখ</label>
+                <label className="text-[#441a05]font-medium">শুরুর তারিখ</label>
                 <input
                   type="date"
                   value={updateForm.startdate}
                   onChange={(e) => handleUpdateFormChange('startdate', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 />
                 {errors.startdate && <p className="text-red-400 text-sm mt-1">{errors.startdate}</p>}
               </div>
               <div>
-                <label className="text-white font-medium">শেষের তারিখ</label>
+                <label className="text-[#441a05]font-medium">শেষের তারিখ</label>
                 <input
                   type="date"
                   value={updateForm.enddate}
                   onChange={(e) => handleUpdateFormChange('enddate', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 />
                 {errors.enddate && <p className="text-red-400 text-sm mt-1">{errors.enddate}</p>}
               </div>
@@ -696,18 +696,18 @@ const AddFeesName = () => {
                       className="sr-only"
                     />
                     <div className={`w-12 h-6 rounded-full transition-all duration-300 ${updateForm.is_boarding ? 'toggle-bg-checked' : 'toggle-bg'}`}>
-                      <div className={`w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 ${updateForm.is_boarding ? 'translate-x-6' : 'translate-x-0'}`} />
+                      <div className={`w-6 h-6 bg-[#441a05]rounded-full shadow-md transform transition-transform duration-300 ${updateForm.is_boarding ? 'translate-x-6' : 'translate-x-0'}`} />
                     </div>
                   </div>
-                  <span className="ml-3 text-white font-medium">{updateForm.is_boarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}</span>
+                  <span className="ml-3 text-[#441a05]font-medium">{updateForm.is_boarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}</span>
                 </label>
               </div>
               <div>
-                <label className="text-white font-medium">স্ট্যাটাস</label>
+                <label className="text-[#441a05]font-medium">স্ট্যাটাস</label>
                 <select
                   value={updateForm.status}
                   onChange={(e) => handleUpdateFormChange('status', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 >
                   <option value="ACTIVE">সক্রিয়</option>
                   <option value="INACTIVE">নিষ্ক্রিয়</option>
@@ -717,14 +717,14 @@ const AddFeesName = () => {
             <div className="flex justify-end space-x-4 mt-6">
               <button
                 onClick={() => setIsUpdateModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={handleUpdateSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -743,20 +743,20 @@ const AddFeesName = () => {
       {/* Delete Confirmation Modal */}
       {hasDeletePermission && isDeleteModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">ফি কনফিগারেশন মুছে ফেলুন</h3>
-            <p className="text-white mb-6">আপনি কি নিশ্চিত যে ফি কনফিগারেশন "{selectedFee?.fees_title}" মুছে ফেলতে চান?</p>
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">ফি কনফিগারেশন মুছে ফেলুন</h3>
+            <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে ফি কনফিগারেশন "{selectedFee?.fees_title}" মুছে ফেলতে চান?</p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsDeleteModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={handleDeleteSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-red-500 text-white rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:bg-red-600'}`}
+                className={`px-4 py-2 bg-red-500 text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:bg-red-600'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -777,7 +777,7 @@ const AddFeesName = () => {
           <div>
             <div className="flex items-center space-x-4 mb-6">
               <IoAddCircle className="text-4xl text-white" />
-              <h2 className="text-2xl font-bold text-white tracking-tight">ফি কনফিগারেশন যোগ করুন</h2>
+              <h2 className="text-2xl font-bold text-[#441a05]tracking-tight">ফি কনফিগারেশন যোগ করুন</h2>
             </div>
 
             {/* Boarding Toggle */}
@@ -792,10 +792,10 @@ const AddFeesName = () => {
                       className="sr-only"
                     />
                     <div className={`w-12 h-6 rounded-full transition-all duration-300 ${isBoarding ? 'toggle-bg-checked' : 'toggle-bg'}`}>
-                      <div className={`w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 ${isBoarding ? 'translate-x-6' : 'translate-x-0'}`} />
+                      <div className={`w-6 h-6 bg-[#441a05]rounded-full shadow-md transform transition-transform duration-300 ${isBoarding ? 'translate-x-6' : 'translate-x-0'}`} />
                     </div>
                   </div>
-                  <span className="ml-3 text-white font-medium">{isBoarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}</span>
+                  <span className="ml-3 text-[#441a05]font-medium">{isBoarding ? 'বোর্ডিং' : 'নন-বোর্ডিং'}</span>
                 </label>
               </div>
             )}
@@ -804,7 +804,7 @@ const AddFeesName = () => {
             {hasAddPermission && (
               <div className="mb-6 flex flex-wrap gap-2">
                 <button
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === null ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white hover:bg-gray-500/30'}`}
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === null ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'}`}
                   onClick={() => handleClassSelection(null)}
                   aria-label="সকল শ্রেণি নির্বাচন করুন"
                 >
@@ -813,7 +813,7 @@ const AddFeesName = () => {
                 {classes?.map((cls) => (
                   <button
                     key={cls.id}
-                    className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === cls.id ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-white hover:bg-gray-500/30'}`}
+                    className={`px-4 py-2 rounded-lg transition-all duration-300 ${selectedClass === cls.id ? 'bg-pmColor text-white' : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'}`}
                     onClick={() => handleClassSelection(cls.id)}
                     aria-label={`শ্রেণি নির্বাচন করুন ${cls.student_class.name}`}
                   >
@@ -833,7 +833,7 @@ const AddFeesName = () => {
                     setSelectedAcademicYear(e.target.value);
                     setErrors((prev) => ({ ...prev, academicYear: null }));
                   }}
-                  className="w-full max-w-xs bg-transparent text-white pl-3 py-2 border outline-none border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="w-full max-w-xs bg-transparent text-[#441a05]pl-3 py-2 border outline-none border-[#9d9087] rounded-lg transition-all duration-300"
                   aria-describedby={errors.academicYear ? 'academicYear-error' : undefined}
                 >
                   <option value="" disabled>শিক্ষাবর্ষ নির্বাচন করুন</option>
@@ -886,7 +886,7 @@ const AddFeesName = () => {
                                     >
                                       {selectedFeePackages.includes(pkg.id) && (
                                         <svg
-                                          className="w-4 h-4 text-white animate-scaleIn"
+                                          className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                           fill="none"
                                           stroke="currentColor"
                                           viewBox="0 0 24 24"
@@ -934,7 +934,7 @@ const AddFeesName = () => {
                                   >
                                     {selectedFeeSubheads.includes(sub.id) && (
                                       <svg
-                                        className="w-4 h-4 text-white animate-scaleIn"
+                                        className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -970,10 +970,10 @@ const AddFeesName = () => {
               <div className="mb-6">
                 <button
                   onClick={addConfiguration}
-                  className={`flex items-center w-full max-w-xs px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
+                  className={`flex items-center w-full max-w-xs px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
                     !selectedClass || !selectedAcademicYear || selectedFeePackages.length === 0 || selectedFeeSubheads.length === 0
                       ? 'cursor-not-allowed opacity-70'
-                      : 'hover:text-white btn-glow'
+                      : 'hover:text-[#441a05]btn-glow'
                   }`}
                   disabled={!selectedClass || !selectedAcademicYear || selectedFeePackages.length === 0 || selectedFeeSubheads.length === 0}
                 >
@@ -986,7 +986,7 @@ const AddFeesName = () => {
             {/* Configurations Table */}
             {(hasAddPermission || hasChangePermission) && configurations.length > 0 && (
               <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-                <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">নির্বাচিত কনফিগারেশন</h3>
+                <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">নির্বাচিত কনফিগারেশন</h3>
                 <table className="w-full border-collapse">
                   <thead className="bg-white/10">
                     <tr>
@@ -1020,7 +1020,7 @@ const AddFeesName = () => {
                             type="date"
                             value={config.startDate}
                             onChange={(e) => updateConfigDate(index, 'startDate', e.target.value)}
-                            className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                            className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                           />
                         </td>
                         <td className="border border-white/20 p-3 text-sm text-white">
@@ -1028,7 +1028,7 @@ const AddFeesName = () => {
                             type="date"
                             value={config.endDate}
                             onChange={(e) => updateConfigDate(index, 'endDate', e.target.value)}
-                            className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                            className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                           />
                         </td>
                       </tr>
@@ -1043,7 +1043,7 @@ const AddFeesName = () => {
               <div className="mb-6">
                 <button
                   onClick={handleOpenModal}
-                  className={`flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isSubmitting ? 'cursor-not-allowed opacity-70' : 'hover:text-white btn-glow'}`}
+                  className={`flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${isSubmitting ? 'cursor-not-allowed opacity-70' : 'hover:text-[#441a05]btn-glow'}`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -1071,7 +1071,7 @@ const AddFeesName = () => {
             </h3>
             <button
               onClick={() => handleFilterChange('showFilters', !filters.showFilters)}
-              className="flex items-center px-3 py-2 bg-pmColor text-white rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
+              className="flex items-center px-3 py-2 bg-pmColor text-[#441a05]rounded-lg hover:bg-pmColor/80 transition-colors duration-300"
             >
               <FaFilter className="mr-2" />
               ফিল্টার
@@ -1087,7 +1087,7 @@ const AddFeesName = () => {
                   <select
                     value={filters.classId}
                     onChange={(e) => handleFilterChange('classId', e.target.value)}
-                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                    className="w-full bg-transparent text-[#441a05]text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
                   >
                     <option value="all">সকল শ্রেণি</option>
                     {classes?.map((cls) => (
@@ -1103,7 +1103,7 @@ const AddFeesName = () => {
                   <select
                     value={filters.subheadId}
                     onChange={(e) => handleFilterChange('subheadId', e.target.value)}
-                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                    className="w-full bg-transparent text-[#441a05]text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
                   >
                     <option value="all">সকল সাবহেড</option>
                     {feeSubheads?.map((subhead) => (
@@ -1121,7 +1121,7 @@ const AddFeesName = () => {
                     placeholder="শুরুর তারিখ"
                     value={filters.startDate}
                     onChange={(e) => handleFilterChange('startDate', e.target.value)}
-                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                    className="w-full bg-transparent text-[#441a05]text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
                   />
                 </div>
 
@@ -1132,7 +1132,7 @@ const AddFeesName = () => {
                     placeholder="শেষের তারিখ"
                     value={filters.endDate}
                     onChange={(e) => handleFilterChange('endDate', e.target.value)}
-                    className="w-full bg-transparent text-white text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
+                    className="w-full bg-transparent text-[#441a05]text-sm pl-2 py-2 border border-[#9d9087] rounded-lg"
                   />
                 </div>
               </div>
@@ -1140,7 +1140,7 @@ const AddFeesName = () => {
               <div className="mt-3 flex justify-end">
                 <button
                   onClick={clearFilters}
-                  className="flex items-center px-3 py-1 bg-gray-500/20 text-white text-sm rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="flex items-center px-3 py-1 bg-gray-500/20 text-[#441a05]text-sm rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 >
                   <FaTimes className="mr-1 text-xs" />
                   পরিষ্কার

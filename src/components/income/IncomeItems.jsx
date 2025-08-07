@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   schoolName: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#441a05',
   },
   headerText: {
     fontSize: 10,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 6,
     marginBottom: 10,
-    color: '#fff',
+    color: '#441a05',
     textDecoration: 'underline',
   },
   metaContainer: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: '#441a05',
     marginVertical: 6,
   },
   table: {
@@ -77,23 +77,23 @@ const styles = StyleSheet.create({
     width: 'auto',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#441a05',
   },
   tableRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: '#441a05',
   },
   tableHeader: {
-    backgroundColor: '#fff',
-    color: '#fff',
+    backgroundColor: '#441a05',
+    color: '#441a05',
     fontWeight: 'bold',
     fontSize: 10,
     paddingVertical: 6,
     paddingHorizontal: 4,
     textAlign: 'center',
     borderRightWidth: 1,
-    borderRightColor: '#fff',
+    borderRightColor: '#441a05',
   },
   tableCell: {
     paddingVertical: 5,
@@ -559,7 +559,7 @@ const IncomeItems = () => {
     return (
       <div className="py-8 w-full relative">
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">আয় আইটেম তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">আয় আইটেম তালিকা</h3>
           {isItemsLoading ? (
             <p className="p-4 text-white/70">লোড হচ্ছে...</p>
           ) : itemsError ? (
@@ -640,7 +640,7 @@ const IncomeItems = () => {
               background-size: 1.5em;
             }
             .report-button {
-              background-color: #fff;
+              background-color: #441a05;
               color: white;
               padding: 8px 16px;
               border-radius: 8px;
@@ -655,17 +655,17 @@ const IncomeItems = () => {
         {/* Confirmation Modal */}
         {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 আয় আইটেম মুছে ফেলা নিশ্চিত করুন
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 আপনি কি নিশ্চিত যে এই আয় আইটেমটি মুছে ফেলতে চান?
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   aria-label="বাতিল"
                 >
                   বাতিল
@@ -673,7 +673,7 @@ const IncomeItems = () => {
                 <button
                   onClick={confirmDelete}
                   disabled={isDeleting}
-                  className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
+                  className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
                     isDeleting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'
                   }`}
                   aria-label="নিশ্চিত করুন"
@@ -697,7 +697,7 @@ const IncomeItems = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6">
               <IoAddCircle className="text-4xl text-white" />
-              <h3 className="text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                 নতুন আয় আইটেম যোগ করুন
               </h3>
             </div>
@@ -710,7 +710,7 @@ const IncomeItems = () => {
                   name="incometype_id"
                   value={formData.incometype_id}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isHeadsLoading}
                   required
                   aria-label="আয়ের ধরণ নির্বাচন করুন"
@@ -737,7 +737,7 @@ const IncomeItems = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="নাম লিখুন"
                   disabled={isCreating || isUpdating}
                   required
@@ -755,7 +755,7 @@ const IncomeItems = () => {
                   name="fund_id"
                   value={formData.fund_id}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isFundLoading}
                   required
                   aria-label="তহবিল নির্বাচন করুন"
@@ -781,7 +781,7 @@ const IncomeItems = () => {
                   name="transaction_book_id"
                   value={formData.transaction_book_id}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isBooksLoading}
                   aria-label="লেনদেন বই নির্বাচন করুন"
                   aria-describedby={errors.transaction_book_id ? "transaction_book_id-error" : undefined}
@@ -807,7 +807,7 @@ const IncomeItems = () => {
                   name="transaction_number"
                   value={formData.transaction_number}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="লেনদেন নম্বর লিখুন"
                   disabled={isCreating || isUpdating}
                   aria-label="লেনদেন নম্বর"
@@ -825,7 +825,7 @@ const IncomeItems = () => {
                   name="invoice_number"
                   value={formData.invoice_number}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="ইনভয়েস নম্বর লিখুন (ঐচ্ছিক)"
                   disabled={isCreating || isUpdating}
                   aria-label="ইনভয়েস নম্বর"
@@ -843,7 +843,7 @@ const IncomeItems = () => {
                   name="income_date"
                   value={formData.income_date}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating}
                   required
                   aria-label="আয়ের তারিখ"
@@ -861,7 +861,7 @@ const IncomeItems = () => {
                   name="amount"
                   value={formData.amount}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="পরিমাণ লিখুন"
                   disabled={isCreating || isUpdating}
                   required
@@ -880,7 +880,7 @@ const IncomeItems = () => {
                   name="academic_year"
                   value={formData.academic_year}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isYearsLoading}
                   required
                   aria-label="শিক্ষাবর্ষ নির্বাচন করুন"
@@ -906,7 +906,7 @@ const IncomeItems = () => {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="বিবরণ লিখুন (ঐচ্ছিক)"
                   rows="4"
                   aria-label="বিবরণ"
@@ -922,8 +922,8 @@ const IncomeItems = () => {
                 <button
                   type="submit"
                   disabled={isCreating || isUpdating}
-                  className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                    isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                  className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                    isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                   }`}
                   aria-label="আয় আইটেম তৈরি করুন"
                 >
@@ -961,7 +961,7 @@ const IncomeItems = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6">
               <FaEdit className="text-3xl text-white" />
-              <h3 className="text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
                 আয় আইটেম সম্পাদনা করুন
               </h3>
             </div>
@@ -974,7 +974,7 @@ const IncomeItems = () => {
                   name="incometype_id"
                   value={formData.incometype_id}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isHeadsLoading}
                   required
                   aria-label="আয়ের ধরণ নির্বাচন করুন"
@@ -1001,7 +1001,7 @@ const IncomeItems = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="নাম লিখুন"
                   disabled={isCreating || isUpdating}
                   required
@@ -1019,7 +1019,7 @@ const IncomeItems = () => {
                   name="fund_id"
                   value={formData.fund_id}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isFundLoading}
                   required
                   aria-label="তহবিল নির্বাচন করুন"
@@ -1045,7 +1045,7 @@ const IncomeItems = () => {
                   name="transaction_book_id"
                   value={formData.transaction_book_id}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isBooksLoading}
                   aria-label="লেনদেন বই নির্বাচন করুন"
                   aria-describedby={errors.transaction_book_id ? "transaction_book_id-error" : undefined}
@@ -1071,7 +1071,7 @@ const IncomeItems = () => {
                   name="transaction_number"
                   value={formData.transaction_number}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="লেনদেন নম্বর লিখুন"
                   disabled={isCreating || isUpdating}
                   aria-label="লেনদেন নম্বর"
@@ -1089,7 +1089,7 @@ const IncomeItems = () => {
                   name="invoice_number"
                   value={formData.invoice_number}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="ইনভয়েস নম্বর লিখুন (ঐচ্ছিক)"
                   disabled={isCreating || isUpdating}
                   aria-label="ইনভয়েস নম্বর"
@@ -1107,7 +1107,7 @@ const IncomeItems = () => {
                   name="income_date"
                   value={formData.income_date}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating}
                   required
                   aria-label="আয়ের তারিখ"
@@ -1125,7 +1125,7 @@ const IncomeItems = () => {
                   name="amount"
                   value={formData.amount}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="পরিমাণ লিখুন"
                   disabled={isCreating || isUpdating}
                   required
@@ -1144,7 +1144,7 @@ const IncomeItems = () => {
                   name="academic_year"
                   value={formData.academic_year}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                   disabled={isCreating || isUpdating || isYearsLoading}
                   required
                   aria-label="শিক্ষাবর্ষ নির্বাচন করুন"
@@ -1170,7 +1170,7 @@ const IncomeItems = () => {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   placeholder="বিবরণ লিখুন (ঐচ্ছিক)"
                   rows="4"
                   aria-label="বিবরণ"
@@ -1186,8 +1186,8 @@ const IncomeItems = () => {
                 <button
                   type="submit"
                   disabled={isCreating || isUpdating}
-                  className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                    isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                  className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                    isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                   }`}
                   aria-label="আয় আইটেম আপডেট করুন"
                 >
@@ -1222,7 +1222,7 @@ const IncomeItems = () => {
                     });
                     setErrors({});
                   }}
-                  className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-white hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
+                  className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
                   aria-label="বাতিল"
                 >
                   বাতিল

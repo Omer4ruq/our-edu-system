@@ -226,20 +226,20 @@ const ServiceFeesModals = ({
       {/* Create Confirmation Modal */}
       {hasAddPermission && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">সার্ভিস ফি কনফিগারেশন জমা নিশ্চিত করুন</h3>
-            <p className="text-white mb-6">আপনি কি নিশ্চিত যে নির্বাচিত সার্ভিস ফি কনফিগারেশনগুলি জমা দিতে চান?</p>
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">সার্ভিস ফি কনফিগারেশন জমা নিশ্চিত করুন</h3>
+            <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে নির্বাচিত সার্ভিস ফি কনফিগারেশনগুলি জমা দিতে চান?</p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -258,41 +258,41 @@ const ServiceFeesModals = ({
       {/* Update Modal */}
       {hasChangePermission && isUpdateModalOpen && selectedFee && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">সার্ভিস ফি কনফিগারেশন আপডেট করুন</h3>
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">সার্ভিস ফি কনফিগারেশন আপডেট করুন</h3>
             <div className="space-y-4">
               <div>
-                <label className="text-white font-medium">ফি টাইটেল</label>
+                <label className="text-[#441a05]font-medium">ফি টাইটেল</label>
                 <input
                   type="text"
                   value={updateForm.fees_title}
                   onChange={(e) => handleUpdateFormChange('fees_title', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 />
                 {errors.fees_title && <p className="text-red-400 text-sm mt-1">{errors.fees_title}</p>}
               </div>
               <div>
-                <label className="text-white font-medium">শুরুর তারিখ</label>
+                <label className="text-[#441a05]font-medium">শুরুর তারিখ</label>
                 <input
                   type="date"
                   value={updateForm.startdate}
                   onChange={(e) => handleUpdateFormChange('startdate', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 />
                 {errors.startdate && <p className="text-red-400 text-sm mt-1">{errors.startdate}</p>}
               </div>
               <div>
-                <label className="text-white font-medium">শেষের তারিখ</label>
+                <label className="text-[#441a05]font-medium">শেষের তারিখ</label>
                 <input
                   type="date"
                   value={updateForm.enddate}
                   onChange={(e) => handleUpdateFormChange('enddate', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 />
                 {errors.enddate && <p className="text-red-400 text-sm mt-1">{errors.enddate}</p>}
               </div>
               <div>
-                <label className="text-white font-medium mb-2 block">সার্ভিস ধরন</label>
+                <label className="text-[#441a05]font-medium mb-2 block">সার্ভিস ধরন</label>
                 <div className="flex space-x-2">
                   {serviceTypes.map((service) => {
                     const IconComponent = getIcon(service.key);
@@ -314,7 +314,7 @@ const ServiceFeesModals = ({
                         className={`flex items-center px-3 py-2 rounded-lg text-sm transition-all duration-300 ${
                           isSelected
                             ? `${service.color} text-white`
-                            : 'bg-gray-500/20 text-white hover:bg-gray-500/30'
+                            : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'
                         }`}
                       >
                         <IconComponent className="w-4 h-4 mr-1" />
@@ -325,11 +325,11 @@ const ServiceFeesModals = ({
                 </div>
               </div>
               <div>
-                <label className="text-white font-medium">স্ট্যাটাস</label>
+                <label className="text-[#441a05]font-medium">স্ট্যাটাস</label>
                 <select
                   value={updateForm.status}
                   onChange={(e) => handleUpdateFormChange('status', e.target.value)}
-                  className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                 >
                   <option value="ACTIVE">সক্রিয়</option>
                   <option value="INACTIVE">নিষ্ক্রিয়</option>
@@ -339,14 +339,14 @@ const ServiceFeesModals = ({
             <div className="flex justify-end space-x-4 mt-6">
               <button
                 onClick={() => setIsUpdateModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={handleUpdateSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:text-white'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">
@@ -365,20 +365,20 @@ const ServiceFeesModals = ({
       {/* Delete Confirmation Modal */}
       {hasDeletePermission && isDeleteModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">সার্ভিস ফি কনফিগারেশন মুছে ফেলুন</h3>
-            <p className="text-white mb-6">আপনি কি নিশ্চিত যে সার্ভিস ফি কনফিগারেশন "{selectedFee?.fees_title}" মুছে ফেলতে চান?</p>
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">সার্ভিস ফি কনফিগারেশন মুছে ফেলুন</h3>
+            <p className="text-[#441a05]mb-6">আপনি কি নিশ্চিত যে সার্ভিস ফি কনফিগারেশন "{selectedFee?.fees_title}" মুছে ফেলতে চান?</p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsDeleteModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
               >
                 বাতিল
               </button>
               <button
                 onClick={handleDeleteSubmit}
                 disabled={isSubmitting}
-                className={`px-4 py-2 bg-red-500 text-white rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:bg-red-600'}`}
+                className={`px-4 py-2 bg-red-500 text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isSubmitting ? 'cursor-not-allowed opacity-60' : 'hover:bg-red-600'}`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center space-x-2">

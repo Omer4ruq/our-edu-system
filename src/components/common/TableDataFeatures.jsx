@@ -31,21 +31,21 @@ export default function TableDataFeatures({data, isPagination, link, printProps,
       <div className="flex items-end gap-2">
          <button
          onClick={handlePrint}
-         className="flex items-center gap-1 md:gap-2 rounded px-4 py-2 bg-blue text-white shadow-md hover:-translate-y-[2px] duration-200"
+         className="flex items-center gap-1 md:gap-2 rounded px-4 py-2 bg-blue text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
          >
             <MdLocalPrintshop className="text-xl" /> Print
          </button>
          
          <button
          onClick={handlePDF}
-         className="flex items-center gap-1 md:gap-2 rounded px-4 py-2 bg-green text-white shadow-md hover:-translate-y-[2px] duration-200"
+         className="flex items-center gap-1 md:gap-2 rounded px-4 py-2 bg-green text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
          >
             <FaRegFilePdf className="text-lg" /> PDF
          </button>
          
          <button
          onClick={handleExcel}
-         className="flex items-center gap-1 md:gap-2 rounded px-4 py-2 bg-yellow text-white shadow-md hover:-translate-y-[2px] duration-200"
+         className="flex items-center gap-1 md:gap-2 rounded px-4 py-2 bg-yellow text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200"
          >
             <SiMicrosoftexcel className="text-lg" /> Excel
          </button>

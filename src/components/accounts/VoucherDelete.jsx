@@ -6,7 +6,7 @@ import VoucherSearchResult from "./voucher-delete/VoucherSearchResult";
 const VoucherDelete = () => {
   const { t } = useTranslation();
   return (
-    <div className="bg-white rounded-md px-4 py-2 my-2 sm:my-4">
+    <div className="bg-[#441a05]rounded-md px-4 py-2 my-2 sm:my-4">
       <VoucherDeleteSearch />
 
       <VoucherSearchResult/>
@@ -20,7 +20,7 @@ const VoucherDelete = () => {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="rounded px-6 p-3 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md  hover:-translate-y-[2px] duration-200"
+          className="rounded px-6 p-3 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
         >
           {t("module.fees.save")}
         </button>

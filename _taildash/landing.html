@@ -103,7 +103,7 @@ License: You must have a valid license purchased only from official store (the a
           <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
           
           <!-- Mobile navbar -->
-          <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-64 fixed top-0 py-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-400 h-full overflow-auto z-40" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
+          <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-64 fixed top-0 py-4 bg-[#441a05]dark:bg-gray-900 text-gray-700 dark:text-gray-400 h-full overflow-auto z-40" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
             <div class="mb-auto">
               <!--logo-->
               <div class="mh-18 text-center px-12 mb-8">
@@ -217,28 +217,28 @@ License: You must have a valid license purchased only from official store (the a
           <!-- menu -->
           <ul class="flex flex-col lg:mx-auto mt-2 lg:flex-row lg:mt-0 text-gray-200">
             <li class="relative">
-              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="landing.html#">
+              <a class="block py-3 lg:py-7 px-6 hover:text-[#441a05]focus:text-white" href="landing.html#">
                 Home
               </a>
             </li>
             <li class="relative">
-              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="landing.html#">
+              <a class="block py-3 lg:py-7 px-6 hover:text-[#441a05]focus:text-white" href="landing.html#">
                 Features
               </a>
             </li>
             <li class="relative">
-              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="landing.html#">
+              <a class="block py-3 lg:py-7 px-6 hover:text-[#441a05]focus:text-white" href="landing.html#">
                 Pricing
               </a>
             </li>
             <li class="relative">
-              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="landing.html#">
+              <a class="block py-3 lg:py-7 px-6 hover:text-[#441a05]focus:text-white" href="landing.html#">
                 Faq
               </a>
             </li>
             <!-- dropdown -->
             <li class="relative" x-data="{ open: false }" @keydown.escape.stop="open = false" @mouseleave="open = false">
-              <a id="dropdown-01" class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="javascript:;" @mouseenter="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-white': open }">
+              <a id="dropdown-01" class="block py-3 lg:py-7 px-6 hover:text-[#441a05]focus:text-white" href="javascript:;" @mouseenter="open = !open" aria-haspopup="true" x-bind:aria-expanded="open" :class="{ 'text-white': open }">
                 Docs
                 <!-- caret -->
                 <span class="inline-block ltr:ml-2 rtl:mr-2">
@@ -246,7 +246,7 @@ License: You must have a valid license purchased only from official store (the a
                 </span>
               </a>
               <!-- dropdown menu -->
-              <ul class="block absolute left-1/2 right-auto border-t-2 transform -translate-x-1/2 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white text-gray-700 dark:text-gray-200 dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width: 12rem"  x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
+              <ul class="block absolute left-1/2 right-auto border-t-2 transform -translate-x-1/2 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-[#441a05]text-gray-700 dark:text-gray-200 dark:bg-gray-800 border dark:border-gray-700 shadow-md" style="min-width: 12rem"  x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
                 <li class="relative">
                   <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500" href="docs/introduction.html">Documentation</a>
                 </li>
@@ -259,7 +259,7 @@ License: You must have a valid license purchased only from official store (the a
               </ul>
             </li>
             <li class="relative">
-              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="landing.html#">
+              <a class="block py-3 lg:py-7 px-6 hover:text-[#441a05]focus:text-white" href="landing.html#">
                 Contact
               </a>
             </li>
@@ -287,7 +287,7 @@ License: You must have a valid license purchased only from official store (the a
           <div class="flex-shrink max-w-full px-4 w-full md:w-9/12 lg:w-1/2 self-center lg:ltr:pr-12 lg:rtl:pl-12">
             <div class="text-center lg:ltr:text-left lg:rtl:text-right mt-6 lg:mt-0">
               <div class="mb-8">
-                <h1 class="text-white text-4xl leading-normal mb-3 font-bold">Taildash is Tailwind Css dashboard template</h1>
+                <h1 class="text-[#441a05]text-4xl leading-normal mb-3 font-bold">Taildash is Tailwind Css dashboard template</h1>
                 <p class="text-gray-400 leading-relaxed font-light text-xl mx-auto pb-2">Tailwind dashboard come with popular tools like npm, gulp and browsersync. Very simple and easy to use.</p>
               </div>
               <a class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-700 bg-gray-300 border border-gray-300  hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 mr-4" href="landing.html#features">
@@ -323,7 +323,7 @@ License: You must have a valid license purchased only from official store (the a
         <div class="flex flex-wrap flex-row -mx-4 text-center">
           <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6">
             <!-- service block -->
-            <div class="p-6 mb-12 shadow-lg rounded-lg bg-white dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6 mb-12 shadow-lg rounded-lg bg-[#441a05]dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
               <div class="inline-block text-indigo-500 mb-4">
                 <!-- icon -->
                 <svg viewBox="0 0 48 31" class="h-8"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.145-2.551 3.382-5.528 4.65-8.93 3.804-1.942-.482-3.33-1.882-4.865-3.431C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.93-3.805 1.942.482 3.33 1.882 4.865 3.432 2.502 2.524 5.397 5.445 11.722 5.445 6.804 0 11.057-3.381 12.758-10.145-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.483-3.329-1.883-4.864-3.432-2.502-2.524-5.398-5.446-11.722-5.446z" fill="currentColor"></path></svg>
@@ -335,7 +335,7 @@ License: You must have a valid license purchased only from official store (the a
 
           <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6">
             <!-- service block -->
-            <div class="p-6 mb-12 shadow-lg rounded-lg bg-white dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6 mb-12 shadow-lg rounded-lg bg-[#441a05]dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
               <div class="inline-block text-indigo-500 mb-4">
                 <!-- icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8 bi bi-tablet" viewBox="0 0 16 16">
@@ -350,7 +350,7 @@ License: You must have a valid license purchased only from official store (the a
 
           <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6">
             <!-- service block -->
-            <div class="p-6 mb-12 shadow-lg rounded-lg bg-white dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6 mb-12 shadow-lg rounded-lg bg-[#441a05]dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
               <div class="inline-block text-indigo-500 mb-4">
                 <!-- icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8" viewBox="0 0 256 512">
@@ -363,7 +363,7 @@ License: You must have a valid license purchased only from official store (the a
 
           <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6">
             <!-- service block -->
-            <div class="p-6 mb-12 shadow-lg rounded-lg bg-white dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6 mb-12 shadow-lg rounded-lg bg-[#441a05]dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
               <div class="inline-block text-indigo-500 mb-4">
                 <!-- icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8 bi bi-braces" viewBox="0 0 16 16">
@@ -377,7 +377,7 @@ License: You must have a valid license purchased only from official store (the a
 
           <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6">
             <!-- service block -->
-            <div class="p-6 mb-12 shadow-lg rounded-lg bg-white dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6 mb-12 shadow-lg rounded-lg bg-[#441a05]dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
               <div class="inline-block text-indigo-500 mb-4">
                 <!-- icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8 bi bi-circle-square" viewBox="0 0 16 16">
@@ -392,7 +392,7 @@ License: You must have a valid license purchased only from official store (the a
 
           <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6">
             <!-- service block -->
-            <div class="p-6 mb-12 shadow-lg rounded-lg bg-white dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+            <div class="p-6 mb-12 shadow-lg rounded-lg bg-[#441a05]dark:bg-gray-800 transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
               <div class="inline-block text-indigo-500 mb-4">
                 <!-- icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 512 512"><line x1="48" y1="112" x2="336" y2="112" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><line x1="192" y1="64" x2="192" y2="112" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><polyline points="272 448 368 224 464 448" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline><line x1="301.5" y1="384" x2="434.5" y2="384" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><path d="M281.3,112S257,206,199,277,80,384,80,384" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path><path d="M256,336s-35-27-72-75-56-85-56-85" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path></svg>
@@ -530,7 +530,7 @@ License: You must have a valid license purchased only from official store (the a
             <div class="flex-shrink max-w-full w-full sm:w-11/12 md:w-1/2 lg:w-1/3 px-4">
               <div class="px-6 md:px-2 lg:px-4">
                 <!-- pricing table -->
-                <div class="relative py-16 px-12 mb-12 lg:-mt-6 bg-white dark:bg-gray-900 dark:bg-opacity-40 transform transition duration-300 ease-in-out hover:-translate-y-1 shadow-lg text-center rounded-lg">
+                <div class="relative py-16 px-12 mb-12 lg:-mt-6 bg-[#441a05]dark:bg-gray-900 dark:bg-opacity-40 transform transition duration-300 ease-in-out hover:-translate-y-1 shadow-lg text-center rounded-lg">
                   <!-- ribbon -->
                   <div class="absolute top-0 ltr:right-0 ltr:text-right rtl:left-0 rtl:text-left w-36 h-36 text-sm">
                     <span class="absolute top-4 ltr:right-0 rtl:left-0 px-4 py-2 block align-center shadow bg-indigo-500 text-gray-100">Popular</span>
@@ -552,7 +552,7 @@ License: You must have a valid license purchased only from official store (the a
                   </ul>
                   <!-- Pricing Button -->
                   <div class="py-2">
-                   <a href="landing.html#" rel="noopener" class="py-2 px-4 -ml-1 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Buy Now</a>
+                   <a href="landing.html#" rel="noopener" class="py-2 px-4 -ml-1 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Buy Now</a>
                   </div>
                 </div><!-- end pricing table -->
               </div>
@@ -578,7 +578,7 @@ License: You must have a valid license purchased only from official store (the a
                   </ul>
                   <!-- Pricing Button -->
                   <div class="py-2">
-                    <a href="landing.html#" rel="noopener" class="py-2 px-4 -ml-1 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Buy Now</a>
+                    <a href="landing.html#" rel="noopener" class="py-2 px-4 -ml-1 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-[#441a05]hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Buy Now</a>
                   </div>
                 </div><!-- end pricing table -->
               </div>
@@ -706,7 +706,7 @@ License: You must have a valid license purchased only from official store (the a
               <form id="subscribe" class="relative" action="landing.html#">
                 <!-- input group -->
                 <div class="flex flex-wrap items-stretch w-full relative">
-                  <input type="email" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 w-px flex-1 relative py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 relative" name="email" required="" placeholder="Enter you email address" aria-label="subcribe newsletter">
+                  <input type="email" class="flex-shrink flex-grow flex-shrink max-w-full leading-5 w-px flex-1 relative py-2 px-4 ltr:rounded-l rtl:rounded-r text-gray-800 bg-[#441a05]border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 relative" name="email" required="" placeholder="Enter you email address" aria-label="subcribe newsletter">
                   <div class="flex -mr-px">
                     <button class="flex items-center py-2 px-4 ltr:-ml-1 ltr:rounded-r rtl:-mr-1 rtl:rounded-l leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-gray-300 hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0" type="submit">Subscribe</button>
                   </div>
@@ -788,7 +788,7 @@ License: You must have a valid license purchased only from official store (the a
       <!-- bg open -->
       <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
 
-      <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-white dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
+      <nav id="mobile-nav" class="flex flex-col ltr:right-0 rtl:left-0 w-72 fixed top-0 bg-[#441a05]dark:bg-gray-800 h-full overflow-auto z-40 scrollbars show" x-show="open" @click.away="open=false" x-description="Mobile menu" role="menu" aria-orientation="vertical" aria-labelledby="navbartoggle" x-transition:enter="transform transition-transform duration-300" x-transition:enter-start="ltr:translate-x-full rtl:-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="ltr:translate-x-full rtl:-translate-x-full">
         <div class="p-6 bg-indigo-500 text-gray-100 border-b border-gray-200 dark:border-gray-700">
           <div class="flex flex-row justify-between">
             <h3 class="text-md font-bold">Customizer</h3>
@@ -802,7 +802,7 @@ License: You must have a valid license purchased only from official store (the a
           <p class="text-base text-semibold">Color Scheme</p>
           <div class="flex flex-row">
             <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+              <input type="checkbox" name="lightdark" id="lightdark" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
               <label for="lightdark" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
             </div>
             <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -812,7 +812,7 @@ License: You must have a valid license purchased only from official store (the a
           <p class="text-base text-semibold">Sidebar Color</p>
           <div class="flex flex-row">
             <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+              <input type="checkbox" name="sidecolor" id="sidecolor" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
               <label for="sidecolor" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
             </div>
             <p class="text-sm text-gray-500 self-center">Light and Dark</p>
@@ -822,7 +822,7 @@ License: You must have a valid license purchased only from official store (the a
           <p class="text-base text-semibold">Direction</p>
           <div class="flex flex-row">
             <div class="relative inline-block w-8 py-3 mt-0.5 ltr:mr-3 rtl:ml-3 align-middle select-none transition duration-200 ease-in">
-              <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
+              <input  type="checkbox" name="rtlmode" id="rtlmode" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-[#441a05]dark:bg-gray-900 border-2 dark:border-gray-700 appearance-none cursor-pointer"/>
               <label for="rtlmode" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
             </div>
             <p class="text-sm text-gray-500 self-center">LTR and RTL</p>

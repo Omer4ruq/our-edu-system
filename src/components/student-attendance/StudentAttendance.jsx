@@ -78,7 +78,7 @@ const customStyles = `
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #fff;
+    background: #441a05;
   }
   .table-container {
     max-height: 60vh;
@@ -86,11 +86,11 @@ const customStyles = `
   }
   .tab-active {
     background-color: #DB9E30;
-    color: #fff;
+    color: #441a05;
   }
   .tab-inactive {
     background-color: transparent;
-    color: #fff;
+    color: #441a05;
   }
   .tab-inactive:hover {
     background-color: rgba(219, 158, 48, 0.1);
@@ -522,7 +522,7 @@ const StudentAttendance = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
             <FaCalendarAlt className="text-3xl text-white" />
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               {tabValue === 0
                 ? "ক্লাস অনুযায়ী উপস্থিতি দেখুন"
                 : "তারিখ/মাস অনুযায়ী উপস্থিতি দেখুন"}
@@ -570,7 +570,7 @@ const StudentAttendance = () => {
                   value={classDate}
                   onChange={(e) => setClassDate(e.target.value)}
                   onClick={handleDateClick}
-                  className="mt-1 block w-full bg-transparent text-white pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-white focus:ring-white transition-all duration-300"
+                  className="mt-1 block w-full bg-transparent text-[#441a05]pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]transition-all duration-300"
                   required
                   disabled={isLoading}
                   aria-label="তারিখ নির্বাচন"
@@ -620,7 +620,7 @@ const StudentAttendance = () => {
                       setStartDate("");
                       setEndDate("");
                     }}
-                    className="mt-1 block w-full bg-transparent text-white pl-10 py-2.5 border border-[#9d9087] rounded-lg focus:outline-none focus:border-white focus:ring-white transition-all duration-300"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]pl-10 py-2.5 border border-[#9d9087] rounded-lg focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]transition-all duration-300"
                     disabled={isLoading}
                     aria-label="ফিল্টার প্রকার"
                   >
@@ -645,7 +645,7 @@ const StudentAttendance = () => {
                         setEndDate("");
                       }}
                       onClick={handleDateClick}
-                      className="mt-1 block w-full bg-transparent text-white pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-white focus:ring-white transition-all duration-300"
+                      className="mt-1 block w-full bg-transparent text-[#441a05]pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]transition-all duration-300"
                       disabled={isLoading}
                       aria-label="মাস নির্বাচন"
                     />
@@ -660,7 +660,7 @@ const StudentAttendance = () => {
                           setMonth("");
                         }}
                         onClick={handleDateClick}
-                        className="block w-full bg-transparent text-white pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-white focus:ring-white transition-all duration-300"
+                        className="block w-full bg-transparent text-[#441a05]pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]transition-all duration-300"
                         aria-label="শুরুর তারিখ"
                       />
                       <input
@@ -672,7 +672,7 @@ const StudentAttendance = () => {
                           setMonth("");
                         }}
                         onClick={handleDateClick}
-                        className="block w-full bg-transparent text-white pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-white focus:ring-white transition-all duration-300"
+                        className="block w-full bg-transparent text-[#441a05]pl-10 py-2 border border-[#9d9087] rounded-lg focus:outline-none focus:border-[#441a05]focus:ring-[#441a05]transition-all duration-300"
                         aria-label="শেষের তারিখ"
                       />
                     </div>
@@ -684,7 +684,7 @@ const StudentAttendance = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className={`flex items-center text-nowrap justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn btn-ripple ${isLoading ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"}`}
+                    className={`flex items-center text-nowrap justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn btn-ripple ${isLoading ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"}`}
                     aria-label="উপস্থিতি দেখুন"
                   >
                     {isLoading ? (
@@ -710,7 +710,7 @@ const StudentAttendance = () => {
           <button
             onClick={generatePDFReport}
             disabled={isLoading || !attendanceData?.attendance?.length}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${isLoading || !attendanceData?.attendance?.length ? "bg-gray-400 text-gray-600 cursor-not-allowed" : "bg-pmColor text-white hover:text-white btn-glow"}`}
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${isLoading || !attendanceData?.attendance?.length ? "bg-gray-400 text-gray-600 cursor-not-allowed" : "bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow"}`}
             aria-label="PDF রিপোর্ট ডাউনলোড"
             title="PDF রিপোর্ট ডাউনলোড করুন / Download PDF report"
           >
@@ -730,7 +730,7 @@ const StudentAttendance = () => {
             {/* {selectedStudent && (
               <button
                 onClick={handleBackClick}
-                className="flex items-center px-4 py-2 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 btn-ripple hover:text-white btn-glow"
+                className="flex items-center px-4 py-2 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 btn-ripple hover:text-[#441a05]btn-glow"
                 aria-label="পিছনে ফিরুন"
                 title="পিছনে ফিরুন / Back to main table"
               >
@@ -786,7 +786,7 @@ const StudentAttendance = () => {
                     value={studentSearch}
                     onChange={(e) => setStudentSearch(e.target.value)}
                     placeholder="ছাত্রের নাম বা আইডি লিখুন"
-                    className="mt-1 block w-full bg-transparent text-white placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-white focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
                     disabled={isLoading}
                     aria-label="ছাত্র অনুসন্ধান"
                     title="ছাত্র অনুসন্ধান / Search student"
@@ -806,7 +806,7 @@ const StudentAttendance = () => {
                     value={subjectSearch}
                     onChange={(e) => setSubjectSearch(e.target.value)}
                     placeholder="বিষয়ের নাম লিখুন"
-                    className="mt-1 block w-full bg-transparent text-white placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-white focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
                     disabled={isLoading}
                     aria-label="বিষয় অনুসন্ধান"
                     title="বিষয় অনুসন্ধান / Search subject"
@@ -885,7 +885,7 @@ const StudentAttendance = () => {
                     value={subjectSearch}
                     onChange={(e) => setSubjectSearch(e.target.value)}
                     placeholder="বিষয়ের নাম লিখুন"
-                    className="mt-1 block w-full bg-transparent text-white placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-white focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
                     disabled={isLoading}
                     aria-label="বিষয় অনুসন্ধান"
                     title="বিষয় অনুসন্ধান / Search subject"
@@ -964,7 +964,7 @@ const StudentAttendance = () => {
                     value={studentSearch}
                     onChange={(e) => setStudentSearch(e.target.value)}
                     placeholder="ছাত্রের নাম বা আইডি লিখুন"
-                    className="mt-1 block w-full bg-transparent text-white placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-white focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
                     disabled={isLoading}
                     aria-label="ছাত্র অনুসন্ধান"
                     title="ছাত্র অনুসন্ধান / Search student"
@@ -984,7 +984,7 @@ const StudentAttendance = () => {
                     value={subjectSearch}
                     onChange={(e) => setSubjectSearch(e.target.value)}
                     placeholder="বিষয়ের নাম লিখুন"
-                    className="mt-1 block w-full bg-transparent text-white placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-white focus:ring-white"
+                    className="mt-1 block w-full bg-transparent text-[#441a05]placeholder-white/70 pl-10 pr-3 py-2.5 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 focus:border-[#441a05]focus:ring-white"
                     disabled={isLoading}
                     aria-label="বিষয় অনুসন্ধান"
                     title="বিষয় অনুসন্ধান / Search subject"
@@ -1015,7 +1015,7 @@ const StudentAttendance = () => {
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
                       <td
-                        className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white cursor-pointer hover:underline"
+                        className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#441a05]cursor-pointer hover:underline"
                         onClick={() => handleStudentClick(student)}
                       >
                         {student.name || "N/A"} (ID: ${student.user_id || "N/A"})

@@ -27,7 +27,7 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="bg-[#441a05]p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
 
         {error && (
@@ -74,7 +74,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors ${
+            className={`w-full py-2 px-4 bg-blue-600 text-[#441a05]rounded-md hover:bg-blue-700 transition-colors ${
               isLoading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >

@@ -1,4 +1,7 @@
 // src/constants/themeList.js
+import bg from '../../public/images/bg.png'
+
+
 export const themeList = [
   {
     name: "1",
@@ -23,5 +26,11 @@ export const themeList = [
     bg: "https://super-admin.avidtemplates.com/4.a142bcad.jpg",
     primary: "#E79455", 
     secondary: "#7B5533",
+  },
+  {
+    name: "5",
+    bg: bg,
+    primary: "#DB9E30", 
+    secondary: "#441a05",
   },
 ];

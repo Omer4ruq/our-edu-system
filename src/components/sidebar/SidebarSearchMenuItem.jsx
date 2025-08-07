@@ -45,7 +45,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
 
   return (
     <li
-      className={`leading-10 group/main text-[#ffffff85] hover:text-[#ffffffab] hover:bg-[#00000010] duration-200 relative ${
+      className={`leading-10 group/main text-[#441a05fff85] hover:text-[#441a05fffab] hover:bg-[#00000010] duration-200 relative ${
         isOpen && "bg-[#00000010] text-[#b4a0d2]"
       }`}
     >
@@ -53,7 +53,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
         to={show?.link ? show.link : currentPath.pathname}
         className={({ isActive }) =>
           `flex gap-2 items-center px-6 ${
-            isActive ? "text-white bg-[#00000010] font-semibold" : ""
+            isActive ? "text-[#441a05]bg-[#00000010] font-semibold" : ""
           }`
         }
         onClick={handleMenuClick}
@@ -61,7 +61,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
         <Icons name={show.icon} />
         <h4
           className={` duration-200 flex-1 ${
-            isOpen && "text-[#fff]"
+            isOpen && "text-[#441a05]"
           }`}
         >
           {show.title}
@@ -76,7 +76,7 @@ export default function SidebarSearchMenuItem({ item, searchTerm }) {
       </NavLink>
 
       {isOpen && show?.children && (
-        <ul className="py-2 before:content-[''] before:block before:absolute before:z-1 before:left-[30px] before:top-10 before:bottom-0 before:border-l before:border-solid before:border-[#ffffff35]">
+        <ul className="py-2 before:content-[''] before:block before:absolute before:z-1 before:left-[30px] before:top-10 before:bottom-0 before:border-l before:border-solid before:border-[#441a05fff35]">
           {show.children.map((dropdown) => (
             <DropDownSearch
               key={dropdown.id}

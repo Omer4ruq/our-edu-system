@@ -20,7 +20,7 @@ const selectStyles = {
   }),
   input: (provided) => ({
   ...provided,
-  color: '#ffffff', 
+  color: '#441a05fff', 
   fontSize: '16px',
 }),
   valueContainer: (provided) => ({
@@ -29,7 +29,7 @@ const selectStyles = {
   }),
   singleValue: (provided) => ({
     ...provided,
-    color: '#ffffff',
+    color: '#441a05fff',
     fontSize: '16px',
   }),
   placeholder: (provided) => ({
@@ -56,13 +56,13 @@ const selectStyles = {
       : state.isFocused 
       ? 'rgba(255, 255, 255, 0.1)' 
       : 'transparent',
-    color: '#ffffff',
+    color: '#441a05fff',
     padding: '10px 12px',
     cursor: 'pointer',
     fontSize: '16px',
     '&:hover': {
        background: secondaryColor,
-    color: '#ffffff',
+    color: '#441a05fff',
     },
   }),
   indicatorSeparator: () => ({ display: 'none' }),
@@ -70,7 +70,7 @@ const selectStyles = {
     ...provided,
     color: primaryColor,
     '&:hover': { 
-      color: '#ffffff',
+      color: '#441a05fff',
     },
   }),
 };

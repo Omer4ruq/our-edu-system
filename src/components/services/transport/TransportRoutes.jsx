@@ -232,7 +232,7 @@ const TransportRoutes = () => {
           {hasAddPermission && (
             <button
               onClick={() => setShowCreateForm(true)}
-              className="bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 transition-all duration-300 hover:scale-105"
+              className="bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 transition-all duration-300 hover:scale-105"
             >
               <FaPlus />
               <span>{languageCode === 'bn' ? 'নতুন রুট যোগ করুন' : 'Add New Route'}</span>
@@ -261,7 +261,7 @@ const TransportRoutes = () => {
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'রুটের নাম *' : 'Route Name *'}
               </label>
               <input
@@ -269,13 +269,13 @@ const TransportRoutes = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'রুটের নাম লিখুন (যেমন, রুট এ, সিটি সেন্টার লাইন)' : 'Enter route name (e.g., Route A, City Center Line)'}
                 disabled={isCreating || isUpdating}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'শুরুর স্থান *' : 'Start Point *'}
               </label>
               <input
@@ -283,13 +283,13 @@ const TransportRoutes = () => {
                 name="start_point"
                 value={formData.start_point}
                 onChange={handleInputChange}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'শুরুর স্থান লিখুন' : 'Enter starting location'}
                 disabled={isCreating || isUpdating}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'শেষের স্থান *' : 'End Point *'}
               </label>
               <input
@@ -297,7 +297,7 @@ const TransportRoutes = () => {
                 name="end_point"
                 value={formData.end_point}
                 onChange={handleInputChange}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? 'গন্তব্য স্থান লিখুন' : 'Enter destination location'}
                 disabled={isCreating || isUpdating}
               />
@@ -306,7 +306,7 @@ const TransportRoutes = () => {
               <button
                 type="submit"
                 disabled={isCreating || isUpdating || (!hasAddPermission && !editingRoute) || (!hasChangePermission && editingRoute)}
-                className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                   (isCreating || isUpdating || (!hasAddPermission && !editingRoute) || (!hasChangePermission && editingRoute))
                     ? 'opacity-50 cursor-not-allowed'
                     : 'hover:shadow-lg hover:scale-105'
@@ -327,7 +327,7 @@ const TransportRoutes = () => {
               <button
                 type="button"
                 onClick={handleCancel}
-                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-gray-500 hover:bg-gray-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
               </button>
@@ -347,7 +347,7 @@ const TransportRoutes = () => {
       {/* Routes Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h2 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h2 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'সমস্ত রুট' : 'All Routes'} ({routes.length})</span>
           </h2>
@@ -368,7 +368,7 @@ const TransportRoutes = () => {
               </p>
               <button
                 onClick={refetch}
-                className="mt-2 px-4 py-2 bg-pmColor text-white rounded-xl hover:bg-pmColor/80 transition-all"
+                className="mt-2 px-4 py-2 bg-pmColor text-[#441a05]rounded-xl hover:bg-pmColor/80 transition-all"
               >
                 {languageCode === 'bn' ? 'পুনরায় চেষ্টা করুন' : 'Retry'}
               </button>
@@ -474,7 +474,7 @@ const TransportRoutes = () => {
                         {/* {hasChangePermission && ( */}
                           <button
                             onClick={() => handleEdit(route)}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'রুট সম্পাদনা করুন' : 'Edit route'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -484,7 +484,7 @@ const TransportRoutes = () => {
                           <button
                             onClick={() => handleDelete(route.id)}
                             disabled={isDeleting}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'রুট মুছুন' : 'Delete route'}
                           >
                             <FaTrash className="w-4 h-4" />
@@ -592,7 +592,7 @@ const TransportRoutes = () => {
             {routes.slice(0, 5).map((route) => (
               <div key={route.id} className="flex items-center p-3 bg-white/5 rounded-lg">
                 <div className="flex items-center flex-1">
-                  <span className="text-sm font-medium text-white bg-pmColor/20 px-2 py-1 rounded">
+                  <span className="text-sm font-medium text-[#441a05]bg-pmColor/20 px-2 py-1 rounded">
                     {route.name}
                   </span>
                   <span className="mx-3 text-white/70">🚩</span>

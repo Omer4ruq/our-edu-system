@@ -90,29 +90,29 @@ const TeacherSubjectAssign = () => {
       borderRadius: '8px',
       paddingLeft: '0.75rem',
       padding: '3px',
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
       transition: 'all 0.3s ease',
-      '&:hover': { borderColor: '#fff' },
+      '&:hover': { borderColor: '#441a05' },
       '&:focus': { outline: 'none', boxShadow: 'none' },
     }),
     placeholder: (base) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       opacity: 0.7,
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
     }),
     singleValue: (base) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
     }),
     input: (base) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
     }),
@@ -131,7 +131,7 @@ const TeacherSubjectAssign = () => {
     }),
     option: (base, { isFocused, isSelected }) => ({
       ...base,
-      color: '#fff',
+      color: '#441a05',
       fontFamily: "'Noto Sans Bengali', sans-serif",
       fontSize: '16px',
       backgroundColor: isSelected ? '#DB9E30' : isFocused ? 'rgba(255, 255, 255)' : 'transparent',
@@ -257,7 +257,7 @@ const TeacherSubjectAssign = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
           <FaSpinner className="animate-spin text-2xl text-white" />
-          <span className="text-white font-medium">লোড হচ্ছে...</span>
+          <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
     );
@@ -332,7 +332,7 @@ const TeacherSubjectAssign = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-white" />
-              <h2 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+              <h2 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 শিক্ষকের জন্য বিষয় অ্যাসাইনমেন্ট
               </h2>
             </div>
@@ -340,7 +340,7 @@ const TeacherSubjectAssign = () => {
               {/* Teacher Selection */}
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 <div>
-                  <label className="block text-sm font-medium text-white mb-1">শিক্ষক নির্বাচন করুন</label>
+                  <label className="block text-sm font-medium text-[#441a05]mb-1">শিক্ষক নির্বাচন করুন</label>
                   <Select
                     options={teacherOptions}
                     value={selectedTeacher}
@@ -364,7 +364,7 @@ const TeacherSubjectAssign = () => {
 
                 {/* Academic Year Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-white mb-1">একাডেমিক বছর নির্বাচন করুন</label>
+                  <label className="block text-sm font-medium text-[#441a05]mb-1">একাডেমিক বছর নির্বাচন করুন</label>
                   <Select
                     options={academicYearOptions}
                     value={selectedAcademicYear}
@@ -387,7 +387,7 @@ const TeacherSubjectAssign = () => {
 
               {/* Class Selection */}
               <div>
-                <label className="block text-sm font-medium text-white mb-1">ক্লাস নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">ক্লাস নির্বাচন করুন</label>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2">
                   {classes?.map((classItem, index) => (
                     <div key={classItem.id} className="flex items-center animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -411,7 +411,7 @@ const TeacherSubjectAssign = () => {
                         >
                           {selectedClasses.includes(classItem.id) && (
                             <svg
-                              className="w-4 h-4 text-white animate-scaleIn"
+                              className="w-4 h-4 text-[#441a05]animate-scaleIn"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -438,7 +438,7 @@ const TeacherSubjectAssign = () => {
 
               {/* Subject Selection */}
               <div>
-                <label className="block text-sm font-medium text-white mb-1">বিষয় নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">বিষয় নির্বাচন করুন</label>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2">
                   {classSubjects
                     ?.filter((subject) => subject.is_active)
@@ -464,7 +464,7 @@ const TeacherSubjectAssign = () => {
                           >
                             {selectedSubjects.includes(subject.id) && (
                               <svg
-                                className="w-4 h-4 text-white animate-scaleIn"
+                                className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -493,10 +493,10 @@ const TeacherSubjectAssign = () => {
                 <button
                   type="submit"
                   disabled={isSubmitDisabled}
-                  className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
+                  className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
                     isSubmitDisabled
                       ? 'cursor-not-allowed opacity-50'
-                      : 'hover:text-white hover:shadow-md btn-glow'
+                      : 'hover:text-[#441a05]hover:shadow-md btn-glow'
                   }`}
                   aria-label={submitButtonText}
                   title={`${submitButtonText} / ${assignmentId ? 'Update assignment' : 'Save assignment'}`}
@@ -518,7 +518,7 @@ const TeacherSubjectAssign = () => {
         {/* Assignment Table */}
         {selectedTeacher && teacherAssignments?.length > 0 && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-            <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">বর্তমান অ্যাসাইনমেন্ট</h3>
+            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">বর্তমান অ্যাসাইনমেন্ট</h3>
             {assignmentsLoading ? (
               <p className="text-white/70 p-4 animate-fadeIn">অ্যাসাইনমেন্ট লোড হচ্ছে...</p>
             ) : (
@@ -585,27 +585,27 @@ const TeacherSubjectAssign = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'অ্যাসাইনমেন্ট তৈরি নিশ্চিত করুন'}
                 {modalAction === 'update' && 'অ্যাসাইনমেন্ট আপডেট নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'create' && 'আপনি কি নিশ্চিত যে অ্যাসাইনমেন্ট তৈরি করতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে অ্যাসাইনমেন্ট আপডেট করতে চান?'}
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

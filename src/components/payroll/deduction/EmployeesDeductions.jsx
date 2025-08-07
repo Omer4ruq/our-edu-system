@@ -288,7 +288,7 @@ const EmployeesDeductions = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -301,11 +301,11 @@ const EmployeesDeductions = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -314,7 +314,7 @@ const EmployeesDeductions = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -384,7 +384,7 @@ const EmployeesDeductions = () => {
           <div className="space-y-8">
             {/* Employee Details */}
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
-              <h3 className="text-xl font-semibold text-white mb-4">
+              <h3 className="text-xl font-semibold text-[#441a05]mb-4">
                 {languageCode === 'bn' ? 'কর্মচারী বিবরণ' : 'Employee Details'}
               </h3>
               <div className="flex items-center space-x-4">
@@ -394,7 +394,7 @@ const EmployeesDeductions = () => {
                   </span>
                 </div>
                 <div>
-                  <div className="text-white font-medium">{selectedEmployee.name}</div>
+                  <div className="text-[#441a05]font-medium">{selectedEmployee.name}</div>
                   <div className="text-sm text-white/70">
                     {languageCode === 'bn' ? 'স্টাফ আইডি' : 'Staff ID'}: {selectedEmployee.staff_id}
                   </div>
@@ -429,7 +429,7 @@ const EmployeesDeductions = () => {
             ) : (
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
                 <div className="px-6 py-4 border-b border-white/20">
-                  <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+                  <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
                     <FaList className="text-pmColor" />
                     <span>{languageCode === 'bn' ? 'বর্তমান কর্তন' : 'Current Deductions'} ({selectedEmployeeDeductions.length})</span>
                   </h3>
@@ -482,7 +482,7 @@ const EmployeesDeductions = () => {
                                   type="number"
                                   value={deductionAmounts[deduction.deduction_type_id] || ''}
                                   onChange={(e) => handleAmountChange(deduction.deduction_type_id, e.target.value)}
-                                  className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[deduction.deduction_type_id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                                  className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[deduction.deduction_type_id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
                                     }`}
                                   placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                                   min="0"
@@ -492,19 +492,19 @@ const EmployeesDeductions = () => {
                                   type="date"
                                   value={deductionDates[deduction.deduction_type_id] || ''}
                                   onChange={(e) => handleDateChange(deduction.deduction_type_id, e.target.value)}
-                                  className={`w-40 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[`date_${deduction.deduction_type_id}`] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                                  className={`w-40 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[`date_${deduction.deduction_type_id}`] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
                                     }`}
                                 />
                                 <button
                                   onClick={() => handleUpdateDeduction(deduction.id, deduction.deduction_type_id)}
                                   disabled={isSubmitting}
-                                  className="bg-pmColor hover:bg-pmColor/80 text-white px-3 py-1 rounded-xl text-sm transition-all duration-300"
+                                  className="bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-3 py-1 rounded-xl text-sm transition-all duration-300"
                                 >
                                   {isUpdating ? (languageCode === 'bn' ? 'আপডেট হচ্ছে...' : 'Updating...') : (languageCode === 'bn' ? 'আপডেট' : 'Update')}
                                 </button>
                                 <button
                                   onClick={handleCancelEdit}
-                                  className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-xl text-sm transition-all duration-300"
+                                  className="bg-gray-500 hover:bg-gray-600 text-[#441a05]px-3 py-1 rounded-xl text-sm transition-all duration-300"
                                 >
                                   {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
                                 </button>
@@ -528,7 +528,7 @@ const EmployeesDeductions = () => {
                                 <button
                                   onClick={() => handleEditDeduction(deduction)}
                                   disabled={isDeleting}
-                                  className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                                  className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                                   title={languageCode === 'bn' ? 'কর্তন সম্পাদনা করুন' : 'Edit deduction'}
                                 >
                                   <FaEdit className="w-4 h-4" />
@@ -536,7 +536,7 @@ const EmployeesDeductions = () => {
                                 <button
                                   onClick={() => handleDeleteDeduction(deduction.id)}
                                   disabled={isDeleting}
-                                  className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                                  className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                                   title={languageCode === 'bn' ? 'কর্তন মুছুন' : 'Delete deduction'}
                                 >
                                   <FaTrash className="w-4 h-4" />
@@ -592,7 +592,7 @@ const EmployeesDeductions = () => {
                           type="number"
                           value={deductionAmounts[deductionType.id] || ''}
                           onChange={(e) => handleAmountChange(deductionType.id, e.target.value)}
-                          className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[deductionType.id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                          className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[deductionType.id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
                             }`}
                           placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                           min="0"
@@ -602,13 +602,13 @@ const EmployeesDeductions = () => {
                           type="date"
                           value={deductionDates[deductionType.id] || ''}
                           onChange={(e) => handleDateChange(deductionType.id, e.target.value)}
-                          className={`w-40 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[`date_${deductionType.id}`] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                          className={`w-40 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[`date_${deductionType.id}`] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
                             }`}
                         />
                         <button
                           onClick={() => handleAddDeduction(deductionType.id)}
                           disabled={isCreating || !deductionAmounts[deductionType.id]}
-                          className={`bg-pmColor hover:bg-pmColor/80 text-white px-3 py-2 rounded-xl text-sm transition-all duration-300 ${isCreating || !deductionAmounts[deductionType.id] ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+                          className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-3 py-2 rounded-xl text-sm transition-all duration-300 ${isCreating || !deductionAmounts[deductionType.id] ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
                             }`}
                         >
                           {isCreating ? (languageCode === 'bn' ? 'যোগ করা হচ্ছে...' : 'Adding...') : (languageCode === 'bn' ? 'যোগ করুন' : 'Add')}

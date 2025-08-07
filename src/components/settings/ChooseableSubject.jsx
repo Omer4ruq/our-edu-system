@@ -4,7 +4,7 @@ import SelectSubject from "./chooseable-subject/SelectSubject";
 
 export default function ChooseableSubject() {
   return (
-    <div className="bg-white px-4 py-6 rounded mt-4">
+    <div className="bg-[#441a05]px-4 py-6 rounded mt-4">
       {/* select a particular class */}
       <SelectClass />
 
@@ -15,7 +15,7 @@ export default function ChooseableSubject() {
       <SelectSubject />
 
       {/* save button */}
-      {/* <button className="bg-#DB9E30 px-6 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200">
+      {/* <button className="bg-#DB9E30 px-6 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200">
         Save
       </button> */}
     </div>

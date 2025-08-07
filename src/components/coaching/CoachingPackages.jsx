@@ -338,7 +338,7 @@ const CoachingPackages = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -351,11 +351,11 @@ const CoachingPackages = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -364,7 +364,7 @@ const CoachingPackages = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -409,7 +409,7 @@ const CoachingPackages = () => {
 
         <form onSubmit={handleCreatePackage} className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <label className="block text-sm font-medium text-white mb-1">
+            <label className="block text-sm font-medium text-[#441a05]mb-1">
               {languageCode === 'bn' ? 'প্যাকেজের নাম' : 'Package Name'}
             </label>
             <Select
@@ -430,14 +430,14 @@ const CoachingPackages = () => {
             )}
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">
+            <label className="block text-sm font-medium text-[#441a05]mb-1">
               {languageCode === 'bn' ? 'মূল্য' : 'Amount'}
             </label>
             <input
               type="number"
               value={editingPackage ? editData.amount : formData.amount}
               onChange={(e) => (editingPackage ? handleEditInputChange('amount', e.target.value) : handleInputChange('amount', e.target.value))}
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
               placeholder={languageCode === 'bn' ? 'মূল্য লিখুন' : 'Enter amount'}
               disabled={isCreating || isUpdating || isPatching}
               min="0"
@@ -445,7 +445,7 @@ const CoachingPackages = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">
+            <label className="block text-sm font-medium text-[#441a05]mb-1">
               {languageCode === 'bn' ? 'শিক্ষাবর্ষ' : 'Academic Year'}
             </label>
             <Select
@@ -472,7 +472,7 @@ const CoachingPackages = () => {
                   type="button"
                   onClick={() => handleSaveEdit(editingPackage)}
                   disabled={isUpdating || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value || !hasChangePermission}
-                  className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isUpdating || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value || !hasChangePermission)
+                  className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isUpdating || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value || !hasChangePermission)
                       ? 'opacity-50 cursor-not-allowed'
                       : 'hover:shadow-lg hover:scale-105'
                     }`}
@@ -493,7 +493,7 @@ const CoachingPackages = () => {
                   type="button"
                   onClick={() => handlePatchEdit(editingPackage)}
                   disabled={isPatching || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value || !hasChangePermission}
-                  className={`bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isPatching || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value || !hasChangePermission)
+                  className={`bg-yellow-500 hover:bg-yellow-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isPatching || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value || !hasChangePermission)
                       ? 'opacity-50 cursor-not-allowed'
                       : 'hover:shadow-lg hover:scale-105'
                     }`}
@@ -516,7 +516,7 @@ const CoachingPackages = () => {
                     setEditingPackage(null);
                     setEditData({ package_name: null, amount: '', academic_year: null });
                   }}
-                  className="bg-red-500 hover:bg-secColor/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                  className="bg-red-500 hover:bg-secColor/30 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
                 >
                   {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
                 </button>
@@ -525,7 +525,7 @@ const CoachingPackages = () => {
               <button
                 type="submit"
                 disabled={isCreating || !formData.package_name?.value || !formData.amount || !formData.academic_year?.value || !hasAddPermission}
-                className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isCreating || !formData.package_name?.value || !formData.amount || !formData.academic_year?.value || !hasAddPermission)
+                className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isCreating || !formData.package_name?.value || !formData.amount || !formData.academic_year?.value || !hasAddPermission)
                     ? 'opacity-50 cursor-not-allowed'
                     : 'hover:shadow-lg hover:scale-105'
                   }`}
@@ -573,7 +573,7 @@ const CoachingPackages = () => {
               value={searchId}
               onChange={(e) => setSearchId(e.target.value)}
               placeholder={languageCode === 'bn' ? 'প্যাকেজ আইডি লিখুন' : 'Enter package ID'}
-              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+              className="w-full pl-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
               disabled={isLoadingSelected}
             />
             <FaSearch className="absolute left-3 top-4 text-white/60" />
@@ -581,7 +581,7 @@ const CoachingPackages = () => {
           <button
             onClick={handleSearchById}
             disabled={isLoadingSelected || !searchId.trim()}
-            className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isLoadingSelected || !searchId.trim()) ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:scale-105'
+            className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${(isLoadingSelected || !searchId.trim()) ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:scale-105'
               }`}
           >
             <FaSearch />
@@ -590,7 +590,7 @@ const CoachingPackages = () => {
         </div>
         {selectedPackage && (
           <div className="mt-4 bg-white/5 border border-white/20 rounded-xl p-4 animate-scaleIn">
-            <h3 className="text-white font-semibold">{languageCode === 'bn' ? 'পাওয়া প্যাকেজ:' : 'Found Package:'}</h3>
+            <h3 className="text-[#441a05]font-semibold">{languageCode === 'bn' ? 'পাওয়া প্যাকেজ:' : 'Found Package:'}</h3>
             <p className="text-white/70">ID: {selectedPackage.id}</p>
             <p className="text-white/70">{languageCode === 'bn' ? 'নাম:' : 'Name:'} {selectedPackage.package_name}</p>
             <p className="text-white/70">{languageCode === 'bn' ? 'মূল্য:' : 'Amount:'} ${Number(selectedPackage.amount).toLocaleString()}</p>
@@ -615,7 +615,7 @@ const CoachingPackages = () => {
       {/* Packages Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'প্যাকেজের তালিকা' : 'Packages List'} ({packages.length})</span>
           </h3>
@@ -637,7 +637,7 @@ const CoachingPackages = () => {
                 </p>
                 <button
                   onClick={refetch}
-                  className="mt-2 px-4 py-2 bg-pmColor text-white rounded-xl hover:bg-pmColor/80 transition-all"
+                  className="mt-2 px-4 py-2 bg-pmColor text-[#441a05]rounded-xl hover:bg-pmColor/80 transition-all"
                 >
                   {languageCode === 'bn' ? 'পুনরায় চেষ্টা করুন' : 'Retry'}
                 </button>
@@ -702,11 +702,11 @@ const CoachingPackages = () => {
                           isDisabled={isUpdating || isPatching}
                         />
                       ) : (
-                        <div className="text-white font-medium">{pkg.package_name}</div>
+                        <div className="text-[#441a05]font-medium">{pkg.package_name}</div>
                       )}
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{pkg.id}</div>
+                      <div className="text-[#441a05]font-medium">{pkg.id}</div>
                     </td>
                     <td className="px-6 py-4">
                       {editingPackage === pkg.id ? (
@@ -714,13 +714,13 @@ const CoachingPackages = () => {
                           type="number"
                           value={editData.amount}
                           onChange={(e) => handleEditInputChange('amount', e.target.value)}
-                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                           disabled={isUpdating || isPatching}
                           min="0"
                           step="0.01"
                         />
                       ) : (
-                        <div className="text-white font-medium">${Number(pkg.amount).toLocaleString()}</div>
+                        <div className="text-[#441a05]font-medium">${Number(pkg.amount).toLocaleString()}</div>
                       )}
                     </td>
                     <td className="px-6 py-4">
@@ -736,7 +736,7 @@ const CoachingPackages = () => {
                           isDisabled={isUpdating || isPatching}
                         />
                       ) : (
-                        <div className="text-white font-medium">
+                        <div className="text-[#441a05]font-medium">
                           {academicYears.find(year => year.id === pkg.academic_year)?.year || pkg.academic_year}
                         </div>
                       )}
@@ -757,7 +757,7 @@ const CoachingPackages = () => {
                           <button
                             onClick={() => handleSaveEdit(pkg.id)}
                             disabled={isUpdating || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'আপডেট (PUT)' : 'Update (PUT)'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -765,7 +765,7 @@ const CoachingPackages = () => {
                           <button
                             onClick={() => handlePatchEdit(pkg.id)}
                             disabled={isPatching || !editData.package_name?.value || !editData.amount || !editData.academic_year?.value}
-                            className="bg-yellow-500/20 hover:bg-yellow-500 hover:text-white text-yellow-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-yellow-500/20 hover:bg-yellow-500 hover:text-[#441a05]text-yellow-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'আপডেট (PATCH)' : 'Patch (PATCH)'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -775,7 +775,7 @@ const CoachingPackages = () => {
                               setEditingPackage(null);
                               setEditData({ package_name: null, amount: '', academic_year: null });
                             }}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                           >
                             <FaTrash className="w-4 h-4" />
                           </button>
@@ -785,7 +785,7 @@ const CoachingPackages = () => {
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditStart(pkg)}
-                              className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                              className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'প্যাকেজ সম্পাদনা করুন' : 'Edit package'}
                             >
                               <FaEdit className="w-4 h-4" />
@@ -795,7 +795,7 @@ const CoachingPackages = () => {
                             <button
                               onClick={() => handleDelete(pkg.id)}
                               disabled={isDeleting}
-                              className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                              className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                               title={languageCode === 'bn' ? 'প্যাকেজ মুছুন' : 'Delete package'}
                             >
                               <FaTrash className="w-4 h-4" />

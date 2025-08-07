@@ -12,15 +12,15 @@ console.log(instituteData)
         <FaSchool className="w-4 sm:w-7 h-4 sm:h-7 text-white" />
       </div>
       {isLoading ? (
-        <h3 className="text-white font-bold text-base md:text-lg hidden sm:block">
+        <h3 className="text-[#441a05]font-bold text-base md:text-lg hidden sm:block">
           লোড হচ্ছে...
         </h3>
       ) : error ? (
-        <h3 className="text-white font-bold text-base md:text-lg hidden sm:block">
+        <h3 className="text-[#441a05]font-bold text-base md:text-lg hidden sm:block">
           ত্রুটি: ইনস্টিটিউট ডেটা লোড করা যায়নি
         </h3>
       ) : (
-        <h3 className="text-white font-bold text-base md:text-lg hidden sm:block">
+        <h3 className="text-[#441a05]font-bold text-base md:text-lg hidden sm:block">
           {instituteData[0]?.institute_Bangla_name || "আল জামিয়াতুল ইসলামিয়া মাইজদী, নোয়াখালী বাংলাদেশ"}
         </h3>
       )}

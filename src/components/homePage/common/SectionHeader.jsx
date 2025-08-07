@@ -29,12 +29,12 @@ export default function SectionHeader({ title, className, titleClassName, iconCl
       </style>
 
       <h3
-        className={`text-white text-xl leading-[33px] font-bold ${titleClassName || ''}`}
+        className={`text-[#441a05]text-xl leading-[33px] font-bold ${titleClassName || ''}`}
       >
         {title}
       </h3>
       <button
-        className={`text-white hover:text-[#9d9087] transition-colors duration-300 animate-scaleIn btn-glow ${iconClassName || ''}`}
+        className={`text-[#441a05]hover:text-[#9d9087] transition-colors duration-300 animate-scaleIn btn-glow ${iconClassName || ''}`}
         aria-label="অতিরিক্ত বিকল্প / More Options"
         title="অতিরিক্ত বিকল্প / More Options"
       >

@@ -49,7 +49,7 @@ const ClassTeacher = () => {
         `}
       </style>
 
-      <h3 className="text-lg font-semibold text-white mb-6 border-b border-white/20 pb-2 animate-fadeIn">
+      <h3 className="text-lg font-semibold text-[#441a05]mb-6 border-b border-white/20 pb-2 animate-fadeIn">
         Teachers for {classId ? classId.replace('class-', 'Class ') : 'Unknown'}
       </h3>
       <div className="animate-fadeIn overflow-y-auto max-h-[60vh]">
@@ -90,7 +90,7 @@ const ClassTeacher = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <button
-                        className="relative inline-flex items-center px-4 py-2 rounded-lg font-medium bg-pmColor text-white hover:text-white btn-glow transition-all duration-300 animate-scaleIn"
+                        className="relative inline-flex items-center px-4 py-2 rounded-lg font-medium bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow transition-all duration-300 animate-scaleIn"
                         title="View teacher details"
                       >
                         View Details

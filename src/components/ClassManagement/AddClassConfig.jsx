@@ -264,7 +264,7 @@ const AddClassConfig = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoSettings className="text-4xl text-white" />
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 {isEditMode ? "কনফিগারেশন সম্পাদনা করুন" : "নতুন কনফিগারেশন তৈরি করুন"}
               </h3>
             </div>
@@ -276,14 +276,14 @@ const AddClassConfig = () => {
               {/* Class Dropdown */}
               <div className="relative">
                 <FaChalkboard
-                  className="absolute left-3 top-[10px] transform -translate-y-1/2 text-white w-5 h-5 animate-scaleIn"
+                  className="absolute left-3 top-[10px] transform -translate-y-1/2 text-[#441a05]w-5 h-5 animate-scaleIn"
                   title="ক্লাস নির্বাচন করুন"
                 />
                 <select
                   id="classSelect"
                   value={classId}
                   onChange={(e) => setClassId(e.target.value)}
-                  className="w-full bg-transparent text-white pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   disabled={classLoading || isListLoading}
                   aria-label="ক্লাস নির্বাচন করুন"
                   aria-describedby={classError ? "class-error" : undefined}
@@ -302,14 +302,14 @@ const AddClassConfig = () => {
               {/* Section Dropdown */}
               <div className="relative">
                 <IoBookmark
-                  className="absolute left-3 top-[10px] transform -translate-y-1/2 text-white w-5 h-5 animate-scaleIn"
+                  className="absolute left-3 top-[10px] transform -translate-y-1/2 text-[#441a05]w-5 h-5 animate-scaleIn"
                   title="সেকশন নির্বাচন করুন"
                 />
                 <select
                   id="sectionSelect"
                   value={sectionId}
                   onChange={(e) => setSectionId(e.target.value)}
-                  className="w-full bg-transparent text-white pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   disabled={sectionLoading || activeSections.length === 0}
                   aria-label="সেকশন নির্বাচন করুন"
                   aria-describedby={sectionError ? "section-error" : undefined}
@@ -328,14 +328,14 @@ const AddClassConfig = () => {
               {/* Shift Dropdown */}
               <div className="relative">
                 <IoTime
-                  className="absolute left-3 top-[10px] transform -translate-y-1/2 text-white w-5 h-5 animate-scaleIn"
+                  className="absolute left-3 top-[10px] transform -translate-y-1/2 text-[#441a05]w-5 h-5 animate-scaleIn"
                   title="শিফট নির্বাচন করুন"
                 />
                 <select
                   id="shiftSelect"
                   value={shiftId}
                   onChange={(e) => setShiftId(e.target.value)}
-                  className="w-full bg-transparent text-white pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                  className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                   disabled={shiftLoading || activeShifts.length === 0}
                   aria-label="শিফট নির্বাচন করুন"
                   aria-describedby={shiftError ? "shift-error" : undefined}
@@ -357,8 +357,8 @@ const AddClassConfig = () => {
                   type="submit"
                   disabled={configLoading}
                   title={isEditMode ? "কনফিগারেশন সম্পাদনা করুন" : "নতুন কনফিগারেশন যোগ করুন"}
-                  className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                    configLoading ? "cursor-not-allowed opacity-60" : "hover:text-white btn-glow"
+                  className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                    configLoading ? "cursor-not-allowed opacity-60" : "hover:text-[#441a05]btn-glow"
                   }`}
                 >
                   {configLoading ? (
@@ -378,7 +378,7 @@ const AddClassConfig = () => {
                     type="button"
                     onClick={handleCancelEdit}
                     title="সম্পাদনা বাতিল করুন"
-                    className="relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-gray-500/20 text-white transition-all duration-300 animate-scaleIn hover:bg-gray-500/30"
+                    className="relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-gray-500/20 text-[#441a05]transition-all duration-300 animate-scaleIn hover:bg-gray-500/30"
                   >
                     <span className="flex items-center space-x-2">
                       <span>বাতিল</span>
@@ -426,7 +426,7 @@ const AddClassConfig = () => {
 
         {/* Configurations Table */}
         <div className="bg-black/10 px-5 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] border border-white/20">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
             কনফিগারেশন তালিকা
           </h3>
           {classLoading || sectionLoading || shiftLoading || isListLoading || configLoading ? (
@@ -476,7 +476,7 @@ const AddClassConfig = () => {
                             <button
                               onClick={() => handleEdit(config)}
                               title="কনফিগারেশন সম্পাদনা করুন"
-                              className="text-white hover:text-blue-500 transition-colors duration-300 mr-4"
+                              className="text-[#441a05]hover:text-blue-500 transition-colors duration-300 mr-4"
                             >
                               <FaEdit className="w-5 h-5" />
                             </button>
@@ -485,7 +485,7 @@ const AddClassConfig = () => {
                             <button
                               onClick={() => handleDelete(config.id)}
                               title="কনফিগারেশন মুছুন"
-                              className="text-white hover:text-red-500 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                             >
                               <FaTrash className="w-5 h-5" />
                             </button>
@@ -504,14 +504,14 @@ const AddClassConfig = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন কনফিগারেশন নিশ্চিত করুন'}
                 {modalAction === 'update' && 'কনফিগারেশন সম্পাদনা নিশ্চিত করুন'}
                 {modalAction === 'delete' && 'কনফিগারেশন মুছে ফেলা নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'create' && 'আপনি কি নিশ্চিত যে নতুন কনফিগারেশন তৈরি করতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে এই কনফিগারেশনটি সম্পাদনা করতে চান?'}
                 {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই কনফিগারেশনটি মুছে ফেলতে চান?'}
@@ -519,13 +519,13 @@ const AddClassConfig = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                 >
                   নিশ্চিত করুন
                 </button>

@@ -23,7 +23,7 @@ export default function VideoGallery() {
    }
 
     return (
-      <div className="bg-white rounded-md p-4 md:p-6  my-4">
+      <div className="bg-[#441a05]rounded-md p-4 md:p-6  my-4">
          <AddType setIsAdd={setIsAdd} title="Video" />
          <TypeTable handleEdit={handleEdit} handleDelete={handleDelete} />
 

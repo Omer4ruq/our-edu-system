@@ -188,7 +188,7 @@ const AddFeePackages = () => {
           toastOptions={{
             style: {
               background: "rgba(0, 0, 0, 0.1)",
-              color: "#fff",
+              color: "#441a05",
               border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: "0.5rem",
               backdropFilter: "blur(4px)",
@@ -198,7 +198,7 @@ const AddFeePackages = () => {
           }}
         />
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ফি প্যাকেজ তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি প্যাকেজ তালিকা</h3>
           {isPackagesLoading ? (
             <p className="p-4 text-white/70">লোড হচ্ছে...</p>
           ) : packagesError ? (
@@ -255,7 +255,7 @@ const AddFeePackages = () => {
         toastOptions={{
           style: {
             background: "rgba(0, 0, 0, 0.1)",
-            color: "#fff",
+            color: "#441a05",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             borderRadius: "0.5rem",
             backdropFilter: "blur(4px)",
@@ -290,17 +290,17 @@ const AddFeePackages = () => {
       {/* Confirmation Modal */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ফি প্যাকেজ মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই ফি প্যাকেজটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={closeModal}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 aria-label="বাতিল"
               >
                 বাতিল
@@ -308,7 +308,7 @@ const AddFeePackages = () => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${
                   isDeleting ? "cursor-not-allowed opacity-70" : "hover:text-white"
                 }`}
                 aria-label="নিশ্চিত করুন"
@@ -332,7 +332,7 @@ const AddFeePackages = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
               {editId && hasChangePermission ? "ফি প্যাকেজ সম্পাদনা" : "নতুন ফি প্যাকেজ যোগ"}
             </h3>
           </div>
@@ -342,7 +342,7 @@ const AddFeePackages = () => {
                 name="fees_head_id"
                 value={formData.fees_head_id}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating || isUpdating || isHeadsLoading}
                 required
                 aria-describedby={errors.fees_head_id ? "fees_head_id-error" : undefined}
@@ -361,7 +361,7 @@ const AddFeePackages = () => {
                 name="student_class"
                 value={formData.student_class}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating || isUpdating || isClassesLoading}
                 required
                 aria-describedby={errors.student_class ? "student_class-error" : undefined}
@@ -381,7 +381,7 @@ const AddFeePackages = () => {
                 name="amount"
                 value={formData.amount}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="পরিমাণ প্রবেশ করুন"
                 disabled={isCreating || isUpdating}
                 required
@@ -395,7 +395,7 @@ const AddFeePackages = () => {
                 name="academic_year"
                 value={formData.academic_year}
                 onChange={handleChange}
-                className="w-full bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating || isUpdating || isYearsLoading}
                 required
                 aria-describedby={errors.academic_year ? "academic_year-error" : undefined}
@@ -413,8 +413,8 @@ const AddFeePackages = () => {
               <button
                 type="submit"
                 disabled={isCreating || isUpdating}
-                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating || isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
                 aria-label={editId ? "ফি প্যাকেজ আপডেট" : "ফি প্যাকেজ তৈরি"}
               >
@@ -443,7 +443,7 @@ const AddFeePackages = () => {
                     });
                     setErrors({});
                   }}
-                  className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-white hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
+                  className="flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
                   aria-label="বাতিল"
                 >
                   বাতিল
@@ -461,7 +461,7 @@ const AddFeePackages = () => {
 
       {/* Fee Packages Table */}
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] p-6">
-        <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ফি প্যাকেজ তালিকা</h3>
+        <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ফি প্যাকেজ তালিকা</h3>
         {isPackagesLoading ? (
           <p className="p-4 text-white/70">লোড হচ্ছে...</p>
         ) : packagesError ? (
@@ -500,7 +500,7 @@ const AddFeePackages = () => {
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(item)}
-                            className="text-white hover:text-blue-500 mr-4 transition-all duration-300"
+                            className="text-[#441a05]hover:text-blue-500 mr-4 transition-all duration-300"
                             aria-label={`শ্রেণির জন্য ফি প্যাকেজ সম্পাদনা ${item.student_class}`}
                           >
                             <FaEdit className="w-5 h-5" />
@@ -509,7 +509,7 @@ const AddFeePackages = () => {
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(item.id)}
-                            className="text-white hover:text-red-500 transition-all duration-300"
+                            className="text-[#441a05]hover:text-red-500 transition-all duration-300"
                             aria-label={`শ্রেণির জন্য ফি প্যাকেজ মুছুন ${item.student_class}`}
                           >
                             <FaTrash className="w-5 h-5" />

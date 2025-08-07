@@ -86,6 +86,12 @@ import { employeesAdditionsApi } from "./features/api/payroll/employeesAdditions
 import { employeesDeductionsApi } from "./features/api/payroll/employeesDeductionsApi";
 import { salaryIncrementsApi } from "./features/api/payroll/salaryIncrementsApi";
 import { basicSalaryApi } from "./features/api/payroll/basicSalaryApi";
+import { ledgerListApi } from "./features/api/accounts/ledger/ledgerListApi";
+import { accountSubGroupApi } from "./features/api/accounts/ledger/gcategory/accountSubGroupApi";
+import { paymentsApi } from "./features/api/accounts/payment/paymentsApi";
+import { receivesApi } from "./features/api/accounts/receive/receivesApi";
+import { contraApi } from "./features/api/accounts/contra/contraApi";
+import { journalsApi } from "./features/api/accounts/journal/journalsApi";
 
 export const store = configureStore({
   reducer: {
@@ -180,6 +186,12 @@ export const store = configureStore({
     [employeesDeductionsApi.reducerPath]: employeesDeductionsApi.reducer,
     [salaryIncrementsApi.reducerPath]: salaryIncrementsApi.reducer,
     [basicSalaryApi.reducerPath]: basicSalaryApi.reducer,
+    [ledgerListApi.reducerPath]: ledgerListApi.reducer,
+    [accountSubGroupApi.reducerPath]: accountSubGroupApi.reducer,
+    [paymentsApi.reducerPath]: paymentsApi.reducer,
+    [receivesApi.reducerPath]: receivesApi.reducer,
+    [contraApi.reducerPath]: contraApi.reducer,
+    [journalsApi.reducerPath]: journalsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -268,6 +280,12 @@ export const store = configureStore({
       .concat(employeesAdditionsApi.middleware)
       .concat(salaryIncrementsApi.middleware)
       .concat(basicSalaryApi.middleware)
+      .concat(ledgerListApi.middleware)
+      .concat(accountSubGroupApi.middleware)
+      .concat(paymentsApi.middleware)
+      .concat(receivesApi.middleware)
+      .concat(contraApi.middleware)
+      .concat(journalsApi.middleware)
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors

@@ -57,13 +57,13 @@ export default function PListTable({ handleDelete }) {
               <td className="min-w-40 pb-1 text-center">
                 <Link to={`/parent-info/edit-parent/${item.id}`}>
                   <button
-                    className="bg-blue px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                    className="bg-blue px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                   >
                     {t("module.communication.edit")}
                   </button>
                 </Link>
                 <button
-                  className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1"
+                  className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1"
                   onClick={() => handleDelete(item.parentName)}
                 >
                   {t("module.communication.delete")}

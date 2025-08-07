@@ -397,7 +397,7 @@ const MealStatus = () => {
             font-size: 12px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -641,13 +641,13 @@ const MealStatus = () => {
               ) : (
                 <IoAddCircle className="text-4xl text-white" />
               )}
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 {editingId ? 'খাবারের স্থিতি সম্পাদনা করুন' : 'নতুন খাবারের স্থিতি যোগ করুন'}
               </h3>
             </div>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div ref={dropdownRef}>
-                <label className="block text-sm font-medium text-white mb-1">ব্যবহারকারী নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">ব্যবহারকারী নির্বাচন করুন</label>
                 <input
                   id="user_search"
                   type="text"
@@ -655,7 +655,7 @@ const MealStatus = () => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   onFocus={() => setIsUserDropdownOpen(true)}
                   placeholder="নাম বা ব্যবহারকারীর আইডি লিখুন (ন্যূনতম ৩ অক্ষর)"
-                  className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                   disabled={isFormDisabled}
                   aria-label="ব্যবহারকারী নির্বাচন করুন"
                   title="ব্যবহারকারী নির্বাচন করুন / Select user"
@@ -682,7 +682,7 @@ const MealStatus = () => {
                 )}
               </div>
               <div>
-                <label htmlFor="start_time" className="block text-sm font-medium text-white mb-1">
+                <label htmlFor="start_time" className="block text-sm font-medium text-[#441a05]mb-1">
                   শুরুর তারিখ
                 </label>
                 <input
@@ -692,7 +692,7 @@ const MealStatus = () => {
                   value={formData.start_time}
                   onChange={handleInputChange}
                   onClick={handleDateClick}
-                  className="w-full bg-transparent outline-none text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-white focus:ring-white"
+                  className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
                   disabled={isFormDisabled}
                   required
                   aria-label="শুরুর তারিখ"
@@ -700,7 +700,7 @@ const MealStatus = () => {
                 />
               </div>
               <div>
-                <label htmlFor="end_time" className="block text-sm font-medium text-white mb-1">
+                <label htmlFor="end_time" className="block text-sm font-medium text-[#441a05]mb-1">
                   শেষের তারিখ
                 </label>
                 <input
@@ -710,7 +710,7 @@ const MealStatus = () => {
                   value={formData.end_time}
                   onChange={handleInputChange}
                   onClick={handleDateClick}
-                  className="w-full bg-transparent outline-none text-white pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-white focus:ring-white"
+                  className="w-full bg-transparent outline-none text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg transition-all duration-300 focus:outline-none focus:border-[#441a05]focus:ring-white"
                   disabled={isFormDisabled}
                   required
                   aria-label="শেষের তারিখ"
@@ -718,7 +718,7 @@ const MealStatus = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white mb-1">স্থিতি</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">স্থিতি</label>
                 <Select
                   options={statusOptions}
                   value={statusOptions.find((opt) => opt.value === formData.status) || null}
@@ -736,7 +736,7 @@ const MealStatus = () => {
                 />
               </div>
               <div className="md:col-span-4">
-                <label htmlFor="remarks" className="block text-sm font-medium text-white mb-1">
+                <label htmlFor="remarks" className="block text-sm font-medium text-[#441a05]mb-1">
                   মন্তব্য
                 </label>
                 <textarea
@@ -744,7 +744,7 @@ const MealStatus = () => {
                   name="remarks"
                   value={formData.remarks}
                   onChange={handleInputChange}
-                  className="w-full bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                  className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                   rows={4}
                   disabled={isFormDisabled}
                   aria-label="মন্তব্য"
@@ -756,8 +756,8 @@ const MealStatus = () => {
                   type="submit"
                   disabled={isFormDisabled}
                   title={editingId ? 'খাবারের স্থিতি আপডেট করুন / Update meal status' : 'নতুন খাবারের স্থিতি তৈরি করুন / Create a new meal status'}
-                  className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                    isFormDisabled ? 'cursor-not-allowed' : 'hover:text-white btn-glow'
+                  className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                    isFormDisabled ? 'cursor-not-allowed' : 'hover:text-[#441a05]btn-glow'
                   }`}
                 >
                   {(isCreating || isUpdating) ? (
@@ -787,7 +787,7 @@ const MealStatus = () => {
                       setEditingId(null);
                     }}
                     title="সম্পাদনা বাতিল করুন / Cancel editing"
-                    className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                    className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
                   >
                     বাতিল
                   </button>
@@ -809,14 +809,14 @@ const MealStatus = () => {
         {/* Meal Statuses Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">খাবারের স্থিতির তালিকা</h3>
+            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">খাবারের স্থিতির তালিকা</h3>
             <button
               onClick={generatePDFReport}
               disabled={!mealStatuses || mealStatuses.length === 0}
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                 !mealStatuses || mealStatuses.length === 0
                   ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                  : "bg-pmColor text-white hover:text-white btn-glow"
+                  : "bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow"
               }`}
               aria-label="খাবারের স্থিতি প্রতিবেদন প্রিন্ট"
               title="খাবারের স্থিতি প্রতিবেদন প্রিন্ট করুন"
@@ -916,7 +916,7 @@ const MealStatus = () => {
                             >
                               {status.status === 'ACTIVE' && (
                                 <svg
-                                  className="w-4 h-4 text-white animate-scaleIn"
+                                  className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -948,7 +948,7 @@ const MealStatus = () => {
                               <button
                                 onClick={() => handleEdit(status)}
                                 title="খাবারের স্থিতি সম্পাদনা করুন / Edit meal status"
-                                className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                                className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                               >
                                 <FaEdit className="w-5 h-5" />
                               </button>
@@ -959,7 +959,7 @@ const MealStatus = () => {
                                 disabled={isDeleting}
                                 title="খাবারের স্থিতি মুছুন / Delete meal status"
                                 className={`transition-colors duration-300 ${
-                                  isDeleting ? "text-gray-400 cursor-not-allowed" : "text-white hover:text-red-500"
+                                  isDeleting ? "text-gray-400 cursor-not-allowed" : "text-[#441a05]hover:text-red-500"
                                 }`}
                               >
                                 {isDeleting ? (
@@ -996,15 +996,15 @@ const MealStatus = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'create' && 'নতুন খাবারের স্থিতি নিশ্চিত করুন'}
                 {modalAction === 'update' && 'খাবারের স্থিতি আপডেট নিশ্চিত করুন'}
                 {modalAction === 'delete' && 'খাবারের স্থিতি মুছে ফেলা নিশ্চিত করুন'}
                 {modalAction === 'toggle' && 'খাবারের স্থিতি পরিবর্তন নিশ্চিত করুন'}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === 'create' && 'আপনি কি নিশ্চিত যে নতুন খাবারের স্থিতি তৈরি করতে চান?'}
                 {modalAction === 'update' && 'আপনি কি নিশ্চিত যে খাবারের স্থিতি আপডেট করতে চান?'}
                 {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই খাবারের স্থিতি মুছে ফেলতে চান?'}
@@ -1013,14 +1013,14 @@ const MealStatus = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন / Cancel"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন / Confirm"
                 >
                   নিশ্চিত করুন

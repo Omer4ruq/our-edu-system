@@ -410,7 +410,7 @@ const AddWaivers = () => {
             font-size: 12px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -538,7 +538,7 @@ const AddWaivers = () => {
           toastOptions={{
             style: {
               background: "rgba(0, 0, 0, 0.1)",
-              color: "#fff",
+              color: "#441a05",
               border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: "0.5rem",
               backdropFilter: "blur(4px)",
@@ -557,13 +557,13 @@ const AddWaivers = () => {
                 type="text"
                 value={waiverListFilters.studentSearch}
                 onChange={(e) => setWaiverListFilters({ ...waiverListFilters, studentSearch: e.target.value })}
-                className="w-full sm:w-auto bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full sm:w-auto bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="ছাত্রের নাম বা আইডি অনুসন্ধান"
               />
               <select
                 value={waiverListFilters.feeTypeId || ""}
                 onChange={(e) => setWaiverListFilters({ ...waiverListFilters, feeTypeId: e.target.value ? parseInt(e.target.value) : null })}
-                className="bg-transparent min-w-[150px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
+                className="bg-transparent min-w-[150px] text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg w-full sm:w-auto"
               >
                 <option value="">ফি প্রকার নির্বাচন</option>
                 {feeTypeOptions.map((fee) => (
@@ -572,7 +572,7 @@ const AddWaivers = () => {
               </select>
               <button
                 onClick={generatePDFReport}
-                className="report-button w-full sm:w-auto bg-white text-white py-2 px-4 rounded-lg hover:bg-[#5a2e0a] transition-colors"
+                className="report-button w-full sm:w-auto bg-[#441a05]text-[#441a05]py-2 px-4 rounded-lg hover:bg-[#5a2e0a] transition-colors"
                 title="Download Waiver Report"
               >
                 <FaFilePdf className="inline-block mr-2" /> রিপোর্ট
@@ -693,7 +693,7 @@ const AddWaivers = () => {
             box-shadow: 0 0 15px rgba(219, 158, 48, 0.3);
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -729,17 +729,17 @@ const AddWaivers = () => {
       {/* Modal */}
       {(hasAddPermission || hasChangePermission || hasDeletePermission) && isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-          <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+            <h3 className="text-lg font-semibold text-[#441a05]mb-4">
               ওয়েভার মুছে ফেলা নিশ্চিত করুন
             </h3>
-            <p className="text-white mb-6">
+            <p className="text-[#441a05]mb-6">
               আপনি কি নিশ্চিত যে এই ওয়েভারটি মুছে ফেলতে চান?
             </p>
             <div className="flex justify-end space-x-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 aria-label="বাতিল"
               >
                 বাতিল
@@ -747,7 +747,7 @@ const AddWaivers = () => {
               <button
                 onClick={confirmDelete}
                 disabled={isDeleting}
-                className={`px-4 py-2 bg-pmColor text-white rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
+                className={`px-4 py-2 bg-pmColor text-[#441a05]rounded-lg transition-colors duration-300 btn-glow ${isDeleting ? "cursor-not-allowed opacity-60" : "hover:text-white"
                   }`}
                 aria-label="নিশ্চিত করুন"
               >
@@ -770,7 +770,7 @@ const AddWaivers = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
             <IoAddCircle className="text-4xl text-white" />
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               নতুন ওয়েভার যোগ করুন
             </h3>
           </div>
@@ -797,7 +797,7 @@ const AddWaivers = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="নাম বা ইউজার আইডি দিয়ে অনুসন্ধান করুন"
               disabled={isStudentLoading || !selectedClassId}
             />
@@ -806,7 +806,7 @@ const AddWaivers = () => {
           {/* Student Selection Table */}
           {selectedClassId && (
             <div className="mb-6">
-              <h4 className="text-lg font-semibold text-white mb-4">
+              <h4 className="text-lg font-semibold text-[#441a05]mb-4">
                 ছাত্র নির্বাচন করুন
               </h4>
               {isStudentLoading ? (
@@ -872,7 +872,7 @@ const AddWaivers = () => {
                                 >
                                   {selectedStudents.includes(student.id) && (
                                     <svg
-                                      className="w-4 h-4 text-white animate-scaleIn"
+                                      className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                       fill="none"
                                       stroke="currentColor"
                                       viewBox="0 0 24 24"
@@ -934,7 +934,7 @@ const AddWaivers = () => {
                                     e.target.value
                                   )
                                 }
-                                className={`w-[120px] bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 ${disabledClass}`}
+                                className={`w-[120px] bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 ${disabledClass}`}
                                 placeholder="পরিমাণ (%)"
                                 disabled={isDisabled}
                                 min="0"
@@ -1006,7 +1006,7 @@ const AddWaivers = () => {
                                     e.target.value
                                   )
                                 }
-                                className={`w-[200px] bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 ${disabledClass} ${!waiver.description?.trim() ? 'border-red-400' : ''}`}
+                                className={`w-[200px] bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 ${disabledClass} ${!waiver.description?.trim() ? 'border-red-400' : ''}`}
                                 placeholder="বর্ণনা (আবশ্যক)*"
                                 disabled={isDisabled}
                                 required
@@ -1025,7 +1025,7 @@ const AddWaivers = () => {
           {/* Selected Students Data Table */}
           {selectedStudents.length > 0 && (
             <div className="mb-6">
-              <h4 className="text-lg font-semibold text-white mb-4">
+              <h4 className="text-lg font-semibold text-[#441a05]mb-4">
                 নির্বাচিত ছাত্রদের তথ্য
               </h4>
               <div className="overflow-x-auto max-h-[30vh]">
@@ -1110,7 +1110,7 @@ const AddWaivers = () => {
               onClick={handleSubmitWaivers}
               disabled={isCreating}
               title="ওয়েভার তৈরি করুন"
-              className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isCreating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+              className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${isCreating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                 }`}
               aria-label="ওয়েভার তৈরি করুন"
             >
@@ -1135,7 +1135,7 @@ const AddWaivers = () => {
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
           <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
             <FaEdit className="text-3xl text-white" />
-            <h3 className="text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">
               ওয়েভার সম্পাদনা করুন
             </h3>
           </div>
@@ -1204,7 +1204,7 @@ const AddWaivers = () => {
                   waiver_amount: e.target.value,
                 });
               }}
-              className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+              className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
               placeholder="ওয়েভার পরিমাণ (%)"
               disabled={isUpdating}
               min="0"
@@ -1259,7 +1259,7 @@ const AddWaivers = () => {
                   description: e.target.value,
                 })
               }
-              className={`w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn ${!editWaiverData.description?.trim() ? 'border-red-400' : ''}`}
+              className={`w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn ${!editWaiverData.description?.trim() ? 'border-red-400' : ''}`}
               placeholder="বর্ণনা (আবশ্যক)*"
               disabled={isUpdating}
               aria-label="বর্ণনা"
@@ -1270,7 +1270,7 @@ const AddWaivers = () => {
                 type="submit"
                 disabled={isUpdating}
                 title="ওয়েভার আপডেট করুন"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-white btn-glow"
+                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${isUpdating ? "cursor-not-allowed opacity-70" : "hover:text-[#441a05]btn-glow"
                   }`}
                 aria-label="ওয়েভার আপডেট করুন"
               >
@@ -1301,7 +1301,7 @@ const AddWaivers = () => {
                   setIsAdd(true);
                 }}
                 title="সম্পাদনা বাতিল করুন"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-white hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn"
                 aria-label="বাতিল"
               >
                 বাতিল
@@ -1331,14 +1331,14 @@ const AddWaivers = () => {
               type="text"
               value={waiverListFilters.studentSearch}
               onChange={(e) => setWaiverListFilters({ ...waiverListFilters, studentSearch: e.target.value })}
-              className="w-[200px] bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-[200px] bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="ছাত্রের নাম বা আইডি"
             />
             {/* Fee Type Filter */}
             <select
               value={waiverListFilters.feeTypeId || ""}
               onChange={(e) => setWaiverListFilters({ ...waiverListFilters, feeTypeId: e.target.value ? parseInt(e.target.value) : null })}
-              className="bg-transparent min-w-[180px] text-white pl-3 py-2 border border-[#9d9087] rounded-lg sm:w-auto"
+              className="bg-transparent min-w-[180px] text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg sm:w-auto"
             >
               <option value="">ফি প্রকার নির্বাচন</option>
               {feeTypeOptions.map((fee) => (
@@ -1428,7 +1428,7 @@ const AddWaivers = () => {
                             <button
                               onClick={() => handleEditClick(waiver)}
                               title="ওয়েভার সম্পাদনা করুন"
-                              className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                               aria-label="ওয়েভার সম্পাদনা করুন"
                             >
                               <FaEdit className="w-5 h-5" />
@@ -1438,7 +1438,7 @@ const AddWaivers = () => {
                             <button
                               onClick={() => handleDelete(waiver.id)}
                               title="ওয়েভার মুছুন"
-                              className="text-white hover:text-red-500 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                               aria-label="ওয়েভার মুছুন"
                             >
                               <FaTrash className="w-5 h-5" />

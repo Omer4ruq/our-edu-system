@@ -30,7 +30,7 @@ export default function VoucherListTable() {
             <td className="border-r-2">Manual Fee Collection</td>
             <td className="border-r-2">1122</td>
             <td>
-              <button className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1">
+              <button className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1">
                 Download
               </button>
             </td>
@@ -45,7 +45,7 @@ export default function VoucherListTable() {
             <td className="border-r-2">Manual Fee Collection</td>
             <td className="border-r-2">1122</td>
             <td>
-              <button className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1">
+              <button className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1">
                 Download
               </button>
             </td>
@@ -60,7 +60,7 @@ export default function VoucherListTable() {
             <td className="border-r-2">Manual Fee Collection</td>
             <td className="border-r-2">1122</td>
             <td>
-              <button className="bg-red px-3 py-1 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm m-1">
+              <button className="bg-red px-3 py-1 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm m-1">
                 Download
               </button>
             </td>

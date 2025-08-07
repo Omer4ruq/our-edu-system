@@ -405,7 +405,7 @@ const HostelAllocation = () => {
                     value={studentSearchTerm}
                     onChange={(e) => handleStudentSearch(e.target.value)}
                     onFocus={() => setShowStudentSearch(true)}
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 pl-12 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 pl-12 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                     placeholder={languageCode === 'bn' ? "ইউজার আইডি বা ইউজারনেম দিয়ে খুঁজুন..." : "Search by User ID or Username..."}
                   />
                   <FaSearch className="absolute left-4 top-[24px] transform -translate-y-1/2 text-white/60" />
@@ -491,7 +491,7 @@ const HostelAllocation = () => {
                             setStudentSearchTerm('');
                             setSearchResults([]);
                           }}
-                          className="text-pmColor hover:text-white ml-2 p-1 rounded transition-colors duration-200"
+                          className="text-pmColor hover:text-[#441a05]ml-2 p-1 rounded transition-colors duration-200"
                         >
                           <IoClose className="w-5 h-5" />
                         </button>
@@ -511,7 +511,7 @@ const HostelAllocation = () => {
                     name="status"
                     value={formData.status}
                     onChange={handleInputChange}
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                   >
                     <option value="Active" className="bg-gray-800">
                       {languageCode === 'bn' ? 'সক্রিয়' : 'Active'}
@@ -602,7 +602,7 @@ const HostelAllocation = () => {
                           setSelectedRoom(null);
                           if (selectedHostel) setShowRoomSidebar(true);
                         }}
-                        className="text-green-400 hover:text-white px-3 py-1 rounded-lg border border-green-500/30 hover:bg-green-500/20 transition-all duration-300"
+                        className="text-green-400 hover:text-[#441a05]px-3 py-1 rounded-lg border border-green-500/30 hover:bg-green-500/20 transition-all duration-300"
                       >
                         {languageCode === 'bn' ? 'পরিবর্তন' : 'Change'}
                       </button>
@@ -630,7 +630,7 @@ const HostelAllocation = () => {
                 <button
                   type="submit"
                   disabled={isCreating}
-                  className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                  className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                     isCreating ? "opacity-50 cursor-not-allowed" : "hover:shadow-lg hover:scale-105"
                   }`}
                 >
@@ -649,7 +649,7 @@ const HostelAllocation = () => {
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="bg-gray-500/20 hover:bg-gray-500/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                  className="bg-gray-500/20 hover:bg-gray-500/30 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
                 >
                   {languageCode === 'bn' ? 'রিসেট' : 'Reset'}
                 </button>
@@ -743,13 +743,13 @@ const HostelAllocation = () => {
                 <div className="h-full flex flex-col bg-white/10 backdrop-blur-md border-l border-white/20 shadow-xl">
                   <div className="px-4 py-6 bg-pmColor/20 sm:px-6">
                     <div className="flex items-center justify-between">
-                      <h2 className="text-lg font-medium text-white flex items-center space-x-2">
+                      <h2 className="text-lg font-medium text-[#441a05]flex items-center space-x-2">
                         <FaBed />
                         <span>{languageCode === 'bn' ? 'রুম নির্বাচন করুন' : 'Select Room'}</span>
                       </h2>
                       <button
                         onClick={() => setShowRoomSidebar(false)}
-                        className="text-white/70 hover:text-white transition-colors"
+                        className="text-white/70 hover:text-[#441a05]transition-colors"
                       >
                         <IoClose className="w-6 h-6" />
                       </button>
@@ -760,7 +760,7 @@ const HostelAllocation = () => {
                   </div>
 
                   <div className="flex-1 overflow-y-auto p-4">
-                    <h3 className="text-lg font-medium text-white mb-4">
+                    <h3 className="text-lg font-medium text-[#441a05]mb-4">
                       {languageCode === 'bn' ? 'উপলব্ধ রুম' : 'Available Rooms'} ({formatNumber(availableRooms.length)})
                     </h3>
                     

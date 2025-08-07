@@ -175,7 +175,7 @@ const IncomeChart = () => {
                     .total-amount {
                         font-size: 2rem;
                         font-weight: bold;
-                        color: #fff;
+                        color: #441a05;
                         margin: 0.5rem 0;
                         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
                     }
@@ -217,13 +217,13 @@ const IncomeChart = () => {
                     .stat-value {
                         font-size: 1.125rem;
                         font-weight: bold;
-                        color: #fff;
+                        color: #441a05;
                         margin-bottom: 0.25rem;
                     }
                     
                     .stat-label {
                         font-size: 0.75rem;
-                        color: #fff;
+                        color: #441a05;
                         font-weight: 500;
                         opacity: 0.7;
                     }
@@ -237,7 +237,7 @@ const IncomeChart = () => {
                     }
                     
                     .chart-title {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.875rem;
                         font-weight: 600;
                         text-align: center;
@@ -257,14 +257,14 @@ const IncomeChart = () => {
                     }
                     
                     .tooltip-label {
-                        color: #fff;
+                        color: #441a05;
                         font-weight: 600;
                         margin-bottom: 0.25rem;
                         font-size: 0.875rem;
                     }
                     
                     .tooltip-value, .tooltip-date {
-                        color: #fff;
+                        color: #441a05;
                         font-size: 0.75rem;
                         margin: 0.125rem 0;
                         opacity: 0.8;
@@ -272,7 +272,7 @@ const IncomeChart = () => {
                     
                     /* Recharts custom styling */
                     .recharts-cartesian-axis-tick-value {
-                        fill: #fff !important;
+                        fill: #441a05 !important;
                         font-weight: 500;
                         font-size: 11px;
                         opacity: 0.7;
@@ -306,7 +306,7 @@ const IncomeChart = () => {
                 <div className="total-amount">
                     ৳{formatCurrency(totalIncome)}
                 </div>
-                <div style={{ color: '#fff', fontSize: '0.75rem', opacity: 0.7 }}>
+                <div style={{ color: '#441a05', fontSize: '0.75rem', opacity: 0.7 }}>
                     মোট আয়
                 </div>
             </div> */}
@@ -340,10 +340,10 @@ const IncomeChart = () => {
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis 
                             dataKey="day" 
-                            tick={{ fill: '#fff', fontSize: 11, fontWeight: 500, opacity: 0.7 }}
+                            tick={{ fill: '#441a05', fontSize: 11, fontWeight: 500, opacity: 0.7 }}
                         />
                         <YAxis 
-                            tick={{ fill: '#fff', fontSize: 10, opacity: 0.7 }}
+                            tick={{ fill: '#441a05', fontSize: 10, opacity: 0.7 }}
                             tickFormatter={(value) => `${formatCurrency(value)}`}
                         />
                         <Tooltip content={<CustomTooltip />} />
@@ -354,7 +354,7 @@ const IncomeChart = () => {
                             strokeWidth={3}
                             fill="url(#incomeGradient)"
                             dot={{ fill: primaryColor, strokeWidth: 2, r: 4 }}
-                            activeDot={{ r: 6, fill: primaryColor, stroke: '#fff', strokeWidth: 2 }}
+                            activeDot={{ r: 6, fill: primaryColor, stroke: '#441a05', strokeWidth: 2 }}
                             animationBegin={500}
                             animationDuration={1500}
                         />
@@ -365,7 +365,7 @@ const IncomeChart = () => {
                 <div style={{ 
                     textAlign: 'center', 
                     // marginTop: '1rem', 
-                    color: '#fff', 
+                    color: '#441a05', 
                     fontSize: '10px',
                     opacity: 0.7,
                     display: 'flex',

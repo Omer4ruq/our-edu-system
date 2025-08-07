@@ -106,7 +106,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
             font-size: 12px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -268,13 +268,13 @@ console.log("filteredFeeRecords", filteredFeeRecords)
           }
           .filter-button-active {
             background-color: #DB9E30;
-            color: #fff;
+            color: #441a05;
             font-weight: bold;
             border-color: #DB9E30;
           }
           .filter-button-inactive {
             background-color: transparent;
-            color: #fff;
+            color: #441a05;
             border-color: #9d9087;
           }
           .filter-button-inactive:hover {
@@ -289,19 +289,19 @@ console.log("filteredFeeRecords", filteredFeeRecords)
             font-size: 0.875rem;
           }
           .date-filter-active {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
           }
           .date-filter-inactive {
             background-color: transparent;
-            color: #fff;
+            color: #441a05;
             border: 1px solid #9d9087;
           }
           .date-filter-inactive:hover {
             background-color: rgba(68, 26, 5, 0.1);
           }
           .report-button {
-            background-color: #fff;
+            background-color: #441a05;
             color: white;
             padding: 8px 16px;
             border-radius: 8px;
@@ -372,7 +372,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                   name="startDate"
                   value={dateFilter.startDate}
                   onChange={handleDateFilterChange}
-                  className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                   placeholder="শুরু"
                 />
                 <span className="text-white">থেকে</span>
@@ -381,7 +381,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                   name="endDate"
                   value={dateFilter.endDate}
                   onChange={handleDateFilterChange}
-                  className="bg-transparent text-white pl-3 py-2 border border-[#9d9087] rounded-lg"
+                  className="bg-transparent text-[#441a05]pl-3 py-2 border border-[#9d9087] rounded-lg"
                   placeholder="শেষ"
                 />
                 <button
@@ -475,7 +475,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                       <span
                         className={`px-2 py-1 text-xs font-semibold rounded-full ${
                           fee.status === 'PAID'
-                            ? 'text-white bg-pmColor'
+                            ? 'text-[#441a05]bg-pmColor'
                             : fee.status === 'PARTIAL'
                             ? 'text-yellow-800 bg-yellow-100/50'
                             : 'text-red-800 bg-red-100/50'
@@ -497,7 +497,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                               })
                             }
                             title="ফি আপডেট করুন / Update fee"
-                            className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                            className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                           >
                             <FaEdit className="w-5 h-5" />
                           </button>
@@ -506,7 +506,7 @@ console.log("filteredFeeRecords", filteredFeeRecords)
                           <button
                             onClick={() => onDeleteFee(fee.id)}
                             title="ফি মুছুন / Delete fee"
-                            className="text-white hover:text-red-500 transition-colors duration-300"
+                            className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                           >
                             <FaTrash className="w-5 h-5" />
                           </button>

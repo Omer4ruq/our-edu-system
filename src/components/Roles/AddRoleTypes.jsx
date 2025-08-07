@@ -204,7 +204,7 @@ const AddRoleTypes = () => {
             ) : (
               <IoAddCircle className="text-4xl text-white" />
             )}
-            <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
               {editingId ? "ভূমিকার ধরন সম্পাদনা করুন" : "নতুন ভূমিকার ধরন যোগ করুন"}
             </h3>
           </div>
@@ -215,7 +215,7 @@ const AddRoleTypes = () => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="নাম লিখুন"
               disabled={isCreating || isUpdating}
               aria-label="নাম"
@@ -228,7 +228,7 @@ const AddRoleTypes = () => {
               name="bn_name"
               value={formData.bn_name}
               onChange={handleInputChange}
-              className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+              className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
               placeholder="বাংলা নাম লিখুন"
               disabled={isCreating || isUpdating}
               lang="bn"
@@ -240,8 +240,8 @@ const AddRoleTypes = () => {
               type="submit"
               disabled={isCreating || isUpdating}
               title={editingId ? "ভূমিকার ধরন আপডেট করুন" : "নতুন ভূমিকার ধরন তৈরি করুন"}
-              className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                isCreating || isUpdating ? "cursor-not-allowed" : "hover:text-white hover:shadow-md"
+              className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                isCreating || isUpdating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
               }`}
             >
               {(isCreating || isUpdating) ? (
@@ -261,7 +261,7 @@ const AddRoleTypes = () => {
                 type="button"
                 onClick={resetForm}
                 title="সম্পাদনা বাতিল করুন"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]transition-all duration-300 animate-scaleIn"
               >
                 বাতিল
               </button>
@@ -280,7 +280,7 @@ const AddRoleTypes = () => {
 
         {/* Role Types Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">ভূমিকার ধরনের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">ভূমিকার ধরনের তালিকা</h3>
           {isRoleLoading ? (
             <p className="p-4 text-white/70">ভূমিকার ধরন লোড হচ্ছে...</p>
           ) : roleError ? (
@@ -371,14 +371,14 @@ const AddRoleTypes = () => {
                         <button
                           onClick={() => handleEdit(roleType)}
                           title="ভূমিকার ধরন সম্পাদনা করুন"
-                          className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                          className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                         >
                           <FaEdit className="w-5 h-5" />
                         </button>
                         <button
                           onClick={() => handleDelete(roleType.id)}
                           title="ভূমিকার ধরন মুছুন"
-                          className="text-white hover:text-red-500 transition-colors duration-300"
+                          className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                         >
                           <FaTrash className="w-5 h-5" />
                         </button>
@@ -405,15 +405,15 @@ const AddRoleTypes = () => {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border-t border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন ভূমিকার ধরন নিশ্চিত করুন"}
                 {modalAction === "update" && "ভূমিকার ধরন আপডেট নিশ্চিত করুন"}
                 {modalAction === "delete" && "ভূমিকার ধরন মুছে ফেলা নিশ্চিত করুন"}
                 {modalAction === "toggle" && "ভূমিকার ধরনের স্থিতি পরিবর্তন নিশ্চিত করুন"}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === "create" && "আপনি কি নিশ্চিত যে নতুন ভূমিকার ধরন তৈরি করতে চান?"}
                 {modalAction === "update" && "আপনি কি নিশ্চিত যে ভূমিকার ধরন আপডেট করতে চান?"}
                 {modalAction === "delete" && "আপনি কি নিশ্চিত যে এই ভূমিকার ধরনটি মুছে ফেলতে চান?"}
@@ -422,14 +422,14 @@ const AddRoleTypes = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                   title="বাতিল করুন"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                   title="নিশ্চিত করুন"
                 >
                   নিশ্চিত করুন

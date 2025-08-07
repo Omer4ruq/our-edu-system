@@ -31,7 +31,7 @@ export default function LeaveAndSmsInfo() {
       <div className="bg-black/10 backdrop-blur-sm text-sm rounded-2xl shadow-xl animate-fadeIn">
         <SectionHeader
           title="ছুটির তথ্য"
-          className="bg-pmColor text-white text-xl p-4 rounded-t-2xl shadow-md font-bold"
+          className="bg-pmColor text-[#441a05]text-xl p-4 rounded-t-2xl shadow-md font-bold"
         />
         <div className="sm:flex items-center gap-4 p-4 space-y-4 sm:space-y-0">
           {/* Leave Student */}
@@ -40,7 +40,7 @@ export default function LeaveAndSmsInfo() {
               <img src={leaveStudent} alt="শিক্ষার্থী ছুটি আইকন" className="w-8 h-8" />
             </div>
             <div className="border-l-2 border-[#9d9087] pl-3">
-              <h4 className="text-white text-[16px] font-medium">
+              <h4 className="text-[#441a05]text-[16px] font-medium">
                 শিক্ষার্থী ছুটি
               </h4>
               <h4 className="text-xl font-bold text-white">o</h4>
@@ -56,7 +56,7 @@ export default function LeaveAndSmsInfo() {
               <img src={leaveTeacher} alt="শিক্ষক ছুটি আইকন" className="w-8 h-8" />
             </div>
             <div className="border-l-2 border-[#9d9087] pl-3">
-              <h4 className="text-white text-[16px] font-medium">
+              <h4 className="text-[#441a05]text-[16px] font-medium">
                 কর্মকর্তা ছুটি
               </h4>
               <h4 className="text-xl font-bold text-white">o</h4>
@@ -72,7 +72,7 @@ export default function LeaveAndSmsInfo() {
       <div className="bg-black/10 backdrop-blur-sm text-sm rounded-2xl shadow-xl animate-fadeIn">
         <SectionHeader
           title="এসএমএস তথ্য"
-          className="bg-pmColor text-white text-xl p-4 rounded-t-2xl shadow-md font-bold"
+          className="bg-pmColor text-[#441a05]text-xl p-4 rounded-t-2xl shadow-md font-bold"
         />
         <div className="sm:flex items-center gap-4 p-4 space-y-4 sm:space-y-0">
           {/* General SMS */}
@@ -81,7 +81,7 @@ export default function LeaveAndSmsInfo() {
               <img src={generalSMS} alt="সাধারণ এসএমএস আইকন" className="w-8 h-8" />
             </div>
             <div className="border-l-2 border-[#9d9087] pl-3">
-              <h4 className="text-white text-[16px] font-medium">
+              <h4 className="text-[#441a05]text-[16px] font-medium">
                 সাধারণ এসএমএস
               </h4>
               <h4 className="text-xl font-bold text-white">o</h4>
@@ -97,7 +97,7 @@ export default function LeaveAndSmsInfo() {
               <img src={maskingSMS} alt="মাস্কিং এসএমএস আইকন" className="w-8 h-8" />
             </div>
             <div className="border-l-2 border-[#9d9087] pl-3">
-              <h4 className="text-white text-[16px] font-medium">
+              <h4 className="text-[#441a05]text-[16px] font-medium">
                 মাস্কিং এসএমএস
               </h4>
               <h4 className="text-xl font-bold text-white">o</h4>

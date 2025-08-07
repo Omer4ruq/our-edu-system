@@ -24,7 +24,7 @@ export default function Year({ style, label = 'বছর', labelClassName, input
 
       <label
         htmlFor="year"
-        className={`font-semibold text-white ${labelClassName || ''}`}
+        className={`font-semibold text-[#441a05]${labelClassName || ''}`}
       >
         {label}
       </label>
@@ -32,7 +32,7 @@ export default function Year({ style, label = 'বছর', labelClassName, input
         id="year"
         name="year"
         defaultValue="default"
-        className={`w-full bg-transparent text-white placeholder-white px-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg focus:border-pmColor transition-all duration-300 animate-scaleIn ${inputClassName || ''}`}
+        className={`w-full bg-transparent text-[#441a05]placeholder-[#441a05]px-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg focus:border-pmColor transition-all duration-300 animate-scaleIn ${inputClassName || ''}`}
         aria-label="বছর নির্বাচন করুন"
         title="বছর নির্বাচন করুন / Select Year"
       >

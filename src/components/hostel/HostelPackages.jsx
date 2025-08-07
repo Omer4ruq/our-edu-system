@@ -297,7 +297,7 @@ const HostelPackages = () => {
                 id="packageName"
                 value={packageName}
                 onChange={(e) => setPackageName(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "প্যাকেজের নাম" : "Package Name"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "প্যাকেজের নাম" : "Package Name"}
@@ -310,7 +310,7 @@ const HostelPackages = () => {
                 id="amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                 placeholder={languageCode === 'bn' ? "পরিমাণ" : "Amount"}
                 disabled={isCreating || isUpdating}
                 aria-label={languageCode === 'bn' ? "পরিমাণ" : "Amount"}
@@ -335,7 +335,7 @@ const HostelPackages = () => {
             <button
               type="submit"
               disabled={isCreating || isUpdating || (editPackageId ? !hasChangePermission : !hasAddPermission)}
-              className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+              className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                 (isCreating || isUpdating || (editPackageId ? !hasChangePermission : !hasAddPermission)) 
                   ? "opacity-50 cursor-not-allowed" 
                   : "hover:shadow-lg hover:scale-105"
@@ -373,7 +373,7 @@ const HostelPackages = () => {
                   setAmount("");
                   setAcademicYear("");
                 }}
-                className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-red-500 hover:bg-red-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
               </button>
@@ -393,7 +393,7 @@ const HostelPackages = () => {
       {/* Packages Table */}
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
         <div className="px-6 py-4 border-b border-white/20">
-          <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
             <FaList className="text-pmColor" />
             <span>{languageCode === 'bn' ? 'প্যাকেজের তালিকা' : 'Packages List'} ({packages.length})</span>
           </h3>
@@ -444,10 +444,10 @@ const HostelPackages = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <td className="px-6 py-4">
-                      <div className="text-white font-medium">{pkg.package_name}</div>
+                      <div className="text-[#441a05]font-medium">{pkg.package_name}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-white font-semibold">
+                      <div className="text-[#441a05]font-semibold">
                         ${pkg.amount ? Number(pkg.amount).toLocaleString() : '0'}
                       </div>
                     </td>
@@ -474,7 +474,7 @@ const HostelPackages = () => {
                         {hasChangePermission && (
                           <button
                             onClick={() => handleEditClick(pkg)}
-                            className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                            className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'প্যাকেজ সম্পাদনা করুন' : 'Edit package'}
                           >
                             <FaEdit className="w-4 h-4" />
@@ -483,7 +483,7 @@ const HostelPackages = () => {
                         {hasDeletePermission && (
                           <button
                             onClick={() => handleDelete(pkg.id)}
-                            className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                            className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                             title={languageCode === 'bn' ? 'প্যাকেজ মুছুন' : 'Delete package'}
                           >
                             <FaTrash className="w-4 h-4" />

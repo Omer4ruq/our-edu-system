@@ -57,7 +57,7 @@ export default function ProfileInfo() {
       </style>
 
       {/* Top Row */}
-      <div className="flex justify-between items-center text-white px-2">
+      <div className="flex justify-between items-center text-[#441a05]px-2">
         <p className="text-sm sm:text-base font-semibold text-pmColor flex items-center gap-2"><FaUserCheck />{role || 'রোল নির্ধারিত নয়'}</p>
         <button className="text-xl hover:text-pmColor transition-colors duration-200">
           <FaUserEdit />
@@ -76,7 +76,7 @@ export default function ProfileInfo() {
       </div>
 
       {/* User Info */}
-      <div className="text-white space-y-1">
+      <div className="text-[#441a05]space-y-1">
         <h4 className="text-lg font-bold">{user?.name || 'নাম পাওয়া যায়নি'}</h4>
         <p className="text-xs">{profile?.designation || 'পদবী নির্ধারিত নয়'}</p>
         <p className="text-xs">{profile?.phone_number || 'মোবাইল নম্বর নেই'}</p>
@@ -85,19 +85,19 @@ export default function ProfileInfo() {
       {/* Social Icons */}
       <div className="flex justify-center gap-4 pt-2">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
-          <FaFacebookF className="text-white text-sm" />
+          <FaFacebookF className="text-[#441a05]text-sm" />
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
-          <FaLinkedinIn className="text-white text-sm" />
+          <FaLinkedinIn className="text-[#441a05]text-sm" />
         </a>
         <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
-          <FaGithub className="text-white text-sm" />
+          <FaGithub className="text-[#441a05]text-sm" />
         </a>
         <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
-          <FaInstagram className="text-white text-sm" />
+          <FaInstagram className="text-[#441a05]text-sm" />
         </a>
         <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 rounded-full p-2 hover:bg-pmColor transition">
-          <FaTwitter className="text-white text-sm" />
+          <FaTwitter className="text-[#441a05]text-sm" />
         </a>
       </div>
     </div>

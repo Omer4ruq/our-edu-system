@@ -60,7 +60,7 @@ const customStyles = `
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: rgba(157, 144, 135, 0.5); border-radius: 10px; }
-  ::-webkit-scrollbar-thumb:hover { background: #fff; }
+  ::-webkit-scrollbar-thumb:hover { background: #441a05; }
   .card { transition: all 0.3s ease; }
   .card:hover { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
 `;
@@ -377,7 +377,7 @@ const ExamRoutine = () => {
         {/* Header */}
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn ml-2">
           <FaCalendarAlt className="text-3xl text-white" />
-          <h2 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+          <h2 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
             পরীক্ষার রুটিন
           </h2>
         </div>
@@ -388,7 +388,7 @@ const ExamRoutine = () => {
             {/* Exam Selection */}
             <div className="relative">
               <label
-                className="block text-lg font-semibold text-white mb-2"
+                className="block text-lg font-semibold text-[#441a05]mb-2"
                 htmlFor="examSelect"
               >
                 পরীক্ষা নির্বাচন করুন <span className="text-red-600">*</span>
@@ -414,7 +414,7 @@ const ExamRoutine = () => {
             {/* Academic Year Selection */}
             <div className="relative">
               <label
-                className="block text-lg font-semibold text-white mb-2"
+                className="block text-lg font-semibold text-[#441a05]mb-2"
                 htmlFor="yearSelect"
               >
                 শিক্ষাবর্ষ নির্বাচন করুন <span className="text-red-600">*</span>
@@ -448,7 +448,7 @@ const ExamRoutine = () => {
                 <button
                   key={cls.student_class.id}
                   onClick={() => setActiveTab(cls.student_class.id)}
-                  className={`px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 animate-scaleIn ${
+                  className={`px-6 py-3 rounded-lg font-semibold text-[#441a05]transition-all duration-300 animate-scaleIn ${
                     activeTab === cls.student_class.id
                       ? "bg-pmColor text-white"
                       : "bg-white/10 hover:bg-white/10"
@@ -468,7 +468,7 @@ const ExamRoutine = () => {
                 <div className="grid grid-cols-1 gap-8">
                   {/* Add/Edit Schedule */}
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-6 animate-fadeIn">
+                    <h3 className="text-xl font-semibold text-[#441a05]mb-6 animate-fadeIn">
                       পরীক্ষার সময়সূচি যোগ/সম্পাদনা করুন
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -480,13 +480,13 @@ const ExamRoutine = () => {
                             className="p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl animate-scaleIn card"
                             style={{ animationDelay: `${index * 0.1}s` }}
                           >
-                            <h4 className="font-semibold text-lg text-white mb-4">
+                            <h4 className="font-semibold text-lg text-[#441a05]mb-4">
                               {subject.name}
                             </h4>
                             <div className="space-y-4">
                               {/* Date Selection */}
                               <div className="relative">
-                                <label className="text-sm font-medium text-white mb-1 block">
+                                <label className="text-sm font-medium text-[#441a05]mb-1 block">
                                   পরীক্ষার তারিখ <span className="text-red-500">*</span>
                                 </label>
                                 <input
@@ -501,7 +501,7 @@ const ExamRoutine = () => {
                                     )
                                   }
                                   onClick={handleDateClick}
-                                  className="w-full p-3 bg-transparent text-white border border-[#9d9087] rounded-lg focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300"
+                                  className="w-full p-3 bg-transparent text-[#441a05]border border-[#9d9087] rounded-lg focus:outline-none focus:border-[#441a05]focus:ring-2 focus:ring-[#441a05]transition-all duration-300"
                                   disabled={isLoading}
                                   aria-label={`তারিখ নির্বাচন: ${subject.name}`}
                                   title={`তারিখ নির্বাচন করুন: ${subject.name} / Select date for ${subject.name}`}
@@ -510,7 +510,7 @@ const ExamRoutine = () => {
 
                               {/* Start Time Selection */}
                               <div>
-                                <label className="text-sm font-medium text-white mb-1 block">
+                                <label className="text-sm font-medium text-[#441a05]mb-1 block">
                                   শুরুর সময় <span className="text-red-500">*</span>
                                 </label>
                                 <Select
@@ -534,7 +534,7 @@ const ExamRoutine = () => {
 
                               {/* Duration Selection */}
                               <div>
-                                <label className="text-sm font-medium text-white mb-1 block">
+                                <label className="text-sm font-medium text-[#441a05]mb-1 block">
                                   পরীক্ষার সময়কাল <span className="text-red-500">*</span>
                                 </label>
                                 <Select
@@ -561,10 +561,10 @@ const ExamRoutine = () => {
                               {/* End Time Display */}
                               {schedule.end_time && (
                                 <div>
-                                  <label className="text-sm font-medium text-white mb-1 block">
+                                  <label className="text-sm font-medium text-[#441a05]mb-1 block">
                                     শেষের সময়
                                   </label>
-                                  <div className="w-full p-3 bg-gray-100/50 text-white border border-[#9d9087] rounded-lg">
+                                  <div className="w-full p-3 bg-gray-100/50 text-[#441a05]border border-[#9d9087] rounded-lg">
                                     {formatTimeForDisplay(schedule.end_time)}
                                   </div>
                                 </div>
@@ -578,10 +578,10 @@ const ExamRoutine = () => {
                       <button
                         onClick={handleSubmit}
                         disabled={isLoading}
-                        className={`w-fit mx-auto mt-5 flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-lg bg-gradient-to-r from-pmColor to-[#F4B840] text-white transition-all duration-300 animate-scaleIn ${
+                        className={`w-fit mx-auto mt-5 flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-lg bg-gradient-to-r from-pmColor to-[#F4B840] text-[#441a05]transition-all duration-300 animate-scaleIn ${
                           isLoading
                             ? "cursor-not-allowed opacity-70"
-                            : "hover:text-white btn-glow"
+                            : "hover:text-[#441a05]btn-glow"
                         }`}
                         aria-label="রুটিন সাবমিট করুন"
                         title="রুটিন সাবমিট করুন / Submit routine"
@@ -618,24 +618,24 @@ const ExamRoutine = () => {
         {/* Confirmation Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-8 w-full max-w-lg border border-white/20 animate-slideUp card">
-              <h3 className="text-xl font-semibold text-white mb-4">
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-8 w-full max-w-lg border border-white/20 animate-slideUp card">
+              <h3 className="text-xl font-semibold text-[#441a05]mb-4">
                 রুটিন তৈরি নিশ্চিত করুন
               </h3>
-              <p className="text-white mb-4">
+              <p className="text-[#441a05]mb-4">
                 নিম্নলিখিত সময়সূচি সাবমিট করা হবে:
               </p>
               <div className="max-h-64 overflow-y-auto mb-6">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-pmColor/20">
-                      <th className="p-2 text-left text-white font-semibold">
+                      <th className="p-2 text-left text-[#441a05]font-semibold">
                         বিষয়
                       </th>
-                      <th className="p-2 text-left text-white font-semibold">
+                      <th className="p-2 text-left text-[#441a05]font-semibold">
                         তারিখ
                       </th>
-                      <th className="p-2 text-left text-white font-semibold">
+                      <th className="p-2 text-left text-[#441a05]font-semibold">
                         সময়
                       </th>
                     </tr>
@@ -661,7 +661,7 @@ const ExamRoutine = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-6 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-all duration-300"
+                  className="px-6 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-all duration-300"
                   aria-label="বাতিল করুন"
                   title="বাতিল করুন / Cancel"
                 >
@@ -669,7 +669,7 @@ const ExamRoutine = () => {
                 </button>
                 <button
                   onClick={confirmSubmitRoutine}
-                  className="px-6 py-2 bg-pmColor text-white rounded-lg hover:text-white btn-glow transition-all duration-300"
+                  className="px-6 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]btn-glow transition-all duration-300"
                   aria-label="নিশ্চিত করুন"
                   title="নিশ্চিত করুন / Confirm"
                 >

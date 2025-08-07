@@ -26,7 +26,7 @@ export default function ClassConfigTable({ classConfig }) {
               <td className="w-2/12">{row.shift}</td>
               <td className="w-4/12 px-2">
                 {row.section.map((item, index) => (
-                  <p key={index} className="inline bg-red text-white px-2 py-1 rounded m-[2px]">
+                  <p key={index} className="inline bg-red text-[#441a05]px-2 py-1 rounded m-[2px]">
                     {item.name}
                   </p>
                 ))}
@@ -34,7 +34,7 @@ export default function ClassConfigTable({ classConfig }) {
               <td className="w-3/12 min-w-40">
                 <Link to={`../section-config/${row.id}`}>
                   <button
-                    className="bg-#DB9E30 px-3 py-2 rounded shadow text-white hover:-translate-y-[2px] duration-200 text-sm my-[6px]"
+                    className="bg-#DB9E30 px-3 py-2 rounded shadow text-[#441a05]hover:-translate-y-[2px] duration-200 text-sm my-[6px]"
                   >
                     {t('module.settings.add_class_section')}
                   </button>

@@ -278,7 +278,7 @@ const AddExamType = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-white" />
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">নতুন পরীক্ষার ধরন যোগ করুন</h3>
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন পরীক্ষার ধরন যোগ করুন</h3>
             </div>
             <form onSubmit={handleSubmitExam} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
               <input
@@ -286,7 +286,7 @@ const AddExamType = () => {
                 id="examName"
                 value={examName}
                 onChange={(e) => setExamName(e.target.value)}
-                className="w-full p-2 bg-transparent text-white placeholder-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
                 placeholder="পরীক্ষার ধরন লিখুন (যেমন, মধ্যবর্তী)"
                 disabled={isCreating}
                 aria-describedby={createError ? "exam-error" : undefined}
@@ -295,14 +295,14 @@ const AddExamType = () => {
                 id="academicYear"
                 value={selectedAcademicYear}
                 onChange={(e) => setSelectedAcademicYear(e.target.value)}
-                className="w-full p-2 bg-transparent text-white pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                className="w-full p-2 bg-transparent text-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
                 disabled={isCreating || academicYearsLoading}
               >
-                <option value="" disabled className="bg-white text-black">
+                <option value="" disabled className="bg-[#441a05]text-black">
                   শিক্ষাবর্ষ নির্বাচন করুন
                 </option>
                 {academicYearOptions.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-white text-black">
+                  <option key={option.value} value={option.value} className="bg-[#441a05]text-black">
                     {option.label}
                   </option>
                 ))}
@@ -311,8 +311,8 @@ const AddExamType = () => {
                 type="submit"
                 disabled={isCreating}
                 title="নতুন পরীক্ষার ধরন তৈরি করুন"
-                className={`relative inline-flex items-center hover:text-white px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isCreating ? "cursor-not-allowed" : "hover:text-white hover:shadow-md"
+                className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isCreating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
                 }`}
               >
                 {isCreating ? (
@@ -345,7 +345,7 @@ const AddExamType = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <FaEdit className="text-3xl text-white" />
-              <h3 className="text-2xl font-bold text-white tracking-tight">পরীক্ষার ধরন সম্পাদনা করুন</h3>
+              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">পরীক্ষার ধরন সম্পাদনা করুন</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
               <input
@@ -353,7 +353,7 @@ const AddExamType = () => {
                 id="editExamName"
                 value={editExamName}
                 onChange={(e) => setEditExamName(e.target.value)}
-                className="w-full bg-transparent text-white placeholder-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
                 placeholder="পরীক্ষার ধরন সম্পাদনা করুন (যেমন, মধ্যবর্তী)"
                 disabled={isUpdating}
                 aria-label="পরীক্ষার ধরন সম্পাদনা"
@@ -363,14 +363,14 @@ const AddExamType = () => {
                 id="editAcademicYear"
                 value={editAcademicYear}
                 onChange={(e) => setEditAcademicYear(e.target.value)}
-                className="w-full bg-transparent text-white pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                className="w-full bg-transparent text-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
                 disabled={isUpdating || academicYearsLoading}
               >
-                <option value="" disabled className="bg-white text-black">
+                <option value="" disabled className="bg-[#441a05]text-black">
                   শিক্ষাবর্ষ নির্বাচন করুন
                 </option>
                 {academicYearOptions.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-white text-black">
+                  <option key={option.value} value={option.value} className="bg-[#441a05]text-black">
                     {option.label}
                   </option>
                 ))}
@@ -379,8 +379,8 @@ const AddExamType = () => {
                 type="submit"
                 disabled={isUpdating}
                 title="পরীক্ষার ধরন আপডেট করুন"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? "cursor-not-allowed" : "hover:text-white hover:shadow-md"
+                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  isUpdating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
                 }`}
               >
                 {isUpdating ? (
@@ -400,7 +400,7 @@ const AddExamType = () => {
                   setEditAcademicYear("");
                 }}
                 title="সম্পাদনা বাতিল করুন"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-white hover:text-white transition-all duration-300 animate-scaleIn"
+                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
               >
                 বাতিল
               </button>
@@ -419,7 +419,7 @@ const AddExamType = () => {
 
         {/* Exam Types Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">পরীক্ষার ধরনের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">পরীক্ষার ধরনের তালিকা</h3>
           {isExamLoading ? (
             <p className="p-4 text-white/70">পরীক্ষার ধরন লোড হচ্ছে...</p>
           ) : examError ? (
@@ -489,7 +489,7 @@ const AddExamType = () => {
                             >
                               {exam.is_active && (
                                 <svg
-                                  className="w-4 h-4 text-white animate-scaleIn"
+                                  className="w-4 h-4 text-[#441a05]animate-scaleIn"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -519,7 +519,7 @@ const AddExamType = () => {
                             <button
                               onClick={() => handleEditClick(exam)}
                               title="পরীক্ষার ধরন সম্পাদনা করুন"
-                              className="text-white hover:text-blue-500 mr-4 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
                             >
                               <FaEdit className="w-5 h-5" />
                             </button>
@@ -528,7 +528,7 @@ const AddExamType = () => {
                             <button
                               onClick={() => handleDelete(exam.id)}
                               title="পরীক্ষার ধরন মুছুন"
-                              className="text-white hover:text-red-500 transition-colors duration-300"
+                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
                             >
                               <FaTrash className="w-5 h-5" />
                             </button>
@@ -559,15 +559,15 @@ const AddExamType = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
+              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === "create" && "নতুন পরীক্ষার ধরন নিশ্চিত করুন"}
                 {modalAction === "update" && "পরীক্ষার ধরন আপডেট নিশ্চিত করুন"}
                 {modalAction === "delete" && "পরীক্ষার ধরন মুছে ফেলা নিশ্চিত করুন"}
                 {modalAction === "toggle" && "পরীক্ষার ধরনের স্থিতি পরিবর্তন নিশ্চিত করুন"}
               </h3>
-              <p className="text-white mb-6">
+              <p className="text-[#441a05]mb-6">
                 {modalAction === "create" && "আপনি কি নিশ্চিত যে নতুন পরীক্ষার ধরন তৈরি করতে চান?"}
                 {modalAction === "update" && "আপনি কি নিশ্চিত যে পরীক্ষার ধরন আপডেট করতে চান?"}
                 {modalAction === "delete" && "আপনি কি নিশ্চিত যে এই পরীক্ষার ধরনটি মুছে ফেলতে চান?"}
@@ -576,13 +576,13 @@ const AddExamType = () => {
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                 >
                   নিশ্চিত করুন
                 </button>

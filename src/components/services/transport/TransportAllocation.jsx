@@ -240,7 +240,7 @@ const TransportAllocation = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -253,11 +253,11 @@ const TransportAllocation = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -266,7 +266,7 @@ const TransportAllocation = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -305,7 +305,7 @@ const TransportAllocation = () => {
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'ছাত্র *' : 'Student *'}
               </label>
               <div className="relative">
@@ -314,7 +314,7 @@ const TransportAllocation = () => {
                   value={studentSearchTerm}
                   onChange={(e) => handleStudentSearch(e.target.value)}
                   onFocus={() => setShowStudentSearch(true)}
-                  className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
+                  className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-[#441a05]placeholder-white/60 focus:outline-none focus:border-pmColor focus:bg-white/15 transition-all duration-300"
                   placeholder={languageCode === 'bn' ? 'ব্যবহারকারী আইডি বা ব্যবহারকারীর নাম দিয়ে অনুসন্ধান করুন...' : 'Search by User ID or Username...'}
                 />
                 {showStudentSearch && searchResults.length > 0 && (
@@ -397,7 +397,7 @@ const TransportAllocation = () => {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'স্থিতি *' : 'Status *'}
               </label>
               <Select
@@ -413,7 +413,7 @@ const TransportAllocation = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'শিক্ষাবর্ষ *' : 'Academic Year *'}
               </label>
               <Select
@@ -429,7 +429,7 @@ const TransportAllocation = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'পরিবহন প্যাকেজ *' : 'Transport Package *'}
               </label>
               <Select
@@ -445,7 +445,7 @@ const TransportAllocation = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">
+              <label className="block text-sm font-medium text-[#441a05]mb-1">
                 {languageCode === 'bn' ? 'পরিবহন রুট *' : 'Transport Route *'}
               </label>
               <Select
@@ -464,7 +464,7 @@ const TransportAllocation = () => {
               <button
                 type="submit"
                 disabled={isCreating || !formData.student_id?.value || !formData.academic_year?.value || !formData.transport_package?.value || !formData.route?.value}
-                className={`bg-pmColor hover:bg-pmColor/80 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
+                className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 ${
                   isCreating || !formData.student_id?.value || !formData.academic_year?.value || !formData.transport_package?.value || !formData.route?.value
                     ? 'opacity-50 cursor-not-allowed'
                     : 'hover:shadow-lg hover:scale-105'
@@ -485,7 +485,7 @@ const TransportAllocation = () => {
               <button
                 type="button"
                 onClick={handleReset}
-                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-gray-500 hover:bg-gray-600 text-[#441a05]px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               >
                 {languageCode === 'bn' ? 'রিসেট' : 'Reset'}
               </button>
@@ -556,7 +556,7 @@ const TransportAllocation = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-white/5 p-4 rounded-xl border border-white/20 animate-scaleIn">
-              <div className="text-white font-semibold">{languageCode === 'bn' ? 'মোট বরাদ্দ' : 'Total Allocations'}</div>
+              <div className="text-[#441a05]font-semibold">{languageCode === 'bn' ? 'মোট বরাদ্দ' : 'Total Allocations'}</div>
               <div className="text-2xl font-bold text-white">{allocations.length}</div>
             </div>
             <div className="bg-green-500/10 p-4 rounded-xl border border-green-500/20 animate-scaleIn" style={{ animationDelay: '0.1s' }}>

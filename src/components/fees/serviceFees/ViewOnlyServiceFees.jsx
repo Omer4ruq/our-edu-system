@@ -39,7 +39,7 @@ const ViewOnlyServiceFees = ({ selectedServiceType, setSelectedServiceType, serv
   return (
     <div className="py-8 w-full relative">
       <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
-        <h2 className="text-2xl font-bold text-white tracking-tight mb-6">সার্ভিস ফি কনফিগারেশন</h2>
+        <h2 className="text-2xl font-bold text-[#441a05]tracking-tight mb-6">সার্ভিস ফি কনফিগারেশন</h2>
         
         {/* Service Type Tabs - View Only */}
         <div className="mb-6 flex space-x-2">
@@ -52,7 +52,7 @@ const ViewOnlyServiceFees = ({ selectedServiceType, setSelectedServiceType, serv
                 className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${
                   selectedServiceType === service.key
                     ? `${service.color} text-white`
-                    : 'bg-gray-500/20 text-white hover:bg-gray-500/30'
+                    : 'bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30'
                 }`}
               >
                 <IconComponent className="w-4 h-4 mr-2" />
@@ -66,7 +66,7 @@ const ViewOnlyServiceFees = ({ selectedServiceType, setSelectedServiceType, serv
           <p className="p-4 text-white/70">কোনো {serviceTypes.find(s => s.key === selectedServiceType)?.label} ফি কনফিগারেশন পাওয়া যায়নি।</p>
         ) : (
           <div className="mb-6 bg-white/5 rounded-lg overflow-x-auto">
-            <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+            <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
               {serviceTypes.find(s => s.key === selectedServiceType)?.label} ফি কনফিগারেশন
             </h3>
             <table className="w-full border-collapse">

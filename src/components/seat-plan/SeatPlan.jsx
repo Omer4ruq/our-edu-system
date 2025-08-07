@@ -118,7 +118,7 @@ const SeatPlan = () => {
             font-size: 8pt;
             margin: 0;
             padding: 5mm;
-            color: #fff;
+            color: #441a05;
           }
           .page-container {
             width: 190mm;
@@ -299,7 +299,7 @@ const classConfigOptions = classConfigs?.map(config => ({
     const examInfo = exams?.find(exam => exam.id === selectedExam?.value) || {};
 
     return (
-      <div className="seat-card relative w-[90mm] h-[50mm] bg-white border border-pmColor rounded-[4mm] overflow-hidden">
+      <div className="seat-card relative w-[90mm] h-[50mm] bg-[#441a05]border border-pmColor rounded-[4mm] overflow-hidden">
         {/* Background Image Layer */}
         <div
           className="absolute inset-0 w-[40mm] h-[40mm] left-[27%] top-[25%] bg-[url('https://static.vecteezy.com/system/resources/previews/046/006/104/non_2x/education-logo-design-template-vector.jpg')] bg-contain bg-center bg-no-repeat opacity-10 z-0"
@@ -313,7 +313,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             className="w-6 h-6 object-contain"
           />
           <div className="text-center">
-            <h1 className="text-[8pt] font-bold text-white uppercase">
+            <h1 className="text-[8pt] font-bold text-[#441a05]uppercase">
               {instituteInfo.institute_name || 'Rajuk Uttara Model College'}
             </h1>
             <p className="text-[6pt] text-white">{instituteInfo.institute_address || 'Sector#6, Uttara Model Town, Dhaka'}</p>
@@ -331,7 +331,7 @@ const classConfigOptions = classConfigs?.map(config => ({
         </h2>
 
         {/* Student Info */}
-        <div className="text-[8pt] text-white px-2 py-1 flex justify-between">
+        <div className="text-[8pt] text-[#441a05]px-2 py-1 flex justify-between">
           <div className="space-y-0.5">
             <p><strong>নাম:</strong> {student.student_name}</p>
             <p><strong>শ্রেণি:</strong> {student.class_name}</p>
@@ -345,7 +345,7 @@ const classConfigOptions = classConfigs?.map(config => ({
         </div>
 
         {/* Exam Date */}
-        <p className="text-[7pt] text-white text-center mt-[-10px]">
+        <p className="text-[7pt] text-[#441a05]text-center mt-[-10px]">
           <strong>তারিখ:</strong> {examInfo.start_date || '2025'}
         </p>
       </div>
@@ -403,12 +403,12 @@ const classConfigOptions = classConfigs?.map(config => ({
       <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
           <IoPrint className="text-4xl text-white"/>
-          <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">পরীক্ষার আসন বিন্যাস</h3>
+          <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">পরীক্ষার আসন বিন্যাস</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 no-print">
           <div>
-            <label className="block text-sm font-medium text-white mb-1">ক্লাস কনফিগারেশন</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">ক্লাস কনফিগারেশন</label>
             <Select
               options={classConfigOptions}
               value={selectedClassConfig}
@@ -424,7 +424,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">শিক্ষাবর্ষ</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">শিক্ষাবর্ষ</label>
             <Select
               options={academicYearOptions}
               value={selectedAcademicYear}
@@ -440,7 +440,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-white mb-1">পরীক্ষা</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">পরীক্ষা</label>
             <Select
               options={examOptions}
               value={selectedExam}
@@ -462,7 +462,7 @@ const classConfigOptions = classConfigs?.map(config => ({
           <div className="mt-6 flex space-x-4 no-print">
             <button
                onClick={handleDownloadPDF}
-              className="px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn hover:text-white btn-glow"
+              className="px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn hover:text-[#441a05]btn-glow"
               aria-label="আসন বিন্যাস প্রিন্ট করুন"
               title="আসন বিন্যাস প্রিন্ট করুন / Print seat plan"
             >
@@ -483,12 +483,12 @@ const classConfigOptions = classConfigs?.map(config => ({
               {examStudents.students.map((student) => renderSeatCard(student))}
             </div>
           ) : (
-            <div className="text-center text-white p-8">
+            <div className="text-center text-[#441a05]p-8">
               কোনো শিক্ষার্থী পাওয়া যায়নি। ফিল্টার পরীক্ষা করুন।
             </div>
           )
         ) : (
-          <div className="text-center text-white p-8">
+          <div className="text-center text-[#441a05]p-8">
             দয়া করে সকল ফিল্টার নির্বাচন করুন।
           </div>
         )}

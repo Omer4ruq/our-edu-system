@@ -255,7 +255,7 @@ const EmployeesAdditions = () => {
           .react-select__control {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #441a05fff;
             border-radius: 0.75rem;
             padding: 0.25rem;
           }
@@ -268,11 +268,11 @@ const EmployeesAdditions = () => {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option {
             background: transparent;
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__option--is-focused {
             background: rgba(255, 255, 255, 0.05);
@@ -281,7 +281,7 @@ const EmployeesAdditions = () => {
             background: #4a90e2;
           }
           .react-select__single-value {
-            color: #ffffff;
+            color: #441a05fff;
           }
           .react-select__placeholder {
             color: rgba(255, 255, 255, 0.6);
@@ -345,7 +345,7 @@ const EmployeesAdditions = () => {
         <div className="space-y-8">
           {/* Employee Details */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 animate-fadeIn">
-            <h3 className="text-xl font-semibold text-white mb-4">
+            <h3 className="text-xl font-semibold text-[#441a05]mb-4">
               {languageCode === 'bn' ? 'কর্মচারী বিবরণ' : 'Employee Details'}
             </h3>
             <div className="flex items-center space-x-4">
@@ -355,7 +355,7 @@ const EmployeesAdditions = () => {
                 </span>
               </div>
               <div>
-                <div className="text-white font-medium">{selectedEmployee.name}</div>
+                <div className="text-[#441a05]font-medium">{selectedEmployee.name}</div>
                 <div className="text-sm text-white/70">
                   {languageCode === 'bn' ? 'স্টাফ আইডি' : 'Staff ID'}: {selectedEmployee.staff_id}
                 </div>
@@ -390,7 +390,7 @@ const EmployeesAdditions = () => {
                         type="number"
                         value={additionAmounts[additionType.id] || ''}
                         onChange={(e) => handleAmountChange(additionType.id, e.target.value)}
-                        className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[additionType.id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                        className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[additionType.id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
                           }`}
                         placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                         min="0"
@@ -399,7 +399,7 @@ const EmployeesAdditions = () => {
                       <button
                         onClick={() => handleAddAddition(additionType.id)}
                         disabled={isCreating || !additionAmounts[additionType.id]}
-                        className={`bg-pmColor hover:bg-pmColor/80 text-white px-3 py-2 rounded-xl text-sm transition-all duration-300 ${isCreating || !additionAmounts[additionType.id] ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+                        className={`bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-3 py-2 rounded-xl text-sm transition-all duration-300 ${isCreating || !additionAmounts[additionType.id] ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
                           }`}
                       >
                         {isCreating ? (languageCode === 'bn' ? 'যোগ করা হচ্ছে...' : 'Adding...') : (languageCode === 'bn' ? 'যোগ করুন' : 'Add')}
@@ -418,7 +418,7 @@ const EmployeesAdditions = () => {
           {selectedEmployeeAdditions.length > 0 && (
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden animate-fadeIn">
               <div className="px-6 py-4 border-b border-white/20">
-                <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+                <h3 className="text-xl font-semibold text-[#441a05]flex items-center space-x-2">
                   <FaList className="text-pmColor" />
                   <span>{languageCode === 'bn' ? 'বর্তমান অ্যাডিশন' : 'Current Additions'} ({selectedEmployeeAdditions.length})</span>
                 </h3>
@@ -476,7 +476,7 @@ const EmployeesAdditions = () => {
                                   type="number"
                                   value={additionAmounts[addition.addition_type_id] || ''}
                                   onChange={(e) => handleAmountChange(addition.addition_type_id, e.target.value)}
-                                  className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-white placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[addition.addition_type_id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
+                                  className={`w-24 bg-white/10 backdrop-blur-sm border rounded-xl px-3 py-2 text-[#441a05]placeholder-white/60 focus:outline-none transition-all duration-300 ${errors[addition.addition_type_id] ? 'border-red-500' : 'border-white/20 focus:border-pmColor focus:bg-white/15'
                                     }`}
                                   placeholder={languageCode === 'bn' ? 'পরিমাণ' : 'Amount'}
                                   min="0"
@@ -485,13 +485,13 @@ const EmployeesAdditions = () => {
                                 <button
                                   onClick={() => handleUpdateAddition(addition.id, addition.addition_type_id)}
                                   disabled={isSubmitting}
-                                  className="bg-pmColor hover:bg-pmColor/80 text-white px-3 py-1 rounded-xl text-sm transition-all duration-300"
+                                  className="bg-pmColor hover:bg-pmColor/80 text-[#441a05]px-3 py-1 rounded-xl text-sm transition-all duration-300"
                                 >
                                   {isUpdating ? (languageCode === 'bn' ? 'আপডেট হচ্ছে...' : 'Updating...') : (languageCode === 'bn' ? 'আপডেট' : 'Update')}
                                 </button>
                                 <button
                                   onClick={handleCancelEdit}
-                                  className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-xl text-sm transition-all duration-300"
+                                  className="bg-gray-500 hover:bg-gray-600 text-[#441a05]px-3 py-1 rounded-xl text-sm transition-all duration-300"
                                 >
                                   {languageCode === 'bn' ? 'বাতিল' : 'Cancel'}
                                 </button>
@@ -510,7 +510,7 @@ const EmployeesAdditions = () => {
                                   <button
                                     onClick={() => handleEditAddition(addition)}
                                     disabled={isDeleting}
-                                    className="bg-pmColor/20 hover:bg-pmColor hover:text-white text-pmColor p-2 rounded-lg transition-all duration-300"
+                                    className="bg-pmColor/20 hover:bg-pmColor hover:text-[#441a05]text-pmColor p-2 rounded-lg transition-all duration-300"
                                     title={languageCode === 'bn' ? 'অ্যাডিশন সম্পাদনা করুন' : 'Edit addition'}
                                   >
                                     <FaEdit className="w-4 h-4" />
@@ -520,7 +520,7 @@ const EmployeesAdditions = () => {
                                   <button
                                     onClick={() => handleDeleteAddition(addition.id)}
                                     disabled={isDeleting}
-                                    className="bg-red-500/20 hover:bg-red-500 hover:text-white text-red-400 p-2 rounded-lg transition-all duration-300"
+                                    className="bg-red-500/20 hover:bg-red-500 hover:text-[#441a05]text-red-400 p-2 rounded-lg transition-all duration-300"
                                     title={languageCode === 'bn' ? 'অ্যাডিশন মুছুন' : 'Delete addition'}
                                   >
                                     <FaTrash className="w-4 h-4" />

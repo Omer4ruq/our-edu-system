@@ -18,7 +18,7 @@ const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <div className="text-center">
       <Link to='/dashboard'>
-        {/* <h2 className="text-2xl font-semibold text-white px-4 pt-6">কওমী তালীম</h2> */}
+        {/* <h2 className="text-2xl font-semibold text-[#441a05]px-4 pt-6">কওমী তালীম</h2> */}
       </Link>
       {/* show cover image or searchbar */}
       {showSearchBar ? (
@@ -28,10 +28,10 @@ const [showSearchBar, setShowSearchBar] = useState(false);
             placeholder="মেনু অনুসন্ধান"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-1 bg-transparent text-white text-sm outline-none focus:text-sm"
+            className="flex-1 bg-transparent text-[#441a05]text-sm outline-none focus:text-sm"
           />
           <FaAngleUp
-            className="text-white text-xl p-[2px] rounded-sm hover:bg-pmColor duration-100"
+            className="text-[#441a05]text-xl p-[2px] rounded-sm hover:bg-pmColor duration-100"
             onClick={() => {
               setShowSearchBar(false);
             }}
@@ -40,12 +40,12 @@ const [showSearchBar, setShowSearchBar] = useState(false);
       ) : (
         <div className="relative">
           <div
-            className="group/angle absolute top-0 right-1/2 translate-x-1/2 px-2 pb-[2px] pt-0 rounded-b-full bg-pmColor z-10 hover:border-white duration-100"
+            className="group/angle absolute top-0 right-1/2 translate-x-1/2 px-2 pb-[2px] pt-0 rounded-b-full bg-pmColor z-10 hover:border-[#441a05]duration-100"
             onClick={() => {
               setShowSearchBar(true);
             }}
           >
-            <FaAngleDown className="text-white text-md group-hover/angle:scale-110 duration-100" />
+            <FaAngleDown className="text-[#441a05]text-md group-hover/angle:scale-110 duration-100" />
           </div>
           <img src={sidebarCover} alt="" className="opacity-90" />
         </div>

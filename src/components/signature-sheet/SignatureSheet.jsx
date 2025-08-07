@@ -264,7 +264,7 @@ const SignatureSheet = () => {
             .print-header {
               margin-bottom: 15px;
               font-size: 14px;
-              color: #fff;
+              color: #441a05;
             }
             .print-header h1 {
               font-size: 18px;
@@ -280,13 +280,13 @@ const SignatureSheet = () => {
               margin: 0 auto;
             }
             .print-table th, .print-table td {
-              border: 1px solid #fff;
+              border: 1px solid #441a05;
               padding: 6px;
               text-align: center;
             }
             .print-table th {
               background-color: #f5f5f5;
-              color: #fff;
+              color: #441a05;
             }
             .print-table tbody tr:nth-child(even) {
               background-color: #fafafa;
@@ -305,7 +305,7 @@ const SignatureSheet = () => {
       </style>
 
       <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-        <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight mb-6 animate-fadeIn">
+        <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight mb-6 animate-fadeIn">
           স্বাক্ষর শীট তৈরি করুন
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 no-print">
@@ -339,9 +339,9 @@ const SignatureSheet = () => {
             <button
               onClick={generatePDFReport}
               disabled={!selectedClass?.value || !selectedExam?.value || isStudentsLoading || isSubjectsLoading}
-              className={`flex w-full items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${!selectedClass?.value || !selectedExam?.value || isStudentsLoading || isSubjectsLoading
+              className={`flex w-full items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${!selectedClass?.value || !selectedExam?.value || isStudentsLoading || isSubjectsLoading
                   ? 'cursor-not-allowed opacity-50'
-                  : 'hover:text-white btn-glow'
+                  : 'hover:text-[#441a05]btn-glow'
                 }`}
               title="প্রিন্ট করুন"
             >
@@ -362,7 +362,7 @@ const SignatureSheet = () => {
 
       <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
         <div ref={tableRef} className="print-container">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20 no-print">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20 no-print">
             স্বাক্ষর শীট {selectedClass?.value && selectedExam?.value && `- ক্লাস: ${activeClasses.find(cls => cls.g_class_id === parseInt(selectedClass.value.g_class_id))?.class_name} ${activeClasses.find(cls => cls.g_class_id === parseInt(selectedClass.value.g_class_id))?.section_name}, পরীক্ষা: ${exams.find(exam => exam.id === parseInt(selectedExam.value))?.name}`}
           </h3>
           {(isClassesLoading || isExamsLoading || isStudentsLoading || isSubjectsLoading || instituteLoading) && (

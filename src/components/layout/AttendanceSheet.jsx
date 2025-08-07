@@ -340,13 +340,13 @@ const AttendanceSheet = () => {
       <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
         <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
           <IoPrint className="text-4xl text-white" />
-          <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">হাজিরা শীট</h3>
+          <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">হাজিরা শীট</h3>
         </div>
 
         {/* Selection Controls */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 no-print">
           <div>
-            <label className="block text-sm font-medium text-white mb-1">ক্লাস কনফিগারেশন</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">ক্লাস কনফিগারেশন</label>
             <Select
               options={classConfigOptions}
               value={selectedClassConfig}
@@ -360,7 +360,7 @@ const AttendanceSheet = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-white mb-1">শিক্ষাবর্ষ</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">শিক্ষাবর্ষ</label>
             <Select
               options={academicYearOptions}
               value={selectedAcademicYear}
@@ -374,7 +374,7 @@ const AttendanceSheet = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-white mb-1">মাস</label>
+            <label className="block text-sm font-medium text-[#441a05]mb-1">মাস</label>
             <Select
               options={monthOptions}
               value={selectedMonth}
@@ -393,7 +393,7 @@ const AttendanceSheet = () => {
           <div className="mt-6 flex gap-4 no-print">
             <button
               onClick={handleDownloadPDF}
-              className="px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn hover:text-white btn-glow"
+              className="px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn hover:text-[#441a05]btn-glow"
             >
               <span className="flex items-center space-x-2">
                 <IoPrint className="w-5 h-5" />

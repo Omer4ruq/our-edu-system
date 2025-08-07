@@ -190,7 +190,7 @@ const DraggableModal = ({
               </button>
               <button
                 onClick={onConfirm}
-                className={`px-5 py-2.5 rounded-lg font-medium text-white transition-all duration-300 ${confirmButtonClass}`}
+                className={`px-5 py-2.5 rounded-lg font-medium text-[#441a05]transition-all duration-300 ${confirmButtonClass}`}
                 title={confirmText}
               >
                 {confirmText}

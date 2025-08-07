@@ -57,12 +57,12 @@ const SalaryAssign = () => {
   };
 
   return (
-    <div className="bg-white rounded-md p-4 md:p-6 my-4">
+    <div className="bg-[#441a05]rounded-md p-4 md:p-6 my-4">
       <div className="flex justify-between items-center">
         <h3 className="text-2xl font-medium">{t("module.payroll.createFee")}</h3>
         <button
           type="submit"
-          className="rounded w-20 p-2 bg-#DB9E30 hover:bg-buttonHover text-white shadow-md hover:-translate-y-[2px] duration-200 flex items-center justify-center gap-2"
+          className="rounded w-20 p-2 bg-#DB9E30 hover:bg-buttonHover text-[#441a05]shadow-md hover:-translate-y-[2px] duration-200 flex items-center justify-center gap-2"
         >
           {t("module.payroll.listFee")}
         </button>

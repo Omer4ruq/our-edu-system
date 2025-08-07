@@ -195,7 +195,7 @@ const DeleteStudentFees = () => {
             font-size: 12px; 
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
             color: #000;
           }
           .page-container {
@@ -350,29 +350,29 @@ const DeleteStudentFees = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-3xl text-white" />
-              <h2 className="text-2xl font-bold text-white tracking-tight">ছাত্রের ফি মুছুন</h2>
+              <h2 className="text-2xl font-bold text-[#441a05]tracking-tight">ছাত্রের ফি মুছুন</h2>
             </div>
             <form onSubmit={handleSubmit} className=" grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <label className="block text-sm font-medium text-white mb-1">ছাত্র নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">ছাত্র নির্বাচন করুন</label>
                 <Select options={studentOptions} value={selectedStudent} onChange={setSelectedStudent} onInputChange={(input) => setSearchTerm(input)} isLoading={studentsLoading} placeholder="ইউজার আইডি দিয়ে ছাত্র খুঁজুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" inputValue={searchTerm} styles={selectStyles} aria-label="ছাত্র নির্বাচন" title="ছাত্র নির্বাচন করুন / Select student" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white mb-1">একাডেমিক বছর নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">একাডেমিক বছর নির্বাচন করুন</label>
                 <Select options={academicYearOptions} value={selectedAcademicYear} onChange={setSelectedAcademicYear} isLoading={academicYearsLoading} placeholder="একাডেমিক বছর নির্বাচন করুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" isSearchable={false} styles={selectStyles} aria-label="একাডেমিক বছর" title="একাডেমিক বছর নির্বাচন করুন / Select academic year" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-white mb-1">মুছে ফেলার জন্য ফি নির্বাচন করুন</label>
+                <label className="block text-sm font-medium text-[#441a05]mb-1">মুছে ফেলার জন্য ফি নির্বাচন করুন</label>
                 <Select isMulti options={feeOptions} value={selectedFees} onChange={setSelectedFees} isLoading={feesLoading} placeholder="ফি নির্বাচন করুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" styles={selectStyles} aria-label="ফি নির্বাচন" title="ফি নির্বাচন করুন / Select fees" />
               </div>
-              <button type="submit" disabled={createLoading || !selectedStudent || selectedFees.length === 0 || !selectedAcademicYear} className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn ${createLoading || !selectedStudent || selectedFees.length === 0 || !selectedAcademicYear ? 'cursor-not-allowed opacity-50' : 'hover:text-white hover:shadow-md btn-glow'}`} aria-label="ফি মুছুন" title="ফি মুছুন / Delete fees">
+              <button type="submit" disabled={createLoading || !selectedStudent || selectedFees.length === 0 || !selectedAcademicYear} className={`relative inline-flex items-center px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${createLoading || !selectedStudent || selectedFees.length === 0 || !selectedAcademicYear ? 'cursor-not-allowed opacity-50' : 'hover:text-[#441a05]hover:shadow-md btn-glow'}`} aria-label="ফি মুছুন" title="ফি মুছুন / Delete fees">
                 {createLoading ? (<span className="flex items-center space-x-3"><FaSpinner className="animate-spin text-lg" /><span>প্রক্রিয়াকরণ...</span></span>) : (<span>ফি মুছুন</span>)}
               </button>
             </form>
           </div>
         )}
         <div className='mb-8'>
-          {studentDetails && (<div className="bg-black/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg animate-fadeIn"><h3 className="text-lg font-semibold text-white mb-2">ছাত্রের তথ্য</h3><p><strong>নাম:</strong> {studentDetails.name || 'অজানা'}</p><p><strong>রোল নং:</strong> {studentDetails.roll_no || 'অজানা'}</p><p><strong>পিতার নাম:</strong> {studentDetails.father_name || 'অজানা'}</p><p><strong>মাতার নাম:</strong> {studentDetails.mother_name || 'অজানা'}</p></div>)}
+          {studentDetails && (<div className="bg-black/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg animate-fadeIn"><h3 className="text-lg font-semibold text-[#441a05]mb-2">ছাত্রের তথ্য</h3><p><strong>নাম:</strong> {studentDetails.name || 'অজানা'}</p><p><strong>রোল নং:</strong> {studentDetails.roll_no || 'অজানা'}</p><p><strong>পিতার নাম:</strong> {studentDetails.father_name || 'অজানা'}</p><p><strong>মাতার নাম:</strong> {studentDetails.mother_name || 'অজানা'}</p></div>)}
           {searchTerm && !studentDetails && !studentsLoading && (<p className="text-red-400 animate-fadeIn">কোনো ছাত্র পাওয়া যায়নি: {searchTerm}</p>)}
         </div>
         
@@ -381,7 +381,7 @@ const DeleteStudentFees = () => {
             <h3 className="text-lg font-semibold text-white">মুছে ফেলা ফি ইতিহাস</h3>
             <button
               onClick={generatePDFReport}
-              className="report-button px-4 py-2 bg-white text-white rounded-lg hover:bg-[#5a2e0a] transition-colors"
+              className="report-button px-4 py-2 bg-[#441a05]text-[#441a05]rounded-lg hover:bg-[#5a2e0a] transition-colors"
               title="প্রতিবেদন প্রিন্ট করুন"
             >
               <FaFilePdf className="inline-block mr-2"/> রিপোর্ট
@@ -406,8 +406,8 @@ const DeleteStudentFees = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{fee.feetype_id.map(id => feeOptions.find(opt => opt.value === id)?.label || 'অজানা').join(', ')}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{academicYearOptions.find(opt => opt.value === fee.academic_year)?.label || 'অজানা'}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex space-x-2">
-                        {hasChangePermission && (<button onClick={() => handleUpdate(fee)} disabled={updateLoading} className={`text-white hover:text-blue-500 transition-colors duration-300 ${updateLoading ? 'opacity-50 cursor-not-allowed' : ''}`} title="ফি আপডেট করুন / Update fee" aria-label="ফি আপডেট করুন"><FaEdit className="w-5 h-5" /></button>)}
-                        {hasDeletePermission && (<button onClick={() => handleDelete(fee.id)} disabled={deleteLoading} className={`text-white hover:text-red-500 transition-colors duration-300 ${deleteLoading ? 'opacity-50 cursor-not-allowed' : ''}`} title="রেকর্ড সরান / Remove record" aria-label="রেকর্ড সরান"><FaTrash className="w-5 h-5" /></button>)}
+                        {hasChangePermission && (<button onClick={() => handleUpdate(fee)} disabled={updateLoading} className={`text-[#441a05]hover:text-blue-500 transition-colors duration-300 ${updateLoading ? 'opacity-50 cursor-not-allowed' : ''}`} title="ফি আপডেট করুন / Update fee" aria-label="ফি আপডেট করুন"><FaEdit className="w-5 h-5" /></button>)}
+                        {hasDeletePermission && (<button onClick={() => handleDelete(fee.id)} disabled={deleteLoading} className={`text-[#441a05]hover:text-red-500 transition-colors duration-300 ${deleteLoading ? 'opacity-50 cursor-not-allowed' : ''}`} title="রেকর্ড সরান / Remove record" aria-label="রেকর্ড সরান"><FaTrash className="w-5 h-5" /></button>)}
                       </td>
                     </tr>
                   ))}
@@ -419,17 +419,17 @@ const DeleteStudentFees = () => {
         </div>
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
-            <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-white mb-4">{modalAction === 'deleteFees' && 'ফি মুছে ফেলা নিশ্চিত করুন'}{modalAction === 'updateFees' && 'ফি আপডেট নিশ্চিত করুন'}{modalAction === 'removeRecord' && 'রেকর্ড সরানো নিশ্চিত করুন'}</h3>
+            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+              <h3 className="text-lg font-semibold text-[#441a05]mb-4">{modalAction === 'deleteFees' && 'ফি মুছে ফেলা নিশ্চিত করুন'}{modalAction === 'updateFees' && 'ফি আপডেট নিশ্চিত করুন'}{modalAction === 'removeRecord' && 'রেকর্ড সরানো নিশ্চিত করুন'}</h3>
               {modalAction === 'updateFees' ? (
                 <div className="space-y-4 mb-6">
-                  <div><label className="block text-sm font-medium text-white mb-1">ফি প্রকার নির্বাচন করুন</label><Select isMulti options={feeOptions} value={updateFormData.fees} onChange={(fees) => setUpdateFormData({ ...updateFormData, fees })} isLoading={feesLoading} placeholder="ফি নির্বাচন করুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" styles={selectStyles} aria-label="ফি নির্বাচন" title="ফি নির্বাচন করুন / Select fees" /></div>
-                  <div><label className="block text-sm font-medium text-white mb-1">একাডেমিক বছর নির্বাচন করুন</label><Select options={academicYearOptions} value={updateFormData.academicYear} onChange={(year) => setUpdateFormData({ ...updateFormData, academicYear: year })} isLoading={academicYearsLoading} placeholder="একাডেমিক বছর নির্বাচন করুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" isSearchable={false} styles={selectStyles} aria-label="একাডেমিক বছর" title="একাডেমিক বছর নির্বাচন করুন / Select academic year" /></div>
+                  <div><label className="block text-sm font-medium text-[#441a05]mb-1">ফি প্রকার নির্বাচন করুন</label><Select isMulti options={feeOptions} value={updateFormData.fees} onChange={(fees) => setUpdateFormData({ ...updateFormData, fees })} isLoading={feesLoading} placeholder="ফি নির্বাচন করুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" styles={selectStyles} aria-label="ফি নির্বাচন" title="ফি নির্বাচন করুন / Select fees" /></div>
+                  <div><label className="block text-sm font-medium text-[#441a05]mb-1">একাডেমিক বছর নির্বাচন করুন</label><Select options={academicYearOptions} value={updateFormData.academicYear} onChange={(year) => setUpdateFormData({ ...updateFormData, academicYear: year })} isLoading={academicYearsLoading} placeholder="একাডেমিক বছর নির্বাচন করুন" className="react-select-container" classNamePrefix="react-select" menuPortalTarget={document.body} menuPosition="fixed" isSearchable={false} styles={selectStyles} aria-label="একাডেমিক বছর" title="একাডেমিক বছর নির্বাচন করুন / Select academic year" /></div>
                 </div>
-              ) : (<p className="text-white mb-6">{modalAction === 'deleteFees' && 'আপনি কি নিশ্চিত যে নির্বাচিত ফি মুছে ফেলতে চান?'}{modalAction === 'removeRecord' && 'আপনি কি নিশ্চিত যে এই মুছে ফেলা ফি রেকর্ড সরাতে চান?'}</p>)}
+              ) : (<p className="text-[#441a05]mb-6">{modalAction === 'deleteFees' && 'আপনি কি নিশ্চিত যে নির্বাচিত ফি মুছে ফেলতে চান?'}{modalAction === 'removeRecord' && 'আপনি কি নিশ্চিত যে এই মুছে ফেলা ফি রেকর্ড সরাতে চান?'}</p>)}
               <div className="flex justify-end space-x-4">
-                <button onClick={() => setIsModalOpen(false)} className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300" title="বাতিল করুন / Cancel">বাতিল</button>
-                <button onClick={confirmAction} className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow" title="নিশ্চিত করুন / Confirm">নিশ্চিত করুন</button>
+                <button onClick={() => setIsModalOpen(false)} className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300" title="বাতিল করুন / Cancel">বাতিল</button>
+                <button onClick={confirmAction} className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow" title="নিশ্চিত করুন / Confirm">নিশ্চিত করুন</button>
               </div>
             </div>
           </div>

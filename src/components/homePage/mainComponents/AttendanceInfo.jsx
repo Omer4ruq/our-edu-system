@@ -29,7 +29,7 @@ export default function AttendanceInfo() {
       </style>
 
       {/* Component title */}
-      <h3 className="bg-pmColor text-white text-xl p-4 leading-[33px] rounded-t-2xl shadow-md font-bold">
+      <h3 className="bg-pmColor text-[#441a05]text-xl p-4 leading-[33px] rounded-t-2xl shadow-md font-bold">
         উপস্থিতি তথ্য
       </h3>
 
@@ -40,19 +40,19 @@ export default function AttendanceInfo() {
           <StudentAttendance />
 
           {/* Graph title */}
-          <h5 className="text-center text-white text-lg font-medium animate-scaleIn">
+          <h5 className="text-center text-[#441a05]text-lg font-medium animate-scaleIn">
             শিক্ষার্থী
           </h5>
 
           {/* Graph info */}
           <div className="flex text-center divide-x-2 divide-[#9d9087]">
             <div className="w-1/2">
-              <h5 className="text-white font-medium">উপস্থিত</h5>
-              <h5 className="text-white font-bold">০</h5>
+              <h5 className="text-[#441a05]font-medium">উপস্থিত</h5>
+              <h5 className="text-[#441a05]font-bold">০</h5>
             </div>
             <div className="w-1/2">
-              <h5 className="text-white font-medium">অনুপস্থিত</h5>
-              <h5 className="text-white font-bold">o
+              <h5 className="text-[#441a05]font-medium">অনুপস্থিত</h5>
+              <h5 className="text-[#441a05]font-bold">o
               </h5>
             </div>
           </div>
@@ -71,19 +71,19 @@ export default function AttendanceInfo() {
           <TeacherAttendance />
 
           {/* Graph title */}
-          <h5 className="text-center text-white text-lg font-medium animate-scaleIn">
+          <h5 className="text-center text-[#441a05]text-lg font-medium animate-scaleIn">
             শিক্ষক
           </h5>
 
           {/* Graph info */}
           <div className="flex text-center divide-x-2 divide-[#9d9087]">
             <div className="w-1/2">
-              <h5 className="text-white font-medium">উপস্থিত</h5>
-              <h5 className="text-white font-bold">০</h5>
+              <h5 className="text-[#441a05]font-medium">উপস্থিত</h5>
+              <h5 className="text-[#441a05]font-bold">০</h5>
             </div>
             <div className="w-1/2">
-              <h5 className="text-white font-medium">অনুপস্থিত</h5>
-              <h5 className="text-white font-bold">o</h5>
+              <h5 className="text-[#441a05]font-medium">অনুপস্থিত</h5>
+              <h5 className="text-[#441a05]font-bold">o</h5>
             </div>
           </div>
 

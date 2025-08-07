@@ -9,7 +9,7 @@ export default function InstituteContact({data}) {
    const {headmaster_mobile, headmaster_name, ict_teacher, ict_teacher_email, ict_teacher_mobile, institute_email_address} = data;
 
     return (
-      <div className="md:w-1/2 p-6 bg-white rounded-md text-textGray mb-4 md:mb-0">
+      <div className="md:w-1/2 p-6 bg-[#441a05]rounded-md text-textGray mb-4 md:mb-0">
          <h5 className="font-medium mb-2 text-lg">{t("general.contact02")} {t("general.information")}</h5>
          <div className="flex items-center gap-2 leading-9">
             <IoPerson />

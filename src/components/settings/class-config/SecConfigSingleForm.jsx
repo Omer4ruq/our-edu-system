@@ -40,7 +40,7 @@ export default function SecConfigSingleForm({section, handleChange, handleDelete
             <button
                type="submit"
                onClick={() => handleDeleteField(section.id)}
-               className="rounded w-28 p-2 bg-red text-white shadow-md  hover:-translate-y-[2px] duration-200"
+               className="rounded w-28 p-2 bg-red text-[#441a05]shadow-md  hover:-translate-y-[2px] duration-200"
             >
                Delete
             </button>

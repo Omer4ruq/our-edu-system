@@ -74,7 +74,7 @@ const customStyles = `
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #fff;
+    background: #441a05;
   }
   .table-container {
     // border: 1px solid #000;
@@ -104,7 +104,7 @@ const customStyles = `
     color: #9B1C1C;
   }
   .absent-cell {
-    background-color: #FFF7E6;
+    background-color: #441a057E6;
     color: #000;
   }
   .head {
@@ -346,7 +346,7 @@ const MarkSheet = () => {
             font-size: 12px;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: #441a05fff;
           }
           .head {
             text-align: center;
@@ -407,7 +407,7 @@ const MarkSheet = () => {
             color: #9B1C1C;
           }
           .absent-cell {
-            background-color: #FFF7E6;
+            background-color: #441a057E6;
             color: #000;
           }
           .footer-label {
@@ -589,7 +589,7 @@ const MarkSheet = () => {
       <div className="mx-auto">
         {/* Selection Form */}
         <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-          <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight mb-6">
+          <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight mb-6">
             শ্রেণির ফলাফল শীট
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -673,7 +673,7 @@ const MarkSheet = () => {
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 btn-ripple ${
                 isLoading || resultData.length === 0
                   ? "bg-gray-400 text-gray-600 cursor-not-allowed"
-                  : "bg-pmColor text-white hover:text-white btn-glow"
+                  : "bg-pmColor text-[#441a05]hover:text-[#441a05]btn-glow"
               }`}
               aria-label="বাল্ক PDF রিপোর্ট ডাউনলোড"
               title="বাল্ক PDF রিপোর্ট ডাউনলোড করুন"

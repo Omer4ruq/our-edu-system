@@ -280,7 +280,7 @@ const AddNotice = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-black/10 backdrop-blur-sm rounded-xl shadow-lg p-8 flex items-center space-x-4 animate-fadeIn">
           <FaSpinner className="animate-spin text-2xl text-white" />
-          <span className="text-white font-medium">লোড হচ্ছে...</span>
+          <span className="text-[#441a05]font-medium">লোড হচ্ছে...</span>
         </div>
       </div>
     );
@@ -357,7 +357,7 @@ const AddNotice = () => {
           textarea {
             border: 1px solid #9d9087;
             border-radius: 0.5rem;
-            color: #fff;
+            color: #441a05;
             font-family: 'Noto Sans Bengali', sans-serif;
             width: 100%;
             transition: all 0.3s ease;
@@ -384,7 +384,7 @@ const AddNotice = () => {
           >
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-white" />
-              <h3 className="sm:text-2xl text-xl font-bold text-white tracking-tight">
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
                 নোটিশ যোগ করুন
               </h3>
             </div>
@@ -404,7 +404,7 @@ const AddNotice = () => {
                   onChange={(e) =>
                     setNewNotice({ ...newNotice, notice_title: e.target.value })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                   placeholder="নোটিশ শিরোনাম"
                   disabled={isCreating || isUpdating}
                   aria-label="নোটিশ শিরোনাম লিখুন"
@@ -457,7 +457,7 @@ const AddNotice = () => {
                       academic_year: e.target.value,
                     })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                   disabled={isCreating || isUpdating}
                   aria-label="একাডেমিক বছর নির্বাচন করুন"
                   title="একাডেমিক বছর নির্বাচন করুন / Select academic year"
@@ -484,7 +484,7 @@ const AddNotice = () => {
                       notice_description: e.target.value,
                     })
                   }
-                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-white animate-scaleIn tick-glow"
+                  className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-white/10 text-[#441a05]animate-scaleIn tick-glow"
                   placeholder="নোটিশ বিবরণ"
                   disabled={isCreating || isUpdating}
                   rows="4"
@@ -514,10 +514,10 @@ const AddNotice = () => {
                 <button
                   type="submit"
                   disabled={isCreating || isUpdating}
-                  className={`px-8 py-3 text-nowrap rounded-lg font-medium bg-pmColor text-white transition-all duration-300 animate-scaleIn btn-glow ${
+                  className={`px-8 py-3 text-nowrap rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn btn-glow ${
                     isCreating || isUpdating
                       ? "cursor-not-allowed opacity-50"
-                      : "hover:text-white hover:shadow-md"
+                      : "hover:text-[#441a05]hover:shadow-md"
                   }`}
                   title={
                     selectedNoticeId
@@ -556,7 +556,7 @@ const AddNotice = () => {
                         existing_file: null,
                       });
                     }}
-                    className="px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-white hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn btn-glow"
+                    className="px-6 py-3 rounded-lg font-medium bg-gray-500/20 text-[#441a05]hover:bg-gray-500/30 transition-all duration-300 animate-scaleIn btn-glow"
                     title="সম্পাদনা বাতিল করুন / Cancel edit"
                     aria-label="সম্পাদনা বাতিল করুন"
                   >
@@ -579,7 +579,7 @@ const AddNotice = () => {
 
         {/* Notices Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6 w-full">
-          <h3 className="text-lg font-semibold text-white p-4 border-b border-white/20">
+          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-white/20">
             নোটিশের তালিকা
           </h3>
           {noticesLoading ? (
@@ -634,7 +634,7 @@ const AddNotice = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                         {notice.notice_title}
                       </td>
-                      <td className="px-6 py-4 text-sm text-white max-w-xs truncate">
+                      <td className="px-6 py-4 text-sm text-[#441a05]max-w-xs truncate">
                         {notice.notice_description}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
@@ -664,7 +664,7 @@ const AddNotice = () => {
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditClick(notice)}
-                              className="text-white hover:text-pmColor mr-4 transition-colors duration-300 btn-glow"
+                              className="text-[#441a05]hover:text-pmColor mr-4 transition-colors duration-300 btn-glow"
                               aria-label={`নোটিশ সম্পাদনা করুন ${notice.notice_title}`}
                               title={`নোটিশ সম্পাদনা করুন / Edit notice ${notice.notice_title}`}
                             >
@@ -674,7 +674,7 @@ const AddNotice = () => {
                           {hasDeletePermission && (
                             <button
                               onClick={() => handleDelete(notice.id)}
-                              className="text-white hover:text-red-500 transition-colors duration-300 btn-glow"
+                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300 btn-glow"
                               aria-label={`নোটিশ মুছুন ${notice.notice_title}`}
                               title={`নোটিশ মুছুন / Delete notice ${notice.notice_title}`}
                             >
@@ -707,13 +707,13 @@ const AddNotice = () => {
         {isModalOpen &&
           (hasAddPermission || hasChangePermission || hasDeletePermission) && (
             <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10001]">
-              <div className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
-                <h3 className="text-lg font-semibold text-white mb-4">
+              <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-white/20 animate-slideUp">
+                <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                   {modalAction === "create" && "নতুন নোটিশ নিশ্চিত করুন"}
                   {modalAction === "update" && "নোটিশ আপডেট নিশ্চিত করুন"}
                   {modalAction === "delete" && "নোটিশ মুছে ফেলা নিশ্চিত করুন"}
                 </h3>
-                <p className="text-white mb-6">
+                <p className="text-[#441a05]mb-6">
                   {modalAction === "create" &&
                     "আপনি কি নিশ্চিত যে নতুন নোটিশ তৈরি করতে চান?"}
                   {modalAction === "update" &&
@@ -728,7 +728,7 @@ const AddNotice = () => {
                       setModalAction(null);
                       setModalData(null);
                     }}
-                    className="px-4 py-2 bg-gray-500/20 text-white rounded-lg hover:bg-gray-500/30 transition-colors duration-300 btn-glow"
+                    className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300 btn-glow"
                     title="বাতিল করুন / Cancel"
                     aria-label="বাতিল করুন"
                   >
@@ -736,7 +736,7 @@ const AddNotice = () => {
                   </button>
                   <button
                     onClick={confirmAction}
-                    className="px-4 py-2 bg-pmColor text-white rounded-lg hover:text-white transition-colors duration-300 btn-glow"
+                    className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
                     title="নিশ্চিত করুন / Confirm"
                     aria-label="নিশ্চিত করুন"
                   >
