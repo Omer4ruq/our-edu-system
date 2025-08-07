@@ -1050,12 +1050,12 @@ const mainMenu = [
     {
       id: "12/01",
       title: `${languageCode == 'bn' ? "সেটিংস" : "Setting"}`,
-      link: "/services/settings/hostel-package",
+      link: "/services/settings",
       children: [
         {
           id: "12/01/01",
           title: `${languageCode == 'bn' ? "হোস্টেল প্যাকেজ" : "Hostel Package"}`,
-          link: "/services/settings/hostel-package",
+          link: "/services/settings",
         },
         {
           id: "12/01/02",
@@ -1077,12 +1077,12 @@ const mainMenu = [
     {
       id: "12/03",
       title: `${languageCode == 'bn' ? "কোচিং সেটিংস" : "Coaching Setting"}`,
-      link: "/services/coaching-settings/coaching-batches",
+      link: "/services/coaching-settings",
       children: [
         {
           id: "12/03/01",
           title: `${languageCode == 'bn' ? "কোচিং ব্যাচ" : "Coaching Batches"}`,
-          link: "/services/coaching-settings/coaching-batches",
+          link: "/services/coaching-settings",
         },
         {
           id: "12/03/02",
@@ -1099,12 +1099,12 @@ const mainMenu = [
     {
       id: "12/05",
       title: `${languageCode == 'bn' ? "পরিবহন সেটিংস" : "Transport Setting"}`,
-      link: "/services/transport-settings/transport-routes",
+      link: "/services/transport-settings",
       children: [
         {
           id: "12/05/01",
           title: `${languageCode == 'bn' ? "পরিবহন রুট" : "Transport Routes"}`,
-          link: "/services/transport-settings/transport-routes",
+          link: "/services/transport-settings",
         },
         {
           id: "12/05/02",
@@ -1130,12 +1130,12 @@ const mainMenu = [
     {
       id: "13/01",
       title: `${languageCode == 'bn' ? "সেটিংস" : "Setting"}`,
-      link: "/payroll/settings/addition-types",
+      link: "/payroll/settings",
       children: [
         {
           id: "13/01/01",
           title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Addition Types"}`,
-          link: "/payroll/settings/addition-types",
+          link: "/payroll/settings",
         },
              {
           id: "13/01/02",
