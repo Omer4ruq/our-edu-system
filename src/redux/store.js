@@ -92,6 +92,9 @@ import { paymentsApi } from "./features/api/accounts/payment/paymentsApi";
 import { receivesApi } from "./features/api/accounts/receive/receivesApi";
 import { contraApi } from "./features/api/accounts/contra/contraApi";
 import { journalsApi } from "./features/api/accounts/journal/journalsApi";
+import { generateUnpaidSalariesApi } from "./features/api/payroll/generateUnpaidSalariesApi";
+import { salaryProcessApi } from "./features/api/payroll/salaryProcessApi";
+
 
 export const store = configureStore({
   reducer: {
@@ -192,6 +195,8 @@ export const store = configureStore({
     [receivesApi.reducerPath]: receivesApi.reducer,
     [contraApi.reducerPath]: contraApi.reducer,
     [journalsApi.reducerPath]: journalsApi.reducer,
+    [generateUnpaidSalariesApi.reducerPath]: generateUnpaidSalariesApi.reducer,
+    [salaryProcessApi.reducerPath]: salaryProcessApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -286,6 +291,8 @@ export const store = configureStore({
       .concat(receivesApi.middleware)
       .concat(contraApi.middleware)
       .concat(journalsApi.middleware)
+      .concat(generateUnpaidSalariesApi.middleware)
+      .concat(salaryProcessApi.middleware)
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors

@@ -103,6 +103,8 @@ import Payment from "./components/accounts/transaction/payment/Payment";
 import Receive from "./components/accounts/transaction/recieve-transaction/Receive";
 import Contra from "./components/accounts/transaction/contra/Contra";
 import Journal from "./components/accounts/transaction/journal/Journals";
+import SalaryAllocation from "./components/payroll/salary-assign/SalaryAllocation";
+import SalaryProcess from "./components/payroll/salary-assign/SalaryProcess";
 
 
 function Root() {
@@ -618,6 +620,14 @@ function Root() {
                       {
                       path: "basic-salary",
                       element: <BasicSalary/>,
+                    },
+                        {
+                      path: "salary-allocation",
+                      element: <SalaryAllocation/>,
+                    },
+                       {
+                      path: "salary-process",
+                      element: <SalaryProcess/>,
                     },
                   ]
                 }

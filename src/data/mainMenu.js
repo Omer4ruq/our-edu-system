@@ -1162,6 +1162,16 @@ const mainMenu = [
           title: `${languageCode == 'bn' ? "মৌলিক বেতন" : "Basic Salary"}`,
           link: "/payroll/settings/basic-salary",
         },
+           {
+          id: "13/01/07",
+          title: `${languageCode == 'bn' ? "মৌলিক বেতন" : "Salary Allocation"}`,
+          link: "/payroll/settings/salary-allocation",
+        },
+           {
+          id: "13/01/08",
+          title: `${languageCode == 'bn' ? "মৌলিক বেতন" : "Salary Process"}`,
+          link: "/payroll/settings/salary-process",
+        },
       ]
     }
   ]
