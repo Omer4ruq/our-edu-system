@@ -45,7 +45,6 @@ import { studentFeesPreviousApi } from "./features/api/studentFeesPreviousApi/st
 import { deleteFeesApi } from "./features/api/deleteFees/deleteFeesApi";
 import { mealStatusApi } from "./features/api/meal/mealStatusApi";
 import { studentSubAttendanceApi } from "./features/api/student-sub-attendance/studentSubAttendanceApi";
-import { subjectAssignApi } from "./features/api/subject-assign/subjectAssignApi";
 import { classSubjectsApi } from "./features/api/class-subjects/classSubjectsApi";
 import { subjectMarkConfigsApi } from "./features/api/marks/subjectMarkConfigsApi";
 import { gmarkTypeApi } from "./features/api/marks/gmarktype";
@@ -94,6 +93,12 @@ import { contraApi } from "./features/api/accounts/contra/contraApi";
 import { journalsApi } from "./features/api/accounts/journal/journalsApi";
 import { generateUnpaidSalariesApi } from "./features/api/payroll/generateUnpaidSalariesApi";
 import { salaryProcessApi } from "./features/api/payroll/salaryProcessApi";
+import { classGroupApi } from "./features/api/student/classGroupApi";
+import { studentGroupApi } from "./features/api/student/studentGroupApi";
+import { classGroupConfigsApi } from "./features/api/student/classGroupConfigsApi";
+import { subjectsApi } from "./features/api/class-subjects/subjectsApi";
+import { subjectAssignApi } from "./features/api/subject-assign/subjectAssignApi";
+import { markTypesApi } from "./features/api/marks/markTypesApi";
 
 
 export const store = configureStore({
@@ -149,7 +154,6 @@ export const store = configureStore({
     [studentFeesPreviousApi.reducerPath]: studentFeesPreviousApi.reducer,
     [deleteFeesApi.reducerPath]: deleteFeesApi.reducer,
     [studentSubAttendanceApi.reducerPath]: studentSubAttendanceApi.reducer,
-    [subjectAssignApi.reducerPath]: subjectAssignApi.reducer,
     [gsubjectApi.reducerPath]: gsubjectApi.reducer,
     [classSubjectsApi.reducerPath]: classSubjectsApi.reducer,
     [subjectMarkConfigsApi.reducerPath]: subjectMarkConfigsApi.reducer,
@@ -197,6 +201,12 @@ export const store = configureStore({
     [journalsApi.reducerPath]: journalsApi.reducer,
     [generateUnpaidSalariesApi.reducerPath]: generateUnpaidSalariesApi.reducer,
     [salaryProcessApi.reducerPath]: salaryProcessApi.reducer,
+    [studentGroupApi.reducerPath]: studentGroupApi.reducer,
+    [classGroupConfigsApi.reducerPath]: classGroupConfigsApi.reducer,
+    [subjectsApi.reducerPath]: subjectsApi.reducer,
+    [subjectAssignApi.reducerPath]: subjectAssignApi.reducer,
+    [markTypesApi.reducerPath]: markTypesApi.reducer,
+
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -246,7 +256,6 @@ export const store = configureStore({
       .concat(deleteFeesApi.middleware)
       .concat(mealStatusApi.middleware)
       .concat(studentSubAttendanceApi.middleware)
-      .concat(subjectAssignApi.middleware)
       .concat(gsubjectApi.middleware)
       .concat(classSubjectsApi.middleware)
       .concat(subjectMarkConfigsApi.middleware)
@@ -293,6 +302,12 @@ export const store = configureStore({
       .concat(journalsApi.middleware)
       .concat(generateUnpaidSalariesApi.middleware)
       .concat(salaryProcessApi.middleware)
+      .concat(studentGroupApi.middleware)
+      .concat(classGroupConfigsApi.middleware)
+      .concat(subjectsApi.middleware)
+      .concat(subjectAssignApi.middleware)
+      .concat(markTypesApi.middleware)
+     
 });
 
 // Enable refetchOnFocus/refetchOnReconnect behaviors

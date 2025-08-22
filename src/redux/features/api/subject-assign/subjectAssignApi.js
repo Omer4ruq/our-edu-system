@@ -1,9 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import BASE_URL from '../../../../utilitis/apiConfig';
 
-const getToken = () => {
-  return localStorage.getItem('token');
-};
+const getToken = () => localStorage.getItem('token');
 
 export const subjectAssignApi = createApi({
   reducerPath: 'subjectAssignApi',
@@ -20,79 +19,71 @@ export const subjectAssignApi = createApi({
   }),
   tagTypes: ['SubjectAssign'],
   endpoints: (builder) => ({
-    // GET: Fetch subject assignments by class_id
-    getSubjectAssign: builder.query({
-      query: ({ class_id, ...filters }) => {
-        const queryParams = new URLSearchParams({
-          class_id: class_id || '',
-          ...Object.fromEntries(
-            Object.entries(filters).filter(([_, v]) => v !== '' && v !== null)
-          ),
-        });
-        return `/subject-assign/?${queryParams.toString()}`;
-      },
-      transformResponse: (response) => ({
-        subjects: response.results || response || [],
-        total: response.count || 0,
-        next: response.next || null,
-        previous: response.previous || null,
-      }),
+    // GET: Fetch all subject assignments
+    getSubjectAssignments: builder.query({
+      query: () => '/subject-assign/',
       providesTags: ['SubjectAssign'],
     }),
 
-    // GET: Fetch single subject assignment by ID
-    getSubjectAssignById: builder.query({
+    // GET: Fetch a single subject assignment by ID
+    getSubjectAssignmentById: builder.query({
       query: (id) => `/subject-assign/${id}/`,
+      providesTags: ['SubjectAssign'],
+    }),
+// ✅ NEW: GET subject assignments by student_group_id
+    getSubjectAssignmentsByGroup: builder.query({
+      query: (student_group_id) => `/subject-assign/?student_group_id=${student_group_id}`,
       providesTags: ['SubjectAssign'],
     }),
 
     // POST: Create a new subject assignment
-    createSubjectAssign: builder.mutation({
-      query: (subjectData) => ({
+    createSubjectAssignment: builder.mutation({
+      query: (data) => ({
         url: '/subject-assign/',
         method: 'POST',
-        body: subjectData,
+        body: data,
       }),
       invalidatesTags: ['SubjectAssign'],
     }),
 
-    // PUT: Fully update an existing subject assignment
-    updateSubjectAssign: builder.mutation({
-      query: ({ id, ...subjectData }) => ({
+    // PUT: Update an existing subject assignment
+    updateSubjectAssignment: builder.mutation({
+      query: ({ id, ...data }) => ({
         url: `/subject-assign/${id}/`,
         method: 'PUT',
-        body: subjectData,
+        body: data,
       }),
       invalidatesTags: ['SubjectAssign'],
     }),
 
-    // PATCH: Partially update an existing subject assignment
-    patchSubjectAssign: builder.mutation({
-      query: ({ id, ...subjectData }) => ({
+    // PATCH: Partially update a subject assignment
+    patchSubjectAssignment: builder.mutation({
+      query: ({ id, ...data }) => ({
         url: `/subject-assign/${id}/`,
         method: 'PATCH',
-        body: subjectData,
+        body: data,
       }),
       invalidatesTags: ['SubjectAssign'],
     }),
 
     // DELETE: Delete a subject assignment
-    deleteSubjectAssign: builder.mutation({
+    deleteSubjectAssignment: builder.mutation({
       query: (id) => ({
         url: `/subject-assign/${id}/`,
         method: 'DELETE',
       }),
       invalidatesTags: ['SubjectAssign'],
     }),
+
   }),
 });
 
-// Export hooks for usage in components
 export const {
-  useGetSubjectAssignQuery,
-  useGetSubjectAssignByIdQuery,
-  useCreateSubjectAssignMutation,
-  useUpdateSubjectAssignMutation,
-  usePatchSubjectAssignMutation,
-  useDeleteSubjectAssignMutation,
+  useGetSubjectAssignmentsQuery,
+  useGetSubjectAssignmentByIdQuery,
+  useCreateSubjectAssignmentMutation,
+  useUpdateSubjectAssignmentMutation,
+  usePatchSubjectAssignmentMutation,
+  useDeleteSubjectAssignmentMutation,
+  useGetSubjectAssignmentsByGroupQuery,
 } = subjectAssignApi;

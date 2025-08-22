@@ -10,6 +10,8 @@ import { useGetAcademicYearApiQuery } from '../../redux/features/api/academic-ye
 import { useCreateTeacherSubjectAssignMutation, useGetTeacherSubjectAssignsQuery, useUpdateTeacherSubjectAssignMutation } from '../../redux/features/api/teacherSubjectAssigns/teacherSubjectAssignsApi';
 import { useSelector } from 'react-redux'; // Import useSelector
 import { useGetGroupPermissionsQuery } from '../../redux/features/api/permissionRole/groupsApi'; // Import permission hook
+// import { useGetSubjectAssignQuery } from '../../redux/features/api/subject-assign/subjectAssignApi';
+import { useGetSubjectsQuery } from '../../redux/features/api/class-subjects/subjectsApi';
 
 
 const TeacherSubjectAssign = () => {
@@ -27,7 +29,10 @@ const TeacherSubjectAssign = () => {
   const { data: teachers, isLoading: teachersLoading } = useGetTeacherStaffProfilesQuery();
   console.log("teachers", teachers);
   const { data: classes, isLoading: classesLoading } = useGetclassConfigApiQuery();
-  const { data: classSubjects = [], isLoading: subjectsLoading } = useGetClassSubjectsQuery();
+  console.log("classes",classes)
+  // const { data: classSubjects = [], isLoading: subjectsLoading } = useGetClassSubjectsQuery();
+  const { data: classSubjects = [] , isLoading: subjectsLoading } = useGetSubjectsQuery();
+  console.log("classSubjects",classSubjects)
   const { data: academicYears, isLoading: yearsLoading } = useGetAcademicYearApiQuery();
   const { data: teacherAssignments, isLoading: assignmentsLoading } = useGetTeacherSubjectAssignsQuery(
     selectedTeacher ? { teacherId: selectedTeacher.value } : undefined,
@@ -427,7 +432,7 @@ const TeacherSubjectAssign = () => {
                           )}
                         </span>
                         <span className="ml-2 text-sm text-[#441a05]">
-                          {classItem.class_name} - {classItem.section_name} ({classItem.shift_name})
+                          {classItem?.class_name} {classItem?.group_name} - {classItem?.section_name} ({classItem?.shift_name})
                         </span>
                       </label>
                     </div>
@@ -440,9 +445,7 @@ const TeacherSubjectAssign = () => {
               <div>
                 <label className="block text-sm font-medium text-[#441a05]mb-1">বিষয় নির্বাচন করুন</label>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2">
-                  {classSubjects
-                    ?.filter((subject) => subject.is_active)
-                    .map((subject, index) => (
+                  {classSubjects?.map((subject, index) => (
                       <div key={subject.id} className="flex items-center animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
                         <label className="inline-flex items-center cursor-pointer">
                           <input
@@ -453,7 +456,7 @@ const TeacherSubjectAssign = () => {
                             disabled={subjectsLoading || (!hasAddPermission && !hasChangePermission)} // Disable based on add/change permission
                             className="hidden"
                             aria-label={`বিষয় নির্বাচন ${subject.name}`}
-                            title={`বিষয় নির্বাচন করুন / Select subject ${subject.name}`}
+                            title={`বিষয় নির্বাচন করুন / Select subject ${subject?.class_subject}`}
                           />
                           <span
                             className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn tick-glow ${
@@ -479,7 +482,7 @@ const TeacherSubjectAssign = () => {
                               </svg>
                             )}
                           </span>
-                          <span className="ml-2 text-sm text-[#441a05]">{subject.name}</span>
+                          <span className="ml-2 text-sm text-[#441a05]">{subject?.class_subject}</span>
                         </label>
                       </div>
                     ))}
@@ -554,7 +557,7 @@ const TeacherSubjectAssign = () => {
                           {assignment.class_assigns
                             ?.map(id => classes?.find(c => c.id === id))
                             .filter(Boolean)
-                            .map(c => `${c.class_name} - ${c.section_name} (${c.shift_name})`)
+                            .map(c => `${c.class_name} ${c.group_name} - ${c.section_name} (${c.shift_name})`)
                             .join(', ') || 'কোনো ক্লাস নেই'}
                         </td>
                         <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">

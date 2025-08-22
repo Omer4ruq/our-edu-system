@@ -6,6 +6,6 @@
 
 
 
-const BASE_URL2 ='https://easydr.xyz/api';
+const BASE_URL2 ='https://madrasa.top/api';
 
 export default BASE_URL2;

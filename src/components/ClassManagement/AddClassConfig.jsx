@@ -15,6 +15,7 @@ import { IoAdd, IoBookmark, IoSettings, IoTime } from "react-icons/io5";
 import { Toaster, toast } from "react-hot-toast";
 import { useSelector } from "react-redux"; // Import useSelector
 import { useGetGroupPermissionsQuery } from "../../redux/features/api/permissionRole/groupsApi"; // Import permission hook
+import { useGetClassGroupConfigsQuery } from "../../redux/features/api/student/classGroupConfigsApi";
 
 const AddClassConfig = () => {
   const { user, group_id } = useSelector((state) => state.auth); // Get user and group_id
@@ -38,11 +39,13 @@ const AddClassConfig = () => {
     isLoading: sectionLoading,
     error: sectionError,
   } = useGetStudentSectionApiQuery();
+  console.log("sectionData", sectionData)
   const {
     data: shiftData,
     isLoading: shiftLoading,
     error: shiftError,
   } = useGetStudentShiftApiQuery();
+  console.log("shiftData", shiftData)
   const {
     data: classList,
     isLoading: isListLoading,
@@ -53,12 +56,17 @@ const AddClassConfig = () => {
     isLoading: configLoading,
     error: configError,
   } = useGetclassConfigApiQuery();
-
+  console.log("configurations", configurations)
+  const {
+    data: configData,
+    isLoading: isConfigLoading,
+    error: configDataError,
+  } = useGetClassGroupConfigsQuery();
   // API mutations
   const [createClassConfig] = useCreateClassConfigApiMutation();
   const [updateClassConfig] = useUpdateClassConfigApiMutation();
   const [deleteClassConfig] = useDeleteClassConfigApiMutation();
-
+console.log("configData", configData)
   // Permissions hook
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
     skip: !group_id,
@@ -72,8 +80,8 @@ const AddClassConfig = () => {
 
 
   // Filter active sections and shifts
-  const activeSections = sectionData?.filter((sec) => sec.is_active) || [];
-  const activeShifts = shiftData?.filter((shf) => shf.is_active) || [];
+  // const sectionData = sectionData?.filter((sec) => sec.is_active) || [];
+  // const shiftData = shiftData?.filter((shf) => shf.is_active) || [];
 
   // Handle edit button click
   const handleEdit = (config) => {
@@ -127,7 +135,7 @@ const AddClassConfig = () => {
 
     const payload = {
       is_active: true,
-      class_id: parseInt(classId),
+      class_group_id: parseInt(classId),
       section_id: parseInt(sectionId),
       shift_id: parseInt(shiftId),
     };
@@ -291,9 +299,9 @@ const AddClassConfig = () => {
                   <option value="" disabled className="bg-black/10 backdrop-blur-sm">
                     একটি ক্লাস নির্বাচন করুন
                   </option>
-                  {classList?.map((cls) => (
+                  {configData?.map((cls) => (
                     <option key={cls.id} value={cls.id} className="bg-black/10 backdrop-blur-sm">
-                      {cls.student_class?.name || "N/A"}
+                      {cls?.class_name || "N/A"} {cls?.group_name || "N/A"}
                     </option>
                   ))}
                 </select>
@@ -310,14 +318,14 @@ const AddClassConfig = () => {
                   value={sectionId}
                   onChange={(e) => setSectionId(e.target.value)}
                   className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
-                  disabled={sectionLoading || activeSections.length === 0}
+                  disabled={sectionLoading || sectionData.length === 0}
                   aria-label="সেকশন নির্বাচন করুন"
                   aria-describedby={sectionError ? "section-error" : undefined}
                 >
                   <option value="" disabled className="backdrop-blur-sm bg-black/10">
                     একটি সেকশন নির্বাচন করুন
                   </option>
-                  {activeSections.map((sec) => (
+                  {sectionData.map((sec) => (
                     <option key={sec.id} value={sec.id} className="backdrop-blur-sm bg-black/10">
                       {sec.name}
                     </option>
@@ -336,14 +344,14 @@ const AddClassConfig = () => {
                   value={shiftId}
                   onChange={(e) => setShiftId(e.target.value)}
                   className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
-                  disabled={shiftLoading || activeShifts.length === 0}
+                  disabled={shiftLoading || shiftData.length === 0}
                   aria-label="শিফট নির্বাচন করুন"
                   aria-describedby={shiftError ? "shift-error" : undefined}
                 >
                   <option value="" disabled className="backdrop-blur-sm bg-black/10">
                     একটি শিফট নির্বাচন করুন
                   </option>
-                  {activeShifts.map((shf) => (
+                  {shiftData.map((shf) => (
                     <option key={shf.id} value={shf.id} className="backdrop-blur-sm bg-black/10">
                       {shf.name}
                     </option>
@@ -462,7 +470,7 @@ const AddClassConfig = () => {
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
-                        {config.class_name || "N/A"}
+                        {config.class_name || "N/A"} {config?.group_name}
                       </td>
                       <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
                         {config.section_name || "N/A"}

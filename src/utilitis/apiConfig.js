@@ -102,7 +102,7 @@
 
 
 ///////// local
-const BASE_URL = 'https://test.easydr.xyz/api'
+const BASE_URL = 'https://test.madrasa.top/api'
 export default BASE_URL
 
 

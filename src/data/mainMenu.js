@@ -630,37 +630,63 @@ const mainMenu = [
             title: `${languageCode == 'bn' ? "শিফট সংযোজন" : "Shift Addition"}`,
             link: "/talimat/settings/add-shift",
           },
-          {
+           {
             id: "05/01/04",
-            title: `${languageCode == 'bn' ? "ক্লাস কনফিগারেশন" : "Class Configuration"}`,
-            link: "/talimat/settings/add-config",
+            title: `${languageCode == 'bn' ? "ক্লাস কনফিগারেশন" : "Group Addition"}`,
+            link: "/talimat/settings/add-group",
           },
-          {
+              {
             id: "05/01/05",
-            title: `${languageCode == 'bn' ? "পরীক্ষার ধরন" : "Exam Type"}`,
-            link: "/talimat/settings/exam-type",
+            title: `${languageCode == 'bn' ? "ক্লাস কনফিগারেশন" : "Group Configuration"}`,
+            link: "/talimat/settings/group-config",
           },
           {
             id: "05/01/06",
-            title: `${languageCode == 'bn' ? "ইভেন্ট তৈরি" : "Event Creation"}`,
-            link: "/talimat/settings/event-type",
+            title: `${languageCode == 'bn' ? "ক্লাস কনফিগারেশন" : "Class Configuration"}`,
+            link: "/talimat/settings/add-config",
+          },
+               {
+            id: "05/01/07",
+            title: `${languageCode == 'bn' ? "মার্ক্স টাইপ সংযোজন" : "Marks Type Addition"}`,
+            link: "/talimat/settings/add-markstype",
           },
           {
-            id: "05/01/07",
-            title: `${languageCode == 'bn' ? "গ্রেড কনফিগারেশন" : "Grade Configuration"}`,
-            link: "/talimat/settings/result-config",
+          
+            id: "05/01/08",
+            title: `${languageCode == 'bn' ? "পরীক্ষার ধরন" : "Exam Type"}`,
+            link: "/talimat/settings/exam-type",
           },
+          // {
+          //   id: "05/01/06",
+          //   title: `${languageCode == 'bn' ? "ইভেন্ট তৈরি" : "Event Creation"}`,
+          //   link: "/talimat/settings/event-type",
+          // },
+          // {
+          //   id: "05/01/07",
+          //   title: `${languageCode == 'bn' ? "গ্রেড কনফিগারেশন" : "Grade Configuration"}`,
+          //   link: "/talimat/settings/result-config",
+          // },
         ],
       },
       {
         id: "05/02",
-        title: `${languageCode == 'bn' ? "সাবজেক্ট" : "Subject"}`,
-        link: "/talimat/class-subject",
+        title: `${languageCode == 'bn' ? "সাবজেক্ট" : "Subject Settings"}`,
+        link: "/talimat/subject-settings",
         children: [
           {
             id: "05/02/01",
+            title: `${languageCode == 'bn' ? "সাবজেক্ট নির্বাচন" : "Subject Addition"}`,
+            link: "/talimat/subject-settings/add-subject",
+          },
+           {
+            id: "05/02/02",
             title: `${languageCode == 'bn' ? "সাবজেক্ট নির্বাচন" : "Subject Selection"}`,
-            link: "/talimat/class-subject",
+            link: "/talimat/subject-settings/class-subject",
+          },
+           {
+            id: "05/02/03",
+            title: `${languageCode == 'bn' ? "বিষয় অ্যাসাইনমেন্ট" : "Subject Assignment"}`,
+            link: "/talimat/subject-settings/teacher-subject-assign",
           },
         ],
       },

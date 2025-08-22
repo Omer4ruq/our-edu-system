@@ -105,6 +105,11 @@ import Contra from "./components/accounts/transaction/contra/Contra";
 import Journal from "./components/accounts/transaction/journal/Journals";
 import SalaryAllocation from "./components/payroll/salary-assign/SalaryAllocation";
 import SalaryProcess from "./components/payroll/salary-assign/SalaryProcess";
+import ClassGroup from "./components/ClassManagement/ClassGroup";
+import ClassGroupConfig from "./components/ClassManagement/ClassGroupConfig";
+import AddSubjects from "./components/SubjectManagement/AddSubjects";
+import SubjectAssign from "./components/SubjectManagement/SubjectAssign";
+import AddMarksType from "./components/marks/AddMarksType";
 
 
 function Root() {
@@ -205,6 +210,14 @@ function Root() {
                       element: <AddShift />,
                     },
                     {
+                      path: "add-group",
+                      element: <ClassGroup />,
+                    },
+                       {
+                      path: "group-config",
+                      element: <ClassGroupConfig />,
+                    },
+                          {
                       path: "add-config",
                       element: <AddClassConfig />,
                     },
@@ -220,15 +233,29 @@ function Root() {
                       path: "result-config",
                       element: <ResultConfig></ResultConfig>,
                     },
+                      {
+                      path: "add-markstype",
+                      element: <AddMarksType></AddMarksType>,
+                    },
                   ],
                 },
                 {
-                  path: "class-subject",
+                  path: "subject-settings",
+                  // element: <AddSubjects/>,
                   children: [
                     {
-                      index: true,
-                      element: <ClassSubject />,
+                      path: "class-subject",
+                      element: <SubjectAssign />,
                     },
+                       {
+                      path: "add-subject",
+                      element: <AddSubjects/>,
+                    },
+                       {
+                      path: "teacher-subject-assign",
+                      element: <TeacherSubjectAssign/>,
+                    },
+                      
                   ],
                 },
                 {

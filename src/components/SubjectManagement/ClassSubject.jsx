@@ -247,17 +247,17 @@ const ClassSubject = () => {
                 classes?.map((cls, index) => (
                   <button
                     key={cls.id}
-                    onClick={() => handleClassSelect(cls?.student_class.id)}
+                    onClick={() => handleClassSelect(cls?.id)}
                     className={`[#441a05]space-nowrap py-2 px-4 font-medium text-sm rounded-md transition-all duration-300 animate-scaleIn ${
                       selectedClassId === cls.student_class.id
                         ? "bg-pmColor text-[#441a05]shadow-md"
                         : "text-[#441a05]hover:bg-[#441a05]/10 hover:text-[#441a05]"
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
-                    aria-label={`ক্লাস নির্বাচন ${cls?.student_class?.name}`}
-                    title={`ক্লাস নির্বাচন করুন / Select class ${cls?.student_class?.name}`}
+                    aria-label={`ক্লাস নির্বাচন ${cls?.student_class}`}
+                    title={`ক্লাস নির্বাচন করুন / Select class ${cls?.student_class}`}
                   >
-                    {cls?.student_class?.name}
+                    {cls?.student_class}
                   </button>
                 ))
               ) : (

@@ -8,18 +8,28 @@ import {
   useGetExamApiQuery,
   useUpdateExamApiMutation,
 } from "../../../redux/features/api/exam/examApi";
-import { useSelector } from "react-redux"; // Import useSelector
-import { useGetGroupPermissionsQuery } from "../../../redux/features/api/permissionRole/groupsApi"; // Import permission hook
-import { useGetAcademicYearApiQuery } from "../../../redux/features/api/academic-year/academicYearApi";
-
+import { useSelector } from "react-redux";
+import { useGetGroupPermissionsQuery } from "../../../redux/features/api/permissionRole/groupsApi";
 
 const AddExamType = () => {
-  const { user, group_id } = useSelector((state) => state.auth); // Get user and group_id
+  const { user, group_id } = useSelector((state) => state.auth);
+  
+  // Form states
   const [examName, setExamName] = useState("");
-  const [selectedAcademicYear, setSelectedAcademicYear] = useState(""); // New state for academic year
+  const [isTestExam, setIsTestExam] = useState(false);
+  const [isPercentage, setIsPercentage] = useState(false);
+  const [markValue, setMarkValue] = useState("");
+  const [examConnect, setExamConnect] = useState("");
+  
+  // Edit states
   const [editExamId, setEditExamId] = useState(null);
   const [editExamName, setEditExamName] = useState("");
-  const [editAcademicYear, setEditAcademicYear] = useState(""); // New state for edit academic year
+  const [editIsTestExam, setEditIsTestExam] = useState(false);
+  const [editIsPercentage, setEditIsPercentage] = useState(false);
+  const [editMarkValue, setEditMarkValue] = useState("");
+  const [editExamConnect, setEditExamConnect] = useState("");
+  
+  // Modal states
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalAction, setModalAction] = useState(null);
   const [modalData, setModalData] = useState(null);
@@ -33,17 +43,11 @@ const AddExamType = () => {
   const [createExam, { isLoading: isCreating, error: createError }] = useCreateExamApiMutation();
   const [updateExam, { isLoading: isUpdating, error: updateError }] = useUpdateExamApiMutation();
   const [deleteExam, { isLoading: isDeleting, error: deleteError }] = useDeleteExamApiMutation();
-  const { data: academicYears, isLoading: academicYearsLoading } = useGetAcademicYearApiQuery();
   
   // Permissions hook
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
     skip: !group_id,
   });
-  
-  const academicYearOptions = academicYears?.map((year) => ({
-    value: year.id,
-    label: year.name,
-  })) || [];
   
   // Permission checks
   const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_examname') || false;
@@ -62,20 +66,24 @@ const AddExamType = () => {
       toast.error("অনুগ্রহ করে একটি পরীক্ষার ধরনের নাম লিখুন");
       return;
     }
-    if (!selectedAcademicYear) {
-      toast.error("অনুগ্রহ করে একটি শিক্ষাবর্ষ নির্বাচন করুন");
+    if (!markValue || isNaN(markValue) || parseFloat(markValue) <= 0) {
+      toast.error("অনুগ্রহ করে একটি বৈধ নম্বর মান দিন");
       return;
     }
-    if (examTypes?.some((et) => et.name.toLowerCase() === examName.toLowerCase() && et.academic_year === parseInt(selectedAcademicYear))) {
-      toast.error("এই শিক্ষাবর্ষে এই পরীক্ষার ধরন ইতিমধ্যে বিদ্যমান!");
+    
+    // Check for duplicate exam name
+    if (examTypes?.some((et) => et.exam_name?.toLowerCase() === examName.toLowerCase())) {
+      toast.error("এই পরীক্ষার ধরন ইতিমধ্যে বিদ্যমান!");
       return;
     }
 
     setModalAction("create");
     setModalData({
-      name: examName.trim(),
-      academic_year: parseInt(selectedAcademicYear),
-      is_active: true,
+      exam_name: examName.trim(),
+      is_test_exam: isTestExam,
+      is_percentage: isPercentage,
+      mark_value: parseFloat(markValue),
+      exam_connect: examConnect || null,
     });
     setIsModalOpen(true);
   };
@@ -87,8 +95,11 @@ const AddExamType = () => {
       return;
     }
     setEditExamId(exam.id);
-    setEditExamName(exam.name);
-    setEditAcademicYear(exam.academic_year?.toString() || "");
+    setEditExamName(exam.exam_name || "");
+    setEditIsTestExam(exam.is_test_exam || false);
+    setEditIsPercentage(exam.is_percentage || false);
+    setEditMarkValue(exam.mark_value?.toString() || "");
+    setEditExamConnect(exam.exam_connect?.toString() || "");
   };
 
   // Handle update exam type
@@ -102,33 +113,19 @@ const AddExamType = () => {
       toast.error("অনুগ্রহ করে একটি পরীক্ষার ধরনের নাম লিখুন");
       return;
     }
-    if (!editAcademicYear) {
-      toast.error("অনুগ্রহ করে একটি শিক্ষাবর্ষ নির্বাচন করুন");
+    if (!editMarkValue || isNaN(editMarkValue) || parseFloat(editMarkValue) <= 0) {
+      toast.error("অনুগ্রহ করে একটি বৈধ নম্বর মান দিন");
       return;
     }
 
     setModalAction("update");
     setModalData({
       id: editExamId,
-      name: editExamName.trim(),
-      academic_year: parseInt(editAcademicYear),
-      is_active: examTypes.find((et) => et.id === editExamId)?.is_active || true,
-    });
-    setIsModalOpen(true);
-  };
-
-  // Handle toggle active status
-  const handleToggleActive = (exam) => {
-    if (!hasChangePermission) {
-      toast.error('পরীক্ষার ধরনের স্থিতি পরিবর্তন করার অনুমতি নেই।');
-      return;
-    }
-    setModalAction("toggle");
-    setModalData({
-      id: exam.id,
-      name: exam.name,
-      academic_year: exam.academic_year,
-      is_active: !exam.is_active,
+      exam_name: editExamName.trim(),
+      is_test_exam: editIsTestExam,
+      is_percentage: editIsPercentage,
+      mark_value: parseFloat(editMarkValue),
+      exam_connect: editExamConnect || null,
     });
     setIsModalOpen(true);
   };
@@ -155,7 +152,10 @@ const AddExamType = () => {
         await createExam(modalData).unwrap();
         toast.success("পরীক্ষার ধরন সফলভাবে তৈরি করা হয়েছে!");
         setExamName("");
-        setSelectedAcademicYear("");
+        setIsTestExam(false);
+        setIsPercentage(false);
+        setMarkValue("");
+        setExamConnect("");
       } else if (modalAction === "update") {
         if (!hasChangePermission) {
           toast.error('পরীক্ষার ধরন আপডেট করার অনুমতি নেই।');
@@ -165,7 +165,10 @@ const AddExamType = () => {
         toast.success("পরীক্ষার ধরন সফলভাবে আপডেট করা হয়েছে!");
         setEditExamId(null);
         setEditExamName("");
-        setEditAcademicYear("");
+        setEditIsTestExam(false);
+        setEditIsPercentage(false);
+        setEditMarkValue("");
+        setEditExamConnect("");
       } else if (modalAction === "delete") {
         if (!hasDeletePermission) {
           toast.error('পরীক্ষার ধরন মুছে ফেলার অনুমতি নেই।');
@@ -173,17 +176,10 @@ const AddExamType = () => {
         }
         await deleteExam(modalData.id).unwrap();
         toast.success("পরীক্ষার ধরন সফলভাবে মুছে ফেলা হয়েছে!");
-      } else if (modalAction === "toggle") {
-        if (!hasChangePermission) {
-          toast.error('পরীক্ষার ধরনের স্থিতি পরিবর্তন করার অনুমতি নেই।');
-          return;
-        }
-        await updateExam(modalData).unwrap();
-        toast.success(`পরীক্ষার ধরন ${modalData.name} এখন ${modalData.is_active ? "সক্রিয়" : "নিষ্ক্রিয়"}!`);
       }
     } catch (err) {
-      console.error(`ত্রুটি ${modalAction === "create" ? "তৈরি" : modalAction === "update" ? "আপডেট" : modalAction === "delete" ? "মুছে ফেলা" : "টগল করা"}:`, err);
-      toast.error(`পরীক্ষার ধরন ${modalAction === "create" ? "তৈরি করা" : modalAction === "update" ? "আপডেট করা" : modalAction === "delete" ? "মুছে ফেলা" : "টগল করা"} ব্যর্থ: ${err.status || "অজানা ত্রুটি"} - ${JSON.stringify(err.data || {})}`);
+      console.error(`ত্রুটি ${modalAction === "create" ? "তৈরি" : modalAction === "update" ? "আপডেট" : "মুছে ফেলা"}:`, err);
+      toast.error(`পরীক্ষার ধরন ${modalAction === "create" ? "তৈরি করা" : modalAction === "update" ? "আপডেট করা" : "মুছে ফেলা"} ব্যর্থ: ${err.status || "অজানা ত্রুটি"} - ${JSON.stringify(err.data || {})}`);
     } finally {
       setIsModalOpen(false);
       setModalAction(null);
@@ -191,13 +187,13 @@ const AddExamType = () => {
     }
   };
 
-  // Get academic year name by ID
-  const getAcademicYearName = (academicYearId) => {
-    const academicYear = academicYears?.find(year => year.id === academicYearId);
-    return academicYear ? academicYear.name : 'N/A';
+  // Get exam name by ID for exam_connect
+  const getExamNameById = (examId) => {
+    const exam = examTypes?.find(exam => exam.id === examId);
+    return exam ? exam.exam_name : 'N/A';
   };
 
-  if (isExamLoading || permissionsLoading || academicYearsLoading) {
+  if (isExamLoading || permissionsLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen px-4">
         <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
@@ -247,12 +243,6 @@ const AddExamType = () => {
           .animate-slideDown {
             animation: slideDown 0.3s ease-out forwards;
           }
-          .tick-glow {
-            transition: all 0.3s ease;
-          }
-          .tick-glow:checked + span {
-            box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
-          }
           .btn-glow:hover {
             box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
           }
@@ -278,41 +268,123 @@ const AddExamType = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-[#441a05]" />
-              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">নতুন পরীক্ষার ধরন যোগ করুন</h3>
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05] tracking-tight">নতুন পরীক্ষার ধরন যোগ করুন</h3>
             </div>
-            <form onSubmit={handleSubmitExam} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+            <form onSubmit={handleSubmitExam} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
+              {/* Exam Name */}
               <input
                 type="text"
                 id="examName"
                 value={examName}
                 onChange={(e) => setExamName(e.target.value)}
-                className="w-full p-2 bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
-                placeholder="পরীক্ষার ধরন লিখুন (যেমন, মধ্যবর্তী)"
+                className="w-full p-3 bg-transparent text-[#441a05] placeholder-[#441a05] pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                placeholder="পরীক্ষার নাম লিখুন (যেমন, মধ্যবর্তী)"
                 disabled={isCreating}
-                aria-describedby={createError ? "exam-error" : undefined}
               />
+
+              {/* Is Test Exam */}
+              <div className="flex items-center space-x-3">
+                <label className="inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={isTestExam}
+                    onChange={(e) => setIsTestExam(e.target.checked)}
+                    disabled={isCreating}
+                    className="hidden"
+                  />
+                  <span
+                    className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
+                      isTestExam
+                        ? "bg-pmColor border-pmColor"
+                        : "bg-transparent border-[#9d9087] hover:border-[#441a05]"
+                    }`}
+                  >
+                    {isTestExam && (
+                      <svg
+                        className="w-4 h-4 text-[#441a05]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                </label>
+                <span className="text-[#441a05] font-medium">টেস্ট পরীক্ষা</span>
+              </div>
+
+              {/* Is Percentage */}
+              <div className="flex flex-col space-y-2">
+                <label className="text-sm font-medium text-[#441a05]">নম্বর প্রকার</label>
+                <div className="flex space-x-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsPercentage(false)}
+                    disabled={isCreating}
+                    className={`flex-1 p-2 rounded-lg font-medium transition-all duration-300 ${
+                      !isPercentage
+                        ? 'bg-pmColor text-[#441a05] shadow-md'
+                        : 'bg-transparent border border-[#9d9087] text-[#441a05] hover:bg-[#441a05]/10'
+                    }`}
+                  >
+                    সংখ্যায় নম্বর
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsPercentage(true)}
+                    disabled={isCreating}
+                    className={`flex-1 p-2 rounded-lg font-medium transition-all duration-300 ${
+                      isPercentage
+                        ? 'bg-pmColor text-[#441a05] shadow-md'
+                        : 'bg-transparent border border-[#9d9087] text-[#441a05] hover:bg-[#441a05]/10'
+                    }`}
+                  >
+                    শতাংশে নম্বর
+                  </button>
+                </div>
+              </div>
+
+              {/* Mark Value */}
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                value={markValue}
+                onChange={(e) => setMarkValue(e.target.value)}
+                className="w-full p-3 bg-transparent text-[#441a05] placeholder-[#441a05] pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
+                placeholder="নম্বর মান (যেমন, 100)"
+                disabled={isCreating}
+              />
+
+              {/* Exam Connect */}
               <select
-                id="academicYear"
-                value={selectedAcademicYear}
-                onChange={(e) => setSelectedAcademicYear(e.target.value)}
-                className="w-full p-2 bg-transparent text-[#441a05]pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
-                disabled={isCreating || academicYearsLoading}
+                value={examConnect}
+                onChange={(e) => setExamConnect(e.target.value)}
+                className="w-full p-3 bg-transparent text-[#441a05] pl-3 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300"
+                disabled={isCreating}
               >
-                <option value="" disabled className="bg-[#441a05]text-black">
-                  শিক্ষাবর্ষ নির্বাচন করুন
-                </option>
-                {academicYearOptions.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-[#441a05]text-black">
-                    {option.label}
+                <option value="" className="bg-[#441a05] text-white">পরীক্ষা সংযোগ নির্বাচন করুন (ঐচ্ছিক)</option>
+                {examTypes?.filter(exam => !exam.is_test_exam).map((exam) => (
+                  <option key={exam.id} value={exam.id} className="bg-[#441a05] text-white">
+                    {exam.exam_name}
                   </option>
                 ))}
               </select>
+
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isCreating}
                 title="নতুন পরীক্ষার ধরন তৈরি করুন"
-                className={`relative inline-flex items-center hover:text-[#441a05]px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
-                  isCreating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
+                className={`relative inline-flex items-center hover:text-[#441a05] px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05] transition-all duration-300 animate-scaleIn ${
+                  isCreating ? "cursor-not-allowed" : "hover:text-[#441a05] hover:shadow-md"
                 }`}
               >
                 {isCreating ? (
@@ -345,65 +417,150 @@ const AddExamType = () => {
           <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <FaEdit className="text-3xl text-[#441a05]" />
-              <h3 className="text-2xl font-bold text-[#441a05]tracking-tight">পরীক্ষার ধরন সম্পাদনা করুন</h3>
+              <h3 className="text-2xl font-bold text-[#441a05] tracking-tight">পরীক্ষার ধরন সম্পাদনা করুন</h3>
             </div>
-            <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
+            <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl">
+              {/* Edit Exam Name */}
               <input
                 type="text"
-                id="editExamName"
                 value={editExamName}
                 onChange={(e) => setEditExamName(e.target.value)}
-                className="w-full bg-transparent text-[#441a05]placeholder-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
-                placeholder="পরীক্ষার ধরন সম্পাদনা করুন (যেমন, মধ্যবর্তী)"
+                className="w-full bg-transparent text-[#441a05] placeholder-[#441a05] pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                placeholder="পরীক্ষার নাম সম্পাদনা করুন"
                 disabled={isUpdating}
-                aria-label="পরীক্ষার ধরন সম্পাদনা"
-                aria-describedby="edit-exam-error"
               />
+
+              {/* Edit Is Test Exam */}
+              <div className="flex items-center space-x-3">
+                <label className="inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={editIsTestExam}
+                    onChange={(e) => setEditIsTestExam(e.target.checked)}
+                    disabled={isUpdating}
+                    className="hidden"
+                  />
+                  <span
+                    className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 ${
+                      editIsTestExam
+                        ? "bg-pmColor border-pmColor"
+                        : "bg-transparent border-[#9d9087] hover:border-[#441a05]"
+                    }`}
+                  >
+                    {editIsTestExam && (
+                      <svg
+                        className="w-4 h-4 text-[#441a05]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                </label>
+                <span className="text-[#441a05] font-medium">টেস্ট পরীক্ষা</span>
+              </div>
+
+              {/* Edit Is Percentage */}
+              <div className="flex flex-col space-y-2">
+                <label className="text-sm font-medium text-[#441a05]">নম্বর প্রকার</label>
+                <div className="flex space-x-2">
+                  <button
+                    type="button"
+                    onClick={() => setEditIsPercentage(false)}
+                    disabled={isUpdating}
+                    className={`flex-1 p-2 rounded-lg font-medium transition-all duration-300 ${
+                      !editIsPercentage
+                        ? 'bg-pmColor text-[#441a05] shadow-md'
+                        : 'bg-transparent border border-[#9d9087] text-[#441a05] hover:bg-[#441a05]/10'
+                    }`}
+                  >
+                    সংখ্যায় নম্বর
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEditIsPercentage(true)}
+                    disabled={isUpdating}
+                    className={`flex-1 p-2 rounded-lg font-medium transition-all duration-300 ${
+                      editIsPercentage
+                        ? 'bg-pmColor text-[#441a05] shadow-md'
+                        : 'bg-transparent border border-[#9d9087] text-[#441a05] hover:bg-[#441a05]/10'
+                    }`}
+                  >
+                    শতাংশে নম্বর
+                  </button>
+                </div>
+              </div>
+
+              {/* Edit Mark Value */}
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                value={editMarkValue}
+                onChange={(e) => setEditMarkValue(e.target.value)}
+                className="w-full bg-transparent text-[#441a05] placeholder-[#441a05] pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
+                placeholder="নম্বর মান"
+                disabled={isUpdating}
+              />
+
+              {/* Edit Exam Connect */}
               <select
-                id="editAcademicYear"
-                value={editAcademicYear}
-                onChange={(e) => setEditAcademicYear(e.target.value)}
-                className="w-full bg-transparent text-[#441a05]pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
-                disabled={isUpdating || academicYearsLoading}
+                value={editExamConnect}
+                onChange={(e) => setEditExamConnect(e.target.value)}
+                className="w-full bg-transparent text-[#441a05] pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg transition-all duration-300 animate-scaleIn"
+                disabled={isUpdating}
               >
-                <option value="" disabled className="bg-[#441a05]text-black">
-                  শিক্ষাবর্ষ নির্বাচন করুন
-                </option>
-                {academicYearOptions.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-[#441a05]text-black">
-                    {option.label}
+                <option value="" className="bg-[#441a05] text-white">পরীক্ষা সংযোগ নির্বাচন করুন (ঐচ্ছিক)</option>
+                {examTypes?.filter(exam => exam.id !== editExamId && !exam.is_test_exam).map((exam) => (
+                  <option key={exam.id} value={exam.id} className="bg-[#441a05] text-white">
+                    {exam.exam_name}
                   </option>
                 ))}
               </select>
-              <button
-                type="submit"
-                disabled={isUpdating}
-                title="পরীক্ষার ধরন আপডেট করুন"
-                className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05]transition-all duration-300 animate-scaleIn ${
-                  isUpdating ? "cursor-not-allowed" : "hover:text-[#441a05]hover:shadow-md"
-                }`}
-              >
-                {isUpdating ? (
-                  <span className="flex items-center space-x-2">
-                    <FaSpinner className="animate-spin text-lg" />
-                    <span>আপডেট করা হচ্ছে...</span>
-                  </span>
-                ) : (
-                  <span>পরীক্ষার ধরন আপডেট করুন</span>
-                )}
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setEditExamId(null);
-                  setEditExamName("");
-                  setEditAcademicYear("");
-                }}
-                title="সম্পাদনা বাতিল করুন"
-                className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05]hover:text-[#441a05]transition-all duration-300 animate-scaleIn"
-              >
-                বাতিল
-              </button>
+
+              {/* Update and Cancel Buttons */}
+              <div className="flex gap-2">
+                <button
+                  type="submit"
+                  disabled={isUpdating}
+                  title="পরীক্ষার ধরন আপডেট করুন"
+                  className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05] transition-all duration-300 animate-scaleIn ${
+                    isUpdating ? "cursor-not-allowed" : "hover:text-[#441a05] hover:shadow-md"
+                  }`}
+                >
+                  {isUpdating ? (
+                    <span className="flex items-center space-x-2">
+                      <FaSpinner className="animate-spin text-lg" />
+                      <span>আপডেট করা হচ্ছে...</span>
+                    </span>
+                  ) : (
+                    <span>আপডেট করুন</span>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditExamId(null);
+                    setEditExamName("");
+                    setEditIsTestExam(false);
+                    setEditIsPercentage(false);
+                    setEditMarkValue("");
+                    setEditExamConnect("");
+                  }}
+                  title="সম্পাদনা বাতিল করুন"
+                  className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05] hover:text-[#441a05] transition-all duration-300 animate-scaleIn"
+                >
+                  বাতিল
+                </button>
+              </div>
             </form>
             {updateError && (
               <div
@@ -419,7 +576,7 @@ const AddExamType = () => {
 
         {/* Exam Types Table */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl animate-fadeIn overflow-y-auto max-h-[60vh] py-2 px-6">
-          <h3 className="text-lg font-semibold text-[#441a05]p-4 border-b border-[#441a05]/20">পরীক্ষার ধরনের তালিকা</h3>
+          <h3 className="text-lg font-semibold text-[#441a05] p-4 border-b border-[#441a05]/20">পরীক্ষার ধরনের তালিকা</h3>
           {isExamLoading ? (
             <p className="p-4 text-[#441a05]/70">পরীক্ষার ধরন লোড হচ্ছে...</p>
           ) : examError ? (
@@ -435,22 +592,23 @@ const AddExamType = () => {
                 <thead className="bg-[#441a05]/5">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
+                      পরীক্ষার নাম
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       পরীক্ষার ধরন
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
-                      শিক্ষাবর্ষ
+                      শতাংশ
                     </th>
-                    {hasChangePermission && (
-                      <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
-                        সক্রিয়
-                      </th>
-                    )}
                     <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
+                      নম্বর মান
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
+                      সংযুক্ত পরীক্ষা
+                    </th>
+                    {/* <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                       তৈরির সময়
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
-                      আপডেটের সময়
-                    </th>
+                    </th> */}
                     {(hasChangePermission || hasDeletePermission) && (
                       <th className="px-6 py-3 text-left text-xs font-medium text-[#441a05]/70 uppercase tracking-wider">
                         ক্রিয়াকলাপ
@@ -465,61 +623,31 @@ const AddExamType = () => {
                       className="bg-[#441a05]/5 animate-fadeIn"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium text-[#441a05]">
-                        {exam.name}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#441a05]">
+                        {exam.exam_name}
                       </td>
-                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
-                        {getAcademicYearName(exam.academic_year)}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]/70">
+                        {exam.is_test_exam ? "টেস্ট পরীক্ষা" : "নিয়মিত পরীক্ষা"}
                       </td>
-                      {hasChangePermission && (
-                        <td className="px-6 py-4 [#441a05]space-nowrap text-[#441a05]">
-                          <label className="inline-flex items-center cursor-pointer">
-                            <input
-                              type="checkbox"
-                              checked={exam.is_active}
-                              onChange={() => handleToggleActive(exam)}
-                              className="hidden"
-                            />
-                            <span
-                              className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 animate-scaleIn ${
-                                exam.is_active
-                                  ? "bg-pmColor border-pmColor"
-                                  : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
-                              }`}
-                            >
-                              {exam.is_active && (
-                                <svg
-                                  className="w-4 h-4 text-[#441a05]animate-scaleIn"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M5 13l4 4L19 7"
-                                  />
-                                </svg>
-                              )}
-                            </span>
-                          </label>
-                        </td>
-                      )}
-                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
-                        {new Date(exam.created_at).toLocaleString("bn-BD")}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]/70">
+                        {exam.is_percentage ? "হ্যাঁ" : "না"}
                       </td>
-                      <td className="px-6 py-4 [#441a05]space-nowrap text-sm text-[#441a05]/70">
-                        {new Date(exam.updated_at).toLocaleString("bn-BD")}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]/70">
+                        {exam.mark_value}
                       </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]/70">
+                        {exam.exam_connect ? getExamNameById(exam.exam_connect) : "N/A"}
+                      </td>
+                      {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-[#441a05]/70">
+                        {exam.created_at ? new Date(exam.created_at).toLocaleString("bn-BD") : "N/A"}
+                      </td> */}
                       {(hasChangePermission || hasDeletePermission) && (
-                        <td className="px-6 py-4 [#441a05]space-nowrap text-sm font-medium">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                           {hasChangePermission && (
                             <button
                               onClick={() => handleEditClick(exam)}
                               title="পরীক্ষার ধরন সম্পাদনা করুন"
-                              className="text-[#441a05]hover:text-blue-500 mr-4 transition-colors duration-300"
+                              className="text-[#441a05] hover:text-blue-500 mr-4 transition-colors duration-300"
                             >
                               <FaEdit className="w-5 h-5" />
                             </button>
@@ -528,7 +656,7 @@ const AddExamType = () => {
                             <button
                               onClick={() => handleDelete(exam.id)}
                               title="পরীক্ষার ধরন মুছুন"
-                              className="text-[#441a05]hover:text-red-500 transition-colors duration-300"
+                              className="text-[#441a05] hover:text-red-500 transition-colors duration-300"
                             >
                               <FaTrash className="w-5 h-5" />
                             </button>
@@ -559,30 +687,28 @@ const AddExamType = () => {
         {isModalOpen && (hasAddPermission || hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
+              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
-              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
+              <h3 className="text-lg font-semibold text-[#441a05] mb-4">
                 {modalAction === "create" && "নতুন পরীক্ষার ধরন নিশ্চিত করুন"}
                 {modalAction === "update" && "পরীক্ষার ধরন আপডেট নিশ্চিত করুন"}
                 {modalAction === "delete" && "পরীক্ষার ধরন মুছে ফেলা নিশ্চিত করুন"}
-                {modalAction === "toggle" && "পরীক্ষার ধরনের স্থিতি পরিবর্তন নিশ্চিত করুন"}
               </h3>
-              <p className="text-[#441a05]mb-6">
+              <p className="text-[#441a05] mb-6">
                 {modalAction === "create" && "আপনি কি নিশ্চিত যে নতুন পরীক্ষার ধরন তৈরি করতে চান?"}
                 {modalAction === "update" && "আপনি কি নিশ্চিত যে পরীক্ষার ধরন আপডেট করতে চান?"}
                 {modalAction === "delete" && "আপনি কি নিশ্চিত যে এই পরীক্ষার ধরনটি মুছে ফেলতে চান?"}
-                {modalAction === "toggle" && `আপনি কি নিশ্চিত যে পরীক্ষার ধরনটি ${modalData?.is_active ? "সক্রিয়" : "নিষ্ক্রিয়"} করতে চান?`}
               </p>
               <div className="flex justify-end space-x-4">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
+                  className="px-4 py-2 bg-gray-500/20 text-[#441a05] rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
                 >
                   বাতিল
                 </button>
                 <button
                   onClick={confirmAction}
-                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
+                  className="px-4 py-2 bg-pmColor text-[#441a05] rounded-lg hover:text-[#441a05] transition-colors duration-300 btn-glow"
                 >
                   নিশ্চিত করুন
                 </button>

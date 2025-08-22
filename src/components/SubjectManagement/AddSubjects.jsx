@@ -1,87 +1,95 @@
-import React, { useState } from 'react';
-import {
-  useCreateStudentShiftApiMutation,
-  useGetStudentShiftApiQuery,
-  useGetStudentShiftApiByIdQuery,
-  useDeleteStudentShiftApiMutation,
-  useUpdateStudentShiftApiMutation,
-} from '../../redux/features/api/student/studentShiftApi';
+import React, { useEffect, useState } from 'react';
+; // Assuming this path
 import { FaEdit, FaSpinner, FaTrash } from 'react-icons/fa';
 import { IoAdd, IoAddCircle } from 'react-icons/io5';
 import { Toaster, toast } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { useGetGroupPermissionsQuery } from '../../redux/features/api/permissionRole/groupsApi';
+import { useCreateSubjectMutation,
+  useGetSubjectsQuery,
+  useGetSubjectByIdQuery,
+  useDeleteSubjectMutation,
+  useUpdateSubjectMutation,
+  usePatchSubjectMutation, } from '../../redux/features/api/class-subjects/subjectsApi';
 
-const AddShift = () => {
+const AddSubjects = () => {
   const { user, group_id } = useSelector((state) => state.auth);
-  const [shiftName, setShiftName] = useState('');
-  const [editShiftId, setEditShiftId] = useState(null);
-  const [editShiftName, setEditShiftName] = useState('');
+  const [subjectName, setSubjectName] = useState('');
+  const [editSubjectId, setEditSubjectId] = useState(null);
+  const [editSubjectName, setEditSubjectName] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalAction, setModalAction] = useState(null);
   const [modalData, setModalData] = useState(null);
 
-  // API hooks
+  // API hooks for Subjects
   const {
-    data: shiftData,
-    isLoading: isShiftLoading,
-    error: shiftDataError,
-  } = useGetStudentShiftApiQuery();
-  const [createShift, { isLoading: isCreating, error: createError }] = useCreateStudentShiftApiMutation();
-  const [updateShift, { isLoading: isUpdating }] = useUpdateStudentShiftApiMutation();
-  const [deleteShift] = useDeleteStudentShiftApiMutation();
-  const { data: shiftByIdData } = useGetStudentShiftApiByIdQuery(editShiftId, { skip: !editShiftId });
+    data: subjectData,
+    isLoading: isSubjectLoading,
+    error: subjectDataError,
+  } = useGetSubjectsQuery();
+  const [createSubject, { isLoading: isCreating, error: createError }] = useCreateSubjectMutation();
+  const [updateSubject, { isLoading: isUpdating }] = useUpdateSubjectMutation();
+  const [patchSubject, { isLoading: isPatching }] = usePatchSubjectMutation(); // Not used in this example, but included for completeness
+  const [deleteSubject] = useDeleteSubjectMutation();
+  const { data: subjectByIdData } = useGetSubjectByIdQuery(editSubjectId, { skip: !editSubjectId });
 
   // Permissions hook
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
     skip: !group_id,
   });
 
-  // Permission checks
-  const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_studentshift') || false;
-  const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_studentshift') || false;
-  const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_studentshift') || false;
-  const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_studentshift') || false;
+  // Permission checks (adjust codenames as per your backend's actual permissions for subjects)
+  const hasAddPermission = groupPermissions?.some(perm => perm.codename === 'add_classsubject') || false;
+  const hasChangePermission = groupPermissions?.some(perm => perm.codename === 'change_classsubject') || false;
+  const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_classsubject') || false;
+  const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_classsubject') || false;
 
-  // Handle form submission for creating a new shift
+  // Effect to populate edit fields when subjectByIdData is fetched
+  useEffect(() => {
+    if (subjectByIdData && editSubjectId) {
+      setEditSubjectName(subjectByIdData.class_subject || '');
+    }
+  }, [subjectByIdData, editSubjectId]);
+
+  // Handle form submission for creating a new subject
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!hasAddPermission) {
-      toast.error('শিফট যোগ করার অনুমতি নেই।');
+      toast.error('বিষয় যোগ করার অনুমতি নেই।');
       return;
     }
-    if (!shiftName.trim()) {
-      toast.error('অনুগ্রহ করে একটি শিফটের নাম লিখুন');
+    if (!subjectName.trim()) {
+      toast.error('অনুগ্রহ করে একটি বিষয়ের নাম লিখুন');
       return;
     }
     setModalAction('create');
-    setModalData({ name: shiftName.trim() });
+    setModalData({ class_subject: subjectName.trim() }); // Sending as class_subject
     setIsModalOpen(true);
   };
 
-  // Handle update shift
+  // Handle update subject
   const handleUpdate = async (e) => {
     e.preventDefault();
     if (!hasChangePermission) {
-      toast.error('শিফট আপডেট করার অনুমতি নেই।');
+      toast.error('বিষয় আপডেট করার অনুমতি নেই।');
       return;
     }
-    if (!editShiftName.trim()) {
-      toast.error('অনুগ্রহ করে একটি শিফটের নাম লিখুন');
+    if (!editSubjectName.trim()) {
+      toast.error('অনুগ্রহ করে একটি বিষয়ের নাম লিখুন');
       return;
     }
     setModalAction('update');
     setModalData({
-      id: editShiftId,
-      name: editShiftName.trim(),
+      id: editSubjectId,
+      class_subject: editSubjectName.trim(), // Sending as class_subject
     });
     setIsModalOpen(true);
   };
 
-  // Handle delete shift
+  // Handle delete subject
   const handleDelete = (id) => {
     if (!hasDeletePermission) {
-      toast.error('শিফট মুছে ফেলার অনুমতি নেই।');
+      toast.error('বিষয় মুছে ফেলার অনুমতি নেই।');
       return;
     }
     setModalAction('delete');
@@ -94,32 +102,32 @@ const AddShift = () => {
     try {
       if (modalAction === 'create') {
         if (!hasAddPermission) {
-          toast.error('শিফট তৈরি করার অনুমতি নেই।');
+          toast.error('বিষয় তৈরি করার অনুমতি নেই।');
           return;
         }
-        await createShift(modalData).unwrap();
-        toast.success('শিফট সফলভাবে তৈরি করা হয়েছে!');
-        setShiftName('');
+        await createSubject(modalData).unwrap();
+        toast.success('বিষয় সফলভাবে তৈরি করা হয়েছে!');
+        setSubjectName('');
       } else if (modalAction === 'update') {
         if (!hasChangePermission) {
-          toast.error('শিফট আপডেট করার অনুমতি নেই।');
+          toast.error('বিষয় আপডেট করার অনুমতি নেই।');
           return;
         }
-        await updateShift(modalData).unwrap();
-        toast.success('শিফট সফলভাবে আপডেট করা হয়েছে!');
-        setEditShiftId(null);
-        setEditShiftName('');
+        await updateSubject(modalData).unwrap();
+        toast.success('বিষয় সফলভাবে আপডেট করা হয়েছে!');
+        setEditSubjectId(null);
+        setEditSubjectName('');
       } else if (modalAction === 'delete') {
         if (!hasDeletePermission) {
-          toast.error('শিফট মুছে ফেলার অনুমতি নেই।');
+          toast.error('বিষয় মুছে ফেলার অনুমতি নেই।');
           return;
         }
-        await deleteShift(modalData.id).unwrap();
-        toast.success('শিফট সফলভাবে মুছে ফেলা হয়েছে!');
+        await deleteSubject(modalData.id).unwrap();
+        toast.success('বিষয় সফলভাবে মুছে ফেলা হয়েছে!');
       }
     } catch (err) {
       console.error(`ত্রুটি ${modalAction === 'create' ? 'তৈরি' : modalAction === 'update' ? 'আপডেট' : 'মুছে ফেলা'}:`, err);
-      toast.error(`শিফট ${modalAction === 'create' ? 'তৈরি' : modalAction === 'update' ? 'আপডেট' : 'মুছে ফেলা'} ব্যর্থ: ${err.status || 'অজানা ত্রুটি'} - ${JSON.stringify(err.data || {})}`);
+      toast.error(`বিষয় ${modalAction === 'create' ? 'তৈরি' : modalAction === 'update' ? 'আপডেট' : 'মুছে ফেলা'} ব্যর্থ: ${err.status || 'অজানা ত্রুটি'} - ${JSON.stringify(err.data || {})}`);
     } finally {
       setIsModalOpen(false);
       setModalAction(null);
@@ -128,13 +136,13 @@ const AddShift = () => {
   };
 
   // Handle edit button click
-  const handleEditClick = (shift) => {
+  const handleEditClick = (subject) => {
     if (!hasChangePermission) {
-      toast.error('শিফট সম্পাদনা করার অনুমতি নেই।');
+      toast.error('বিষয় সম্পাদনা করার অনুমতি নেই।');
       return;
     }
-    setEditShiftId(shift.id);
-    setEditShiftName(shift.name);
+    setEditSubjectId(subject.id);
+    setEditSubjectName(subject.class_subject); // Populating with class_subject
   };
 
   if (permissionsLoading) {
@@ -198,28 +206,28 @@ const AddShift = () => {
       </style>
 
       <div className="">
-        {/* Form to Add Shift */}
+        {/* Form to Add Subject */}
         {hasAddPermission && (
           <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <IoAddCircle className="text-4xl text-[#441a05]" />
-              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05] tracking-tight">নতুন শিফট যোগ করুন</h3>
+              <h3 className="sm:text-2xl text-xl font-bold text-[#441a05] tracking-tight">নতুন বিষয় যোগ করুন</h3>
             </div>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
               <input
                 type="text"
-                id="shiftName"
-                value={shiftName}
-                onChange={(e) => setShiftName(e.target.value)}
+                id="subjectName"
+                value={subjectName}
+                onChange={(e) => setSubjectName(e.target.value)}
                 className="w-full p-2 bg-transparent text-[#441a05] placeholder-[#441a05] pl-3 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300"
-                placeholder="শিফটের নাম"
+                placeholder="বিষয়ের নাম"
                 disabled={isCreating}
-                aria-describedby={createError ? 'shift-error' : undefined}
+                aria-describedby={createError ? 'subject-error' : undefined}
               />
               <button
                 type="submit"
                 disabled={isCreating}
-                title="নতুন শিফট তৈরি করুন"
+                title="নতুন বিষয় তৈরি করুন"
                 className={`relative inline-flex items-center hover:text-[#441a05] px-8 py-3 rounded-lg font-medium bg-pmColor text-[#441a05] transition-all duration-300 animate-scaleIn ${
                   isCreating ? 'cursor-not-allowed' : 'hover:text-[#441a05] hover:shadow-md'
                 }`}
@@ -232,14 +240,14 @@ const AddShift = () => {
                 ) : (
                   <span className="flex items-center space-x-2">
                     <IoAdd className="w-5 h-5" />
-                    <span>শিফট তৈরি করুন</span>
+                    <span>বিষয় তৈরি করুন</span>
                   </span>
                 )}
               </button>
             </form>
             {createError && (
               <div
-                id="shift-error"
+                id="subject-error"
                 className="mt-4 text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn"
                 style={{ animationDelay: '0.4s' }}
               >
@@ -249,29 +257,29 @@ const AddShift = () => {
           </div>
         )}
 
-        {/* Edit Shift Form */}
-        {hasChangePermission && editShiftId && (
+        {/* Edit Subject Form */}
+        {hasChangePermission && editSubjectId && (
           <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
             <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
               <FaEdit className="text-3xl text-[#441a05]" />
-              <h3 className="text-2xl font-bold text-[#441a05] tracking-tight">শিফট সম্পাদনা করুন</h3>
+              <h3 className="text-2xl font-bold text-[#441a05] tracking-tight">বিষয় সম্পাদনা করুন</h3>
             </div>
             <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl">
               <input
                 type="text"
-                id="editShiftName"
-                value={editShiftName}
-                onChange={(e) => setEditShiftName(e.target.value)}
+                id="editSubjectName"
+                value={editSubjectName}
+                onChange={(e) => setEditSubjectName(e.target.value)}
                 className="w-full bg-transparent text-[#441a05] placeholder-[#441a05] pl-3 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
-                placeholder="শিফটের নাম সম্পাদনা করুন (যেমন, সকাল)"
+                placeholder="বিষয়ের নাম সম্পাদনা করুন"
                 disabled={isUpdating}
-                aria-label="শিফটের নাম সম্পাদনা"
-                aria-describedby="edit-shift-error"
+                aria-label="বিষয়ের নাম সম্পাদনা"
+                aria-describedby="edit-subject-error"
               />
               <button
                 type="submit"
                 disabled={isUpdating}
-                title="শিফট আপডেট করুন"
+                title="বিষয় আপডেট করুন"
                 className={`relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-pmColor text-[#441a05] transition-all duration-300 animate-scaleIn ${
                   isUpdating ? 'cursor-not-allowed' : 'hover:text-[#441a05] hover:shadow-md'
                 }`}
@@ -282,14 +290,14 @@ const AddShift = () => {
                     <span>আপডেট করা হচ্ছে...</span>
                   </span>
                 ) : (
-                  <span>শিফট আপডেট করুন</span>
+                  <span>বিষয় আপডেট করুন</span>
                 )}
               </button>
               <button
                 type="button"
                 onClick={() => {
-                  setEditShiftId(null);
-                  setEditShiftName('');
+                  setEditSubjectId(null);
+                  setEditSubjectName('');
                 }}
                 title="সম্পাদনা বাতিল করুন"
                 className="relative inline-flex items-center px-6 py-3 rounded-lg font-medium bg-gray-500 text-[#441a05] hover:text-[#441a05] transition-all duration-300 animate-scaleIn"
@@ -300,32 +308,32 @@ const AddShift = () => {
           </div>
         )}
 
-        {/* Shifts Grid */}
+        {/* Subjects Grid */}
         <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6 animate-fadeIn max-h-[60vh] overflow-y-auto flex flex-col border border-[#441a05]/20">
-          <h3 className="text-lg font-semibold text-[#441a05] border-b border-[#441a05]/20 pb-2 mb-4">শিফটের তালিকা</h3>
-          {isShiftLoading ? (
-            <p className="p-4 text-[#441a05]/70">শিফট লোড হচ্ছে...</p>
-          ) : shiftDataError ? (
+          <h3 className="text-lg font-semibold text-[#441a05] border-b border-[#441a05]/20 pb-2 mb-4">বিষয়ের তালিকা</h3>
+          {isSubjectLoading ? (
+            <p className="p-4 text-[#441a05]/70">বিষয় লোড হচ্ছে...</p>
+          ) : subjectDataError ? (
             <p className="p-4 text-red-400">
-              শিফট লোড করতে ত্রুটি: {shiftDataError.status || 'অজানা'} - {JSON.stringify(shiftDataError.data || {})}
+              বিষয় লোড করতে ত্রুটি: {subjectDataError.status || 'অজানা'} - {JSON.stringify(subjectDataError.data || {})}
             </p>
-          ) : shiftData?.length === 0 ? (
-            <p className="p-4 text-[#441a05]/70 italic">এখনও কোনো শিফট যোগ করা হয়নি।</p>
+          ) : subjectData?.length === 0 ? (
+            <p className="p-4 text-[#441a05]/70 italic">এখনও কোনো বিষয় যোগ করা হয়নি।</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto">
-              {shiftData?.map((shift, index) => (
+              {subjectData?.map((subject, index) => (
                 <div
-                  key={shift.id}
+                  key={subject.id}
                   className="p-3 border border-[#441a05]/30 rounded-lg flex items-center justify-between animate-scaleIn"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <span className="text-[#441a05] font-medium">{shift.name}</span>
+                  <span className="text-[#441a05] font-medium">{subject.class_subject}</span> {/* Displaying class_subject */}
                   {(hasChangePermission || hasDeletePermission) && (
                     <div className="flex items-center space-x-4">
                       {hasChangePermission && (
                         <button
-                          onClick={() => handleEditClick(shift)}
-                          title="শিফট সম্পাদনা করুন"
+                          onClick={() => handleEditClick(subject)}
+                          title="বিষয় সম্পাদনা করুন"
                           className="text-[#441a05] hover:text-blue-500 transition-colors duration-300"
                         >
                           <FaEdit className="w-5 h-5" />
@@ -333,8 +341,8 @@ const AddShift = () => {
                       )}
                       {hasDeletePermission && (
                         <button
-                          onClick={() => handleDelete(shift.id)}
-                          title="শিফট মুছুন"
+                          onClick={() => handleDelete(subject.id)}
+                          title="বিষয় মুছুন"
                           className="text-[#441a05] hover:text-red-500 transition-colors duration-300"
                         >
                           <FaTrash className="w-5 h-5" />
@@ -355,14 +363,14 @@ const AddShift = () => {
               className="bg-[#441a05] backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05] mb-4">
-                {modalAction === 'create' && 'নতুন শিফট নিশ্চিত করুন'}
-                {modalAction === 'update' && 'শিফট আপডেট নিশ্চিত করুন'}
-                {modalAction === 'delete' && 'শিফট মুছে ফেলা নিশ্চিত করুন'}
+                {modalAction === 'create' && 'নতুন বিষয় নিশ্চিত করুন'}
+                {modalAction === 'update' && 'বিষয় আপডেট নিশ্চিত করুন'}
+                {modalAction === 'delete' && 'বিষয় মুছে ফেলা নিশ্চিত করুন'}
               </h3>
               <p className="text-[#441a05] mb-6">
-                {modalAction === 'create' && 'আপনি কি নিশ্চিত যে নতুন শিফট তৈরি করতে চান?'}
-                {modalAction === 'update' && 'আপনি কি নিশ্চিত যে শিফট আপডেট করতে চান?'}
-                {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই শিফটটি মুছে ফেলতে চান?'}
+                {modalAction === 'create' && 'আপনি কি নিশ্চিত যে নতুন বিষয় তৈরি করতে চান?'}
+                {modalAction === 'update' && 'আপনি কি নিশ্চিত যে বিষয় আপডেট করতে চান?'}
+                {modalAction === 'delete' && 'আপনি কি নিশ্চিত যে এই বিষয় মুছতে চান?'}
               </p>
               <div className="flex justify-end space-x-4">
                 <button
@@ -386,4 +394,4 @@ const AddShift = () => {
   );
 };
 
-export default AddShift;
+export default AddSubjects;

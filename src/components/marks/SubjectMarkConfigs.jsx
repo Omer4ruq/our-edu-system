@@ -13,28 +13,47 @@ import { useGetClassSubjectsByClassIdQuery } from '../../redux/features/api/clas
 import { useGetStudentClassApIQuery } from '../../redux/features/api/student/studentClassApi';
 import { useSelector } from "react-redux"; // Import useSelector
 import { useGetGroupPermissionsQuery } from "../../redux/features/api/permissionRole/groupsApi"; // Import permission hook
+import { useGetClassGroupConfigsQuery } from '../../redux/features/api/student/classGroupConfigsApi';
+import { useGetSubjectAssignmentsByGroupQuery, useGetSubjectAssignmentsQuery } from '../../redux/features/api/subject-assign/subjectAssignApi';
+import { useGetMarkTypesQuery } from '../../redux/features/api/marks/markTypesApi';
 
 
 const SubjectMarkConfigs = () => {
   const { user, group_id } = useSelector((state) => state.auth); // Get user and group_id
-  const { data: classes = [], isLoading: classesLoading } = useGetStudentClassApIQuery();
+  // const { data: classes = [], isLoading: classesLoading } = useGetStudentClassApIQuery();
+  const { data: classes = [], isLoading: classesLoading } = useGetClassGroupConfigsQuery();
   console.log("classes", classes)
   const [selectedClassId, setSelectedClassId] = useState('');
   const [selectedMainClassId, setSelectedMainClassId] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [modalAction, setModalAction] = useState(null);
+
+  // Updated to use the new API structure
   const {
-    data: subjects = [],
+    data: subjectAssignments = [],
     isLoading: subjectsLoading,
     error: subjectsError
-  } = useGetClassSubjectsByClassIdQuery(selectedClassId, { skip: !selectedClassId });
-  console.log(selectedClassId)
+  } = useGetSubjectAssignmentsByGroupQuery(selectedMainClassId, { 
+    skip: !selectedMainClassId 
+  });
+  
+  // Extract subjects from the new data structure
+  const subjects = React.useMemo(() => {
+    const assignment = subjectAssignments.find(assign => assign.class_id === Number(selectedMainClassId));
+    return assignment ? assignment.subject_details : [];
+  }, [subjectAssignments, selectedMainClassId]);
+
+  console.log("subjectAssignments", subjectAssignments);
+  console.log("subjects", subjects);
+
   const {
     data: markConfigs = [],
     isLoading: configsLoading
-  } = useGetSubjectMarkConfigsQuery({ skip: !selectedClassId });
-  const { data: markTypes = [], isLoading: markTypesLoading } = useGetGmarkTypesQuery();
+  } = useGetSubjectMarkConfigsQuery();
+  
+  const { data: markTypes = [], isLoading: markTypesLoading } = useGetMarkTypesQuery();
+  console.log("markTypes",markTypes)
   const [createSubjectMarkConfig] = useCreateSubjectMarkConfigMutation();
   const [updateSubjectMarkConfig] = useUpdateSubjectMarkConfigMutation();
   const [deleteSubjectMarkConfig] = useDeleteSubjectMarkConfigMutation();
@@ -71,6 +90,8 @@ const SubjectMarkConfigs = () => {
             subject_id: config.subject_id,
             subject_serial: config.subject_serial,
             subject_type: config.subject_type,
+            subject_marge: config.subject_marge || 0, // Added subject_marge field
+            exam_type: config.exam_type || 'MAIN', // Added exam_type field
             max_mark: config.max_mark,
             mark_configs: config.mark_configs.map(mc => ({
               mark_type: reverseMarkTypeMapping[mc.mark_type] || mc.mark_type,
@@ -83,15 +104,16 @@ const SubjectMarkConfigs = () => {
       }, {});
       setSubjectConfigs(configs);
     }
-  }, [markConfigs, selectedClassId, markTypes]);
+  }, [markConfigs, selectedMainClassId, markTypes]);
 
   const handleClassChange = (classId) => {
-
-    setSelectedClassId(classId?.student_class?.id);
+    setSelectedClassId(classId?.group_id);
     setSelectedMainClassId(classId?.id);
     setSubjectConfigs({});
   };
-console.log("selectedMainClassId", selectedMainClassId)
+  
+  console.log("selectedMainClassId", selectedMainClassId)
+
   const handleInputChange = (subjectId, field, value, markType = null) => {
     if (!hasChangePermission) {
       toast.error('মার্ক কনফিগারেশন সম্পাদনা করার অনুমতি নেই।');
@@ -104,6 +126,8 @@ console.log("selectedMainClassId", selectedMainClassId)
         max_mark: 100,
         subject_type: 'COMPULSARY',
         subject_serial: 1,
+        subject_marge: 0, // Added subject_marge field
+        exam_type: 'MAIN', // Added exam_type field with default value
         mark_configs: []
       };
     }
@@ -112,8 +136,12 @@ console.log("selectedMainClassId", selectedMainClassId)
 
     if (field === 'subject_type') {
       newConfigs[subjectId][field] = value;
+    } else if (field === 'exam_type') { // Added exam_type handling
+      newConfigs[subjectId][field] = value;
     } else if (field === 'subject_serial') {
       newConfigs[subjectId][field] = numValue === '' ? '' : (numValue || 1);
+    } else if (field === 'subject_marge') { // Added subject_marge handling
+      newConfigs[subjectId][field] = numValue === '' ? '' : (numValue || 0);
     } else if (field === 'max_mark' && !markType) {
       newConfigs[subjectId][field] = numValue === '' ? '' : (numValue || 100);
     } else if (markType) {
@@ -175,6 +203,8 @@ console.log("selectedMainClassId", selectedMainClassId)
         subject_id: Number(config.subject_id),
         subject_serial: Number(config.subject_serial) || 1,
         subject_type: config.subject_type || 'COMPULSARY',
+        subject_marge: Number(config.subject_marge) || 0, // Added subject_marge
+        exam_type: config.exam_type || 'MAIN', // Added exam_type
         max_mark: Number(config.max_mark) || 100,
         mark_configs: config.mark_configs
           .filter(c => c.max_mark && Number(c.max_mark) > 0)
@@ -256,7 +286,7 @@ console.log("selectedMainClassId", selectedMainClassId)
       return;
     }
     try {
-      if (!selectedClassId) {
+      if (!selectedMainClassId) {
         toast.error('দয়া করে প্রথমে একটি ক্লাস নির্বাচন করুন।');
         return;
       }
@@ -267,6 +297,8 @@ console.log("selectedMainClassId", selectedMainClassId)
           subject_id: Number(config.subject_id),
           subject_serial: Number(config.subject_serial) || (index + 1),
           subject_type: config.subject_type || 'COMPULSARY',
+          subject_marge: Number(config.subject_marge) || 0, // Added subject_marge
+          exam_type: config.exam_type || 'MAIN', // Added exam_type
           max_mark: Number(config.max_mark) || 100,
           mark_configs: config.mark_configs
             .filter(c => c.max_mark && Number(c.max_mark) > 0)
@@ -307,7 +339,7 @@ console.log("selectedMainClassId", selectedMainClassId)
   };
 
   const getSelectedClass = () => {
-    return classes.find(cls => cls.id === selectedClassId);
+    return classes.find(cls => cls.id === selectedMainClassId);
   };
 
   if (classesLoading || subjectsLoading || markTypesLoading || configsLoading || permissionsLoading) {
@@ -409,15 +441,16 @@ console.log("selectedMainClassId", selectedMainClassId)
                 key={cls.id}
                 onClick={() => handleClassChange(cls)}
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 animate-scaleIn ${
-                  selectedClassId === cls?.student_class?.id
+                  selectedClassId === cls?.group_id
                     ? 'bg-pmColor text-[#441a05]shadow-lg ring-2 ring-[#9d9087]'
                     : 'bg-[#441a05]/10 text-[#441a05]hover:bg-[#441a05]/20 hover:shadow-md'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
-                aria-label={`ক্লাস নির্বাচন ${cls?.student_class?.name}`}
-                title={`ক্লাস নির্বাচন করুন / Select class ${cls?.student_class?.name}`}
+                aria-label={`ক্লাস নির্বাচন ${cls?.class_name}`}
+                title={`ক্লাস নির্বাচন করুন / Select class ${cls?.class_name}`}
+                disabled={!hasChangePermission}
               >
-                {cls?.student_class?.name}
+                {cls?.class_name} {cls?.group_name}
               </button>
             ))}
           </div>
@@ -431,7 +464,7 @@ console.log("selectedMainClassId", selectedMainClassId)
         </div>
 
         {/* Subject Configurations */}
-        {selectedClassId && (
+        {selectedMainClassId && (
           <div className="bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl p-6">
             <h2 className="text-xl font-semibold text-[#441a05]mb-6 flex items-center">
               <span className="bg-pmColor/20 text-[#441a05]rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">২</span>
@@ -476,6 +509,39 @@ console.log("selectedMainClassId", selectedMainClassId)
                       </div>
                     </div>
 
+                    {/* Exam Type Tabs - Added here */}
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-[#441a05]mb-2">পরীক্ষার ধরন</label>
+                      <div className="flex bg-[#441a05]/10 rounded-lg p-1">
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange(subject.id, 'exam_type', 'MAIN')}
+                          className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all duration-200 ${
+                            (subjectConfigs[subject.id]?.exam_type || 'MAIN') === 'MAIN'
+                              ? 'bg-pmColor text-[#441a05] shadow-md'
+                              : 'text-[#441a05] hover:bg-[#441a05]/20'
+                          }`}
+                          disabled={!hasChangePermission}
+                          title="মূল পরীক্ষা / Main Exam"
+                        >
+                          📚 মূল পরীক্ষা
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleInputChange(subject.id, 'exam_type', 'TEST')}
+                          className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all duration-200 ${
+                            (subjectConfigs[subject.id]?.exam_type || 'MAIN') === 'TEST'
+                              ? 'bg-pmColor text-[#441a05] shadow-md'
+                              : 'text-[#441a05] hover:bg-[#441a05]/20'
+                          }`}
+                          disabled={!hasChangePermission}
+                          title="পরীক্ষা / Test"
+                        >
+                          📝 টেস্ট
+                        </button>
+                      </div>
+                    </div>
+
                     <div className="space-y-4 mb-6">
                       <div>
                         <label className="block text-sm font-medium text-[#441a05]mb-2">বিষয়ের ধরন</label>
@@ -493,7 +559,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                         </select>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-3 gap-3">
                         <div>
                           <label className="block text-sm font-medium text-[#441a05]mb-2">সর্বোচ্চ মার্ক</label>
                           <input
@@ -522,6 +588,21 @@ console.log("selectedMainClassId", selectedMainClassId)
                             disabled={!hasChangePermission}
                           />
                         </div>
+                        {/* Added Subject Marge field */}
+                        <div>
+                          <label className="block text-sm font-medium text-[#441a05]mb-2">মার্জ</label>
+                          <input
+                            type="number"
+                            value={subjectConfigs[subject.id]?.subject_marge || ''}
+                            onChange={(e) => handleInputChange(subject.id, 'subject_marge', e.target.value)}
+                            className="w-full p-3 border border-[#9d9087] rounded-lg focus:ring-2 focus:ring-pmColor focus:border-pmColor transition-colors bg-[#441a05]/10 text-[#441a05]animate-scaleIn tick-glow"
+                            placeholder="0"
+                            min="0"
+                            aria-label={`সাবজেক্ট মার্জ ${subject.name}`}
+                            title={`সাবজেক্ট মার্জ নির্ধারণ করুন / Set subject marge for ${subject.name}`}
+                            disabled={!hasChangePermission}
+                          />
+                        </div>
                       </div>
                     </div>
 
@@ -542,7 +623,7 @@ console.log("selectedMainClassId", selectedMainClassId)
                           <div key={markType.id} className={`rounded-lg p-4 ${markType.name === 'MCQ' ? 'bg-blue-50/10' : 'bg-green-50/10'} animate-fadeIn`} style={{ animationDelay: `${idx * 0.1}s` }}>
                             <div className="flex items-center mb-2">
                               <span className={`font-medium text-sm ${markType.name === 'MCQ' ? 'text-[#441a05]' : 'text-[#441a05]'}`}>
-                                {markType.name === 'MCQ' ? '📝' : '✍️'} {markType.name}
+                                {markType.name === 'MCQ' ? '📝' : '✏️'} {markType.name}
                               </span>
                             </div>
                             <div className="grid grid-cols-2 gap-2">
@@ -617,7 +698,7 @@ console.log("selectedMainClassId", selectedMainClassId)
           </div>
         )}
 
-        {!selectedClassId && (
+        {!selectedMainClassId && (
           <div className="text-center py-12 animate-fadeIn">
             <div className="text-6xl mb-4">🎯</div>
             <h3 className="text-xl font-semibold text-[#441a05]mb-2">কনফিগারেশন শুরু করতে প্রস্তুত?</h3>
