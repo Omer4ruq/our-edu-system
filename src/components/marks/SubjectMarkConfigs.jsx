@@ -11,16 +11,15 @@ import {
 import { useGetGmarkTypesQuery } from '../../redux/features/api/marks/gmarktype';
 import { useGetClassSubjectsByClassIdQuery } from '../../redux/features/api/class-subjects/classSubjectsApi';
 import { useGetStudentClassApIQuery } from '../../redux/features/api/student/studentClassApi';
-import { useSelector } from "react-redux"; // Import useSelector
-import { useGetGroupPermissionsQuery } from "../../redux/features/api/permissionRole/groupsApi"; // Import permission hook
+import { useSelector } from "react-redux";
+import { useGetGroupPermissionsQuery } from "../../redux/features/api/permissionRole/groupsApi";
 import { useGetClassGroupConfigsQuery } from '../../redux/features/api/student/classGroupConfigsApi';
 import { useGetSubjectAssignmentsByGroupQuery, useGetSubjectAssignmentsQuery } from '../../redux/features/api/subject-assign/subjectAssignApi';
 import { useGetMarkTypesQuery } from '../../redux/features/api/marks/markTypesApi';
 
 
 const SubjectMarkConfigs = () => {
-  const { user, group_id } = useSelector((state) => state.auth); // Get user and group_id
-  // const { data: classes = [], isLoading: classesLoading } = useGetStudentClassApIQuery();
+  const { user, group_id } = useSelector((state) => state.auth);
   const { data: classes = [], isLoading: classesLoading } = useGetClassGroupConfigsQuery();
   console.log("classes", classes)
   const [selectedClassId, setSelectedClassId] = useState('');
@@ -85,18 +84,22 @@ const SubjectMarkConfigs = () => {
     if (markConfigs && selectedMainClassId && markTypes.length > 0) {
       const configs = markConfigs.reduce((acc, config) => {
         if (config.class_id === Number(selectedMainClassId)) {
+          // Get exam type from first mark config or default to MAIN
+          const examType = config.mark_configs[0]?.exam_type || 'MAIN';
+          
           acc[config.subject_id] = {
             id: config.id,
             subject_id: config.subject_id,
             subject_serial: config.subject_serial,
             subject_type: config.subject_type,
-            subject_marge: config.subject_marge || 0, // Added subject_marge field
-            exam_type: config.exam_type || 'MAIN', // Added exam_type field
+            subject_marge: config.subject_marge || 0,
             max_mark: config.max_mark,
+            exam_type: examType, // Store exam type at subject level for UI
             mark_configs: config.mark_configs.map(mc => ({
               mark_type: reverseMarkTypeMapping[mc.mark_type] || mc.mark_type,
               max_mark: mc.max_mark,
-              pass_mark: mc.pass_mark
+              pass_mark: mc.pass_mark,
+              exam_type: mc.exam_type || 'MAIN'
             }))
           };
         }
@@ -126,8 +129,8 @@ const SubjectMarkConfigs = () => {
         max_mark: 100,
         subject_type: 'COMPULSARY',
         subject_serial: 1,
-        subject_marge: 0, // Added subject_marge field
-        exam_type: 'MAIN', // Added exam_type field with default value
+        subject_marge: 0,
+        exam_type: 'MAIN', // Add exam_type at subject level for UI
         mark_configs: []
       };
     }
@@ -136,14 +139,18 @@ const SubjectMarkConfigs = () => {
 
     if (field === 'subject_type') {
       newConfigs[subjectId][field] = value;
-    } else if (field === 'exam_type') { // Added exam_type handling
-      newConfigs[subjectId][field] = value;
     } else if (field === 'subject_serial') {
       newConfigs[subjectId][field] = numValue === '' ? '' : (numValue || 1);
-    } else if (field === 'subject_marge') { // Added subject_marge handling
+    } else if (field === 'subject_marge') {
       newConfigs[subjectId][field] = numValue === '' ? '' : (numValue || 0);
     } else if (field === 'max_mark' && !markType) {
       newConfigs[subjectId][field] = numValue === '' ? '' : (numValue || 100);
+    } else if (field === 'exam_type' && !markType) {
+      // Update exam type for the subject and all its mark configs
+      newConfigs[subjectId].exam_type = value;
+      newConfigs[subjectId].mark_configs.forEach(config => {
+        config.exam_type = value;
+      });
     } else if (markType) {
       const configIndex = newConfigs[subjectId].mark_configs.findIndex(c => c.mark_type === markType);
 
@@ -158,11 +165,12 @@ const SubjectMarkConfigs = () => {
         } else if (field === 'pass_mark') {
           newConfigs[subjectId].mark_configs[configIndex].pass_mark = numValue;
         }
-      } else if (numValue !== '' && numValue > 0 && field === 'max_mark') {
+      } else if (field === 'max_mark' && numValue !== '' && numValue > 0) {
         newConfigs[subjectId].mark_configs.push({
           mark_type: markType,
           max_mark: numValue,
-          pass_mark: Math.floor(numValue * 0.33)
+          pass_mark: Math.floor(numValue * 0.33),
+          exam_type: newConfigs[subjectId].exam_type || 'MAIN' // Use subject's exam type
         });
       }
 
@@ -203,15 +211,15 @@ const SubjectMarkConfigs = () => {
         subject_id: Number(config.subject_id),
         subject_serial: Number(config.subject_serial) || 1,
         subject_type: config.subject_type || 'COMPULSARY',
-        subject_marge: Number(config.subject_marge) || 0, // Added subject_marge
-        exam_type: config.exam_type || 'MAIN', // Added exam_type
+        subject_marge: Number(config.subject_marge) || 0,
         max_mark: Number(config.max_mark) || 100,
         mark_configs: config.mark_configs
           .filter(c => c.max_mark && Number(c.max_mark) > 0)
           .map(c => ({
             mark_type: markTypeMapping[c.mark_type] || c.mark_type,
             max_mark: Number(c.max_mark),
-            pass_mark: Number(c.pass_mark) || Math.floor(Number(c.max_mark) * 0.33)
+            pass_mark: Number(c.pass_mark) || Math.floor(Number(c.max_mark) * 0.33),
+            exam_type: c.exam_type || 'MAIN' // Include exam_type in mark_configs
           }))
       };
 
@@ -297,15 +305,15 @@ const SubjectMarkConfigs = () => {
           subject_id: Number(config.subject_id),
           subject_serial: Number(config.subject_serial) || (index + 1),
           subject_type: config.subject_type || 'COMPULSARY',
-          subject_marge: Number(config.subject_marge) || 0, // Added subject_marge
-          exam_type: config.exam_type || 'MAIN', // Added exam_type
+          subject_marge: Number(config.subject_marge) || 0,
           max_mark: Number(config.max_mark) || 100,
           mark_configs: config.mark_configs
             .filter(c => c.max_mark && Number(c.max_mark) > 0)
             .map(c => ({
               mark_type: markTypeMapping[c.mark_type] || c.mark_type,
               max_mark: Number(c.max_mark),
-              pass_mark: Number(c.pass_mark) || Math.floor(Number(c.max_mark) * 0.33)
+              pass_mark: Number(c.pass_mark) || Math.floor(Number(c.max_mark) * 0.33),
+              exam_type: c.exam_type || 'MAIN' // Include exam_type in mark_configs
             }))
         }))
         .filter(subject => subject.mark_configs.length > 0);
@@ -509,7 +517,7 @@ const SubjectMarkConfigs = () => {
                       </div>
                     </div>
 
-                    {/* Exam Type Tabs - Added here */}
+                    {/* Exam Type Tabs - Single toggle for all mark types */}
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-[#441a05]mb-2">পরীক্ষার ধরন</label>
                       <div className="flex bg-[#441a05]/10 rounded-lg p-1">
@@ -541,7 +549,6 @@ const SubjectMarkConfigs = () => {
                         </button>
                       </div>
                     </div>
-
                     <div className="space-y-4 mb-6">
                       <div>
                         <label className="block text-sm font-medium text-[#441a05]mb-2">বিষয়ের ধরন</label>
@@ -553,7 +560,7 @@ const SubjectMarkConfigs = () => {
                           title={`বিষয়ের ধরন নির্বাচন করুন / Select subject type for ${subject.name}`}
                           disabled={!hasChangePermission}
                         >
-                          <option value="COMPULSARY">📝 বাধ্যতামূলক</option>
+                          <option value="COMPULSARY">📚 বাধ্যতামূলক</option>
                           <option value="CHOOSABLE">🎯 ঐচ্ছিক</option>
                           <option value="Uncountable">📊 গ্রেডবিহীন</option>
                         </select>
@@ -588,7 +595,6 @@ const SubjectMarkConfigs = () => {
                             disabled={!hasChangePermission}
                           />
                         </div>
-                        {/* Added Subject Marge field */}
                         <div>
                           <label className="block text-sm font-medium text-[#441a05]mb-2">মার্জ</label>
                           <input
@@ -624,6 +630,15 @@ const SubjectMarkConfigs = () => {
                             <div className="flex items-center mb-2">
                               <span className={`font-medium text-sm ${markType.name === 'MCQ' ? 'text-[#441a05]' : 'text-[#441a05]'}`}>
                                 {markType.name === 'MCQ' ? '📝' : '✏️'} {markType.name}
+                              </span>
+                              
+                              {/* Show current exam type for this mark type */}
+                              <span className={`ml-auto text-xs px-2 py-1 rounded-full ${
+                                (subjectConfigs[subject.id]?.exam_type || 'MAIN') === 'MAIN' 
+                                  ? 'bg-blue-100 text-blue-600' 
+                                  : 'bg-green-100 text-green-600'
+                              }`}>
+                                {(subjectConfigs[subject.id]?.exam_type || 'MAIN') === 'MAIN' ? 'মূল' : 'টেস্ট'}
                               </span>
                             </div>
                             <div className="grid grid-cols-2 gap-2">
@@ -710,7 +725,7 @@ const SubjectMarkConfigs = () => {
         {isModalOpen && (hasChangePermission || hasDeletePermission) && (
           <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-[10000]">
             <div
-              className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
+              className="bg-white backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp"
             >
               <h3 className="text-lg font-semibold text-[#441a05]mb-4">
                 {modalAction === 'delete' && 'কনফিগারেশন মুছে ফেলা নিশ্চিত করুন'}
