@@ -656,6 +656,12 @@ const mainMenu = [
             title: `${languageCode == 'bn' ? "পরীক্ষার ধরন" : "Exam Type"}`,
             link: "/talimat/settings/exam-type",
           },
+                {
+          
+            id: "05/01/09",
+            title: `${languageCode == 'bn' ? "পরীক্ষার কনফিগারেশন" : "Exam Configuration"}`,
+            link: "/talimat/settings/exam-config",
+          },
           // {
           //   id: "05/01/06",
           //   title: `${languageCode == 'bn' ? "ইভেন্ট তৈরি" : "Event Creation"}`,

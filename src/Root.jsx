@@ -110,6 +110,7 @@ import ClassGroupConfig from "./components/ClassManagement/ClassGroupConfig";
 import AddSubjects from "./components/SubjectManagement/AddSubjects";
 import SubjectAssign from "./components/SubjectManagement/SubjectAssign";
 import AddMarksType from "./components/marks/AddMarksType";
+import SetExamSchedules from "./components/exam/examType/SetExamSchedules";
 
 
 function Root() {
@@ -224,6 +225,10 @@ function Root() {
                     {
                       path: "exam-type",
                       element: <AddExamTypes />,
+                    },
+                       {
+                      path: "exam-config",
+                      element: <SetExamSchedules />,
                     },
                     {
                       path: "event-type",

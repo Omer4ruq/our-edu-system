@@ -99,6 +99,7 @@ import { classGroupConfigsApi } from "./features/api/student/classGroupConfigsAp
 import { subjectsApi } from "./features/api/class-subjects/subjectsApi";
 import { subjectAssignApi } from "./features/api/subject-assign/subjectAssignApi";
 import { markTypesApi } from "./features/api/marks/markTypesApi";
+import { setExamSchedulesApi } from "./features/api/exam/setExamSchedulesApi";
 
 
 export const store = configureStore({
@@ -206,6 +207,7 @@ export const store = configureStore({
     [subjectsApi.reducerPath]: subjectsApi.reducer,
     [subjectAssignApi.reducerPath]: subjectAssignApi.reducer,
     [markTypesApi.reducerPath]: markTypesApi.reducer,
+    [setExamSchedulesApi.reducerPath]: setExamSchedulesApi.reducer,
 
   },
   middleware: (getDefaultMiddleware) =>
@@ -307,6 +309,7 @@ export const store = configureStore({
       .concat(subjectsApi.middleware)
       .concat(subjectAssignApi.middleware)
       .concat(markTypesApi.middleware)
+      .concat(setExamSchedulesApi.middleware)
      
 });
 
