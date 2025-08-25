@@ -100,6 +100,7 @@ import { subjectsApi } from "./features/api/class-subjects/subjectsApi";
 import { subjectAssignApi } from "./features/api/subject-assign/subjectAssignApi";
 import { markTypesApi } from "./features/api/marks/markTypesApi";
 import { setExamSchedulesApi } from "./features/api/exam/setExamSchedulesApi";
+import { gperiodApi } from "./features/api/periods/gperiodApi";
 
 
 export const store = configureStore({
@@ -160,6 +161,7 @@ export const store = configureStore({
     [subjectMarkConfigsApi.reducerPath]: subjectMarkConfigsApi.reducer,
     [gmarkTypeApi.reducerPath]: gmarkTypeApi.reducer,
     [subjectMarksApi.reducerPath]: subjectMarksApi.reducer,
+    [gperiodApi.reducerPath]: gperiodApi.reducer,
     [classPeriodsApi.reducerPath]: classPeriodsApi.reducer,
     [instituteLatestApi.reducerPath]: instituteLatestApi.reducer,
     [classExamStudentApi.reducerPath]: classExamStudentApi.reducer,
@@ -263,6 +265,7 @@ export const store = configureStore({
       .concat(subjectMarkConfigsApi.middleware)
       .concat(gmarkTypeApi.middleware)
       .concat(subjectMarksApi.middleware)
+      .concat(gperiodApi.middleware)
       .concat(classPeriodsApi.middleware)
       .concat(instituteLatestApi.middleware)
       .concat(classExamStudentApi.middleware)

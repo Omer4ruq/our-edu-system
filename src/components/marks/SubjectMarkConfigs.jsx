@@ -27,7 +27,7 @@ const SubjectMarkConfigs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [modalAction, setModalAction] = useState(null);
-
+console.log("classes",classes)
   // Updated to use the new API structure
   const {
     data: subjectAssignments = [],
@@ -110,7 +110,7 @@ const SubjectMarkConfigs = () => {
   }, [markConfigs, selectedMainClassId, markTypes]);
 
   const handleClassChange = (classId) => {
-    setSelectedClassId(classId?.group_id);
+    setSelectedClassId(classId?.id);
     setSelectedMainClassId(classId?.id);
     setSubjectConfigs({});
   };
@@ -449,7 +449,7 @@ const SubjectMarkConfigs = () => {
                 key={cls.id}
                 onClick={() => handleClassChange(cls)}
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 animate-scaleIn ${
-                  selectedClassId === cls?.group_id
+                  selectedClassId === cls?.id
                     ? 'bg-pmColor text-[#441a05]shadow-lg ring-2 ring-[#9d9087]'
                     : 'bg-[#441a05]/10 text-[#441a05]hover:bg-[#441a05]/20 hover:shadow-md'
                 }`}
