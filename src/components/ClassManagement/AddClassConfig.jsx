@@ -35,17 +35,17 @@ const AddClassConfig = () => {
     error: classError,
   } = useGetStudentClassApIQuery();
   const {
-    data: sectionData,
+    data: sectionDataRaw,
     isLoading: sectionLoading,
     error: sectionError,
   } = useGetStudentSectionApiQuery();
-  console.log("sectionData", sectionData)
+  console.log("sectionData", sectionDataRaw)
   const {
-    data: shiftData,
+    data: shiftDataRaw,
     isLoading: shiftLoading,
     error: shiftError,
   } = useGetStudentShiftApiQuery();
-  console.log("shiftData", shiftData)
+  console.log("shiftData", shiftDataRaw)
   const {
     data: classList,
     isLoading: isListLoading,
@@ -78,10 +78,17 @@ console.log("configData", configData)
   const hasDeletePermission = groupPermissions?.some(perm => perm.codename === 'delete_classconfig') || false;
   const hasViewPermission = groupPermissions?.some(perm => perm.codename === 'view_classconfig') || false;
 
-
-  // Filter active sections and shifts
-  // const sectionData = sectionData?.filter((sec) => sec.is_active) || [];
-  // const shiftData = shiftData?.filter((shf) => shf.is_active) || [];
+  // Filter active sections and shifts with safe defaults
+  // Use all data if no is_active field exists, otherwise filter by is_active
+  const sectionData = sectionDataRaw ? 
+    (sectionDataRaw.some(sec => 'is_active' in sec) ? 
+      sectionDataRaw.filter(sec => sec.is_active) : 
+      sectionDataRaw) : [];
+  
+  const shiftData = shiftDataRaw ? 
+    (shiftDataRaw.some(shf => 'is_active' in shf) ? 
+      shiftDataRaw.filter(shf => shf.is_active) : 
+      shiftDataRaw) : [];
 
   // Handle edit button click
   const handleEdit = (config) => {
@@ -119,7 +126,7 @@ console.log("configData", configData)
     }
 
     if (classLoading || sectionLoading || shiftLoading || isListLoading) {
-      toast.error("অনুগ্রহ করে অপেক্ষা করুন, ডেটা এখনও লোড হচ্ছে");
+      toast.error("অনুগ্রহ করে অপেক্ষা করুন, ডেটা এখনো লোড হচ্ছে");
       return;
     }
 
@@ -283,10 +290,10 @@ console.log("configData", configData)
             >
               {/* Class Dropdown */}
               <div className="relative">
-                <FaChalkboard
+                {/* <FaChalkboard
                   className="absolute left-3 top-[10px] transform -translate-y-1/2 text-[#441a05]w-5 h-5 animate-scaleIn"
                   title="ক্লাস নির্বাচন করুন"
-                />
+                /> */}
                 <select
                   id="classSelect"
                   value={classId}
@@ -299,7 +306,7 @@ console.log("configData", configData)
                   <option value="" disabled className="bg-black/10 backdrop-blur-sm">
                     একটি ক্লাস নির্বাচন করুন
                   </option>
-                  {configData?.map((cls) => (
+                  {(configData || []).map((cls) => (
                     <option key={cls.id} value={cls.id} className="bg-black/10 backdrop-blur-sm">
                       {cls?.class_name || "N/A"} {cls?.group_name || "N/A"}
                     </option>
@@ -309,16 +316,16 @@ console.log("configData", configData)
 
               {/* Section Dropdown */}
               <div className="relative">
-                <IoBookmark
+                {/* <IoBookmark
                   className="absolute left-3 top-[10px] transform -translate-y-1/2 text-[#441a05]w-5 h-5 animate-scaleIn"
                   title="সেকশন নির্বাচন করুন"
-                />
+                /> */}
                 <select
                   id="sectionSelect"
                   value={sectionId}
                   onChange={(e) => setSectionId(e.target.value)}
                   className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
-                  disabled={sectionLoading || sectionData.length === 0}
+                  disabled={sectionLoading}
                   aria-label="সেকশন নির্বাচন করুন"
                   aria-describedby={sectionError ? "section-error" : undefined}
                 >
@@ -335,20 +342,20 @@ console.log("configData", configData)
 
               {/* Shift Dropdown */}
               <div className="relative">
-                <IoTime
+                {/* <IoTime
                   className="absolute left-3 top-[10px] transform -translate-y-1/2 text-[#441a05]w-5 h-5 animate-scaleIn"
                   title="শিফট নির্বাচন করুন"
-                />
+                /> */}
                 <select
                   id="shiftSelect"
                   value={shiftId}
                   onChange={(e) => setShiftId(e.target.value)}
                   className="w-full bg-transparent text-[#441a05]pl-10 pr-8 py-2 focus:outline-none border border-[#9d9087] rounded-lg placeholder-black/70 transition-all duration-300 animate-scaleIn"
-                  disabled={shiftLoading || shiftData.length === 0}
+                  disabled={shiftLoading}
                   aria-label="শিফট নির্বাচন করুন"
                   aria-describedby={shiftError ? "shift-error" : undefined}
                 >
-                  <option value="" disabled className="backdrop-blur-sm bg-black/10">
+                  <option value="" disabled className="backdrop-blur-sm bg-black/10 ">
                     একটি শিফট নির্বাচন করুন
                   </option>
                   {shiftData.map((shf) => (
@@ -463,7 +470,7 @@ console.log("configData", configData)
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#441a05]/20">
-                  {configurations.map((config, index) => (
+                  {(configurations || []).map((config, index) => (
                     <tr
                       key={config.id}
                       className="bg-[#441a05]/5 animate-fadeIn"

@@ -662,6 +662,12 @@ const mainMenu = [
             title: `${languageCode == 'bn' ? "পরীক্ষার কনফিগারেশন" : "Exam Configuration"}`,
             link: "/talimat/settings/exam-config",
           },
+               {
+          
+            id: "05/01/10",
+            title: `${languageCode == 'bn' ? "পরীক্ষার কনফিগারেশন" : "Add Layout Name"}`,
+            link: "/talimat/settings/add-layout",
+          },
           // {
           //   id: "05/01/06",
           //   title: `${languageCode == 'bn' ? "ইভেন্ট তৈরি" : "Event Creation"}`,
@@ -815,6 +821,11 @@ const mainMenu = [
             link: "/talimat/result/merit-list",
           },
         ],
+      },
+         {
+        id: "05/17",
+        title: `${languageCode == 'bn' ? "প্রত্যয়ন পত্র" : "Layout Model"}`,
+        link: "/talimat/layout-model",
       },
     ],
   },

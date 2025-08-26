@@ -111,6 +111,8 @@ import AddSubjects from "./components/SubjectManagement/AddSubjects";
 import SubjectAssign from "./components/SubjectManagement/SubjectAssign";
 import AddMarksType from "./components/marks/AddMarksType";
 import SetExamSchedules from "./components/exam/examType/SetExamSchedules";
+import LayoutModel from "./components/layout/LayoutModel";
+import AddLayoutName from "./components/layout/AddLayoutName";
 
 
 function Root() {
@@ -242,6 +244,10 @@ function Root() {
                       path: "add-markstype",
                       element: <AddMarksType></AddMarksType>,
                     },
+                       {
+                      path: "add-layout",
+                      element: <AddLayoutName></AddLayoutName>,
+                    },
                   ],
                 },
                 {
@@ -355,6 +361,10 @@ function Root() {
                       element: <MeritList></MeritList>,
                     },
                   ],
+                },
+                  {
+                  path: "layout-model",
+                  element: <LayoutModel></LayoutModel>,
                 },
               ],
             },

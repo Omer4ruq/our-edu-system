@@ -101,6 +101,9 @@ import { subjectAssignApi } from "./features/api/subject-assign/subjectAssignApi
 import { markTypesApi } from "./features/api/marks/markTypesApi";
 import { setExamSchedulesApi } from "./features/api/exam/setExamSchedulesApi";
 import { gperiodApi } from "./features/api/periods/gperiodApi";
+import { layoutNamesApi } from "./features/api/layout/layoutNamesApi";
+import { layoutModelsApi } from "./features/api/layout/layoutModelsApi";
+import { layoutsApi } from "./features/api/layout/layoutsApi";
 
 
 export const store = configureStore({
@@ -210,6 +213,9 @@ export const store = configureStore({
     [subjectAssignApi.reducerPath]: subjectAssignApi.reducer,
     [markTypesApi.reducerPath]: markTypesApi.reducer,
     [setExamSchedulesApi.reducerPath]: setExamSchedulesApi.reducer,
+    [layoutNamesApi.reducerPath]: layoutNamesApi.reducer,
+    [layoutModelsApi.reducerPath]: layoutModelsApi.reducer,
+    [layoutsApi.reducerPath]: layoutsApi.reducer,
 
   },
   middleware: (getDefaultMiddleware) =>
@@ -313,6 +319,9 @@ export const store = configureStore({
       .concat(subjectAssignApi.middleware)
       .concat(markTypesApi.middleware)
       .concat(setExamSchedulesApi.middleware)
+      .concat(layoutNamesApi.middleware)
+      .concat(layoutModelsApi.middleware)
+      .concat(layoutsApi.middleware)
      
 });
 
