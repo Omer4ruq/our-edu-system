@@ -73,10 +73,10 @@ const AddFeeHead = () => {
       toast.error("অনুগ্রহ করে ফি হেডের নাম লিখুন");
       return;
     }
-    if (!formData.late_fee || formData.late_fee < 0) {
-      toast.error("অনুগ্রহ করে সঠিক বিলম্ব ফি পরিমাণ লিখুন");
-      return;
-    }
+    // if (!formData.late_fee || formData.late_fee < 0) {
+    //   toast.error("অনুগ্রহ করে সঠিক বিলম্ব ফি পরিমাণ লিখুন");
+    //   return;
+    // }
     if (feeHeads.some((fh) => fh.name.toLowerCase() === formData.name.toLowerCase())) {
       toast.error("এই ফি হেড ইতিমধ্যে বিদ্যমান!");
       return;
@@ -344,7 +344,7 @@ const AddFeeHead = () => {
             {/* Late Fee Amount */}
             <div className="col-span-1">
               <label className="block text-sm font-medium text-[#441a05]mb-2">
-                বিলম্ব ফি <span className="text-red-400">*</span>
+                বিলম্ব ফি 
               </label>
               <div className="relative">
                 <input

@@ -1,13 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import ClassRoutineTable from "./ClassRoutineTable";
-import { IoAddCircle, IoAdd } from "react-icons/io5";
-import { FaSpinner } from "react-icons/fa";
+import { IoAddCircle, IoAdd, IoCalendar, IoTime, IoBook, IoPerson } from "react-icons/io5";
+import { FaSpinner, FaGripVertical, FaTimes } from "react-icons/fa";
+import { MdDragIndicator } from "react-icons/md";
 import { Toaster, toast } from "react-hot-toast";
 import { useGetclassConfigApiQuery } from "../../../redux/features/api/class/classConfigApi";
 import { useGetTeacherStaffProfilesQuery } from "../../../redux/features/api/roleStaffProfile/roleStaffProfileApi";
 import { useGetTeacherSubjectAssignsByClassAndSubjectQuery } from "../../../redux/features/api/teacherSubjectAssigns/teacherSubjectAssignsApi";
 import { useGetClassPeriodsByClassIdQuery } from "../../../redux/features/api/periods/classPeriodsApi";
-import { useGetClassSubjectsByClassIdQuery } from "../../../redux/features/api/class-subjects/classSubjectsApi"; // Fixed import
+import { useGetSubjectAssignmentsQuery } from "../../../redux/features/api/subject-assign/subjectAssignApi";
 import { useCreateRoutineMutation } from "../../../redux/features/api/routines/routinesApi";
 import { useSelector } from "react-redux";
 import { useGetGroupPermissionsQuery } from "../../../redux/features/api/permissionRole/groupsApi";
@@ -15,12 +16,11 @@ import { useGetGroupPermissionsQuery } from "../../../redux/features/api/permiss
 export default function ClassRoutine() {
   const { user, group_id } = useSelector((state) => state.auth);
   const [selectedClass, setSelectedClass] = useState(null);
-  const [selectedSubjects, setSelectedSubjects] = useState([]);
-  const [selectedPeriod, setSelectedPeriod] = useState(null);
-  const [selectedTeacher, setSelectedTeacher] = useState(null);
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
+  const [selectedDay, setSelectedDay] = useState('Monday');
+  const [routineData, setRoutineData] = useState({});
+  const [draggedTeacher, setDraggedTeacher] = useState(null);
+  const [draggedSubject, setDraggedSubject] = useState(null);
+  const dragRef = useRef(null);
 
   // Permissions hook
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
@@ -33,7 +33,7 @@ export default function ClassRoutine() {
 
   const dayMap = {
     Saturday: "শনিবার",
-    Sunday: "রবিবার",
+    Sunday: "রবিবার", 
     Monday: "সোমবার",
     Tuesday: "মঙ্গলবার",
     Wednesday: "বুধবার",
@@ -41,161 +41,154 @@ export default function ClassRoutine() {
   };
 
   // Validate class_id
-  const isValidId = (id) =>
-    id && (typeof id === "string" || typeof id === "number");
+  const isValidId = (id) => id && (typeof id === "string" || typeof id === "number");
 
   // Fetch classes
-  const { data: classes, isLoading: classesLoading } =
-    useGetclassConfigApiQuery();
-console.log("classes", classes)
-  // Fetch teachers
-  const { data: allteachers, isLoading: allteachersLoading } =
-    useGetTeacherStaffProfilesQuery();
-  const {
-    data: teachers = [],
-    isLoading: teachersLoading,
-    error: teachersError,
-  } = useGetTeacherSubjectAssignsByClassAndSubjectQuery(
-    selectedClass && isValidId(selectedClass.id) && selectedSubjects.length > 0
-      ? { classId: selectedClass.id, subjectId: selectedSubjects[0]?.id }
-      : undefined,
-    {
-      skip:
-        !selectedClass ||
-        !isValidId(selectedClass.id) ||
-        selectedSubjects.length === 0,
-    }
-  );
+  const { data: classes, isLoading: classesLoading } = useGetclassConfigApiQuery();
 
-  // Filter teachers
-  const filterTeacher = useMemo(() => {
-    return Array.isArray(allteachers) && Array.isArray(teachers)
-      ? allteachers.filter((oneteacher) =>
-          teachers.some(
-            (assigned) => String(assigned.teacher_id) === String(oneteacher.id)
-          )
-        )
-      : [];
-  }, [allteachers, teachers]);
+  // Fetch teachers
+  const { data: allteachers, isLoading: allteachersLoading } = useGetTeacherStaffProfilesQuery();
 
   // Fetch periods
-  const {
-    data: periods = [],
-    isLoading: periodsLoading,
-    error: periodsError,
-  } = useGetClassPeriodsByClassIdQuery(
-    selectedClass && isValidId(selectedClass.id) ? selectedClass.id : undefined,
-    { skip: !selectedClass || !isValidId(selectedClass.id) }
-  );
+  const { data: periods = [], isLoading: periodsLoading, error: periodsError } = 
+    useGetClassPeriodsByClassIdQuery(
+      selectedClass && isValidId(selectedClass.id) ? selectedClass.id : undefined,
+      { skip: !selectedClass || !isValidId(selectedClass.id) }
+    );
 
-  // Fetch subjects by class ID - FIXED
-  const { 
-    data: classSubjects = [], 
-    isLoading: subjectsLoading,
-    error: subjectsError 
-  } = useGetClassSubjectsByClassIdQuery(
-    selectedClass && isValidId(selectedClass.g_class_id) ? selectedClass.g_class_id : undefined,
-    { skip: !selectedClass || !isValidId(selectedClass.g_class_id) }
-  );
-console.log("selectedClass", selectedClass)
-console.log("classSubjects", classSubjects)
-  // Filter active subjects
-  const activeSubjects = useMemo(() => {
-    if (!Array.isArray(classSubjects)) return [];
-    return classSubjects.filter((subject) => subject.is_active);
-  }, [classSubjects]);
+  // Fetch subject assignments with updated structure
+  const { data: subjectAssignments = [], isLoading: subjectsLoading, error: subjectsError } = 
+    useGetSubjectAssignmentsQuery(
+      selectedClass && isValidId(selectedClass.class_group_id) ? selectedClass.class_group_id : undefined,
+      { skip: !selectedClass || !isValidId(selectedClass.class_group_id) }
+    );
 
   // Mutation for creating routine
-  const [createRoutine, { isLoading: createLoading, error: createError }] =
-    useCreateRoutineMutation();
+  const [createRoutine, { isLoading: createLoading, error: createError }] = useCreateRoutineMutation();
+
+  // Process subject data with teachers
+  const subjectsWithTeachers = useMemo(() => {
+    if (!Array.isArray(subjectAssignments) || !Array.isArray(allteachers)) return [];
+    
+    const result = [];
+    subjectAssignments.forEach(assignment => {
+      if (assignment.subject_details && Array.isArray(assignment.subject_details)) {
+        assignment.subject_details.forEach(subject => {
+          // Find teachers for this subject and class
+          const subjectTeachers = allteachers.filter(teacher => 
+            // This would need to be adjusted based on your actual teacher-subject assignment logic
+            teacher.subjects && teacher.subjects.includes(subject.id)
+          );
+          
+          result.push({
+            ...subject,
+            teachers: subjectTeachers.length > 0 ? subjectTeachers : allteachers.slice(0, 3), // Fallback for demo
+            classId: assignment.class_id
+          });
+        });
+      }
+    });
+    
+    return result;
+  }, [subjectAssignments, allteachers]);
 
   const handleClassSelect = (cls) => {
     setSelectedClass({
       id: cls.id,
-      class_id: cls.id,
-      g_class_id: cls.g_class_id,
-      r_class_id: cls.class_id,
-     
-      name: `${cls.class_name} ${cls.section_name}`,
+      class_id: cls?.id,
+      g_class_id: cls?.g_class_id,
+      r_class_id: cls?.class_id,
+      class_group_id: cls?.class_group_id,
+      name: `${cls?.class_name} ${cls?.section_name}`,
     });
-    setSelectedSubjects([]);
-    setSelectedPeriod(null);
-    setSelectedTeacher(null);
-    setSelectedDay(null);
+    setRoutineData({});
   };
-console.log("classes", classes)
-console.log("selectedClass", selectedClass)
-  const handleCreateRoutine = async () => {
+
+  const handleDragStart = (e, teacher, subject) => {
+    setDraggedTeacher(teacher);
+    setDraggedSubject(subject);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', '');
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e, periodId, day) => {
+    e.preventDefault();
+    
+    if (draggedTeacher && draggedSubject) {
+      const key = `${day}_${periodId}`;
+      setRoutineData(prev => ({
+        ...prev,
+        [key]: {
+          teacher: draggedTeacher,
+          subject: draggedSubject,
+          period: periodId,
+          day: day
+        }
+      }));
+      
+      toast.success(`${draggedSubject.name} - ${draggedTeacher.name} ${dayMap[day]} এ সেট করা হয়েছে`);
+    }
+    
+    setDraggedTeacher(null);
+    setDraggedSubject(null);
+  };
+
+  const handleRemoveFromSlot = (day, periodId) => {
+    const key = `${day}_${periodId}`;
+    setRoutineData(prev => {
+      const newData = { ...prev };
+      delete newData[key];
+      return newData;
+    });
+    toast.success('রুটিন থেকে সরানো হয়েছে');
+  };
+
+  const handleSaveRoutine = async () => {
     if (!hasAddPermission) {
       toast.error('রুটিন তৈরি করার অনুমতি নেই।');
       return;
     }
-    if (!selectedClass || !isValidId(selectedClass.class_id)) {
-      toast.error("শ্রেণি নির্বাচন করুন");
-      return;
-    }
-    if (!selectedDay) {
-      toast.error("দিন নির্বাচন করুন");
-      return;
-    }
-    if (!selectedPeriod || !isValidId(selectedPeriod.id)) {
-      toast.error("পিরিয়ড নির্বাচন করুন");
-      return;
-    }
-    if (selectedSubjects.length === 0 || !isValidId(selectedSubjects[0]?.id)) {
-      toast.error("বিষয় নির্বাচন করুন");
-      return;
-    }
-    if (!selectedTeacher || !selectedTeacher.id || !selectedTeacher.name) {
-      toast.error("শিক্ষক নির্বাচন করুন");
+
+    if (Object.keys(routineData).length === 0) {
+      toast.error('অন্তত একটি পিরিয়ড সেট করুন');
       return;
     }
 
-    setModalData({
-      day_name: selectedDay,
-      note: "",
-      class_id: selectedClass.id,
-      period_id: selectedPeriod.id,
-      subject_id: selectedSubjects[0].id,
-      teacher_name: selectedTeacher.id,
-    });
-    setIsModalOpen(true);
-  };
-
-  const confirmCreateRoutine = async () => {
-    if (!hasAddPermission) {
-      toast.error('রুটিন তৈরি করার অনুমতি নেই।');
-      setIsModalOpen(false);
-      return;
-    }
     try {
-      const result = await createRoutine(modalData).unwrap();
+      const routineEntries = Object.values(routineData);
+      
+      for (const entry of routineEntries) {
+        const payload = {
+          day_name: entry.day,
+          note: "",
+          class_id: selectedClass.id,
+          period_id: entry.period,
+          subject_id: entry.subject.id,
+          teacher_name: entry.teacher.id,
+        };
+        
+        await createRoutine(payload).unwrap();
+      }
+      
       toast.success("রুটিন সফলভাবে তৈরি হয়েছে");
-      setSelectedSubjects([]);
-      setSelectedPeriod(null);
-      setSelectedTeacher(null);
-      setSelectedDay(null);
+      setRoutineData({});
     } catch (error) {
-      toast.error(
-        `রুটিন তৈরিতে ত্রুটি: ${error.status || "অজানা"} - ${JSON.stringify(
-          error.data || {}
-        )}`
-      );
-    } finally {
-      setIsModalOpen(false);
-      setModalData(null);
+      toast.error(`রুটিন তৈরিতে ত্রুটি: ${error.status || "অজানা"}`);
     }
   };
 
-  if (classesLoading || allteachersLoading || teachersLoading || periodsLoading || subjectsLoading || permissionsLoading) {
+  if (classesLoading || allteachersLoading || periodsLoading || subjectsLoading || permissionsLoading) {
     return (
       <div className="py-8 w-full relative">
         <div className="flex items-center justify-center min-h-screen px-4">
           <div className="flex items-center gap-4 p-6 bg-black/10 backdrop-blur-sm rounded-2xl shadow-xl border border-[#441a05]/20 animate-fadeIn">
             <FaSpinner className="animate-spin text-3xl text-pmColor" />
-            <span className="text-lg font-medium text-[#441a05]">
-              লোড হচ্ছে...
-            </span>
+            <span className="text-lg font-medium text-[#441a05]">লোড হচ্ছে...</span>
           </div>
         </div>
       </div>
@@ -209,6 +202,7 @@ console.log("selectedClass", selectedClass)
   return (
     <div className="py-8 w-full relative">
       <Toaster position="top-right" reverseOrder={false} />
+      
       <style>
         {`
           @keyframes fadeIn {
@@ -220,414 +214,284 @@ console.log("selectedClass", selectedClass)
             to { transform: scale(1); opacity: 1; }
           }
           @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
+            from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
           }
-          @keyframes slideDown {
-            from { transform: translateY(0); opacity: 1; }
-            to { transform: translateY(100%); opacity: 0; }
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
           }
-          .animate-fadeIn {
-            animation: fadeIn 0.6s ease-out forwards;
+          .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
+          .animate-scaleIn { animation: scaleIn 0.4s ease-out forwards; }
+          .animate-slideUp { animation: slideUp 0.4s ease-out forwards; }
+          .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+          
+          .drag-preview {
+            transform: rotate(5deg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
           }
-          .animate-scaleIn {
-            animation: scaleIn 0.4s ease-out forwards;
-          }
-          .animate-slideUp {
-            animation: slideUp 0.4s ease-out forwards;
-          }
-          .animate-slideDown {
-            animation: slideDown 0.4s ease-out forwards;
-          }
-          .tick-glow {
+          
+          .drop-zone {
             transition: all 0.3s ease;
+            border: 2px dashed transparent;
           }
-          .tick-glow:checked + span {
-            box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+          
+          .drop-zone.drag-over {
+            border-color: #F4B840;
+            background: rgba(244, 184, 64, 0.1);
+            transform: scale(1.02);
           }
-          .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+          
+          .teacher-card {
+            transition: all 0.3s ease;
+            cursor: grab;
           }
-          ::-webkit-scrollbar {
-            width: 8px;
+          
+          .teacher-card:active {
+            cursor: grabbing;
           }
-          ::-webkit-scrollbar-track {
-            background: transparent;
+          
+          .teacher-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(68, 26, 5, 0.2);
           }
-          ::-webkit-scrollbar-thumb {
-            background: rgba(22, 31, 48, 0.26);
+          
+          .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+          }
+          
+          .gradient-border {
+            background: linear-gradient(135deg, #F4B840, #FDD663);
+            padding: 2px;
+            border-radius: 12px;
+          }
+          
+          .gradient-border > div {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 10px;
-          }
-          ::-webkit-scrollbar-thumb:hover {
-            background: rgba(10, 13, 21, 0.44);
           }
         `}
       </style>
 
-      <div className="mx-auto">
-        {/* Class Tabs */}
-        <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-          <div className="flex items-center space-x-4 mb-6 animate-fadeIn">
-            <IoAddCircle className="text-4xl text-[#441a05]" />
-            <h3 className="sm:text-2xl text-xl font-bold text-[#441a05]tracking-tight">
-              শ্রেণি নির্বাচন করুন
-            </h3>
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="glass-effect p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
+          <div className="flex items-center space-x-4 mb-6">
+            <IoCalendar className="text-4xl text-[#441a05]" />
+            <h1 className="text-3xl font-bold text-[#441a05] tracking-tight">
+              ক্লাস রুটিন ডিজাইনার
+            </h1>
           </div>
+          
+          {/* Class Selection */}
           <div className="flex flex-wrap gap-3 overflow-x-auto">
             {classesLoading ? (
-              <p className="text-[#441a05]/70 animate-fadeIn">
-                শ্রেণি লোড হচ্ছে...
-              </p>
+              <p className="text-[#441a05]/70">শ্রেণি লোড হচ্ছে...</p>
             ) : (
               classes?.map((cls, index) => (
                 <button
                   key={cls.id}
                   onClick={() => handleClassSelect(cls)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium text-[#441a05]transition-all duration-300 animate-scaleIn ${
+                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 animate-scaleIn ${
                     selectedClass?.id === cls?.id
-                      ? "bg-pmColor hover:text-[#441a05]"
-                      : "bg-[#441a05]/10 hover:bg-[#441a05]/10"
+                      ? "bg-gradient-to-r from-[#F4B840] to-[#FDD663] text-[#441a05] shadow-lg transform scale-105"
+                      : "bg-white/20 text-[#441a05] hover:bg-white/30 hover:transform hover:scale-105"
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  title={`শ্রেণি নির্বাচন করুন: ${cls.class_name} ${cls.section_name}`}
                 >
-                  {cls?.class_name} {cls?.section_name} {cls?.shift_name}
+                  {cls?.class_name} {cls?.group_name} {cls?.section_name} {cls?.shift_name}
                 </button>
               ))
             )}
           </div>
-          {periodsError && (
-            <div
-              className="mt-4 text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn"
-              style={{ animationDelay: "0.4s" }}
-            >
-              ত্রুটি: {periodsError.status || "অজানা"} -{" "}
-              {JSON.stringify(periodsError.data || {})}
-            </div>
-          )}
         </div>
 
-        {selectedClass && isValidId(selectedClass.class_id) && hasAddPermission && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl mb-8 animate-fadeIn shadow-xl">
-            {/* Days Section */}
-            <div>
-              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
+        {selectedClass && (
+          <>
+            {/* Day Selector */}
+            <div className="glass-effect p-6 rounded-2xl mb-8 animate-slideUp">
+              <h3 className="text-xl font-semibold text-[#441a05] mb-4 flex items-center gap-2">
+                <IoCalendar className="text-2xl" />
                 দিন নির্বাচন করুন
               </h3>
-
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap gap-3">
                 {Object.entries(dayMap).map(([engDay, banglaDay]) => (
-                  <label
+                  <button
                     key={engDay}
-                    className="flex items-center gap-2 cursor-pointer animate-scaleIn"
+                    onClick={() => setSelectedDay(engDay)}
+                    className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      selectedDay === engDay
+                        ? "bg-gradient-to-r from-[#F4B840] to-[#FDD663] text-[#441a05] shadow-lg"
+                        : "bg-white/20 text-[#441a05] hover:bg-white/30"
+                    }`}
                   >
-                    <input
-                      type="radio"
-                      name="day"
-                      value={engDay}
-                      checked={selectedDay === engDay}
-                      onChange={() => setSelectedDay(engDay)}
-                      className="hidden"
-                    />
-                    <span
-                      className={`w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300 tick-glow ${
-                        selectedDay === engDay
-                          ? "bg-pmColor border-pmColor"
-                          : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
-                      }`}
-                    >
-                      {selectedDay === engDay && (
-                        <svg
-                          className="w-4 h-4 text-[#441a05]animate-scaleIn"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      )}
-                    </span>
-                    <span className="text-[#441a05]">{banglaDay}</span>
-                  </label>
+                    {banglaDay}
+                  </button>
                 ))}
               </div>
             </div>
 
-            {/* Periods Section */}
-            <div>
-              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
-                পিরিয়ড নির্বাচন করুন
-              </h3>
-              {periodsLoading ? (
-                <p className="text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</p>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  {periods.map((period, index) => (
-                    <label
-                      key={period.id}
-                      className="flex items-center gap-2 cursor-pointer animate-scaleIn"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <input
-                        type="radio"
-                        name="period"
-                        value={period.id}
-                        checked={selectedPeriod?.id === period.id}
-                        onChange={() => setSelectedPeriod(period)}
-                        className="hidden"
-                      />
-                      <span
-                        className={`w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300 tick-glow ${
-                          selectedPeriod?.id === period.id
-                            ? "bg-pmColor border-pmColor"
-                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
-                        }`}
-                      >
-                        {selectedPeriod?.id === period.id && (
-                          <svg
-                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        )}
-                      </span>
-                      <span className="text-[#441a05]">
-                        {period.start_time} - {period.end_time}
-                      </span>
-                    </label>
-                  ))}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Subject Cards with Teachers */}
+              <div className="lg:col-span-1">
+                <div className="glass-effect p-6 rounded-2xl animate-slideUp">
+                  <h3 className="text-xl font-semibold text-[#441a05] mb-6 flex items-center gap-2">
+                    <IoBook className="text-2xl" />
+                    বিষয় ও শিক্ষক
+                  </h3>
+                  
+                  {subjectsLoading ? (
+                    <div className="flex items-center justify-center py-8">
+                      <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
+                    </div>
+                  ) : subjectsWithTeachers.length === 0 ? (
+                    <p className="text-red-400 text-center py-8">কোনো বিষয় পাওয়া যায়নি</p>
+                  ) : (
+                    <div className="space-y-4 max-h-96 overflow-y-auto">
+                      {subjectsWithTeachers.map((subject, index) => (
+                        <div key={subject.id} className="gradient-border animate-scaleIn" 
+                             style={{ animationDelay: `${index * 0.1}s` }}>
+                          <div className="p-4">
+                            <h4 className="font-semibold text-[#441a05] mb-3 flex items-center gap-2">
+                              <IoBook className="text-lg" />
+                              {subject.name}
+                            </h4>
+                            <div className="space-y-2">
+                              {subject.teachers?.map((teacher) => (
+                                <div
+                                  key={teacher.id}
+                                  draggable
+                                  onDragStart={(e) => handleDragStart(e, teacher, subject)}
+                                  className="teacher-card flex items-center gap-3 p-3 bg-white/50 rounded-lg border border-[#441a05]/10"
+                                >
+                                  <MdDragIndicator className="text-[#441a05]/60" />
+                                  <IoPerson className="text-[#441a05]" />
+                                  <span className="text-[#441a05] font-medium">{teacher.name}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
+
+              {/* Routine Grid */}
+              <div className="lg:col-span-2">
+                <div className="glass-effect p-6 rounded-2xl animate-slideUp">
+                  <h3 className="text-xl font-semibold text-[#441a05] mb-6 flex items-center gap-2">
+                    <IoTime className="text-2xl" />
+                    {dayMap[selectedDay]} - রুটিন
+                  </h3>
+                  
+                  {periodsLoading ? (
+                    <div className="flex items-center justify-center py-8">
+                      <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
+                    </div>
+                  ) : periods.length === 0 ? (
+                    <p className="text-red-400 text-center py-8">কোনো পিরিয়ড পাওয়া যায়নি</p>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {periods.map((period, index) => {
+                        const routineKey = `${selectedDay}_${period.id}`;
+                        const assignedData = routineData[routineKey];
+                        
+                        return (
+                          <div
+                            key={period.id}
+                            className={`drop-zone min-h-32 p-4 rounded-xl transition-all duration-300 animate-scaleIn ${
+                              assignedData 
+                                ? 'bg-gradient-to-br from-[#F4B840]/20 to-[#FDD663]/20 border-2 border-[#F4B840]' 
+                                : 'bg-white/20 border-2 border-dashed border-[#441a05]/30 hover:border-[#F4B840]/50'
+                            }`}
+                            style={{ animationDelay: `${index * 0.1}s` }}
+                            onDragOver={handleDragOver}
+                            onDrop={(e) => handleDrop(e, period.id, selectedDay)}
+                          >
+                            <div className="flex items-center justify-between mb-3">
+                              <div className="flex items-center gap-2">
+                                <IoTime className="text-[#441a05]" />
+                                <span className="font-semibold text-[#441a05]">
+                                  {period.start_time} - {period.end_time}
+                                </span>
+                              </div>
+                              {assignedData && (
+                                <button
+                                  onClick={() => handleRemoveFromSlot(selectedDay, period.id)}
+                                  className="text-red-500 hover:text-red-700 transition-colors"
+                                  title="সরান"
+                                >
+                                  <FaTimes />
+                                </button>
+                              )}
+                            </div>
+                            
+                            {assignedData ? (
+                              <div className="space-y-2">
+                                <div className="flex items-center gap-2 p-3 bg-white/50 rounded-lg">
+                                  <IoBook className="text-[#441a05]" />
+                                  <span className="font-medium text-[#441a05]">
+                                    {assignedData.subject.name}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-2 p-3 bg-white/50 rounded-lg">
+                                  <IoPerson className="text-[#441a05]" />
+                                  <span className="font-medium text-[#441a05]">
+                                    {assignedData.teacher.name}
+                                  </span>
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="flex items-center justify-center h-20 text-[#441a05]/50">
+                                <p className="text-center">
+                                  এখানে শিক্ষক ড্র্যাগ করুন
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
-            {/* Subjects Section - FIXED */}
-            <div>
-              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
-                বিষয় নির্বাচন করুন
-              </h3>
-              {subjectsLoading ? (
-                <p className="text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</p>
-              ) : subjectsError ? (
-                <div className="text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn">
-                  বিষয় লোড করতে ত্রুটি: {subjectsError.status || "অজানা"} - {JSON.stringify(subjectsError.data || {})}
-                </div>
-              ) : activeSubjects.length === 0 ? (
-                <p className="text-red-400 animate-fadeIn">
-                  এই ক্লাসের জন্য কোনো বিষয় পাওয়া যায়নি
-                </p>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  {activeSubjects.map((subject, index) => (
-                    <label
-                      key={subject.id}
-                      className="flex items-center gap-2 cursor-pointer animate-scaleIn"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedSubjects.some(
-                          (s) => s.id === subject.id
-                        )}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            setSelectedSubjects([subject]);
-                            setSelectedTeacher(null);
-                          } else {
-                            setSelectedSubjects([]);
-                            setSelectedTeacher(null);
-                          }
-                        }}
-                        className="hidden"
-                      />
-                      <span
-                        className={`w-6 h-6 border-2 rounded-md flex items-center justify-center transition-all duration-300 tick-glow ${
-                          selectedSubjects.some((s) => s.id === subject.id)
-                            ? "bg-pmColor border-pmColor"
-                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
-                        }`}
-                      >
-                        {selectedSubjects.some((s) => s.id === subject.id) && (
-                          <svg
-                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        )}
-                      </span>
-                      <span className="text-[#441a05]">{subject.name}</span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Teachers Section */}
-            <div>
-              <h3 className="text-lg font-semibold text-[#441a05]mb-3">
-                শিক্ষক নির্বাচন করুন
-              </h3>
-              {teachersLoading || allteachersLoading ? (
-                <p className="text-[#441a05]/70 animate-fadeIn">লোড হচ্ছে...</p>
-              ) : teachersError ? (
-                <div
-                  className="text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn"
-                  style={{ animationDelay: "0.4s" }}
+            {/* Save Button */}
+            {hasAddPermission && Object.keys(routineData).length > 0 && (
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={handleSaveRoutine}
+                  disabled={createLoading}
+                  className="relative px-8 py-4 bg-gradient-to-r from-[#F4B840] to-[#FDD663] text-[#441a05] font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                 >
-                  ত্রুটি: {teachersError.status || "অজানা"} -{" "}
-                  {JSON.stringify(teachersError.data || {})}
-                </div>
-              ) : filterTeacher.length === 0 ? (
-                <p className="text-red-400 animate-fadeIn">
-                  {selectedSubjects.length === 0
-                    ? "প্রথমে বিষয় নির্বাচন করুন"
-                    : "কোনো শিক্ষক উপলব্ধ নেই"}
-                </p>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  {filterTeacher.map((teacher, index) => (
-                    <label
-                      key={teacher.id}
-                      className="flex items-center gap-2 cursor-pointer animate-scaleIn"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <input
-                        type="radio"
-                        name="teacher"
-                        value={teacher.id}
-                        checked={selectedTeacher?.id === teacher.id}
-                        onChange={() => setSelectedTeacher(teacher)}
-                        className="hidden"
-                      />
-                      <span
-                        className={`w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300 tick-glow ${
-                          selectedTeacher?.id === teacher.id
-                            ? "bg-pmColor border-pmColor"
-                            : "bg-[#441a05]/10 border-[#9d9087] hover:border-[#441a05]"
-                        }`}
-                      >
-                        {selectedTeacher?.id === teacher.id && (
-                          <svg
-                            className="w-4 h-4 text-[#441a05]animate-scaleIn"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        )}
-                      </span>
-                      <span className="text-[#441a05]">{teacher.name}</span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Submit Button */}
-        {selectedClass && isValidId(selectedClass.class_id) && hasAddPermission && (
-          <div className="flex justify-center mb-8 animate-fadeIn">
-            <button
-              onClick={handleCreateRoutine}
-              disabled={createLoading}
-              className={`relative inline-flex items-center px-10 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-pmColor to-[#F4B840] text-[#441a05]transition-all duration-300 shadow-lg hover:shadow-xl btn-glow transform hover:scale-105 ${
-                createLoading ? "cursor-not-allowed opacity-70" : ""
-              }`}
-              title="রুটিন তৈরি করুন"
-            >
-              {createLoading ? (
-                <span className="flex items-center space-x-3">
-                  <FaSpinner className="animate-spin text-xl" />
-                  <span>সাবমিট করা হচ্ছে...</span>
-                </span>
-              ) : (
-                <span className="flex items-center space-x-3">
-                  <IoAdd className="w-6 h-6" />
-                  <span>রুটিন তৈরি করুন</span>
-                </span>
-              )}
-            </button>
-            {createError && (
-              <div
-                className="mt-4 text-red-400 bg-red-500/10 p-3 rounded-lg animate-fadeIn w-full max-w-md mx-auto"
-                style={{ animationDelay: "0.4s" }}
-              >
-                ত্রুটি: {createError.status || "অজানা"} -{" "}
-                {JSON.stringify(createError.data || {})}
+                  {createLoading ? (
+                    <span className="flex items-center gap-3">
+                      <FaSpinner className="animate-spin" />
+                      সেভ করা হচ্ছে...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-3">
+                      <IoAdd className="text-xl" />
+                      রুটিন সেভ করুন
+                    </span>
+                  )}
+                </button>
               </div>
             )}
-          </div>
-        )}
 
-        {/* Routine Table */}
-        {selectedClass && isValidId(selectedClass.class_id) && (
-          <div className="bg-black/10 backdrop-blur-sm border border-[#441a05]/20 p-8 rounded-2xl animate-fadeIn shadow-xl">
-            <ClassRoutineTable
-              selectedClassId={selectedClass.class_id}
-              periods={periods}
-            />
-          </div>
-        )}
-
-        {/* Confirmation Modal */}
-        {isModalOpen && hasAddPermission && (
-          <div className="fixed inset-0 bg-black/50 flex items-end justify-center z-50">
-            <div className="bg-[#441a05]backdrop-blur-sm rounded-t-2xl p-6 w-full max-w-md border border-[#441a05]/20 animate-slideUp">
-              <h3 className="text-lg font-semibold text-[#441a05]mb-4">
-                রুটিন তৈরি নিশ্চিত করুন
-              </h3>
-              <p className="text-[#441a05]mb-6">
-                আপনি কি নিশ্চিত যে নতুন রুটিন তৈরি করতে চান?
-              </p>
-              <div className="flex justify-end space-x-4">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500/20 text-[#441a05]rounded-lg hover:bg-gray-500/30 transition-colors duration-300"
-                  title="বাতিল করুন"
-                >
-                  বাতিল
-                </button>
-                <button
-                  onClick={confirmCreateRoutine}
-                  className="px-4 py-2 bg-pmColor text-[#441a05]rounded-lg hover:text-[#441a05]transition-colors duration-300 btn-glow"
-                  title="নিশ্চিত করুন"
-                >
-                  নিশ্চিত করুন
-                </button>
-              </div>
+            {/* Routine Table */}
+            <div className="glass-effect p-8 rounded-2xl mt-8 animate-fadeIn shadow-xl">
+              <ClassRoutineTable
+                selectedClassId={selectedClass.class_id}
+                periods={periods}
+              />
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>
