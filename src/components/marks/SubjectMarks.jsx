@@ -10,6 +10,7 @@ import { useGetStudentActiveByClassQuery } from '../../redux/features/api/studen
 import { useCreateSubjectMarkMutation, useGetSubjectMarksQuery, useUpdateSubjectMarkMutation, useDeleteSubjectMarkMutation } from '../../redux/features/api/marks/subjectMarksApi';
 import { useSelector } from "react-redux"; // Import useSelector
 import { useGetGroupPermissionsQuery } from "../../redux/features/api/permissionRole/groupsApi"; // Import permission hook
+import { useGetSetExamSchedulesQuery } from '../../redux/features/api/exam/setExamSchedulesApi';
 
 
 const SubjectMarks = () => {
@@ -25,9 +26,11 @@ const SubjectMarks = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
 
-  const { data: exams, isLoading: examsLoading } = useGetExamApiQuery();
+  // const { data: exams, isLoading: examsLoading } = useGetExamApiQuery();
+  const { data: exams, isLoading: examsLoading } = useGetSetExamSchedulesQuery();
   const { data: academicYears, isLoading: yearsLoading } = useGetAcademicYearApiQuery();
   const { data: classes, isLoading: classesLoading } = useGetclassConfigApiQuery();
+  console.log("exams",exams)
   console.log("classes",classes)
   const {
     data: subjectMarkConfigs,
@@ -71,7 +74,7 @@ const SubjectMarks = () => {
     const selectedId = e.target.value;
     setSelectedClassConfigId(selectedId);
     const selectedClass = classes?.find((cls) => cls.id.toString() === selectedId);
-    setClassId(selectedClass ? selectedClass.class_id.toString() : '');
+    setClassId(selectedClass ? selectedClass?.class_group_id.toString() : '');
     setSubjectId('');
   };
 
@@ -425,7 +428,7 @@ const SubjectMarks = () => {
                 <option value="">পরীক্ষা নির্বাচন করুন</option>
                 {exams?.map((exam) => (
                   <option key={exam.id} value={exam.id}>
-                    {exam.name}
+                    {exam?.exam_name_display}
                   </option>
                 ))}
               </select>
@@ -459,7 +462,7 @@ const SubjectMarks = () => {
                 <option value="">ক্লাস নির্বাচন করুন</option>
                 {classes?.map((cls) => (
                   <option key={cls.id} value={cls.id}>
-                    {cls.class_name} - {cls.section_name} ({cls.shift_name})
+                    {cls.class_name} - {cls.group_name} {cls.section_name} ({cls.shift_name})
                   </option>
                 ))}
               </select>
