@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import ContraTransactionForm from "./transaction/contra/ContraTransactionForm";
+// import ContraTransactionForm from "./transaction/contra/ContraTransactionForm";
 
 const ContraTransaction = () => {
   const { t } = useTranslation();
@@ -10,7 +10,7 @@ const ContraTransaction = () => {
           {t("module.accounts.contra_transaction_form")}
         </h3>
         {/* recieve trnsaction form */}
-        <ContraTransactionForm />
+        {/* <ContraTransactionForm /> */}
       </div>
     </>
   );

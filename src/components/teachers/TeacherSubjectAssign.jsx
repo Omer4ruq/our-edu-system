@@ -40,7 +40,7 @@ const TeacherSubjectAssign = () => {
   );
   const [createAssignment, { isLoading: createLoading }] = useCreateTeacherSubjectAssignMutation();
   const [updateAssignment, { isLoading: updateLoading }] = useUpdateTeacherSubjectAssignMutation();
-
+console.log("teacherAssignments", teacherAssignments)
   // Permissions hook
   const { data: groupPermissions, isLoading: permissionsLoading } = useGetGroupPermissionsQuery(group_id, {
     skip: !group_id,

@@ -1254,6 +1254,62 @@ const mainMenu = [
           link: "/accounting/journals",
         },
   ]
+},
+ {
+  id: "15",
+  title: `${languageCode == 'bn' ? "পে-রোল" : "Account Reports"}`,
+  icon: "HiOutlineCalculator",
+  link: "/accounting-report",
+  children: [
+
+       {
+          id: "15/01",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Trial balance"}`,
+          link: "/accounting-report/trial-balance",
+        },
+        
+       {
+          id: "15/02",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Income Statement "}`,
+          link: "/accounting-report/income-statement",
+        },
+        
+       {
+          id: "15/03",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Balance Sheet"}`,
+          link: "/accounting-report/balance-sheet",
+        },
+          {
+          id: "15/04",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Cash Summary"}`,
+          link: "/accounting-report/cash-summary",
+        },
+           {
+          id: "15/05",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Ledger Summary"}`,
+          link: "/accounting-report/ledger-summary",
+        },
+         {
+          id: "15/06",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Account Journal"}`,
+          link: "/accounting-report/account-journal",
+        },
+         {
+          id: "15/07",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "User Transactions"}`,
+          link: "/accounting-report/user-transactions",
+        },
+          {
+          id: "15/09",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Cash Bank Book"}`,
+          link: "/accounting-report/cash-bankbook",
+        },
+        {
+          id: "15/10",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Account Statement"}`,
+          link: "/accounting-report/account-statement",
+        },
+  ]
 }
 
 

@@ -8,7 +8,7 @@ import { useGetclassConfigApiQuery } from "../../../redux/features/api/class/cla
 import { useGetTeacherStaffProfilesQuery } from "../../../redux/features/api/roleStaffProfile/roleStaffProfileApi";
 import { useGetTeacherSubjectAssignsByClassAndSubjectQuery } from "../../../redux/features/api/teacherSubjectAssigns/teacherSubjectAssignsApi";
 import { useGetClassPeriodsByClassIdQuery } from "../../../redux/features/api/periods/classPeriodsApi";
-import { useGetSubjectAssignmentsQuery } from "../../../redux/features/api/subject-assign/subjectAssignApi";
+import { useGetSubjectAssignmentsByGroupQuery, useGetSubjectAssignmentsQuery } from "../../../redux/features/api/subject-assign/subjectAssignApi";
 import { useCreateRoutineMutation } from "../../../redux/features/api/routines/routinesApi";
 import { useSelector } from "react-redux";
 import { useGetGroupPermissionsQuery } from "../../../redux/features/api/permissionRole/groupsApi";
@@ -45,9 +45,15 @@ export default function ClassRoutine() {
 
   // Fetch classes
   const { data: classes, isLoading: classesLoading } = useGetclassConfigApiQuery();
-
+console.log("classes",classes)
   // Fetch teachers
   const { data: allteachers, isLoading: allteachersLoading } = useGetTeacherStaffProfilesQuery();
+  console.log("allteachers", allteachers);
+
+  // Fetch teacher subject assignments
+  const { data: teacherSubjectAssigns = [], isLoading: teacherSubjectAssignsLoading } = 
+    useGetTeacherSubjectAssignsByClassAndSubjectQuery();
+  console.log("teacherSubjectAssigns", teacherSubjectAssigns);
 
   // Fetch periods
   const { data: periods = [], isLoading: periodsLoading, error: periodsError } = 
@@ -57,40 +63,62 @@ export default function ClassRoutine() {
     );
 
   // Fetch subject assignments with updated structure
-  const { data: subjectAssignments = [], isLoading: subjectsLoading, error: subjectsError } = 
-    useGetSubjectAssignmentsQuery(
-      selectedClass && isValidId(selectedClass.class_group_id) ? selectedClass.class_group_id : undefined,
-      { skip: !selectedClass || !isValidId(selectedClass.class_group_id) }
-    );
+  // const { data: subjectAssignments = [], isLoading: subjectsLoading, error: subjectsError } = 
+  //   useGetSubjectAssignmentsByGroupQuery(
+  //     selectedClass && isValidId(selectedClass.class_group_id) ? selectedClass.class_group_id : undefined,
+  //     { skip: !selectedClass || !isValidId(selectedClass.class_group_id) }
+  //   );
+      const { data: subjectAssignments = [], isLoading: subjectsLoading, error: subjectsError } = 
+    useGetSubjectAssignmentsQuery();
+  console.log("subjectAssignments", subjectAssignments);
+  console.log("selectedClass", selectedClass);
 
   // Mutation for creating routine
   const [createRoutine, { isLoading: createLoading, error: createError }] = useCreateRoutineMutation();
 
-  // Process subject data with teachers
+  // Process subject data with teachers based on teacher subject assignments
   const subjectsWithTeachers = useMemo(() => {
-    if (!Array.isArray(subjectAssignments) || !Array.isArray(allteachers)) return [];
+    if (!Array.isArray(subjectAssignments) || !Array.isArray(allteachers) || !Array.isArray(teacherSubjectAssigns)) {
+      return [];
+    }
     
     const result = [];
+    
     subjectAssignments.forEach(assignment => {
       if (assignment.subject_details && Array.isArray(assignment.subject_details)) {
         assignment.subject_details.forEach(subject => {
-          // Find teachers for this subject and class
-          const subjectTeachers = allteachers.filter(teacher => 
-            // This would need to be adjusted based on your actual teacher-subject assignment logic
-            teacher.subjects && teacher.subjects.includes(subject.id)
-          );
+          // Find teachers who are assigned to this subject
+          const assignedTeachers = teacherSubjectAssigns
+            .filter(teacherAssign => 
+              // Check if this teacher has this subject assigned
+              teacherAssign.subject_assigns && 
+              teacherAssign.subject_assigns.includes(subject.id) &&
+              // Check if this teacher is assigned to this class
+              teacherAssign.class_assigns &&
+              teacherAssign.class_assigns.includes(assignment.class_id)
+            )
+            .map(teacherAssign => {
+              // Find the actual teacher data from allteachers
+              return allteachers.find(teacher => teacher.id === teacherAssign.teacher_id);
+            })
+            .filter(teacher => teacher !== undefined); // Remove undefined values
+          
+          // If no teachers found for this subject, you might want to show all teachers as fallback
+          // or show empty array based on your requirement
+          const teachersForSubject = assignedTeachers.length > 0 ? assignedTeachers : [];
           
           result.push({
             ...subject,
-            teachers: subjectTeachers.length > 0 ? subjectTeachers : allteachers.slice(0, 3), // Fallback for demo
-            classId: assignment.class_id
+            teachers: teachersForSubject,
+            classId: assignment.class_id,
+            assignmentId: assignment.id
           });
         });
       }
     });
     
     return result;
-  }, [subjectAssignments, allteachers]);
+  }, [subjectAssignments, allteachers, teacherSubjectAssigns]);
 
   const handleClassSelect = (cls) => {
     setSelectedClass({
@@ -182,7 +210,7 @@ export default function ClassRoutine() {
     }
   };
 
-  if (classesLoading || allteachersLoading || periodsLoading || subjectsLoading || permissionsLoading) {
+  if (classesLoading || allteachersLoading || periodsLoading || subjectsLoading || permissionsLoading || teacherSubjectAssignsLoading) {
     return (
       <div className="py-8 w-full relative">
         <div className="flex items-center justify-center min-h-screen px-4">
@@ -342,7 +370,7 @@ export default function ClassRoutine() {
                     বিষয় ও শিক্ষক
                   </h3>
                   
-                  {subjectsLoading ? (
+                  {subjectsLoading || teacherSubjectAssignsLoading ? (
                     <div className="flex items-center justify-center py-8">
                       <FaSpinner className="animate-spin text-2xl text-[#441a05]" />
                     </div>
@@ -359,18 +387,24 @@ export default function ClassRoutine() {
                               {subject.name}
                             </h4>
                             <div className="space-y-2">
-                              {subject.teachers?.map((teacher) => (
-                                <div
-                                  key={teacher.id}
-                                  draggable
-                                  onDragStart={(e) => handleDragStart(e, teacher, subject)}
-                                  className="teacher-card flex items-center gap-3 p-3 bg-white/50 rounded-lg border border-[#441a05]/10"
-                                >
-                                  <MdDragIndicator className="text-[#441a05]/60" />
-                                  <IoPerson className="text-[#441a05]" />
-                                  <span className="text-[#441a05] font-medium">{teacher.name}</span>
+                              {subject.teachers?.length > 0 ? (
+                                subject.teachers.map((teacher) => (
+                                  <div
+                                    key={teacher.id}
+                                    draggable
+                                    onDragStart={(e) => handleDragStart(e, teacher, subject)}
+                                    className="teacher-card flex items-center gap-3 p-3 bg-white/50 rounded-lg border border-[#441a05]/10"
+                                  >
+                                    <MdDragIndicator className="text-[#441a05]/60" />
+                                    <IoPerson className="text-[#441a05]" />
+                                    <span className="text-[#441a05] font-medium">{teacher.name}</span>
+                                  </div>
+                                ))
+                              ) : (
+                                <div className="text-center py-2 text-[#441a05]/60">
+                                  এই বিষয়ের জন্য কোনো শিক্ষক নিয়োগ নেই
                                 </div>
-                              ))}
+                              )}
                             </div>
                           </div>
                         </div>

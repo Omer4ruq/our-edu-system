@@ -1,5 +1,5 @@
 import BalanceSheet from "./BalanceSheet";
-import CashBook from "./CashBook";
+import CashBook from "./CashBankBook";
 import CashSummary from "./CashSummary";
 import CategoryWiseLedger from "./CategoryWiseSummary";
 import ContraTransaction from "./ContraTransaction";
@@ -13,7 +13,7 @@ import LedgerSummary from "./LedgerSummary";
 import PaymentTransaction from "./PaymentTransaction";
 import RecieveTransaction from "./RecieveTransaction";
 import TrialBalance from "./TrialBalance";
-import UserTransaction from "./UserWiseTransaction";
+import UserTransaction from "./UserTransaction";
 import VoucherDelete from "./VoucherDelete";
 import VoucherList from "./VoucherList";
 

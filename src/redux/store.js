@@ -104,6 +104,7 @@ import { gperiodApi } from "./features/api/periods/gperiodApi";
 import { layoutNamesApi } from "./features/api/layout/layoutNamesApi";
 import { layoutModelsApi } from "./features/api/layout/layoutModelsApi";
 import { layoutsApi } from "./features/api/layout/layoutsApi";
+import { financialReportsApi } from "./features/api/accounts/financialReports/financialReportsApi";
 
 
 export const store = configureStore({
@@ -216,6 +217,7 @@ export const store = configureStore({
     [layoutNamesApi.reducerPath]: layoutNamesApi.reducer,
     [layoutModelsApi.reducerPath]: layoutModelsApi.reducer,
     [layoutsApi.reducerPath]: layoutsApi.reducer,
+    [financialReportsApi.reducerPath]: financialReportsApi.reducer,
 
   },
   middleware: (getDefaultMiddleware) =>
@@ -322,6 +324,7 @@ export const store = configureStore({
       .concat(layoutNamesApi.middleware)
       .concat(layoutModelsApi.middleware)
       .concat(layoutsApi.middleware)
+      .concat(financialReportsApi.middleware)
      
 });
 
