@@ -1,24 +1,3 @@
-// // import { useTranslation } from "react-i18next";
-// // import CashSummaryList from "./reports/cash-summary/CashSummaryList";
-// import CashBookTable from "./reports/cash-book/CashBookTable";
-// import SearchByLedgerTypes from "./reports/SearchByLedgerTypes";
-
-// const CashBook = () => {
-//     // const { t } = useTranslation();
-//   return (
-//     <div className="bg-[#441a05]rounded-md px-4 py-2 my-2 sm:my-4">
-//       <SearchByLedgerTypes />
-
-//       <h3 className="text-2xl font-medium text-center mt-5">
-//         {/* {t("module.accounts.cash_summary_list")} */}
-//         Cash Book
-//       </h3>
-//       <CashBookTable />
-//     </div>
-//   );
-// };
-
-// export default CashBook;
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Calendar, 
@@ -174,104 +153,107 @@ const BeautifulDatePicker = ({ value, onChange, label, required = false, placeho
         </button>
 
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 z-50 animate-in slide-in-from-top-2 duration-200">
-            
-            {/* Header with Month/Year Navigation */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => navigateYear(-1)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  <ChevronLeft className="w-4 h-4 text-gray-600" />
-                  <ChevronLeft className="w-4 h-4 text-gray-600 -ml-2" />
-                </button>
-                <button
-                  onClick={() => navigateMonth(-1)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  <ChevronLeft className="w-4 h-4 text-gray-600" />
-                </button>
-              </div>
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-4">
+            <div className="fixed inset-0 bg-black bg-opacity-10" onClick={() => setIsOpen(false)}></div>
+            <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 mx-4 max-w-sm w-full animate-in slide-in-from-top-2 duration-200">
               
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-900">
-                  {months[currentMonth.getMonth()]} {currentMonth.getFullYear()}
-                </h3>
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => navigateMonth(1)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  <ChevronRight className="w-4 h-4 text-gray-600" />
-                </button>
-                <button
-                  onClick={() => navigateYear(1)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  <ChevronRight className="w-4 h-4 text-gray-600" />
-                  <ChevronRight className="w-4 h-4 text-gray-600 -ml-2" />
-                </button>
-              </div>
-            </div>
-
-            {/* Days of Week Header */}
-            <div className="grid grid-cols-7 gap-1 mb-2">
-              {daysOfWeek.map(day => (
-                <div key={day} className="text-center text-xs font-semibold text-gray-500 py-2">
-                  {day}
-                </div>
-              ))}
-            </div>
-
-            {/* Calendar Grid */}
-            <div className="grid grid-cols-7 gap-1">
-              {days.map((day, index) => {
-                const today = isToday(day.date);
-                const selected = isSelected(day.date);
-                const currentMonth = day.isCurrentMonth;
-
-                return (
+              {/* Header with Month/Year Navigation */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
                   <button
-                    key={index}
-                    onClick={() => handleDateSelect(day.date)}
-                    className={`
-                      relative p-3 text-sm rounded-lg font-medium transition-all duration-150 hover:scale-105
-                      ${currentMonth 
-                        ? selected 
-                          ? 'bg-blue-500 text-white shadow-lg scale-105' 
-                          : today 
-                            ? 'bg-blue-50 text-blue-600 border-2 border-blue-200 font-bold' 
-                            : 'text-gray-900 hover:bg-blue-50 hover:text-blue-600'
-                        : 'text-gray-300 hover:text-gray-400'
-                      }
-                    `}
+                    onClick={() => navigateYear(-1)}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                   >
-                    {day.date.getDate()}
-                    {today && !selected && (
-                      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full"></div>
-                    )}
+                    <ChevronLeft className="w-4 h-4 text-gray-600" />
+                    <ChevronLeft className="w-4 h-4 text-gray-600 -ml-2" />
                   </button>
-                );
-              })}
-            </div>
+                  <button
+                    onClick={() => navigateMonth(-1)}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-gray-600" />
+                  </button>
+                </div>
+                
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {months[currentMonth.getMonth()]} {currentMonth.getFullYear()}
+                  </h3>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => navigateMonth(1)}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  >
+                    <ChevronRight className="w-4 h-4 text-gray-600" />
+                  </button>
+                  <button
+                    onClick={() => navigateYear(1)}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  >
+                    <ChevronRight className="w-4 h-4 text-gray-600" />
+                    <ChevronRight className="w-4 h-4 text-gray-600 -ml-2" />
+                  </button>
+                </div>
+              </div>
 
-            {/* Footer with Today button */}
-            <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
-              <button
-                onClick={() => handleDateSelect(new Date())}
-                className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
-              >
-                Today
-              </button>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <X className="w-4 h-4 text-gray-500" />
-              </button>
+              {/* Days of Week Header */}
+              <div className="grid grid-cols-7 gap-1 mb-2">
+                {daysOfWeek.map(day => (
+                  <div key={day} className="text-center text-xs font-semibold text-gray-500 py-2">
+                    {day}
+                  </div>
+                ))}
+              </div>
+
+              {/* Calendar Grid */}
+              <div className="grid grid-cols-7 gap-1">
+                {days.map((day, index) => {
+                  const today = isToday(day.date);
+                  const selected = isSelected(day.date);
+                  const currentMonth = day.isCurrentMonth;
+
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => handleDateSelect(day.date)}
+                      className={`
+                        relative p-3 text-sm rounded-lg font-medium transition-all duration-150 hover:scale-105
+                        ${currentMonth 
+                          ? selected 
+                            ? 'bg-blue-500 text-white shadow-lg scale-105' 
+                            : today 
+                              ? 'bg-blue-50 text-blue-600 border-2 border-blue-200 font-bold' 
+                              : 'text-gray-900 hover:bg-blue-50 hover:text-blue-600'
+                          : 'text-gray-300 hover:text-gray-400'
+                        }
+                      `}
+                    >
+                      {day.date.getDate()}
+                      {today && !selected && (
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full"></div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Footer with Today button */}
+              <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+                <button
+                  onClick={() => handleDateSelect(new Date())}
+                  className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
+                >
+                  Today
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <X className="w-4 h-4 text-gray-500" />
+                </button>
+              </div>
             </div>
           </div>
         )}
