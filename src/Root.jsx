@@ -116,6 +116,8 @@ import AddLayoutName from "./components/layout/AddLayoutName";
 import { BalanceSheet, CashSummary, IncomeStatement, LedgerSummary, TrialBalance, UserTransaction } from "./components/accounts/accounts-index";
 import CashBankBook from "./components/accounts/CashBankBook";
 import AccountStatement from "./components/accounts/AccountStatement";
+import AccountJournal from "./components/accounts/AccountJournal";
+import Vouchers from "./components/accounts/Vouchers";
 
 
 function Root() {
@@ -720,8 +722,16 @@ function Root() {
                   element: <AccountStatement/>,
                 },
                  {
+                  path: "account-journal",
+                  element: <AccountJournal/>,
+                },
+                 {
                   path: "balance-sheet",
                   element: <BalanceSheet />,
+                },
+                   {
+                  path: "vouchers",
+                  element: <Vouchers />,
                 },
                   {
                   path: "cash-summary",

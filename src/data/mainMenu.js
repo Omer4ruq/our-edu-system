@@ -1309,6 +1309,11 @@ const mainMenu = [
           title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Account Statement"}`,
           link: "/accounting-report/account-statement",
         },
+          {
+          id: "15/11",
+          title: `${languageCode == 'bn' ? "সংযোজনের ধরন " : "Vouchers"}`,
+          link: "/accounting-report/vouchers",
+        },
   ]
 }
 

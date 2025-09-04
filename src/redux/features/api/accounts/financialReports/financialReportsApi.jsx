@@ -27,6 +27,7 @@ export const financialReportsApi = createApi({
     'UserTransactions',
     'CashBankBook',
     'AccountStatement',
+    'Vouchers',
   ],
   endpoints: (builder) => ({
     getTrialBalance: builder.query({
@@ -61,7 +62,7 @@ export const financialReportsApi = createApi({
 
     getAccountJournal: builder.query({
       query: ({ from_date, to_date }) =>
-        `/account-journal/?from_date=${from_date}&to_date=${to_date}`,
+        `/account-journals/?from_date=${from_date}&to_date=${to_date}`,
       providesTags: ['AccountJournal'],
     }),
 
@@ -82,6 +83,13 @@ export const financialReportsApi = createApi({
         `/account-statement/?from_date=${from_date}&to_date=${to_date}`,
       providesTags: ['AccountStatement'],
     }),
+
+    // ✅ NEW: Vouchers with transaction_type filter
+    getVouchers: builder.query({
+      query: ({ from_date, to_date, transaction_type }) =>
+        `/vouchers/?from_date=${from_date}&to_date=${to_date}&transaction_type=${transaction_type}`,
+      providesTags: ['Vouchers'],
+    }),
   }),
 });
 
@@ -95,4 +103,5 @@ export const {
   useGetUserTransactionsQuery,
   useGetCashBankBookQuery,
   useGetAccountStatementQuery,
+  useGetVouchersQuery,
 } = financialReportsApi;
