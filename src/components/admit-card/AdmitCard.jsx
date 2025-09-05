@@ -6,10 +6,11 @@ import { FaSpinner } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useGetclassConfigApiQuery } from '../../redux/features/api/class/classConfigApi';
 import { useGetAcademicYearApiQuery } from '../../redux/features/api/academic-year/academicYearApi';
-import { useGetExamApiQuery } from '../../redux/features/api/exam/examApi';
 import { useGetInstituteLatestQuery } from '../../redux/features/api/institute/instituteLatestApi';
 import selectStyles from '../../utilitis/selectStyles';
 import { useGetClassExamStudentsQuery } from '../../redux/features/api/class-exam-students/classExamStudentApi ';
+// Replace useGetExamApiQuery with setExamSchedulesApi
+import { useGetSetExamSchedulesQuery } from '../../redux/features/api/exam/setExamSchedulesApi';
 
 const AdmitCard = () => {
   // State for filter selections and PDF generation
@@ -21,7 +22,8 @@ const AdmitCard = () => {
   // Fetch data from APIs
   const { data: classConfigs, isLoading: classLoading, error: classError } = useGetclassConfigApiQuery();
   const { data: academicYears, isLoading: yearLoading, error: yearError } = useGetAcademicYearApiQuery();
-  const { data: exams, isLoading: examLoading, error: examError } = useGetExamApiQuery();
+  // Replace useGetExamApiQuery with useGetSetExamSchedulesQuery
+  const { data: examsData, isLoading: examLoading, error: examError } = useGetSetExamSchedulesQuery(selectedAcademicYear?.value);
   const { data: institute, isLoading: instituteLoading, error: instituteError } = useGetInstituteLatestQuery();
   const { 
     data: examStudents, 
@@ -100,7 +102,8 @@ const AdmitCard = () => {
 
     setIsGeneratingPDF(true);
 
-    const examInfo = exams?.find(exam => exam.id === selectedExam?.value) || {};
+    // Find exam info from setExamSchedules data
+    const examInfo = examsData?.find(exam => exam.id === selectedExam?.value) || {};
     const students = examStudents.students;
 
     // Group students into sets of 3 for each page
@@ -257,7 +260,7 @@ const AdmitCard = () => {
                   <div class="header-text">
                     <h1>${institute.institute_name || 'Institute Name'}</h1>
                     <p>${institute.institute_address || 'Address'}</p>
-                    <p><strong>পরীক্ষা:</strong> ${examInfo.name || 'Exam Name'} | <strong>তারিখ:</strong> ${examInfo.start_date || 'Date'}</p>
+                    <p><strong>পরীক্ষা:</strong> ${examInfo.exam_name_display || 'Exam Name'} | <strong>তারিখ:</strong> ${examInfo.start_date || 'Date'}</p>
                   </div>
                   <img src="${institute.institute_logo || 'https://static.vecteezy.com/system/resources/previews/046/006/104/non_2x/education-logo-design-template-vector.jpg'}" alt="Institute Logo" />
                 </div>
@@ -319,9 +322,10 @@ const classConfigOptions = classConfigs?.map(config => ({
     label: year.name,
   })) || [];
 
-  const examOptions = exams?.map(exam => ({
+  // Format exam options from setExamSchedules data
+  const examOptions = examsData?.map(exam => ({
     value: exam.id,
-    label: exam.name,
+    label: exam.exam_name_display || `Exam ${exam.id}`,
   })) || [];
 
   // Loading state
@@ -345,7 +349,8 @@ const classConfigOptions = classConfigs?.map(config => ({
   // Render single admit card
   const renderSingleCard = (student, index) => {
     const instituteInfo = institute || {};
-    const examInfo = exams?.find(exam => exam.id === selectedExam?.value) || {};
+    // Find exam info from setExamSchedules data
+    const examInfo = examsData?.find(exam => exam.id === selectedExam?.value) || {};
 
     return (
       <div
@@ -370,7 +375,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             </h1>
             <p className="text-[9px] text-[#441a05]">{instituteInfo.institute_address || 'Address'}</p>
             <p className="text-[9px] mt-0.5 text-[#441a05]">
-              <strong>পরীক্ষা:</strong> {examInfo.name || 'Exam Name'} |{' '}
+              <strong>পরীক্ষা:</strong> {examInfo.exam_name_display || 'Exam Name'} |{' '}
               <strong>তারিখ:</strong> {examInfo.start_date || 'Date'}
             </p>
           </div>
@@ -418,7 +423,7 @@ const classConfigOptions = classConfigs?.map(config => ({
             <strong>নির্দেশ:</strong> পরীক্ষার হলে এই প্রবেশপত্র অবশ্যই সঙ্গে আনতে হবে।
           </p>
           <p>
-            <strong>নির্দেশ:</strong> পরীক্ষা শুরুর ১৫ মিনিট পূর্বে উপস্থিত থাকতে হবে।
+            <strong>নির্দেশ:</strong> পরীক্ষা শুরুর ১৫ মিনিট পূর্বে উপস্থিত থাকতে হবে。
           </p>
           <p>
             <strong>নির্দেশ:</strong> প্রয়োজনীয় সামগ্রী: বোর্ড, শার্পনার, রুলার, পেন্সিল, কলম, ইরেজার।
