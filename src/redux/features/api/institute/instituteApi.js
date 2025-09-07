@@ -9,12 +9,17 @@ export const instituteApi = createApi({
   reducerPath: 'instituteApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
-    prepareHeaders: (headers) => {
+    prepareHeaders: (headers, { endpoint }) => {
       const token = getToken();
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
       }
-      headers.set('Content-Type', 'application/json');
+      
+      // Don't set Content-Type for FormData uploads (let browser set it with boundary)
+      if (endpoint !== 'createInstitute' && endpoint !== 'updateInstitute') {
+        headers.set('Content-Type', 'application/json');
+      }
+      
       return headers;
     },
   }),
@@ -42,12 +47,12 @@ export const instituteApi = createApi({
       invalidatesTags: ['Institute'],
     }),
 
-    // PUT: Update an existing institute
+    // PATCH: Update an existing institute
     updateInstitute: builder.mutation({
-      query: ({ id, ...instituteData }) => ({
+      query: ({ id, formData }) => ({
         url: `/institute/${id}/`,
-        method: 'PUT',
-        body: instituteData,
+        method: 'PATCH',
+        body: formData,
       }),
       invalidatesTags: ['Institute'],
     }),

@@ -260,10 +260,10 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
 
   const [formData, setFormData] = useState({
     institute_id: institute?.institute_id || '',
-    institute_english_name: institute?.institute_english_name || '', // Updated field name
-    institute_Bangla_name: institute?.institute_Bangla_name || institute?.institute_name || '', // Updated field name
+    institute_english_name: institute?.institute_english_name || '',
+    institute_Bangla_name: institute?.institute_Bangla_name || '',
     institute_gender_type: institute?.institute_gender_type || 'Combined',
-    institute_type_id: institute?.institute_type?.id?.toString() || '',
+    institute_type: institute?.institute_type?.id?.toString() || '',
     status: institute?.status || 'Active',
     institute_address: institute?.institute_address || '',
     institute_email_address: institute?.institute_email_address || '',
@@ -278,6 +278,10 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
   // Separate state for file handling
   const [logoFile, setLogoFile] = useState(null);
   const [logoPreview, setLogoPreview] = useState(institute?.institute_logo || null);
+  
+  // State for vision heading file
+  const [vHeadingFile, setVHeadingFile] = useState(null);
+  const [vHeadingPreview, setVHeadingPreview] = useState(institute?.institute_v_heading || null);
 
   const [openSections, setOpenSections] = useState({
     basic: true,
@@ -318,6 +322,31 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
     }));
   };
 
+  const handleLogoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setLogoFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setLogoPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Add handler for vision heading file
+  const handleVHeadingChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setVHeadingFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setVHeadingPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const toggleSection = (section) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
   };
@@ -352,20 +381,61 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
       toast.error('প্রতিষ্ঠানের ইংরেজি নাম আবশ্যক।');
       return;
     }
-    if (!formData.institute_type_id) {
+    if (!formData.institute_type) {
       toast.error('প্রতিষ্ঠানের ধরন নির্বাচন করুন।');
       return;
     }
 
     try {
+      let payload;
+      
+      // Check if we have files to upload
+      if (logoFile || vHeadingFile) {
+        // Use FormData for file upload
+        const formDataToSend = new FormData();
+        
+        // Append all form fields
+        Object.keys(formData).forEach(key => {
+          if (formData[key] !== '') {
+            formDataToSend.append(key, formData[key]);
+          }
+        });
+
+        // Append logo file if exists
+        if (logoFile) {
+          formDataToSend.append('institute_logo', logoFile);
+        }
+        
+        // Append vision heading file if exists
+        if (vHeadingFile) {
+          formDataToSend.append('institute_v_heading', vHeadingFile);
+        }
+        
+        payload = formDataToSend;
+      } else {
+        // Use regular JSON for text-only data
+        payload = { ...formData };
+        // Remove empty fields
+        Object.keys(payload).forEach(key => {
+          if (payload[key] === '') {
+            delete payload[key];
+          }
+        });
+      }
+
+      let result;
       if (institute) {
-        await updateInstitute({ id: institute.id, ...payload }).unwrap();
+        if (logoFile || vHeadingFile) {
+          result = await updateInstitute({ id: institute.id, formData: payload }).unwrap();
+        } else {
+          result = await updateInstitute({ id: institute.id, ...payload }).unwrap();
+        }
         toast.success(languageCode === 'bn' 
           ? 'প্রতিষ্ঠান সফলভাবে হালনাগাদ করা হয়েছে!' 
           : 'Institute updated successfully!'
         );
       } else {
-        await createInstitute(payload).unwrap();
+        result = await createInstitute(payload).unwrap();
         toast.success(languageCode === 'bn' 
           ? 'প্রতিষ্ঠান সফলভাবে তৈরি করা হয়েছে!' 
           : 'Institute created successfully!'
@@ -373,7 +443,6 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
       }
 
       console.log('Operation result:', result);
-      toast.success(`প্রতিষ্ঠান সফলভাবে ${institute ? 'হালনাগাদ' : 'তৈরি'} করা হয়েছে!`);
       onSubmit();
     } catch (err) {
       console.error('Error response:', err);
@@ -458,6 +527,46 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
     </div>
   );
 
+  const FileInputField = ({ 
+    icon: Icon, 
+    label, 
+    name, 
+    required = false, 
+    onChange, 
+    disabled = false,
+    preview
+  }) => (
+    <div className="input-group">
+      <label htmlFor={name} className={`input-label ${required ? 'required-label' : ''}`}>
+        {label} {required && <span className="text-red-400">*</span>}
+      </label>
+      <div className="relative input-icon border-2 border-gray-400 border-opacity-50 rounded-xl ">
+        <div className="input-icon-wrapper">
+          <Icon />
+        </div>
+        <input
+          type="file"
+          id={name}
+          name={name}
+          onChange={onChange}
+          disabled={disabled || isFormDisabled}
+          className="py-1 pl-10"
+          accept="image/*"
+          aria-label={label}
+        />
+      </div>
+      {preview && (
+        <div className="mt-2">
+          <img 
+            src={preview} 
+            alt="Logo preview" 
+            className="w-20 h-20 object-contain border border-gray-300 rounded"
+          />
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div className="w-full min-h-screen relative">
       <style>{customStyles}</style>
@@ -516,16 +625,6 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
             {openSections.basic && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slideDown">
                 <InputField
-                  icon={MdCorporateFare}
-                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের নাম' : 'Institute Name'}
-                  name="institute_name"
-                  required
-                  placeholder={languageCode === 'bn' ? 'প্রতিষ্ঠানের নাম লিখুন' : 'Enter institute name'}
-                  value={formData.institute_name}
-                  onChange={handleChange}
-                />
-                
-                <InputField
                   icon={FaBuilding}
                   label={languageCode === 'bn' ? 'প্রতিষ্ঠান আইডি' : 'Institute ID'}
                   name="institute_id"
@@ -535,34 +634,54 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
                   onChange={handleChange}
                 />
                 
+                <FileInputField
+                  icon={MdCorporateFare}
+                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের লোগো' : 'Institute Logo'}
+                  name="institute_logo"
+                  onChange={handleLogoChange}
+                  preview={logoPreview}
+                />
+                
                 <InputField
+                  icon={MdCorporateFare}
+                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের ইংরেজি নাম' : 'Institute English Name'}
+                  name="institute_english_name"
+                  required
+                  placeholder={languageCode === 'bn' ? 'ইংরেজি নাম লিখুন' : 'Enter English name'}
+                  value={formData.institute_english_name}
+                  onChange={handleChange}
+                />
+                
+                <InputField
+                  icon={MdCorporateFare}
+                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের বাংলা নাম' : 'Institute Bangla Name'}
+                  name="institute_Bangla_name"
+                  required
+                  placeholder={languageCode === 'bn' ? 'বাংলা নাম লিখুন' : 'Enter Bangla name'}
+                  value={formData.institute_Bangla_name}
+                  onChange={handleChange}
+                />
+                
+                <SelectField
                   icon={FaUser}
-                  label={languageCode === 'bn' ? 'প্রধান শিক্ষকের নাম' : 'Headmaster Name'}
-                  name="headmaster_name"
-                  required
-                  placeholder={languageCode === 'bn' ? 'প্রধান শিক্ষকের নাম লিখুন' : 'Enter headmaster name'}
-                  value={formData.headmaster_name}
-                  onChange={handleChange}
+                  label={languageCode === 'bn' ? 'শিক্ষার্থীর ধরন' : 'Student Type'}
+                  name="institute_gender_type"
+                  placeholder={languageCode === 'bn' ? 'ধরন নির্বাচন করুন' : 'Select type'}
+                  value={formData.institute_gender_type}
+                  options={genderTypeOptions}
+                  onChange={(selectedOption, actionMeta) => handleSelectChange(selectedOption, actionMeta)}
                 />
                 
-                <InputField
-                  icon={MdPhone}
-                  label={languageCode === 'bn' ? 'প্রধান শিক্ষকের মোবাইল' : 'Headmaster Mobile'}
-                  name="headmaster_mobile"
-                  type="tel"
+                <SelectField
+                  icon={MdSchool}
+                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের ধরন' : 'Institute Type'}
+                  name="institute_type"
                   required
-                  placeholder={languageCode === 'bn' ? 'মোবাইল নম্বর লিখুন' : 'Enter mobile number'}
-                  value={formData.headmaster_mobile}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={MdLocationOn}
-                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের ঠিকানা' : 'Institute Address'}
-                  name="institute_address"
-                  placeholder={languageCode === 'bn' ? 'ঠিকানা লিখুন' : 'Enter address'}
-                  value={formData.institute_address}
-                  onChange={handleChange}
+                  placeholder={languageCode === 'bn' ? 'প্রতিষ্ঠানের ধরন নির্বাচন করুন' : 'Select institute type'}
+                  value={formData.institute_type}
+                  options={instituteTypeOptions}
+                  onChange={(selectedOption, actionMeta) => handleSelectChange(selectedOption, actionMeta)}
+                  disabled={isTypesLoading || typesError}
                 />
               </div>
             )}
@@ -591,6 +710,15 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
             {openSections.details && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slideDown">
                 <InputField
+                  icon={FaInfoCircle}
+                  label={languageCode === 'bn' ? 'ইআইআইএন নম্বর' : 'EIIN Number'}
+                  name="institute_eiin_no"
+                  placeholder={languageCode === 'bn' ? 'ইআইআইএন নম্বর লিখুন' : 'Enter EIIN number'}
+                  value={formData.institute_eiin_no}
+                  onChange={handleChange}
+                />
+                
+                <InputField
                   icon={MdEmail}
                   label={languageCode === 'bn' ? 'প্রতিষ্ঠানের ইমেইল' : 'Institute Email'}
                   name="institute_email_address"
@@ -601,34 +729,12 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
                 />
                 
                 <InputField
-                  icon={FaInfoCircle}
-                  label={languageCode === 'bn' ? 'ইআইআইএন নম্বর' : 'EIIN Number'}
-                  name="institute_eiin_no"
-                  placeholder={languageCode === 'bn' ? 'ইআইআইএন নম্বর লিখুন' : 'Enter EIIN number'}
-                  value={formData.institute_eiin_no}
+                  icon={MdLocationOn}
+                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের ঠিকানা' : 'Institute Address'}
+                  name="institute_address"
+                  placeholder={languageCode === 'bn' ? 'ঠিকানা লিখুন' : 'Enter address'}
+                  value={formData.institute_address}
                   onChange={handleChange}
-                />
-                
-                <SelectField
-                  icon={FaUser}
-                  label={languageCode === 'bn' ? 'শিক্ষার্থীর ধরন' : 'Student Type'}
-                  name="institute_gender_type"
-                  placeholder={languageCode === 'bn' ? 'ধরন নির্বাচন করুন' : 'Select type'}
-                  value={formData.institute_gender_type}
-                  options={genderTypeOptions}
-                  onChange={(selectedOption, actionMeta) => handleSelectChange(selectedOption, actionMeta)}
-                />
-                
-                <SelectField
-                  icon={MdSchool}
-                  label={languageCode === 'bn' ? 'প্রতিষ্ঠানের ধরন' : 'Institute Type'}
-                  name="institute_type_id"
-                  required
-                  placeholder={languageCode === 'bn' ? 'প্রতিষ্ঠানের ধরন নির্বাচন করুন' : 'Select institute type'}
-                  value={formData.institute_type_id}
-                  options={instituteTypeOptions}
-                  onChange={(selectedOption, actionMeta) => handleSelectChange(selectedOption, actionMeta)}
-                  disabled={isTypesLoading || typesError}
                 />
               </div>
             )}
@@ -678,7 +784,7 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
                 
                 <InputField
                   icon={MdFacebook}
-                  label={languageCode === 'bn' ? 'ফেসবুক' : 'Facebook'}
+                  label={languageCode === 'bn' ? 'फेसবুক' : 'Facebook'}
                   name="institute_fb"
                   type="url"
                   placeholder={languageCode === 'bn' ? 'ফেসবুক ইউআরএল লিখুন' : 'Enter Facebook URL'}
@@ -693,60 +799,6 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
                   type="url"
                   placeholder={languageCode === 'bn' ? 'ইউটিউব ইউআরএল লিখুন' : 'Enter YouTube URL'}
                   value={formData.institute_youtube}
-                  onChange={handleChange}
-                />
-              </div>
-            )}
-          </div>
-
-          {/* Manager Information */}
-          <div className="section-card p-6 rounded-2xl">
-            <div className="section-header">
-              <div 
-                className="flex items-center justify-between cursor-pointer" 
-                onClick={() => toggleSection('manager')}
-              >
-                <div className="flex items-center space-x-3">
-                  <MdAccountCircle className="text-3xl text-pmColor" />
-                  <h3 className="text-2xl font-bold text-[#441a05]">
-                    {languageCode === 'bn' ? 'ইনচার্জ ম্যানেজার' : 'Manager Information'}
-                  </h3>
-                </div>
-                {openSections.manager ? 
-                  <FaChevronUp className="text-pmColor text-xl" /> : 
-                  <FaChevronDown className="text-pmColor text-xl" />
-                }
-              </div>
-            </div>
-            
-            {openSections.manager && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slideDown">
-                <InputField
-                  icon={FaUser}
-                  label={languageCode === 'bn' ? 'ইনচার্জ ম্যানেজার' : 'Manager Name'}
-                  name="incharge_manager"
-                  placeholder={languageCode === 'bn' ? 'ম্যানেজারের নাম লিখুন' : 'Enter manager name'}
-                  value={formData.incharge_manager}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={MdEmail}
-                  label={languageCode === 'bn' ? 'ম্যানেজারের ইমেইল' : 'Manager Email'}
-                  name="incharge_manager_email"
-                  type="email"
-                  placeholder={languageCode === 'bn' ? 'ম্যানেজারের ইমেইল লিখুন' : 'Enter manager email'}
-                  value={formData.incharge_manager_email}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={MdPhone}
-                  label={languageCode === 'bn' ? 'ম্যানেজারের মোবাইল' : 'Manager Mobile'}
-                  name="incharge_manager_mobile"
-                  type="tel"
-                  placeholder={languageCode === 'bn' ? 'ম্যানেজারের মোবাইল লিখুন' : 'Enter manager mobile'}
-                  value={formData.incharge_manager_mobile}
                   onChange={handleChange}
                 />
               </div>
@@ -775,76 +827,25 @@ const InstituteProfileForm = ({ institute, onSubmit, onCancel }) => {
             
             {openSections.additional && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slideDown">
-                <InputField
+                <FileInputField
                   icon={FaInfoCircle}
                   label={languageCode === 'bn' ? 'দৃষ্টিভঙ্গি শিরোনাম' : 'Vision Heading'}
                   name="institute_v_heading"
-                  placeholder={languageCode === 'bn' ? 'দৃষ্টিভঙ্গি শিরোনাম লিখুন' : 'Enter vision heading'}
-                  value={formData.institute_v_heading}
-                  onChange={handleChange}
+                  onChange={handleVHeadingChange}
+                  preview={vHeadingPreview}
                 />
                 
-                <InputField
+                <SelectField
                   icon={FaInfoCircle}
-                  label={languageCode === 'bn' ? 'স্বাক্ষর' : 'Signature'}
-                  name="signature"
-                  placeholder={languageCode === 'bn' ? 'স্বাক্ষর লিখুন' : 'Enter signature'}
-                  value={formData.signature}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={FaInfoCircle}
-                  label={languageCode === 'bn' ? 'শিক্ষা বোর্ড আইডি' : 'Education Board ID'}
-                  name="education_board_id"
-                  placeholder={languageCode === 'bn' ? 'বোর্ড আইডি লিখুন' : 'Enter board ID'}
-                  value={formData.education_board_id}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={FaInfoCircle}
-                  label={languageCode === 'bn' ? 'শিক্ষা জেলা আইডি' : 'Education District ID'}
-                  name="education_district_id"
-                  placeholder={languageCode === 'bn' ? 'জেলা আইডি লিখুন' : 'Enter district ID'}
-                  value={formData.education_district_id}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={FaInfoCircle}
-                  label={languageCode === 'bn' ? 'শিক্ষা বিভাগ আইডি' : 'Education Division ID'}
-                  name="education_division_id"
-                  placeholder={languageCode === 'bn' ? 'বিভাগ আইডি লিখুন' : 'Enter division ID'}
-                  value={formData.education_division_id}
-                  onChange={handleChange}
-                />
-                
-                <InputField
-                  icon={FaInfoCircle}
-                  label={languageCode === 'bn' ? 'শিক্ষা থানা আইডি' : 'Education Thana ID'}
-                  name="education_thana_id"
-                  placeholder={languageCode === 'bn' ? 'থানা আইডি লিখুন' : 'Enter thana ID'}
-                  value={formData.education_thana_id}
-                  onChange={handleChange}
+                  label={languageCode === 'bn' ? 'স্থিতি' : 'Status'}
+                  name="status"
+                  placeholder={languageCode === 'bn' ? 'স্থিতি নির্বাচন করুন' : 'Select status'}
+                  value={formData.status}
+                  options={statusOptions}
+                  onChange={(selectedOption, actionMeta) => handleSelectChange(selectedOption, actionMeta)}
                 />
               </div>
             )}
-          </div>
-
-          {/* Status */}
-          <div className="section-card p-6 rounded-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <SelectField
-                icon={FaInfoCircle}
-                label={languageCode === 'bn' ? 'স্থিতি' : 'Status'}
-                name="status"
-                placeholder={languageCode === 'bn' ? 'স্থিতি নির্বাচন করুন' : 'Select status'}
-                value={formData.status}
-                options={statusOptions}
-                onChange={(selectedOption, actionMeta) => handleSelectChange(selectedOption, actionMeta)}
-              />
-            </div>
           </div>
 
           {/* Buttons */}
